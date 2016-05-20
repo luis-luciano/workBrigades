@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Brigade;
 use App\Http\Requests;
 use App\ProblemType;
 use App\SettlementType;
 use App\Supervision;
 use App\Typology;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class RequestsController extends Controller
@@ -21,9 +23,12 @@ class RequestsController extends Controller
         $typologies=Typology::lists('name','id');
         $problemType=ProblemType::lists('name', 'id');
         $supervicion=Supervision::lists('name', 'id');
+        $date = Carbon::now();
+        $date = $date->format('l jS \\of F Y h:i:s A');
+        $brigades=Brigade::lists('name', 'id');
         
-        //return $problemType;
-        return view('requests.index',compact('typologies', 'problemType', 'supervicion' ));
+        //return $date;
+        return view('requests.index',compact('typologies', 'problemType', 'supervicion','date', 'brigades' ));
     }
 
     /**

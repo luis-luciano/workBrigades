@@ -17,9 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(TestSettlementTypesTableSeeder::class);
         $this->call(TestColonyTableSeeder::class);
         $this->call(TestColonyScopesTableSeeder::class);
-        
         $this->call(TestSupervisionTableSeeder::class);
-        //$this->call(TestColonyTableSeeder::class);
+        $this->call(TestBrigadesTableSeeder::class);
         
     }
 }
