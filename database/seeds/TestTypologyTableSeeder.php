@@ -14,10 +14,10 @@ class TestTypologyTableSeeder extends Seeder
     {
         DB::table('typologies')->delete();
 
-		Typology::create(array('id'=> 1, 'name' => 'AGUA',	));
-		Typology::create(array('id'=> 2, 'name' => 'DRENAJE',	));
-		Typology::create(array('id'=> 3, 'name' => 'BACHEO',	));
-		Typology::create(array('id'=> 4, 'name' => 'CULTURA DEL AGUA',	));
-		Typology::create(array('id'=> 5, 'name' => 'AREA COMERCIAL',	));
+		Typology::create(['name' => 'AGUA']);
+		Typology::create(['name' => 'DRENAJE']);
+		Typology::create(['name' => 'BACHEO']);
+		Typology::create(['name' => 'CULTURA DEL AGUA']);
+		Typology::create(['name' => 'AREA COMERCIAL']);
     }
 }

@@ -3,6 +3,41 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+	<script type="text/javascript">
+	var typologiesSelect;
+		$(document).ready(function(){
+			typologiesSelect=$("#typology");
+			var datos=({!! $prueba !!});
+			
+			showTypologyWithProblems(datos);
+			
+			typologiesSelect.change(function() {
+				showTypologyWithProblems(datos);
+			});
+		});
+
+		function showTypologyWithProblems(datos){
+			
+			var typologyId = typologiesSelect.val();
+
+			var typology=$.grep(datos,function(typology){
+				return typology.id==typologyId;
+			})[0];
+
+			var problemTypes = $.map(typology.problem_types, function(problem) {
+                 return [problem.id,problem.name];
+            });
+
+			var html="";
+            for (var id =0,problem=1; id <problemTypes.length && problem <problemTypes.length; id+=2,problem+=2) {
+            	html+="<option value="+problemTypes[id]+" >"+problemTypes[problem]+"</option>\n";
+            };
+            $('#problem_type').html(html);
+            console.log(html);
+		}
+
+	</script>
 </head>
 <body>
 	<h1>PETICION </h1>

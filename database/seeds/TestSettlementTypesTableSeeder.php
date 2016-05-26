@@ -8,17 +8,15 @@ class TestSettlementTypesTableSeeder extends Seeder {
 
 		DB::table('settlement_types')->delete();
 
-		SettlementType::create(array('name' => 'Indefinido',	));
-		SettlementType::create(array('name' => 'Colonia',	));
-		SettlementType::create(array('name' => 'Localidad',	));
-		SettlementType::create(array('name' => 'Barrio',	));
-		SettlementType::create(array('name' => 'Ampliacion',	));
-		SettlementType::create(array('name' => 'Fraccionamiento',	));
-		SettlementType::create(array('name' => 'Condominio',	));
-		SettlementType::create(array('name' => 'Rancheria',	));
-		SettlementType::create(array('name' => 'Recidencial',	));
-		SettlementType::create(array('name' => 'Unidad Habitacional',	));
-		
-		
+		SettlementType::create(['name' => 'Indefinido']);
+		SettlementType::create(['name' => 'Colonia']);
+		SettlementType::create(['name' => 'Localidad']);
+		SettlementType::create(['name' => 'Barrio']);
+		SettlementType::create(['name' => 'Ampliacion']);
+		SettlementType::create(['name' => 'Fraccionamiento']);
+		SettlementType::create(['name' => 'Condominio']);
+		SettlementType::create(['name' => 'Rancheria']);
+		SettlementType::create(['name' => 'Recidencial']);
+		SettlementType::create(['name' => 'Unidad Habitacional']);		
 	}
 }

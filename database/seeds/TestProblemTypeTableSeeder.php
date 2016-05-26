@@ -1,6 +1,7 @@
 <?php
 
 use App\ProblemType;
+use App\Typology;
 use Illuminate\Database\Seeder;
 
 class TestProblemTypeTableSeeder extends Seeder
@@ -15,34 +16,34 @@ class TestProblemTypeTableSeeder extends Seeder
         DB::table('problem_types')->delete();
 
         // :::::::::::::::AGUA::::::::::::::::::::::::::
-		ProblemType::create(array('typology_id' => 1 ,'name' => 'FALTA DE AGUA',	));
-		ProblemType::create(array('typology_id' => 1 ,'name' => 'FALTA PRESION',	));
-		ProblemType::create(array('typology_id' => 1 ,'name' => 'FUGA',	));
-		ProblemType::create(array('typology_id' => 1 ,'name' => 'TOMA TAPADA',	));
-		ProblemType::create(array('typology_id' => 1 ,'name' => 'OTRO',	));
+		ProblemType::create(['name' => 'FALTA DE AGUA'])->typologies()->associate(Typology::find(1))->save();
+		ProblemType::create(['name' => 'FALTA PRESION'])->typologies()->associate(Typology::find(1))->save();
+		ProblemType::create(['name' => 'FUGA'])->typologies()->associate(Typology::find(1))->save();
+		ProblemType::create(['name' => 'TOMA TAPADA'])->typologies()->associate(Typology::find(1))->save();
+		ProblemType::create(['name' => 'OTRO'])->typologies()->associate(Typology::find(1))->save();
 
 		// :::::::::::::::DRENAJE::::::::::::::::::::::::::
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'ALCANTARILLA',	));
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'ALCANTARILLA ASOLVADA',	));
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'CAMBIO BROCAL CON TAPA',	));
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'CONSTRUCION DESCARGA SANITARIA',	));
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'DRENAJE TAPADO',	));
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'FUGA DE DRENAJE',	));
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'REVISION DE SOLICITUDES',	));
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'TAPA DE REGISTRO DAÑADA',	));
+		ProblemType::create(['name' => 'ALCANTARILLA'])->typologies()->associate(Typology::find(2))->save();
+		ProblemType::create(['name' => 'ALCANTARILLA ASOLVADA'])->typologies()->associate(Typology::find(2))->save();
+		ProblemType::create(['name' => 'CAMBIO BROCAL CON TAPA'])->typologies()->associate(Typology::find(2))->save();
+		ProblemType::create(['name' => 'CONSTRUCION DESCARGA SANITARIA'])->typologies()->associate(Typology::find(2))->save();
+		ProblemType::create(['name' => 'DRENAJE TAPADO'])->typologies()->associate(Typology::find(2))->save();
+		ProblemType::create(['name' => 'FUGA DE DRENAJE'])->typologies()->associate(Typology::find(2))->save();
+		ProblemType::create(['name' => 'REVISION DE SOLICITUDES'])->typologies()->associate(Typology::find(2))->save();
+		ProblemType::create(['name' => 'TAPA DE REGISTRO DAÑADA'])->typologies()->associate(Typology::find(2))->save();
 
 
 		// :::::::::::::::BACHEO::::::::::::::::::::::::::
-		ProblemType::create(array('typology_id' => 3 ,'name' => 'BACHEO',	));
-		ProblemType::create(array('typology_id' => 3 ,'name' => 'ESCOMBRO',	));
+		ProblemType::create(['name' => 'BACHEO'])->typologies()->associate(Typology::find(3))->save();
+		ProblemType::create(['name' => 'ESCOMBRO'])->typologies()->associate(Typology::find(3))->save();
 
 		// :::::::::::::::CULTURA DEL AGUA::::::::::::::::::::::::::
-		ProblemType::create(array('typology_id' => 4 ,'name' => 'CULTURA DEL AGUA',	));
+		ProblemType::create(['name' => 'CULTURA DEL AGUA'])->typologies()->associate(Typology::find(4))->save();
 
 		// :::::::::::::::AREA COMERCIAL::::::::::::::::::::::::::
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'FUGA MEDIDOR',	));
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'INSPECCION',	));
-		ProblemType::create(array('typology_id' => 2 ,'name' => 'INSPECCION DE TOMA NUEVA',	));
+		ProblemType::create(['name' => 'FUGA MEDIDOR'])->typologies()->associate(Typology::find(5))->save();
+		ProblemType::create(['name' => 'INSPECCION'])->typologies()->associate(Typology::find(5))->save();
+		ProblemType::create(['name' => 'INSPECCION DE TOMA NUEVA'])->typologies()->associate(Typology::find(5))->save();
 		
 				
     }
