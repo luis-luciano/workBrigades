@@ -15,7 +15,7 @@ class TestSupervisionTableSeeder extends Seeder
         Supervision::create(array('name' => 'AGUA POTABLE'				, 'phone' => '9999999999', 'extension' => '999', 'supervision_id' => ''	,));
         Supervision::create(array('name' => 'ALCANTARILLADO SANITARIO'	, 'phone' => '9999999999', 'extension' => '999', 'supervision_id' => ''	,));
 		Supervision::create(array('name' => 'AGUA POTABLE Y BACHEO'		, 'phone' => '9999999999', 'extension' => '999', 'supervision_id' => ''	,));
-		Supervision::create(array('name' => 'UNIDAD DE DIFUCION'		, 'phone' => '9999999999', 'extension' => '999', 'supervision_id' => ''	,));
+		Supervision::create(array('name' => 'UNIDAD DE DIFUSION'		, 'phone' => '9999999999', 'extension' => '999', 'supervision_id' => ''	,));
 		Supervision::create(array('name' => 'CONTROL DEL REZAGO'		, 'phone' => '9999999999', 'extension' => '999', 'supervision_id' => ''	,));
 		
 
