@@ -56,7 +56,11 @@
 			{!! Form::label('supervicion','SUPERVICION IMPLICADA' ,['class' => 'control-label col-sm-4']) !!}
 			{!! Form::select('supervicion', $supervicion , null,['class' => 'js-example-basic-single form-control']) !!}
             <br>
-            {!! Form::label('stree','AVENIDA O CALLE',['class' => 'control-label col-sm-4']) !!}
+
+            {!! Form::label('subject','INFORMACION ADICIONAL DEL PROBLEMA : ',['class' => 'control-label col-sm-4']) !!}
+			<br>	{!! Form::textArea('subject', null, ["class" => "form-control", "placeholder" =>"Ingrese Datos adicionales que sean de ayuda para detectar el problema", "required", "title" => "INGRESE UNA DESCRIPCION ADICIONAL DEL PROBLEMA" ,"pattern" => "[a-zA-Z]{4,25}", "maxlength" => "20"]) !!}
+			<br>
+			{!! Form::label('stree','AVENIDA O CALLE',['class' => 'control-label col-sm-4']) !!}
 			{!! Form::text('stree', null, ["class" => "form-control", "placeholder" =>"Avenida o Calle", "required", "maxlength" => "20"]) !!}
 			{!! Form::label('stree','NUMERO',['class' => 'control-label col-sm-4']) !!}
 			{!! Form::text('stree', null, ["class" => "form-control", "placeholder" =>"#######", "required", "maxlength" => "20"]) !!}
@@ -64,15 +68,16 @@
             {!! Form::label('streets','ENTRE AVENIDAS O CALLES',['class' => 'control-label col-sm-4']) !!}
 			{!! Form::text('stree', null, ["class" => "form-control", "placeholder" =>"Entre Avenidas o Calles", "required", "maxlength" => "20"]) !!}
 			<br>
-            {!! Form::label('subject','INFORMACION ADICIONAL DEL PROBLEMA : ',['class' => 'control-label col-sm-4']) !!}
+			{!! Form::label('subject','REFENCIA : ',['class' => 'control-label col-sm-4']) !!}
 			<br>	{!! Form::textArea('subject', null, ["class" => "form-control", "placeholder" =>"Ingrese Datos adicionales que sean de ayuda para detectar el problema", "required", "title" => "INGRESE UNA DESCRIPCION ADICIONAL DEL PROBLEMA" ,"pattern" => "[a-zA-Z]{4,25}", "maxlength" => "20"]) !!}
+		
 			<br>
 			{!! Form::label('colony','COLONIA' ,['class' => 'control-label col-sm-4']) !!}
 			{!! Form::select('colony', $supervicion , null,['class' => 'js-example-basic-single form-control']) !!}
-			<br>
+			
 			{!! Form::label('sector','SECTOR' ,['class' => 'control-label col-sm-4']) !!}
 			{!! Form::select('sector', $supervicion , null,['class' => 'js-example-basic-single form-control']) !!}
-
+			<br>
             {!! Form::label('priority','PRIORIDAD' ,['class' => 'control-label col-sm-4']) !!}
 			{!! Form::select('sector', $supervicion , null,['class' => 'js-example-basic-single form-control']) !!}
 			
@@ -86,10 +91,10 @@
 			{!! Form::text('pater_surname', null, ["class" => "form-control", "placeholder" =>"Apellido Materno", "maxlength" => "20"]) !!}
 			<br>
 			{!! Form::label('phone','Telefono : ',['class' => 'control-label col-sm-4']) !!}
-			{!! Form::text('phone', null, ["class" => "form-control", "placeholder" =>"2719999999", "required", "maxlength" => "10"]) !!}
-			<br>
-			{!! Form::label('sex','Sexo : ',['class' => 'control-label col-sm-4']) !!}
-			{!! Form::text('sex', null, ["class" => "form-control", "placeholder" =>"2719999999", "required", "maxlength" => "10"]) !!}
+			{!! Form::text('phone', null, ["class" => "form-control", "placeholder" =>"2719999999", "maxlength" => "10"]) !!}
+			
+			{!! Form::label('email','E-mail : ',['class' => 'control-label col-sm-4']) !!}
+			{!! Form::text('email', null, ["class" => "form-control", "placeholder" =>"example@example.com",  "maxlength" => "40"]) !!}
 			
 						
 						

@@ -14,9 +14,13 @@ class CreateRequestsTable extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->increments('id');
             $table->string('subject');
-            $table->date('start_date');
-            $table->date('finish_date');
+                $table->date('start_date');
+                $table->date('finish_date');
             
+            $table->string('avenue', 45);
+            $table->string('between_streets');
+            $table->string('reference');
+
             $table->bigInteger('concerned_id')->unsigned()->index(); // morph
             $table->string('concerned_type')->index(); // morph
             $table->bigInteger('creator_id')->unsigned()->index(); // morph
