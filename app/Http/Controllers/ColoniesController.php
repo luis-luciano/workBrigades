@@ -15,7 +15,7 @@ class ColoniesController extends Controller
      */
     public function index()
     {
-        //
+        return  view('admin.colonies.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class ColoniesController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.colonies.create');
     }
 
     /**

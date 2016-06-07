@@ -30,7 +30,7 @@ class RequestsController extends Controller
         //$prueba=Typology::with('problemTypes')->get(['id','name'])->toJson();
         
         //return $date;
-        return view('requests.index',compact('typologies', 'problemType', 'supervicion','date', 'brigades','prueba'));
+        return view('admin.requests.index',compact('typologies', 'problemType', 'supervicion','date', 'brigades','prueba'));
     }
 
     /**
@@ -40,7 +40,7 @@ class RequestsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.requests.create');
     }
 
     /**

@@ -42,6 +42,9 @@
 	<!-- END SHORTCUT AND TOUCH ICONS -->
 
 	<script src="{{ asset('assets/globals/plugins/modernizr/modernizr.min.js') }}"></script>
+
+	<link href="{{ asset('assets/globals/css/select2.min.css') }}" rel="stylesheet" />
+	
 	
 	@yield('styles')
 </head>
@@ -95,6 +98,8 @@
 	<script src="{{ asset('assets/globals/plugins/datatables/media/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('assets/globals/plugins/datatables/themes/bootstrap/dataTables.bootstrap.js') }}"></script>
 	<!-- END PLUGINS AREA -->
+
+	<script src="{{ asset('assets/globals/js/select2.min.js') }}"></script>
 
 
 	<!-- PLUGINS INITIALIZATION AND SETTINGS -->

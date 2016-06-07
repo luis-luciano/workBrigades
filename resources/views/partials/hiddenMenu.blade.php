@@ -5,32 +5,29 @@
 			<ul>
 							
 				<li data-open-after="true">
-					<a href="index.html">Dashboard</a>
+					<a href="index.html">Ciudadanos</a>
 				</li>
 				<li>
-					<a href="javascript:;">Opciones</a>
+					<a href="javascript:;"><i class="fa fa-cogs"></i> Sistema</a>
 					<ul class="child-menu">
-						<li><a href="">enlace</a></li>
-						<li><a href="">enlace</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="javascript:;">Opciones</a>
-					<ul class="child-menu">
-						<li><a href="">enlace</a></li>
-						<li><a href="">enlace</a></li>
 						<li>
-							<a href="javascript:;">Sub Opciones</a>
+							<a href="javascript:;"><i class="fa fa-map"></i> Colonias</a>
 							<ul class="child-menu">
-								<li><a href="">enlace</a></li>
-								<li><a href="">enlace</a></li>
+								<li><a href=""><i class="fa fa-puzzle-piece"> </i> Gestionar</a></li>
+								<li><a href=""><i class="fa fa-crosshairs"></i> Ambito</a></li>
+								<li><a href=""><i class="fa fa-building"></i> Tipo de Asentamiento</a></li>
 							</ul>
 						</li>
+					</ul>
+					<ul class="child-menu">
 						<li>
-							<a href="javascript:;">Sub Opciones</a>
+							<a href="javascript:;">Peticiones</a>
 							<ul class="child-menu">
-								<li><a href="">enlace</a></li>
-								<li><a href="">enlace</a></li>
+								<li><a href="">Estados</a></li>
+								<li><a href="">Prioridades</a></li>
+								<li><a href="">Tipologías</a></li>
+								<li><a href="">Tipo de captura</a></li>
+								<li><a href="">Tipo de petición</a></li>
 							</ul>
 						</li>
 					</ul>
