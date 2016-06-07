@@ -12,6 +12,7 @@ return [
     'colony_id' => 'Colonia',
     'state_id' => 'Estado',
     'typology_id' => 'Tipología',
+    'problem_type'=>'Tipo de problema',
     'citizen' => 'Nombre del ciudadano',
     'supervisions' => 'Supervisiones implicadas',
     'expiration_day' => trans('typologies.expiration_day'),

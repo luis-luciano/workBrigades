@@ -17,10 +17,10 @@ class CreatePersonalInformationsTable extends Migration
             $table->string('paternal_surname', 80);
             $table->string('maternal_surname', 80);
             $table->char('sex', 1);
-            $table->date('brirthday');
-            $table->string('represeny', 80);
+            $table->date('birthday')->nullable();
+            $table->string('represent', 80);
             $table->string('house_phone', 10);
-            $table->string('movil_phone', 10);
+            $table->string('mobile_phone', 10);
             //$table->string('fax', 50);
             $table->string('street', 80);
             $table->string('number', 50);

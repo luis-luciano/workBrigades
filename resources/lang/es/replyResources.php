@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'colonyScope' => 'Ámbito|Ámbitos',
+    'replyResource' => 'Recurso|Recursos',
     'name' => 'Nombre',
 ];

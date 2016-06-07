@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Brigade;
@@ -8,6 +9,7 @@ use App\ProblemType;
 use App\SettlementType;
 use App\Supervision;
 use App\Typology;
+use App\RequestPriority;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -27,10 +29,8 @@ class RequestsController extends Controller
         $date = Carbon::now();
         $date = $date->format('l jS \\of F Y h:i:s A');
         $brigades=Brigade::lists('name', 'id');
-        //$prueba=Typology::with('problemTypes')->get(['id','name'])->toJson();
         
-        //return $date;
-        return view('admin.requests.index',compact('typologies', 'problemType', 'supervicion','date', 'brigades','prueba'));
+        return view('requests.index',compact('typologies', 'problemType', 'supervicion','date', 'brigades','prueba'));
     }
 
     /**
@@ -40,7 +40,11 @@ class RequestsController extends Controller
      */
     public function create()
     {
-        return view('admin.requests.create');
+        $priorities=RequestPriority::lists('name','id');
+        $typologies=Typology::lists('name','id');
+        $problemTypes=ProblemType::lists('name', 'id');
+        $prueba=Typology::with('problemTypes')->get(['id','name']);
+        return view('admin.requests.create', compact('priorities','typologies','problemTypes','prueba'));
     }
 
     /**

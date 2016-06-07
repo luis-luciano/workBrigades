@@ -1,304 +1,152 @@
 <!DOCTYPE html>
-<html class="no-js"> <!--<![endif]-->
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>Ciudadano - @yield('title')</title>
+        <title>Cerca De Ti - @yield('title')</title>
 
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-	<!-- BEGIN CORE CSS -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<link rel="stylesheet" href="{{ asset(elixir('css/style.css')) }}">
-	<!-- END CORE CSS -->
+        <!-- BEGIN CORE CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ asset(elixir('css/style.css')) }}">
+        <!-- END CORE CSS -->
 
-	<!-- BEGIN PLUGINS CSS -->
+        <!-- BEGIN SHORTCUT AND TOUCH ICONS -->
+        <link rel="shortcut icon" href="{{ asset('assets/globals/img/icons/favicon.ico') }}">
+        <link rel="apple-touch-icon" href="{{ asset('assets/globals/img/icons/apple-touch-icon.png') }}">
+        <!-- END SHORTCUT AND TOUCH ICONS -->
 
-	<!-- BEGIN SHORTCUT AND TOUCH ICONS -->
-	<link rel="shortcut icon" href="{{ asset('assets/globals/img/icons/favicon.ico') }}">
-	<link rel="apple-touch-icon" href="{{ asset('assets/globals/img/icons/apple-touch-icon.png') }}">
+        <script type="text/javascript" src="{{ asset('assets/globals/plugins/modernizr/modernizr.min.js') }}"></script>
+    </head>
+    <body class="theme-teal">
 
-	<!-- END SHORTCUT AND TOUCH ICONS -->
-	<script type="text/javascript" src="{{ asset('assets/globals/plugins/modernizr/modernizr.min.js') }}"></script>
-	<style type="text/css">
-		.radioer{
-			text-align: left;
-		}
-		.switcher{
-			text-align: center;
-		}
-		p.switch{
-			display: inline;
-		}
-		small{
-			font-size: 13px;
-		}
-		.layout-device, .layout-tablet{
-			margin-top: 0;
-		}
-		#showHidePass{
-			opacity: 0;
-			padding:0;
-		}
-		.fileinput-filename{
-			overflow:hidden; /* Escondemos la parte sobrante */
-			white-space:nowrap; /* Indicamos que no realice salto de linea si no cabe en la anchura indicada */
-			text-overflow: ellipsis; /* Ponemos los dos puntos */
-		}
-		.centerFileInput {
-			display: inline;
-			margin-top: 10px;
-			text-align: left;
-		}
-		.fileinput.input-group {
-			display: inline;
-		}
-		.btnMargin{
-			margin-top:10px;
-		}
-		.optionnav{
-			font-size: 14px;
-		}
-		#map{
-			width: 100%;
-			height: 350px;
-		}
-		#map:after {
-			width: 22px;
-			height: 40px;
-			display: block;
-			content: ' ';
-			position: absolute;
-			top: 50%; left: 50%;
-			margin: -40px 0 0 -11px;
-			background: url('https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi_hdpi.png');
-			background-size: 22px 40px; /* Since I used the HiDPI marker version this compensates for the 2x size */
-		}
+        <div class="nav-bar-container">
 
-	</style>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
-	<script src="http://www.google.com/jsapi?key=ABQIAAAAlJFc1lrstqhgTl3ZYo38bBQcfCcww1WgMTxEFsdaTsnOXOVOUhTplLhHcmgnaY0u87hQyd-n-kiOqQ"></script>
+            <!-- BEGIN ICONS -->
+            <div class="nav-menu">
+                <div class="hamburger">
+                    <span class="patty"></span>
+                    <span class="patty"></span>
+                    <span class="patty"></span>
+                    <span class="patty"></span>
+                    <span class="patty"></span>
+                    <span class="patty"></span>
+                </div><!--.hamburger-->
+            </div><!--.nav-menu-->
 
-	<script type="text/javascript">
-		var geocoder;
-		function initialize() {
-		      // mapCenter bettween Parque 21 de Mayo and Catedral del Sagrario de la Inmaculada
-		      var mapCenter = new google.maps.LatLng(18.893784, -96.934458);
-		      var mapOptions = {
-		      	zoom: 17,
-		      	center: mapCenter,
-		      	mapTypeId: google.maps.MapTypeId.ROADMAP
-		      };
+            {{-- <div class="nav-search">
+                <span class="search"></span>
+            </div> --}}<!--.nav-search-->
 
-		      map = new google.maps.Map(document.getElementById('map'), mapOptions);
-		      geocoder = new google.maps.Geocoder;
+            {{-- <div class="nav-user">
+                <div class="user">
+                    <img src="{{ asset('assets/globals/img/faces/tolga-ergin.jpg') }}" alt="">
+                    <span class="badge">3</span>
+                </div><!--.user-->
+                <div class="cross">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div><!--.cross-->
+            </div> --}}<!--.nav-user-->
+            <!-- END OF ICONS -->
 
-		      var setLocation = function (latLng) {
-		      	map.setCenter(latLng);
-		      };
+            <div class="nav-bar-border"></div><!--.nav-bar-border-->
 
-		      // Check for geolocation support
-		      if (navigator.geolocation) {
-		        // Get current position
-		        navigator.geolocation.getCurrentPosition(function (position) {
-		            // Geolocation Success!
-		            setLocation(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-		        },
-		        function () {
-		            // Gelocation fallback: Defaults mapCenter
-		            setLocation(mapCenter);
-		        }
-		        );
-		    }
-		    else {
-		        // No geolocation fallback: Defaults mapCenter
-		        setLocation(mapCenter);
-		    }
+            <!-- BEGIN OVERLAY HELPERS -->
+            <div class="overlay">
+                <div class="starting-point">
+                    <span></span>
+                </div><!--.starting-point-->
+                <div class="logo">Cerca de ti</div><!--.logo-->
+            </div><!--.overlay-->
 
-		      // log initial center
-		      logCenter();
-		      // log when center changed
-		      google.maps.event.addListener(map, "center_changed", function() {
-		      	logCenter();
-		      });
-		  }
+            <div class="overlay-secondary"></div><!--.overlay-secondary-->
+            <!-- END OF OVERLAY HELPERS -->
+        </div><!--.nav-bar-container-->
 
-		  function logCenter() {
-		  	$('#lat').val(map.getCenter().lat());
-		  	$('#lng').val(map.getCenter().lng());
-		  }
+        <div class="content">
+            @section('header')
+                <div class="page-header full-content bg-purple">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/atci-logo.png') }}" alt="">
+                                </div>
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/cordoba-solo.png') }}" alt="">
+                                </div>
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/escudo-cordoba.png') }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <h1 class="pull-right">Córdoba <small>Cerca de ti</small></h1>
+                        </div><!--.col-->
+                    </div><!--.row-->
+                </div><!--.page-header-->
+            @show
 
-		  function geocodeLatLng() {
-		  	geocoder.geocode({'location': map.getCenter()}, function(results, status) {
-		  		if (status === google.maps.GeocoderStatus.OK) {
-		  			if (results[1]) {
-		            //numero
-		            document.getElementById("number").value = results[0].address_components[0].long_name;
-		            //calle, avenida
-		            document.getElementById("route").value = results[0].address_components[1].long_name;
-		            //colonia
-		            document.getElementById("sublocality").value = results[0].address_components[2].long_name;
-		        } else {
-		        	window.alert('No se encontraron resultados.');
-		        }
-		    } else {
-		    	window.alert('Geocoder failed due to: ' + status);
-		    }
-		});
-		  }
-		</script>
-	</head>
-	<body>
-	
-		@include('partials.menuOp')
-		<div class="row">
-			@yield('content')
-		</div><!--.content-->
+            @include('flash::message')
+            @include('errors.list')
 
-		<!-- BEGIN GLOBAL AND THEME VENDORS -->
-		<script src="{{ asset('assets/globals/js/global-vendors.js') }}"></script>
-		<!-- END GLOBAL AND THEME VENDORS -->
+            <!-- content -->
+                @yield('content')
+            <!-- content -->
+        </div><!--.content-->
 
-		<!-- BEGIN PLUGINS AREA -->
-		<script src="{{ asset('assets/globals/plugins/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-		<script src="{{ asset('assets/globals/plugins/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>
-		<script src="{{ asset('assets/globals/plugins/jasny-bootstrap/dist/js/jasny-bootstrap.min.js') }}"></script>   <!-- END PLUGINS AREA -->
+        <div class="layer-container">
 
-		<!-- PLUGINS INITIALIZATION AND SETTINGS -->
-		<script src="{{ asset('assets/globals/scripts/forms-wizard.js') }}"></script>
-		<!-- END PLUGINS INITIALIZATION AND SETTINGS -->
+            <!-- BEGIN MENU LAYER -->
+            <div class="menu-layer">
+                @include($menuLayer)
+            </div><!--.menu-layer-->
+            <!-- END OF MENU LAYER -->
 
-		<!-- PLEASURE -->
-		<script src="{{ asset('assets/globals/js/pleasure.js') }}"></script>
-		<!-- ADMIN 1 -->
-		<script src="{{ asset('assets/admin1/js/layout.js') }}"></script>
+            <!-- BEGIN SEARCH LAYER -->
+            <div class="search-layer">
+                @include($searchLayer)
+            </div><!--.search-layer-->
+            <!-- END OF SEARCH LAYER -->
 
-		<script>
-			$(document).ready(function () {
+            <!-- BEGIN USER LAYER -->
+            <div class="user-layer">
+                @include($userLayer)
+            </div><!--.user-layer-->
+            <!-- END OF USER LAYER -->
 
-				var countClicks = 1;
+        </div><!--.layer-container-->
 
-				$('#buttonChange').on('click',function(){
-					if(countClicks==1){
-				          //If 1st clik open modal just once and initialize the map
-				          $('#defaultModal').modal('show');
-				          initialize();
-				          $('#agree').focus();
-				          countClicks++;
-				      }else{
-				          //if 2nd click geocoder address, this to avoid the Query Limit problem
-				          geocodeLatLng();
-				      }
-				  });
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+        <!-- BEGIN CORE JAVASCRIPT -->
+        <script type="text/javascript" src="{{ asset(elixir('js/app.js')) }}"></script>
+        <!-- END CORE JAVASCRIPT -->
 
-				var isMobile = {
-					Android: function() {
-						return navigator.userAgent.match(/Android/i);
-					},
-					BlackBerry: function() {
-						return navigator.userAgent.match(/BlackBerry/i);
-					},
-					iOS: function() {
-						return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-					},
-					Opera: function() {
-						return navigator.userAgent.match(/Opera Mini/i);
-					},
-					Windows: function() {
-						return navigator.userAgent.match(/IEMobile/i);
-					},
-					any: function() {
-						return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-					}
-				};
+        <!-- BEGIN INITIALIZATION-->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                Pleasure.init();
+                Layout.init();
+                @yield('scripts')
+                $("#errorsList").slideDown(800);
+            });
+        </script>
+        <!-- END INITIALIZATION-->
+        @include('sweet::alert')
 
-				$('#checkbox1').click(function(){
-					$('#contactway').toggle();
-				});
-				$('#checkbox2').click(function(){
-					$('#password').toggle();
-				});
-
-				movePanelHeading();
-				widthName();
-
-				$('.optionnav').hover(function(){
-					$(this).css('font-size','15px');
-				}, function(){
-					$(this).css('font-size','14px');
-				});
-
-				$('#buttonChange, #buttonBack').click(function(){
-					movePanelHeading();
-				});
-
-				$(window).resize(function() {
-					movePanelHeading();
-					widthName();
-				});
-
-				if( isMobile.any() ) {
-					$('#showHidePass').click(function(){
-						if($(this).attr('action')=='hide'){
-							$(this).parent().find('#password').attr('type','text');
-							$(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close').attr('action','show');
-						}else if($(this).attr('action')=='show'){
-							$(this).parent().find('#password').attr('type','password');
-							$(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open').attr('action','hide');
-						}
-					});
-				}else{
-					$('#showHidePass').mousedown(function(){
-						$(this).parent().find('#password').attr('type','text');
-						$(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
-					});
-					$('#showHidePass').mouseup(function(){
-						$(this).parent().find('#password').attr('type','password');
-						$(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
-					});
-				}
-
-				$('input:password').keyup(function(){
-					$campo = $(this).val();
-					if($campo == ''){
-						$('#showHidePass').css('opacity','0');
-					}else{
-						$('#showHidePass').css({'opacity':'1','cursor':'pointer'});
-					}
-				});
-
-				function movePanelHeading(){
-					setTimeout(function() {
-						if($('.panel-heading').height()>58){
-							$('#mover').css('margin-top',$('.panel-heading').height()-58);
-						}else{
-							$('#mover').css('margin-top',0);
-						}
-					}, 10);
-				}
-
-				function widthName(){
-					setTimeout(function() {
-						$('.fileinput-filename').css('width',$('#prueba').width()-60);
-					}, 100);
-				}
-			});
-		</script>
-
-		<!-- BEGIN INITIALIZATION-->
-		<script>
-			$(document).ready(function () {
-				Pleasure.init();
-				Layout.init();
-				FormsWizard.init();
-			});
-		</script>
-
-<!-- END INITIALIZATION-->
-</body>
+        <script>
+            $('#flash-overlay-modal').modal();
+        </script>
+    </body>
 </html>
