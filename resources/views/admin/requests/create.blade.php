@@ -4,6 +4,7 @@
 
 @section('scripts')
     var typologiesSelect;
+
         $('.select2').select2();
         
         $(document).ready(function(){

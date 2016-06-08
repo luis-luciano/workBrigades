@@ -15,7 +15,7 @@ class ColonyScopesController extends Controller
      */
     public function index()
     {
-        return "hola";//view('admin.colonyScopes.index');
+        return view('admin.colonyScopes.index');
     }
 
     /**

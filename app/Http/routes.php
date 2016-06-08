@@ -6,8 +6,9 @@ Route::resource('users', 'UserController');
 Route::resource('activities', 'ActivitiesController');
 Route::resource('brigades', 'BrigadesController');
 Route::resource('citizens', 'CitizensController');
-Route::resource('colonies', 'ColoniesController');
 Route::resource('colonies/scopes', 'ColonyScopesController');
+Route::resource('colonies', 'ColoniesController');
+
 Route::resource('notifications', 'NotificationsController');
 Route::resource('permissions', 'PermissionsController');
 Route::resource('personalInformations', 'PersonalInformationsController');
@@ -33,7 +34,3 @@ Route::get('auth/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getL
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
-
-
-
-
