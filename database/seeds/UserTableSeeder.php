@@ -26,5 +26,7 @@ class UserTableSeeder extends Seeder
  									 'interior'=>'sdsadas',
  									 'profession'=>'sdasdasd',
  									 'colony_id'=>1]);
+
+        User::create(['email'=>'ejemplo@ejemplo.com','password'=>'jshdjhsd','sub_email'=>'jshdjshd','is_active'=>1,'last_ip'=>'kjskdjsd','last_login'=>'2016-06-07 15:47:12','callback_type'=>'jsjdhsjd','personal_information_id'=>1]);
     }
 }

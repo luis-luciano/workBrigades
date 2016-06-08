@@ -61,7 +61,7 @@
                 {!! Form::label('supervisions', trans('requests.supervisions'), ['class' => 'control-label','rows' => '2']) !!}
                 <div class="inputer">
                     <div class="input-wrapper">
-                        {!! Form::text('supervisions', null, ['class' => 'form-control', 'disabled']) !!}
+                        {!! Form::text('supervisions', null, ['class' => 'form-control', 'disabled','id'=>'supervisions']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->

@@ -22,14 +22,13 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        $prueba=Typology::with('problemTypes')->get(['id','name']);
+        $prueba=Typology::with('problemTypes','supervisions')->get(['id','name']);
         $typologies=Typology::lists('name','id');
         $problemType=ProblemType::lists('name', 'id');
         $supervicion=Supervision::lists('name', 'id');
         $date = Carbon::now();
         $date = $date->format('l jS \\of F Y h:i:s A');
         $brigades=Brigade::lists('name', 'id');
-        
         return view('requests.index',compact('typologies', 'problemType', 'supervicion','date', 'brigades','prueba'));
     }
 
@@ -43,7 +42,7 @@ class RequestsController extends Controller
         $priorities=RequestPriority::lists('name','id');
         $typologies=Typology::lists('name','id');
         $problemTypes=ProblemType::lists('name', 'id');
-        $prueba=Typology::with('problemTypes')->get(['id','name']);
+        $prueba=Typology::with('problemTypes','supervisions')->get(['id','name'])->toJson();
         return view('admin.requests.create', compact('priorities','typologies','problemTypes','prueba'));
     }
 

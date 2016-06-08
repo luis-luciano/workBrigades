@@ -29,12 +29,16 @@
                  return [problem.id,problem.name];
             });
 
+            var supervisions=$.map(typology.supervisions,function(supervision){
+            	return supervision.name;
+            });
+
 			var html="";
             for (var id =0,problem=1; id <problemTypes.length && problem <problemTypes.length; id+=2,problem+=2) {
             	html+="<option value="+problemTypes[id]+" >"+problemTypes[problem]+"</option>\n";
             };
             $('#problem_type').html(html);
-            console.log(html);
+            console.log(supervisions);
 		}
 
 	</script>

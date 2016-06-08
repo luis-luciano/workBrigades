@@ -3,6 +3,7 @@
 namespace App;
 
 use App\ProblemType;
+use App\Supervision;
 use Illuminate\Database\Eloquent\Model;
 
 class Typology extends Model
@@ -12,5 +13,9 @@ class Typology extends Model
     public function problemTypes() {
     	
 		return $this->hasMany('App\ProblemType');
+	}
+
+	public function supervisions(){
+		return $this->belongsToMany(Supervision::class)->withTimestamps();
 	}
 }

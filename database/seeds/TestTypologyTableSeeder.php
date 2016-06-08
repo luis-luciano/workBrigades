@@ -19,5 +19,32 @@ class TestTypologyTableSeeder extends Seeder
 		Typology::create(['name' => 'BACHEO']);
 		Typology::create(['name' => 'CULTURA DEL AGUA']);
 		Typology::create(['name' => 'AREA COMERCIAL']);
+
+        $relations=[
+            [
+                'supervision_id' => 2,
+                'typology_id' => 1,
+            ],
+            [
+                'supervision_id' => 2,
+                'typology_id' => 2,
+            ],
+            [
+                'supervision_id' => 2,
+                'typology_id' => 3,
+            ],
+            [
+                'supervision_id' => 3,
+                'typology_id' => 1,
+            ],
+            [
+                'supervision_id' => 4,
+                'typology_id' => 2,
+            ]
+        ];
+
+        foreach ($relations as $relation) {
+            Typology::find($relation['typology_id'])->supervisions()->attach($relation['supervision_id']);
+        }
     }
 }
