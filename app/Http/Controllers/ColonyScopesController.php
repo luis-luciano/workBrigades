@@ -15,7 +15,7 @@ class ColonyScopesController extends Controller
      */
     public function index()
     {
-        //
+        return "hola";//view('admin.colonyScopes.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class ColonyScopesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.colonyScopes.create');
     }
 
     /**

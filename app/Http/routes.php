@@ -7,7 +7,7 @@ Route::resource('activities', 'ActivitiesController');
 Route::resource('brigades', 'BrigadesController');
 Route::resource('citizens', 'CitizensController');
 Route::resource('colonies', 'ColoniesController');
-Route::resource('colonyScopes', 'ColonyScopesController');
+Route::resource('colonies/scopes', 'ColonyScopesController');
 Route::resource('notifications', 'NotificationsController');
 Route::resource('permissions', 'PermissionsController');
 Route::resource('personalInformations', 'PersonalInformationsController');
@@ -22,7 +22,7 @@ Route::resource('sectors', 'SectorsController');
 Route::resource('settings', 'SettingsController');
 Route::resource('settementTypes', 'SettlementTypesController');
 Route::resource('supervicionables', 'SupervicionablesController');
-Route::resource('supervitions', 'SupervitionsController');
+Route::resource('supervisions', 'SupervisionsController');
 Route::resource('typologies', 'TypologiesController');
 
 // Authentication routes...
@@ -33,3 +33,7 @@ Route::get('auth/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getL
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+
+
