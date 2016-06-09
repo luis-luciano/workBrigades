@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Colony;
+use App\ColonyScope;
 use App\Http\Requests;
+use App\SettlementType;
+use Illuminate\Http\Request;
 
 class ColoniesController extends Controller
 {
@@ -15,7 +17,12 @@ class ColoniesController extends Controller
      */
     public function index()
     {
-        return  view('admin.colonies.index');
+        $colonies=Colony::all();
+        $scopes=ColonyScope::all('id','name');
+        $settlements=SettlementType::all('id','name');
+       //return $settlementType;
+       //dd($colonies);
+        return  view('admin.colonies.index',compact('colonies','scopes','settlements'));
     }
 
     /**

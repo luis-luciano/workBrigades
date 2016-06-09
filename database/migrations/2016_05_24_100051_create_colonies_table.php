@@ -16,10 +16,10 @@ class CreateColoniesTable extends Migration
             $table->string('zip', 06);
             $table->string('name', 80);
 
-            $table->integer('colony_scope_id')->unsigned();
+            $table->integer('colony_scope_id')->unsigned()->nullable();
             $table->foreign('colony_scope_id')->references('id')->on('colony_scopes');
 
-            $table->integer('settlement_type_id')->unsigned();
+            $table->integer('settlement_type_id')->unsigned()->nullable();
             $table->foreign('settlement_type_id')->references('id')->on('settlement_types');
 
             $table->timestamps();

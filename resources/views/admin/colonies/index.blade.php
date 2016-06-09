@@ -32,7 +32,7 @@
 										<th>Ambito</th>
 									</tr>
 								</thead>
-
+	
 								<tfoot>
 									<tr>
 										<th>Name</th>
@@ -43,6 +43,15 @@
 								</tfoot>
 
 								<tbody>
+									@foreach ($colonies as $colony)
+			    					<tr>
+										<td>{{ $colony->name }}</td>
+										<td>{{ $colony->zip }}</td>
+										<td>{{ $colony->colonyScopes->name }}</td>
+										<td>{{ $colony->zip }}</td>
+									</tr>
+									@endforeach
+
 									<tr>
 										<td>Tiger Nixon</td>
 										<td>System Architect</td>
@@ -243,6 +252,7 @@
 										<td>New York</td>
 										<td>63</td>
 									</tr>
+
 								</tbody>
 							</table>
 						</div><!--.overflow-table-->
@@ -250,4 +260,8 @@
 				</div><!--.panel-->
 			</div><!--.col-md-12-->
 		</div><!--.row-->
+
+				{{ $colonies }}	
+					
+									
 @stop
