@@ -43,7 +43,12 @@ class ColoniesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $colony=Colony::create($request->all());
+        $colony->colonyScopes()->associate(ColonyScope::find($request->colony_scope_id))->save();
+        $colony->settlementTypes()->associate(SettlementType::find($request->settlement_type_id))->save();
+        return redirect()->route('colonies.index');
+        //return $request->all();
     }
 
     /**
@@ -54,7 +59,9 @@ class ColoniesController extends Controller
      */
     public function show($id)
     {
-        //
+        $colony=Colony::find($id);
+        //return $colony;
+        return view('admin.colonies.show', compact('colony'));
     }
 
     /**
@@ -65,7 +72,8 @@ class ColoniesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $colony=Colony::find($id);
+        return view('admin.colonies.edit', compact('colony'));
     }
 
     /**
@@ -88,6 +96,8 @@ class ColoniesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $colony=Colony::find($id);
+        $colony->delete();
+        return redirect('colonies');
     }
 }
