@@ -7,6 +7,7 @@ Route::resource('activities', 'ActivitiesController');
 Route::resource('brigades', 'BrigadesController');
 Route::resource('citizens', 'CitizensController');
 Route::resource('colonies/scopes', 'ColonyScopesController');
+Route::resource('colonies/settlement-types', 'SettlementTypesController');
 Route::resource('colonies', 'ColoniesController');
 
 Route::resource('notifications', 'NotificationsController');
@@ -21,7 +22,7 @@ Route::resource('requestsTypes', 'RequestTypesController');
 Route::resource('roles', 'RolesController');
 Route::resource('sectors', 'SectorsController');
 Route::resource('settings', 'SettingsController');
-Route::resource('settementTypes', 'SettlementTypesController');
+
 Route::resource('supervicionables', 'SupervicionablesController');
 Route::resource('supervisions', 'SupervisionsController');
 Route::resource('typologies', 'TypologiesController');

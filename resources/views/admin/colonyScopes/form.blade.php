@@ -18,8 +18,8 @@
         <div class="col-md-12">
             {!! Form::submit($submitButtonText, ['class' => 'btn btn-success']) !!}
             @unless(isset($onlySaveButton) && $onlySaveButton)
-                <a href="{{ route('colonies.create') }}" class="btn btn-primary">Nuevo</a>
-                <a href="{{ route('colonies.index') }}" class="btn btn-warning">Regresar</a>
+                <a href="{{ route('colonies.scopes.create') }}" class="btn btn-primary">Nuevo</a>
+                <a href="{{ route('colonies.scopes.index') }}" class="btn btn-warning">Regresar</a>
             @endif
         </div>
     </div>

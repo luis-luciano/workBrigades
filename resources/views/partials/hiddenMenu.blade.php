@@ -13,9 +13,9 @@
 						<li>
 							<a href="javascript:;"><i class="fa fa-map"></i> Colonias</a>
 							<ul class="child-menu">
-								<li><a href=""><i class="fa fa-puzzle-piece"> </i> Gestionar</a></li>
-								<li><a href=""><i class="fa fa-crosshairs"></i> Ambito</a></li>
-								<li><a href=""><i class="fa fa-building"></i> Tipo de Asentamiento</a></li>
+								<li><a href="{{ route('colonies.index') }}"><i class="fa fa-puzzle-piece"> </i> Gestionar</a></li>
+								<li><a href="{{ route('colonies.scopes.index') }}"><i class="fa fa-crosshairs"></i> Ambito</a></li>
+								<li><a href="{{ route('colonies.settlement-types.index') }}"><i class="fa fa-building"></i> Tipo de Asentamiento</a></li>
 							</ul>
 						</li>
 					</ul>

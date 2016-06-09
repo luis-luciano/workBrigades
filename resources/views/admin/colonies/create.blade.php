@@ -1,7 +1,7 @@
 
 @extends('layouts.masterComplete')
 
-@section('title', 'Funcionario - index')
+@section('title', 'Colonias')
 
 @section('scripts')
     $('select').select2();

@@ -24,7 +24,7 @@
             <div class="form-group">
                 {!! Form::label('settlement_type_id', trans('colonies.settlement_type_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                  {!! Form::select('settlement_type_id', ['Indefinido', 'Congregación', 'Fraccionamiento'], null, ['class' => 'select2', 'style' => 'width:100%;']) !!}
+                  {!! Form::select('settlement_type_id', ['Indefinido', 'Congregación', 'Fraccionamiento'], null, ['class' => 'select2 form-control select2-hidden-accessible', 'style' => 'width:100%;']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
