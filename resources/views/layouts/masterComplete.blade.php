@@ -64,16 +64,16 @@
                 <div class="row">
                     <div class="col-xs-12 col-md-8">
                         <div class="row">
-                            <div class="col-xs-4 col-sm-4 col-md-4">
-                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/cordoba-solo.png') }}" alt="">
+                            <div class="col-xs-5 col-sm-5 col-md-5">
+                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/logohidro.png') }}" alt="">
                             </div>
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/logohidro.png') }}" alt="">
+                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/cordoba-solo.png') }}" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-4">
-                        <h1 class="pull-right">Hidrosistema <small>sistema de atención</small></h1>
+                        <h1 class="pull-right">Hidrosistema<small> Sistema de atención</small></h1>
                     </div><!--.col-->
                 </div><!--.row-->
             </div><!--.page-header-->

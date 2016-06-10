@@ -14258,16 +14258,16 @@ button.toast-close-button {
 6.6 - Teal Theme
 */
 .theme-teal .nav-menu .hamburger .patty {
-  background: #009587;
+  background: #02a8f3;
 }
 .theme-teal .nav-menu.active .patty {
   background: #fff;
 }
 .theme-teal .nav-search .search:before {
-  border-color: #009587;
+  border-color: #02a8f3;;
 }
 .theme-teal .nav-search .search:after {
-  background: #009587;
+  background: #02a8f3;
 }
 .theme-teal .nav-search.active .search:before {
   background: #fff;
@@ -14277,18 +14277,19 @@ button.toast-close-button {
   background: #fff;
 }
 .theme-teal .overlay .starting-point span {
-  background-color: #009587;
+ /* background-color: #009587;*/
+ background-color:#1d3e73;
 }
 .theme-teal .layer-container .menu-layer li.open > a,
 .theme-teal .layer-container .menu-layer li:hover > a {
-  color: #009587;
+  color: #1D3E73;
 }
 .theme-teal .layer-container .menu-layer li.open:before,
 .theme-teal .layer-container .menu-layer li:hover:before {
   color: #009587;
 }
 .theme-teal .layer-container .menu-layer li .child-menu li a {
-  color: #009587;
+  color: #02a8f3;
 }
 .theme-teal .layer-container .menu-layer li .child-menu li.has-child:before {
   color: #009587;
@@ -14303,7 +14304,7 @@ button.toast-close-button {
   background: rgba(0, 149, 135, 0.1);
 }
 .theme-teal .layer-container .menu-layer.active {
-  background: #008679;
+  background: #1D3E73;
 }
 .theme-teal .layer-container .search-layer.active {
   background: #008679;
