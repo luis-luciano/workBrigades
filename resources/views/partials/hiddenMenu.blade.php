@@ -5,7 +5,7 @@
 			<ul>
 							
 				<li data-open-after="true">
-					<a href="index.html">Ciudadanos</a>
+					<a href="{{ route('citizens.index') }}">Ciudadanos</a>
 				</li>
 				<li>
 					<a href="javascript:;"><i class="fa fa-cogs"></i> Sistema</a>

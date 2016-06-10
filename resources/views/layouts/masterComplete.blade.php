@@ -18,8 +18,12 @@
 	<meta name="apple-touch-fullscreen" content="yes">
 
 	<!-- BEGIN CORE CSS -->
+	
 	<link rel="stylesheet" href="{{ asset('assets/admin1/css/admin1.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/elements.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/globals/css/style.css') }}">
+	
+
 
 	<!-- END CORE CSS -->
 
@@ -43,6 +47,8 @@
 
 	<script src="{{ asset('assets/globals/plugins/modernizr/modernizr.min.js') }}"></script>
 
+	
+
 	<link href="{{ asset('assets/globals/css/select2.min.css') }}" rel="stylesheet" />
 	
 	
@@ -59,18 +65,15 @@
                     <div class="col-xs-12 col-md-8">
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/atci-logo.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4">
                                 <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/cordoba-solo.png') }}" alt="">
                             </div>
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/escudo-cordoba.png') }}" alt="">
+                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/logohidro.png') }}" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-4">
-                        <h1 class="pull-right">Córdoba <small>Cerca de ti</small></h1>
+                        <h1 class="pull-right">Hidrosistema <small>sistema de atención</small></h1>
                     </div><!--.col-->
                 </div><!--.row-->
             </div><!--.page-header-->

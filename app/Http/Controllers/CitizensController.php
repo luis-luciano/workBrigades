@@ -15,7 +15,7 @@ class CitizensController extends Controller
      */
     public function index()
     {
-        return view('citizens.pages.index');
+        return view('admin.citizens.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class CitizensController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.citizens.create');
     }
 
     /**
