@@ -31,7 +31,42 @@
                         </div><!--.fomr-body-->
                     </form>
                 </div><!--.row-->
+                <div class="overflow-table">
+                            <table class="display datatables-basic">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre </th>
+                                        <th>Colonia</th>
+                                        <th>E-mail</th>
+                                        <th>Telefono</th>
+                                    </tr>
+                                </thead>
+    
+                                <tfoot>
+                                    <tr>
+                                        <th>Nombre </th>
+                                        <th>Colonia</th>
+                                        <th>E-mail</th>
+                                        <th>Telefono</th>
+                                    </tr>
+                                </tfoot>
 
+                                <tbody>
+                                    @foreach ($citizens as $citizen)
+                                    
+                                        <tr>
+                                            <td>{{ $citizen->name }}</td>
+                                            <td>{{ $citizen->colony->name }}</td>
+                                            <td>{{ $citizen->Scopes->name }}</td>
+                                            <td>{{ $citizen->settlementTypes->name }}</td>
+                                            
+                                        </tr>
+                                    
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div><!--.overflow-table-->
             </div><!--.panel-body-->
         </div><!--.panel-->
     </div><!--.col-md-12-->

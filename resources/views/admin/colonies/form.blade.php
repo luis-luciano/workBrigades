@@ -15,7 +15,7 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::text('zip', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('zip', trans('colonies.zip'), ['class' => 'control-label']) !!}
+                        {!! Form::label('zip', trans('colonies.zip'), ['class' => 'controlv-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -24,7 +24,7 @@
             <div class="form-group">
                 {!! Form::label('settlement_type_id', trans('colonies.settlement_type_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                  {!! Form::select('settlement_type_id', ['Indefinido', 'Congregación', 'Fraccionamiento'], null, ['class' => 'select2 form-control select2-hidden-accessible', 'style' => 'width:100%;']) !!}
+                  {!! Form::select('settlement_type_id', $settlements , null, ['class' => 'select2 form-control', 'style' => 'width:100%;']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -32,7 +32,7 @@
             <div class="form-group">
                 {!! Form::label('colony_scope_id', trans('colonies.colony_scope_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                  {!! Form::select('colony_scope_id', ['Indefinido','urbano', 'rural'], null, ['class' => 'select2', 'style' => 'width: 100%']) !!}
+                  {!! Form::select('colony_scope_id', $scopes, null, ['class' => 'js-example-basic-single form-control', 'style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>

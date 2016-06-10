@@ -31,8 +31,10 @@ class ColoniesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view ('admin.colonies.create');
+    {   
+             $scopes=ColonyScope::lists('name','id');
+            $settlements=SettlementType::lists('name', 'id');
+            return view ('admin.colonies.create', compact('scopes','settlements'));
     }
 
     /**
@@ -43,7 +45,7 @@ class ColoniesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //return $request->colony_scope_id+1;
         $colony=Colony::create($request->all());
         $colony->colonyScopes()->associate(ColonyScope::find($request->colony_scope_id))->save();
         $colony->settlementTypes()->associate(SettlementType::find($request->settlement_type_id))->save();
@@ -61,7 +63,10 @@ class ColoniesController extends Controller
     {
         $colony=Colony::find($id);
         //return $colony;
-        return view('admin.colonies.show', compact('colony'));
+        $scopes=ColonyScope::lists('name','id');
+        $settlements=SettlementType::lists('name', 'id');
+        //return $scopes;
+        return view('admin.colonies.show', compact('colony','scopes','settlements'));
     }
 
     /**
@@ -73,6 +78,7 @@ class ColoniesController extends Controller
     public function edit($id)
     {
         $colony=Colony::find($id);
+        return $colony;
         return view('admin.colonies.edit', compact('colony'));
     }
 
@@ -85,8 +91,14 @@ class ColoniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $colony=Colony::find($id);
+        $colony->update($request->all());
+        $colony->colonyScopes()->associate(ColonyScope::find($request->colony_scope_id))->save();
+        $colony->settlementTypes()->associate(SettlementType::find($request->settlement_type_id))->save();
+        return redirect('colonies/' . $colony->id );
+        return $colony;
     }
+   
 
     /**
      * Remove the specified resource from storage.
@@ -98,6 +110,7 @@ class ColoniesController extends Controller
     {
         $colony=Colony::find($id);
         $colony->delete();
+
         return redirect('colonies');
     }
 }
