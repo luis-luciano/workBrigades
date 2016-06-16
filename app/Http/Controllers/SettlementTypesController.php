@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\SettlementType;
+use Illuminate\Http\Request;
 
 class SettlementTypesController extends Controller
 {
@@ -14,8 +14,9 @@ class SettlementTypesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.settlementTypes.index');
+    {   
+        $settlements=SettlementType::all();
+        return view('admin.settlementTypes.index', compact('settlements'));
     }
 
     /**
@@ -36,7 +37,8 @@ class SettlementTypesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $settlement=SettlementType::create($request->all());
+        return redirect()->route('colonies.settlement-types.index');
     }
 
     /**
@@ -58,7 +60,9 @@ class SettlementTypesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $settlement=SettlementType::find($id);
+       //return $settlement->Colonies()->count();
+        return view('admin.settlementTypes.edit', compact('settlement'));
     }
 
     /**
@@ -70,7 +74,9 @@ class SettlementTypesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $settlement=SettlementType::find($id);
+        $settlement->update($request->all());
+        return redirect('colonies/settlement-types/' . $settlement->id .'/edit');
     }
 
     /**
@@ -81,6 +87,9 @@ class SettlementTypesController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $settlement=SettlementType::find($id);
+        $settlement->delete();
+
+        return redirect('colonies/settlement-types/');
     }
 }

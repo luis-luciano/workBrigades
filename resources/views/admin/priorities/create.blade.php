@@ -1,10 +1,10 @@
 
 @extends('layouts.masterComplete')
 
-@section('title', 'Crear Colonias')
+@section('title', 'Crear Estado')
 
 @section('scripts')
-    $('select').select2();
+    
 @stop
 
 @section('content')
@@ -12,15 +12,14 @@
         <div class="col-md-12">
             <div class="panel">
                 <div class="panel-heading">
-                    <div class="panel-title"><h4></h4></div>
+                    <div class="panel-title"><h4>Crear Nivel de Prioridad</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'colonies.store', 'id' => 'createUserForm']) !!}
-                        @include('admin.colonies.form', ['submitButtonText' => 'Guardar'])
+                    {!! Form::open(['route' => 'requestsPriorities.store','method' => 'post' ,'id' => 'createUserForm']) !!}
+                        @include('admin.priorities.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->
             </div><!--.panel-->
         </div><!--.col-md-12-->
     </div><!--.row-->
-
 @stop

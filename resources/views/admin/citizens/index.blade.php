@@ -52,17 +52,7 @@
                                 </tfoot>
 
                                 <tbody>
-                                    @foreach ($citizens as $citizen)
-                                    
-                                        <tr>
-                                            <td>{{ $citizen->name }}</td>
-                                            <td>{{ $citizen->colony->name }}</td>
-                                            <td>{{ $citizen->Scopes->name }}</td>
-                                            <td>{{ $citizen->settlementTypes->name }}</td>
-                                            
-                                        </tr>
-                                    
-                                    @endforeach
+                                   
 
                                 </tbody>
                             </table>

@@ -7,6 +7,7 @@ Route::resource('activities', 'ActivitiesController');
 Route::resource('brigades', 'BrigadesController');
 Route::resource('citizens', 'CitizensController');
 Route::resource('colonies/scopes', 'ColonyScopesController');
+//Route::post('colonies/settlement-types',['as' => 'settlement-types.store', 'uses' => 'SettlementTypesController@store']);
 Route::resource('colonies/settlement-types', 'SettlementTypesController');
 Route::resource('colonies', 'ColoniesController');
 

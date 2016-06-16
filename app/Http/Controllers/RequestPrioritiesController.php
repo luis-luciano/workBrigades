@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\RequestPriority;
+use Illuminate\Http\Request;
 
 class RequestPrioritiesController extends Controller
 {
@@ -15,7 +15,8 @@ class RequestPrioritiesController extends Controller
      */
     public function index()
     {
-        //
+        $priorities=RequestPriority::all();
+        return view('admin.priorities.index', compact('priorities'));
     }
 
     /**
@@ -25,7 +26,7 @@ class RequestPrioritiesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.priorities.create');
     }
 
     /**
@@ -36,7 +37,8 @@ class RequestPrioritiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $priority=RequestPriority::create($request->all());
+        return redirect('requestsPriorities');
     }
 
     /**
@@ -58,7 +60,8 @@ class RequestPrioritiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $priority=RequestPriority::find($id);
+        return view('admin.priorities.edit',compact('priority'));
     }
 
     /**
@@ -70,7 +73,9 @@ class RequestPrioritiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $priority=RequestPriority::find($id);
+        $priority->update($request->all());
+        return redirect('requestsPriorities/' . $priority->id .'/edit');
     }
 
     /**
@@ -81,6 +86,8 @@ class RequestPrioritiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $priority=RequestPriority::find($id);
+        $priority->delete();
+        return redirect('RequestPriority');
     }
 }

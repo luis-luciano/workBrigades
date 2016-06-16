@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Colony;
 use App\ColonyScope;
 use App\Http\Requests;
+use App\PersonalInformation;
 use App\SettlementType;
 use Illuminate\Http\Request;
 
@@ -65,8 +66,9 @@ class ColoniesController extends Controller
         //return $colony;
         $scopes=ColonyScope::lists('name','id');
         $settlements=SettlementType::lists('name', 'id');
-        //return $scopes;
-        return view('admin.colonies.show', compact('colony','scopes','settlements'));
+        $i=$colony->personalInformation()->count();
+        
+        return view('admin.colonies.show', compact('colony','scopes','settlements','i'));
     }
 
     /**

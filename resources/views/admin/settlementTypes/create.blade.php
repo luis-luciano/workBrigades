@@ -1,7 +1,7 @@
 
 @extends('layouts.masterComplete')
 
-@section('title', 'Tipos de Asentamiento')
+@section('title', 'Crear Asentamiento')
 
 @section('scripts')
     
@@ -15,7 +15,7 @@
                     <div class="panel-title"><h4>Tipos de Asentamiento</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'colonies.store', 'id' => 'createUserForm']) !!}
+                    {!! Form::open(['route' => 'colonies.settlement-types.store','method' => 'post' ,'id' => 'createUserForm']) !!}
                         @include('admin.settlementTypes.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->

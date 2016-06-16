@@ -45,12 +45,12 @@
 								<tbody>
 									@foreach ($colonies as $colony)
 									
-				    					<tr><a href="{{ route('colonies.show', $colony->id ) }}">
-											<td>{{ $colony->name }}</td>
+				    					<tr>
+											<td><a href="{{ route('colonies.show', $colony->id ) }}">{{ $colony->name }}</a></td>
 											<td>{{ $colony->zip }}</td>
 											<td>{{ $colony->colonyScopes->name }}</td>
 											<td>{{ $colony->settlementTypes->name }}</td>
-											</a>
+											
 										</tr>
 									
 									@endforeach

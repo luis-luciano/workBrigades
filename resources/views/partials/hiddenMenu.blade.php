@@ -23,8 +23,8 @@
 						<li>
 							<a href="javascript:;">Peticiones</a>
 							<ul class="child-menu">
-								<li><a href="">Estados</a></li>
-								<li><a href="">Prioridades</a></li>
+								<li><a href="{{ route('requestsStates.index') }}">Estados</a></li>
+								<li><a href="{{ route('requestsPriorities.index') }}">Prioridades</a></li>
 								<li><a href="">Tipologías</a></li>
 								<li><a href="">Tipo de captura</a></li>
 								<li><a href="">Tipo de petición</a></li>

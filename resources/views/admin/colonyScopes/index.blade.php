@@ -1,6 +1,6 @@
 @extends('layouts.masterComplete')
 
-@section('title', 'Colonias')
+@section('title', 'Ambitos')
 
 @section('styles')
     @parent
@@ -31,6 +31,32 @@
 	                        </div><!--.fomr-body-->
 	                    </form>
 	                </div><!--.row-->
+	                <div class="overflow-table">
+							<table class="display datatables-basic">
+								<thead>
+									<tr>
+										<th>Tipo de Ambito</th>										
+									</tr>
+								</thead>
+	
+								<tfoot>
+									<tr>
+										<th>Tipo de Ambito</th>
+									</tr>
+								</tfoot>
+
+								<tbody>
+									@foreach ($scopes as $scope)
+									
+				    					<tr>
+											<td><a href="{{ route('colonies.scopes.edit', $scope->id ) }}">{{ $scope->name }}</a></td>																		
+										</tr>
+									
+									@endforeach
+
+								</tbody>
+							</table>
+						</div><!--.overflow-table-->
 
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->

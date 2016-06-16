@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\RequestState;
+use Illuminate\Http\Request;
 
 class RequestStatesController extends Controller
 {
@@ -15,7 +15,8 @@ class RequestStatesController extends Controller
      */
     public function index()
     {
-        //
+        $states=RequestState::all();
+        return view('admin.states.index', compact('states'));
     }
 
     /**
@@ -25,7 +26,7 @@ class RequestStatesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.states.create');
     }
 
     /**
@@ -36,7 +37,8 @@ class RequestStatesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $state=RequestState::create($request->all());
+        return redirect('requestsStates');
     }
 
     /**
@@ -58,7 +60,8 @@ class RequestStatesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $state=RequestState::find($id);
+        return view('admin.states.edit',compact('state'));
     }
 
     /**
@@ -70,7 +73,9 @@ class RequestStatesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $state=RequestState::find($id);
+        $state->update($request->all());
+        return redirect('requestsStates/' . $state->id .'/edit');
     }
 
     /**
@@ -81,6 +86,8 @@ class RequestStatesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $state=RequestState::find($id);
+        $state->delete();
+        return redirect('requestsStates');
     }
 }
