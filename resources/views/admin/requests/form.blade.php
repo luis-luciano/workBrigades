@@ -38,7 +38,7 @@
             <div class="form-group">
                 {!! Form::label('problem_type_id', trans('requests.problem_type'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('problem_type_id',$problemTypes , null, ['class' => 'select2 form-control','id'=>'problem_type']) !!}
+                    {!! Form::select('problem_type_id',$problemTypes , null, ['class' => 'select2 form-control','id'=>'problem_types']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -69,6 +69,16 @@
     </div>
 
     <div class="row">
+
+        <div class="col-md-5">
+                    <div class="form-group">
+                        {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label']) !!}
+                        <div class="input-wrapper">
+                            {!! Form::select('colony_id', $colonies, null, ['class' => 'select2 form-control', 'style' => 'width: 100%']) !!}
+                        </div>
+                    </div><!--.form-group-->
+        </div>
+        
         <div class="col-md-5">
             <div class="form-group">
                 <div class="inputer floating-label">
@@ -80,7 +90,7 @@
             </div><!--.form-group-->
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
@@ -90,6 +100,8 @@
                 </div>
             </div><!--.form-group-->
         </div>
+
+        
     </div>
 
     <div class="row">

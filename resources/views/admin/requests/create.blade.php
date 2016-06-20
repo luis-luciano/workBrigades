@@ -10,9 +10,11 @@
         $(document).ready(function(){
             typologiesSelect=$("#typology");
             var datos=({!! $prueba !!});
+
+            setDefaultSelector()
             
             showTypologyWithProblems(datos);
-            
+
             typologiesSelect.change(function() {
                 showTypologyWithProblems(datos);
             });
@@ -20,6 +22,7 @@
         
         function showTypologyWithProblems(datos){
             
+
             var typologyId = typologiesSelect.val();
 
             var typology=$.grep(datos,function(typology){
@@ -38,8 +41,18 @@
             for (var id =0,problem=1; id <problemTypes.length && problem <problemTypes.length; id+=2,problem+=2) {
                 html+="<option value="+problemTypes[id]+" >"+problemTypes[problem]+"</option>\n";
             };
-            $('#problem_type').html(html);
+            
+            
+            $('#problem_types').html(html);
+            setDefaultSelector();
+            console.log($('#problem_types > option[value="1"]').text());
             $('#supervisions').val(supervisions.join(',  '));
+        }
+
+        function setDefaultSelector(){
+            //var default=$('#problem_types > option[value="1"]').text();
+            $('#select2-problem_types-container').text($('#problem_types > option[value="1"]').text());
+            $('#select2-problem_types-container').attr('title',$('#problem_types > option[value="1"]').text());
         }
 
 @stop
