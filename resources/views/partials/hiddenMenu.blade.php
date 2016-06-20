@@ -3,9 +3,14 @@
 		<!-- BEGIN MENU LAYER -->
 		<div class="menu-layer">
 			<ul>
-							
-				<li data-open-after="true">
-					<a href="{{ route('citizens.index') }}">Ciudadanos</a>
+				<li>
+					<a href="{{ route('citizens.index') }}"><i class="fa fa-home"></i> Inicio</a>
+				</li>			
+				<li>
+					<a href="{{ route('citizens.index') }}"><i class="fa fa-users"></i> Ciudadanos</a>
+				</li>
+				<li>
+					<a href="{{ route('requests.index') }}"><i class="fa fa-file"></i> Peticiones</a>
 				</li>
 				<li>
 					<a href="javascript:;"><i class="fa fa-cogs"></i> Sistema</a>
@@ -33,13 +38,8 @@
 					</ul>
 				</li>
 				<li>
-					<a href="http://themeforest.net/item/pleasure-material-design-responsive-admin-panel/10579013">Buy Pleasure</a>
+					<a href="{{ route('citizens.index') }}"><i class="fa fa-power-off"></i> Salir</a>
 				</li>
-			
-				<li data-open-after="true">
-					<a href=""><span class="glyphicon glyphicon-lock"></span>  Aun No Inicias Secion !!</a>
-				</li>
-			
 
 			</ul>
 		</div><!--.menu-layer-->
