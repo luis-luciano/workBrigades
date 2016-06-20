@@ -27,6 +27,7 @@ Route::resource('settings', 'SettingsController');
 Route::resource('supervicionables', 'SupervicionablesController');
 Route::resource('supervisions', 'SupervisionsController');
 Route::resource('typologies', 'TypologiesController');
+Route::resource('captureTypes', 'captureTypesController');
 
 // Authentication routes...
 Route::get('auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);

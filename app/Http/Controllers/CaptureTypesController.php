@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\CaptureType;
 use App\Http\Requests;
-use App\Typology;
 use Illuminate\Http\Request;
 
-class TypologiesController extends Controller
+class CaptureTypesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class TypologiesController extends Controller
      */
     public function index()
     {
-        $typologies=Typology::all();
-
-        return view('admin.typologies.index', compact('typologies'));
+        $captureTypes=CaptureType::all();
+        return view('admin.captureTypes.index', compact('captureTypes'));
     }
 
     /**
@@ -27,7 +26,7 @@ class TypologiesController extends Controller
      */
     public function create()
     {
-        return view('admin.typologies.create');
+        return view('admin.captureTypes.create');
     }
 
     /**
@@ -38,8 +37,8 @@ class TypologiesController extends Controller
      */
     public function store(Request $request)
     {
-        $typology=Typology::create($request->all());
-        return redirect('typologies');
+        $priority=RequestPriority::create($request->all());
+        return redirect('requestscaptureTypes');
     }
 
     /**
@@ -61,8 +60,8 @@ class TypologiesController extends Controller
      */
     public function edit($id)
     {
-        $typology=Typology::find($id);
-        return view('admin.typologies.edit', compact('typology'));
+        $priority=RequestPriority::find($id);
+        return view('admin.captureTypes.edit',compact('priority'));
     }
 
     /**
@@ -74,9 +73,9 @@ class TypologiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $typology=Typology::find($id);
-        $typology->update($request->all());
-        return redirect('typologies/'.$typology->id.'/edit');
+        $priority=RequestPriority::find($id);
+        $priority->update($request->all());
+        return redirect('requestscaptureTypes/' . $priority->id .'/edit');
     }
 
     /**
@@ -87,8 +86,8 @@ class TypologiesController extends Controller
      */
     public function destroy($id)
     {
-        $typology=Typology::find($id);
-        $typology->delete();
-        return redirect('typologies');
+        $priority=RequestPriority::find($id);
+        $priority->delete();
+        return redirect('RequestPriority');
     }
 }

@@ -25,8 +25,8 @@
 							<ul class="child-menu">
 								<li><a href="{{ route('requestsStates.index') }}">Estados</a></li>
 								<li><a href="{{ route('requestsPriorities.index') }}">Prioridades</a></li>
-								<li><a href="">Tipologías</a></li>
-								<li><a href="">Tipo de captura</a></li>
+								<li><a href="{{ route('typologies.index') }}">Tipologías</a></li>
+								<li><a href="{{ route('captureTypes.index') }}">Tipo de captura</a></li>
 								<li><a href="">Tipo de petición</a></li>
 							</ul>
 						</li>
