@@ -8,11 +8,9 @@
                         {!! Form::label('name','Nombre', ['class' => 'control-label']) !!}
                     </div>
                 </div>
-                <div class="inputer floating-label">
+                <div class="inputer">
                     <div class="input-wrapper">
                         {!! Form::text('colour', null, ['class' => 'minicolors form-control','data-control'=>'wheel']) !!}
-                        {!! Form::label('colour','Color', ['class' => 'control-label']) !!}
-                        {{-- <input type="color" name="colour" value="{{ $state->colour }}" class="form-control"> --}}
                     </div>
                 </div>
             </div><!--.form-group-->

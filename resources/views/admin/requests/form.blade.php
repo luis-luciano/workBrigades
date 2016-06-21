@@ -20,7 +20,7 @@
             <div class="form-group">
                 {!! Form::label('request_priority_id', trans('requests.request_priority_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('request_priority_id', $priorities, null, ['class' => 'select2 form-control']) !!}
+                    {!! Form::select('request_priority_id', $priorities, null, ['class' => 'form-control chosen-select','data-placeholder'=>'Selecciona prioridad']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -29,7 +29,7 @@
             <div class="form-group">
                 {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('typology_id', $typologies, null, ['class' => 'select2 form-control','id'=>'typology']) !!}
+                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control chosen-select','id'=>'typology']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -38,7 +38,7 @@
             <div class="form-group">
                 {!! Form::label('problem_type_id', trans('requests.problem_type'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('problem_type_id',$problemTypes , null, ['class' => 'select2 form-control','id'=>'problem_types']) !!}
+                    {!! Form::select('problem_type_id',$problemTypes , null, ['class' => 'form-control chosen-select','id'=>'problem_types']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -58,10 +58,10 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                {!! Form::label('supervisions', trans('requests.supervisions'), ['class' => 'control-label','rows' => '2']) !!}
+                {!! Form::label('supervisions', trans('requests.supervisions'), ['class' => 'control-label']) !!}
                 <div class="inputer">
                     <div class="input-wrapper">
-                        {!! Form::text('supervisions', null, ['class' => 'form-control', 'disabled','id'=>'supervisions']) !!}
+                        {!! Form::textarea('supervisions', null, ['class' => 'form-control', 'rows'=>'2','disabled','id'=>'supervisions']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -74,7 +74,7 @@
                     <div class="form-group">
                         {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label']) !!}
                         <div class="input-wrapper">
-                            {!! Form::select('colony_id', $colonies, null, ['class' => 'select2 form-control', 'style' => 'width: 100%']) !!}
+                            {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control chosen-select', 'style' => 'width: 100%']) !!}
                         </div>
                     </div><!--.form-group-->
         </div>

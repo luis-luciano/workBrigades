@@ -3,22 +3,17 @@
 @section('title', 'Requests - Create')
 
 @section('scripts')
-    var typologiesSelect;
+            var typologiesSelect;
 
-        $('.select2').select2();
-        
-        $(document).ready(function(){
             typologiesSelect=$("#typology");
             var datos=({!! $prueba !!});
 
-            setDefaultSelector()
-            
             showTypologyWithProblems(datos);
 
             typologiesSelect.change(function() {
                 showTypologyWithProblems(datos);
             });
-        });
+        
         
         function showTypologyWithProblems(datos){
             
@@ -44,15 +39,8 @@
             
             
             $('#problem_types').html(html);
-            setDefaultSelector();
-            console.log($('#problem_types > option[value="1"]').text());
+            
             $('#supervisions').val(supervisions.join(',  '));
-        }
-
-        function setDefaultSelector(){
-            //var default=$('#problem_types > option[value="1"]').text();
-            $('#select2-problem_types-container').text($('#problem_types > option[value="1"]').text());
-            $('#select2-problem_types-container').attr('title',$('#problem_types > option[value="1"]').text());
         }
 
 @stop
