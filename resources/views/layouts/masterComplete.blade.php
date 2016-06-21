@@ -31,6 +31,13 @@
 	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/rickshaw/rickshaw.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bxslider/jquery.bxslider.css') }}">
 
+	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/pnikolov-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/minicolors/jquery.minicolors.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/clockface/css/clockface.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
+
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/plugins.css') }}">
 	<!-- END PLUGINS CSS -->
 
@@ -92,7 +99,7 @@
 	<script src="{{ asset('assets/globals/plugins/audiojs/audiojs/audio.min.js') }}"></script>
 	<script src="{{ asset('assets/globals/plugins/d3/d3.min.js') }}"></script>
 	<script src="{{ asset('assets/globals/plugins/rickshaw/rickshaw.min.js') }}"></script>
-	<script src="{{ asset('assets/globals/plugins/jquery-knob/excanvas.js') }}."></script>
+	<script src="{{ asset('assets/globals/plugins/jquery-knob/excanvas.js') }}"></script>
 	<script src="{{ asset('assets/globals/plugins/jquery-knob/dist/jquery.knob.min.js') }}"></script>
 	<script src="{{ asset('assets/globals/plugins/gauge/gauge.min.js') }}"></script>
 	
@@ -101,11 +108,17 @@
 	<script src="{{ asset('assets/globals/plugins/datatables/media/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('assets/globals/plugins/datatables/themes/bootstrap/dataTables.bootstrap.js') }}"></script>
 	<!-- END PLUGINS AREA -->
+	<script src="{{ asset('assets/globals/plugins/pnikolov-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
+	<script src="{{ asset('assets/globals/plugins/minicolors/jquery.minicolors.min.js') }}"></script>
+	<script src="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+	<script src="{{ asset('assets/globals/plugins/clockface/js/clockface.js') }}"></script>
+
 
 	<script src="{{ asset('assets/globals/js/select2.min.js') }}"></script>
 
 
 	<!-- PLUGINS INITIALIZATION AND SETTINGS -->
+	<script src="{{ asset('assets/globals/scripts/forms-pickers.js') }}"></script>
 	<script src="{{ asset('assets/globals/scripts/tables-datatables.js') }}"></script>
 	<!-- END PLUGINS INITIALIZATION AND SETTINGS -->
 
@@ -123,6 +136,7 @@
 		Pleasure.init();
 		Layout.init();
 		TablesDataTables.init();
+		FormsPickers.init();
 	});
 	</script>
 	<!-- END INITIALIZATION-->
