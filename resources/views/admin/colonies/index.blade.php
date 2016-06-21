@@ -8,7 +8,17 @@
 @stop
 
 @section('scripts')
-
+	$("#dataTable>tbody>tr").on("click", function(e)
+   {
+       var url = $(this).find("#_url").val();
+       if( e.which == 2 ) {
+           e.preventDefault();
+           var win = window.open(url, '_blank');
+           win.focus();
+           return;
+      }
+       window.location.href =  url;
+   });
 @stop
 
 @section('content')
@@ -23,7 +33,7 @@
 					<div class="panel-body">
 
 						<div class="overflow-table">
-							<table class="display datatables-basic">
+							<table class="display datatables-basic" id="dataTable">
 								<thead>
 									<tr>
 										<th>Colonia</th>
@@ -46,7 +56,7 @@
 									@foreach ($colonies as $colony)
 									
 				    					<tr>
-											<td><a href="{{ route('colonies.show', $colony->id ) }}">{{ $colony->name }}</a></td>
+											<td><input type="hidden" id="_url" value="{{ action('ColoniesController@edit',$colony)}}">{{ $colony->name }}</a></td>
 											<td>{{ $colony->zip }}</td>
 											<td>{{ $colony->colonyScopes->name }}</td>
 											<td>{{ $colony->settlementTypes->name }}</td>
