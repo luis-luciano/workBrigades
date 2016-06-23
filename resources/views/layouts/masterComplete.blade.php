@@ -40,13 +40,6 @@
 	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
 	<!--COLOR SELECTOR -->
 
-	<!-- CHOOSEN -->
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/chosen/chosen.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/selectize/dist/css/selectize.bootstrap3.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/multiselect/css/multi-select.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
-	<!-- CHOOSEN -->
-
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/plugins.css') }}">
 	<!-- END PLUGINS CSS -->
 
@@ -124,14 +117,6 @@
 	<script src="{{ asset('assets/globals/plugins/clockface/js/clockface.js') }}"></script>
 	<!--COLOR SELECTOR -->
 
-	<!-- CHOOSEN -->
-	<script src="{{ asset('assets/globals/plugins/chosen/chosen.jquery.min.js') }}"></script>
-	<script src="{{ asset('assets/globals/plugins/selectize/dist/js/standalone/selectize.min.js') }}"></script>
-	<script src="{{ asset('assets/globals/plugins/multiselect/js/jquery.multi-select.js') }}"></script>
-	<script src="{{ asset('assets/globals/plugins/quicksearch/dist/jquery.quicksearch.min.js') }}"></script>
-	<script src="{{ asset('assets/globals/plugins/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-	<!-- CHOOSEN -->
-
 	<!-- END PLUGINS AREA -->
 
 	<!-- PLUGINS INITIALIZATION AND SETTINGS -->
@@ -143,17 +128,14 @@
 	<script src="{{ asset('assets/globals/scripts/tables-datatables.js') }}"></script>
 	<!-- END PLUGINS INITIALIZATION AND SETTINGS -->
 	
-	<!-- CHOOSEN -->
-	<script src="{{ asset('assets/globals/scripts/forms-select.js') }}"></script>
-	<!-- CHOOSEN -->
-
 	<!-- PLEASURE -->
 	<script src="{{ asset('assets/globals/js/pleasure.js') }}"></script>
 	<!-- ADMIN 1 -->
 	<script src="{{ asset('assets/admin1/js/layout.js') }}"></script>
 
 	<script src="{{ asset('assets/globals/scripts/sliders.js') }}"></script>
-
+	
+	<script src="{{ asset('assets/globals/js/select2.min.js') }}" rel="stylesheet"></script>
 
 	<!-- BEGIN INITIALIZATION-->
 	<script>
@@ -162,7 +144,6 @@
 		Layout.init();
 		TablesDataTables.init();
 		FormsPickers.init();// COLOR SELECTOR
-		FormsSelect.init();
 	});
 	</script>
 	<!-- END INITIALIZATION-->

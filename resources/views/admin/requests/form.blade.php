@@ -20,7 +20,7 @@
             <div class="form-group">
                 {!! Form::label('request_priority_id', trans('requests.request_priority_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('request_priority_id', $priorities, null, ['class' => 'form-control chosen-select','data-placeholder'=>'Selecciona prioridad']) !!}
+                    {!! Form::select('request_priority_id', $priorities, null, ['class' => 'form-control select']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -29,7 +29,7 @@
             <div class="form-group">
                 {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control chosen-select','id'=>'typology']) !!}
+                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control select','id'=>'typology']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -38,7 +38,7 @@
             <div class="form-group">
                 {!! Form::label('problem_type_id', trans('requests.problem_type'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('problem_type_id',$problemTypes , null, ['class' => 'form-control chosen-select','id'=>'problem_types']) !!}
+                    {!! Form::select('problem_type_id',$problemTypes , null, ['class' => 'form-control select','id'=>'problem_types']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -74,7 +74,7 @@
                     <div class="form-group">
                         {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label']) !!}
                         <div class="input-wrapper">
-                            {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control chosen-select', 'style' => 'width: 100%']) !!}
+                            {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select', 'style' => 'width: 100%']) !!}
                         </div>
                     </div><!--.form-group-->
         </div>

@@ -3,6 +3,8 @@
 @section('title', 'Requests - Create')
 
 @section('scripts')
+        $('select').select2();
+        
             var typologiesSelect;
 
             typologiesSelect=$("#typology");
