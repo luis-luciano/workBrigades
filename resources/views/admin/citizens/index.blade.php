@@ -8,8 +8,8 @@
 @stop
 
 @section('scripts')
-
 @stop
+@include('partials.tableScripts')
 
 @section('content')
 <div class="row">
@@ -52,6 +52,7 @@
                                 </tfoot>
 
                                 <tbody>
+                                
                                    
 
                                 </tbody>

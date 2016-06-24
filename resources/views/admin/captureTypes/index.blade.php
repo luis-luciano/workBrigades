@@ -7,9 +7,7 @@
     
 @stop
 
-@section('scripts')
-
-@stop
+@include('partials.tableScripts')
 
 @section('content')
 	<div class="row">
@@ -37,14 +35,14 @@
 								<thead>
 									<tr>
 										<th>Tipo de Captura</th>	
-																			
+										<th>Color</th>									
 									</tr>
 								</thead>
 	
 								<tfoot>
 									<tr>
 										<th>Tipo de Captura</th>
-										
+										<th>Color</th>
 									</tr>
 								</tfoot>
 
@@ -52,7 +50,8 @@
 									@foreach ($captureTypes as $captureType)
 									
 				    					<tr>
-											<td><a href="{{ route('captureTypes.edit', $captureType->id ) }}">{{ $captureType->name }}</a></td>										
+											<td><input type="hidden" id="_url" value="{{ action('CaptureTypesController@edit',$captureType)}}">{{ $captureType->name }}</a></td>
+											<td>{{  $captureType->color }}</td>										
 										</tr>
 									
 									@endforeach

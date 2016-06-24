@@ -7,9 +7,8 @@
     
 @stop
 
-@section('scripts')
 
-@stop
+@include('partials.tableScripts')
 
 @section('content')
 	<div class="row">
@@ -33,7 +32,7 @@
 
 	                </div><!--.row-->
 					<div class="overflow-table">
-							<table class="display datatables-basic">
+							<table class="display datatables-basic" id="dataTable">
 								<thead>
 									<tr>
 										<th>Tipo de Acentamiento</th>										
@@ -50,7 +49,8 @@
 									@foreach ($settlements as $settlement)
 									
 				    					<tr>
-											<td><a href="{{ route('colonies.settlement-types.edit', $settlement->id ) }}">{{ $settlement->name }}</a></td>																		
+				    						<td><input type="hidden" id="_url" value="{{ action('SettlementTypesController@edit',$settlement)}}">{{ $settlement->name }}</a></td>
+																											
 										</tr>
 									
 									@endforeach

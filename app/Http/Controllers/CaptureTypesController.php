@@ -37,8 +37,8 @@ class CaptureTypesController extends Controller
      */
     public function store(Request $request)
     {
-        $priority=RequestPriority::create($request->all());
-        return redirect('requestscaptureTypes');
+        $captureType=CaptureType::create($request->all());
+        return redirect('captureTypes');
     }
 
     /**
@@ -60,8 +60,8 @@ class CaptureTypesController extends Controller
      */
     public function edit($id)
     {
-        $priority=RequestPriority::find($id);
-        return view('admin.captureTypes.edit',compact('priority'));
+        $captureType=CaptureType::find($id);
+        return view('admin.captureTypes.edit',compact('captureType'));
     }
 
     /**
@@ -73,9 +73,9 @@ class CaptureTypesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $priority=RequestPriority::find($id);
-        $priority->update($request->all());
-        return redirect('requestscaptureTypes/' . $priority->id .'/edit');
+        $captureType=CaptureType::find($id);
+        $captureType->update($request->all());
+        return redirect('captureTypes/' . $captureType->id .'/edit'); 
     }
 
     /**
@@ -86,8 +86,8 @@ class CaptureTypesController extends Controller
      */
     public function destroy($id)
     {
-        $priority=RequestPriority::find($id);
-        $priority->delete();
-        return redirect('RequestPriority');
+        $captureType=CaptureType::find($id);
+        $captureType->delete();
+        return redirect('captureTypes');
     }
 }

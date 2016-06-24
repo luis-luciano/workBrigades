@@ -4,12 +4,9 @@
 
 @section('styles')
     @parent
-    
 @stop
 
-@section('scripts')
-
-@stop
+@include('partials.tableScripts')
 
 @section('content')
 	<div class="row">
@@ -33,7 +30,7 @@
 
 	                </div><!--.row-->
 					<div class="overflow-table">
-							<table class="display datatables-basic">
+							<table class="display datatables-basic" id="dataTable">
 								<thead>
 									<tr>
 										<th>Estado de Peticion</th>	
@@ -52,8 +49,15 @@
 									@foreach ($states as $state)
 									
 				    					<tr>
-											<td><a href="{{ route('requestsStates.edit', $state->id ) }}">{{ $state->name }}</a></td>
-											<th style="color:{{ $state->colour }}">{{ $state->colour }}</th>																		
+											<td>
+											<input type="hidden" id="_url" value="{{ action('RequestStatesController@edit',$state)}}">{{ $state->name }}</a>
+											</td>
+
+											<td >
+											<button type="button" class="btn btn-default btn-lg" style="background-color:{{ $state->colour }};"></button>
+
+
+											</td>					
 										</tr>
 									
 									@endforeach

@@ -7,9 +7,8 @@
     
 @stop
 
-@section('scripts')
+		@include('partials.tableScripts')
 
-@stop
 
 @section('content')
 	<div class="row">
@@ -32,7 +31,7 @@
 	                    </form>
 	                </div><!--.row-->
 	                <div class="overflow-table">
-							<table class="display datatables-basic">
+							<table class="display datatables-basic" id="dataTable">
 								<thead>
 									<tr>
 										<th>Tipo de Ambito</th>										
@@ -49,7 +48,7 @@
 									@foreach ($scopes as $scope)
 									
 				    					<tr>
-											<td><a href="{{ route('colonies.scopes.edit', $scope->id ) }}">{{ $scope->name }}</a></td>																		
+				    						<td><input type="hidden" id="_url" value="{{ action('ColonyScopesController@edit',$scope)}}">{{ $scope->name }}</a></td>															
 										</tr>
 									
 									@endforeach

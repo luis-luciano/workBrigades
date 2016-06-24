@@ -1,6 +1,6 @@
 @extends('layouts.masterComplete')
 
-@section('title', 'Tipos de Estado')
+@section('title', 'Tipos de Peticion')
 
 @section('styles')
     @parent
@@ -8,19 +8,18 @@
 @stop
 
 @section('scripts')
-@stop
 
-@include('partials.tableScripts')
+@stop
 
 @section('content')
 	<div class="row">
 	    <div class="col-md-12">
 	        <div class="panel">
 	            <div class="panel-heading">
-	                <div class="panel-title"><h4>Prioridades de Peticion</h4></div>
+	                <div class="panel-title"><h4>Tipos de Peticion</h4></div>
 	            </div><!--.panel-heading-->
 	            <div class="panel-body">
-	                <a href="{{ route('requestsPriorities.create') }}">
+	                <a href="{{ route('requestsTypes.create') }}">
 	                    <button type="button" class="btn btn-success btn-ripple">Nuevo</button>
 	                </a>
 
@@ -34,28 +33,27 @@
 
 	                </div><!--.row-->
 					<div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
+							<table class="display datatables-basic">
 								<thead>
 									<tr>
-										<th>Prioridad de Peticion</th>	
-										<th>color</th>									
+										<th>Tipo de Captura</th>	
+										<th>Color</th>									
 									</tr>
 								</thead>
 	
 								<tfoot>
 									<tr>
-										<th>Estado de Peticion</th>
-										<th>color</th>
+										<th>Tipo de Captura</th>
+										<th>Color</th>
 									</tr>
 								</tfoot>
 
 								<tbody>
-									@foreach ($priorities as $priority)
+									@foreach ($requestsTypes as $captureType)
 									
 				    					<tr>
-											<td><input type="hidden" id="_url" value="{{ action('RequestPrioritiesController@edit',$priority)}}">{{ $priority->name }}</a></td>
-
-											<td style="color:{{ $priority->color }}">{{ $priority->color }}</td>																		
+											<td><a href="{{ route('requestsTypes.edit', $captureType->id ) }}">{{ $captureType->name }}</a></td>
+											<th>{{  $captureType->color }}</th>										
 										</tr>
 									
 									@endforeach

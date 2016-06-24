@@ -7,10 +7,7 @@
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
                         {!! Form::label('name', trans('colonies.name'), ['class' => 'control-label']) !!}
                         
-                        @if($errors->has('name'))
-                            <small>{{ $errors->first('name') }}</small>
-                        @endif
-                        
+                                               
                     </div>
                 </div>
             </div><!--.form-group-->

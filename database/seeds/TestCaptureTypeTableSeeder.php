@@ -18,7 +18,5 @@ class TestCaptureTypeTableSeeder extends Seeder
 		CaptureType::create(['name' => 'MOVIL']);
 		CaptureType::create(['name' => 'VENTANILLA']);
 		CaptureType::create(['name' => 'ATENCION PRESENCIAL']);
-
-        
     }
 }
