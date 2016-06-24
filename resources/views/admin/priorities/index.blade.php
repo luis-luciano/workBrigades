@@ -7,9 +7,6 @@
     
 @stop
 
-@section('scripts')
-@stop
-
 @include('partials.tableScripts')
 
 @section('content')
@@ -55,7 +52,10 @@
 				    					<tr>
 											<td><input type="hidden" id="_url" value="{{ action('RequestPrioritiesController@edit',$priority)}}">{{ $priority->name }}</a></td>
 
-											<td style="color:{{ $priority->color }}">{{ $priority->color }}</td>																		
+											<td >
+											<button type="button" class="btn btn-default btn-lg" style="background-color:{{ $priority->color }};"></button>
+											</td>
+																	
 										</tr>
 									
 									@endforeach

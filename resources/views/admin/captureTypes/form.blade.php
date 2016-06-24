@@ -10,8 +10,7 @@
                 </div>
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
-                        {!! Form::text('color', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('color','Color', ['class' => 'control-label']) !!}
+                        {!! Form::text('color', null, ['class' => 'minicolors form-control']) !!}
                         {{-- <input type="color" name="colour" value="{{ $state->colour }}" class="form-control"> --}}
                     </div>
                 </div>

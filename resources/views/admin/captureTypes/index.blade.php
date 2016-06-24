@@ -4,7 +4,6 @@
 
 @section('styles')
     @parent
-    
 @stop
 
 @include('partials.tableScripts')
@@ -31,7 +30,7 @@
 
 	                </div><!--.row-->
 					<div class="overflow-table">
-							<table class="display datatables-basic">
+							<table class="display datatables-basic" id="dataTable">
 								<thead>
 									<tr>
 										<th>Tipo de Captura</th>	
@@ -51,7 +50,12 @@
 									
 				    					<tr>
 											<td><input type="hidden" id="_url" value="{{ action('CaptureTypesController@edit',$captureType)}}">{{ $captureType->name }}</a></td>
-											<td>{{  $captureType->color }}</td>										
+
+
+											<td >
+											<button type="button" class="btn btn-default btn-lg" style="background-color:{{ $captureType->color }};"></button>
+											</td>
+																				
 										</tr>
 									
 									@endforeach

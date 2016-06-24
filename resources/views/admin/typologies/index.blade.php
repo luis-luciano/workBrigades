@@ -7,9 +7,7 @@
     
 @stop
 
-@section('scripts')
-
-@stop
+@include('partials.tableScripts')
 
 @section('content')
 	<div class="row">
@@ -33,7 +31,7 @@
 
 	                </div><!--.row-->
 					<div class="overflow-table">
-							<table class="display datatables-basic">
+							<table class="display datatables-basic" id="dataTable">
 								<thead>
 									<tr>
 										<th>Tipologia</th>	
@@ -52,7 +50,7 @@
 									@foreach ($typologies as $typology)
 									
 				    					<tr>
-											<td><a href="{{ route('typologies.edit', $typology->id ) }}">{{ $typology->name }}</a></td>										
+											<td><input type="hidden" id="_url" value="{{ action('TypologiesController@edit',$typology)}}">{{ $typology->name }}</a></td>										
 										</tr>
 									
 									@endforeach
