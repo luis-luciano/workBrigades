@@ -44,8 +44,9 @@ class RequestsController extends Controller
         $typologies=Typology::lists('name','id');
         $problemTypes=ProblemType::lists('name', 'id');
         $colonies=Colony::lists('name','id');
+        $brigades=Brigade::lists('name', 'id');
         $prueba=Typology::with('problemTypes','supervisions')->get(['id','name'])->toJson();
-        return view('admin.requests.create', compact('priorities','typologies','problemTypes','prueba','colonies'));
+        return view('admin.requests.create', compact('priorities','typologies','problemTypes','prueba','colonies','brigades'));
     }
 
     /**
