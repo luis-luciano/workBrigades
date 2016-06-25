@@ -21,6 +21,7 @@
 								<li><a href="{{ route('colonies.index') }}"><i class="fa fa-puzzle-piece"> </i> Gestionar</a></li>
 								<li><a href="{{ route('colonies.scopes.index') }}"><i class="fa fa-crosshairs"></i> Ambito</a></li>
 								<li><a href="{{ route('colonies.settlement-types.index') }}"><i class="fa fa-building"></i> Tipo de Asentamiento</a></li>
+								<li><a href="{{ route('sectors.index') }}"><i class="fa fa-building"></i> Sectores</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -32,8 +33,19 @@
 								<li><a href="{{ route('requestsPriorities.index') }}">Prioridades</a></li>
 								<li><a href="{{ route('typologies.index') }}">Tipologías</a></li>
 								<li><a href="{{ route('captureTypes.index') }}">Tipo de captura</a></li>
-								<li><a href="">Tipo de petición</a></li>
+								<li><a href="{{ route('problemTypes.index') }}">Tipo de Problema</a></li>
+								<li><a href="{{ route('brigades.index') }}">Brigadas</a></li>
 							</ul>
+						</li>
+					</ul>
+					<ul class="child-menu">
+						<li>
+						<a href="{{ route('supervisions.index') }}"><i class="fa fa-file"></i> Superviciones</a>
+						</li>
+					</ul>
+					<ul class="child-menu">
+						<li>
+						<a href="{{ route('roles.index') }}"><i class="fa fa-file"></i> Roles</a>
 						</li>
 					</ul>
 				</li>

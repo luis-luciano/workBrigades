@@ -19,11 +19,11 @@ class ColoniesController extends Controller
     public function index()
     {
         $colonies=Colony::all();
-        $scopes=ColonyScope::all('id','name');
-        $settlements=SettlementType::all('id','name');
+        //$scopes=ColonyScope::all('id','name');
+       // $settlements=SettlementType::all('id','name');
        //return $settlementType;
        //dd($colonies);
-        return  view('admin.colonies.index',compact('colonies','scopes','settlements'));
+        return  view('admin.colonies.index',compact('colonies'));
     }
 
     /**

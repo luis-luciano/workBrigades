@@ -12,7 +12,7 @@ class Typology extends Model
 
     public function problemTypes() {
     	
-		return $this->hasMany('App\ProblemType');
+		return $this->hasMany(ProblemType::class);
 	}
 
 	public function supervisions(){

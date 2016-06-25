@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Supervision;
+use Illuminate\Http\Request;
 
 class SupervisionsController extends Controller
 {
@@ -15,7 +15,8 @@ class SupervisionsController extends Controller
      */
     public function index()
     {
-        //
+        $supervisions=Supervision::all();
+        return view('admin.supervisions.index', compact('supervisions'));
     }
 
     /**
@@ -25,7 +26,7 @@ class SupervisionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.supervisions.create');
     }
 
     /**
@@ -36,7 +37,14 @@ class SupervisionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $supervision = new Supervision;
+            $supervision->name = $request->name;
+            $supervision->phone = $request->phone;
+            $supervision->extension = $request->extension;
+            $supervision->user_id= 1;
+            $supervision->supervisions_id=1;
+            $supervision->save();
+        return redirect('supervisions');
     }
 
     /**
@@ -57,8 +65,9 @@ class SupervisionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $supervision=Supervision::find($id);
+        return view('admin.supervisions.edit',compact('supervision'));
     }
 
     /**
@@ -70,7 +79,9 @@ class SupervisionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $supervision=Supervision::find($id);
+        $supervision->update($request->all());
+        return redirect('supervisions/' . $supervision->id .'/edit'); 
     }
 
     /**
@@ -81,6 +92,8 @@ class SupervisionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $supervision=Supervision::find($id);
+        $supervision->delete();
+        return redirect('supervisions');
     }
 }

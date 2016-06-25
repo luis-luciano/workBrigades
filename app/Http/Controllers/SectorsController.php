@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Sector;
+use Illuminate\Http\Request;
 
 class SectorsController extends Controller
 {
@@ -15,7 +15,8 @@ class SectorsController extends Controller
      */
     public function index()
     {
-        //
+        $sectors=Sector::all();
+        return view('admin.sectors.index', compact('sectors'));
     }
 
     /**
@@ -25,7 +26,7 @@ class SectorsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sectors.create');
     }
 
     /**
@@ -36,7 +37,8 @@ class SectorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sector=Sector::create($request->all());
+        return redirect('sectors');
     }
 
     /**
@@ -57,8 +59,9 @@ class SectorsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $sector=Sector::find($id);
+        return view('admin.sectors.edit',compact('sector'));
     }
 
     /**
@@ -70,7 +73,9 @@ class SectorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sector=Sector::find($id);
+        $sector->update($request->all());
+        return redirect('sectors/' . $sector->id .'/edit'); 
     }
 
     /**
@@ -81,6 +86,8 @@ class SectorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sector=Sector::find($id);
+        $sector->delete();
+        return redirect('sectors');
     }
 }

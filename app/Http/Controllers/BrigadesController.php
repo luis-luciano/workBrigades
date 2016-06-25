@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Brigade;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class BrigadesController extends Controller
 {
@@ -15,7 +15,8 @@ class BrigadesController extends Controller
      */
     public function index()
     {
-        //
+        $brigades=Brigade::all();
+        return view('admin.brigades.index', compact('brigades'));
     }
 
     /**
@@ -25,7 +26,7 @@ class BrigadesController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.brigades.create');
     }
 
     /**
@@ -36,7 +37,8 @@ class BrigadesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $brigade=Brigade::create($request->all());
+        return redirect()->route('brigades.index');
     }
 
     /**
@@ -58,8 +60,10 @@ class BrigadesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brigade=Brigade::find($id);
+        return view('admin.brigades.edit', compact('brigade'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +74,9 @@ class BrigadesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $brigade=Brigade::find($id);
+        $brigade->update($request->all());
+        return redirect('brigades/' . $brigade->id .'/edit');
     }
 
     /**
@@ -81,6 +87,9 @@ class BrigadesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brigade=Brigade::find($id);
+        $brigade->delete();
+
+        return redirect('brigades');
     }
 }

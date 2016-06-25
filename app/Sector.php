@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sector extends Model {
 
+	protected $fillable=['number'];
+
 	public function requests() {
 		return $this->hasMany(Petition::class);
 	}
