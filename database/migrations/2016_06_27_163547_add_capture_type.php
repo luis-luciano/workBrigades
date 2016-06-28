@@ -27,7 +27,7 @@ class AddCaptureType extends Migration
     {
         Schema::table('requests', function (Blueprint $table) {
            $table->dropForeign('requests_capture_type_id_foreign');
-
+           $table->dropIndex('requests_capture_type_id_index');
            $table->dropColumn('capture_type_id');
         });
     }
