@@ -13,14 +13,13 @@ class TestBrigadesTableSeeder extends Seeder
     public function run()
     {
         
-    	Brigade::create(['name' => 'Brigada de Bacheo' , 'description' => 'Indefinido']);
-    	Brigade::create(['name' => 'Brigada de Cultura del Agua' , 'description' => 'Indefinido']);
-    	Brigade::create(['name' => 'Area Comercial' , 'description' => 'Indefinido']);
-    	Brigade::create(['name' => 'Brigada Unica' , 'description' => 'Indefinido']);
-    	Brigade::create(['name' => 'Brigada de Respuesta Rapida' , 'description' => 'Indefinido']);
-    	Brigade::create(['name' => 'Contacto de la Brigada 50' , 'description' => 'Indefinido']);
-    	Brigade::create(['name' => 'Contacto de la Brigada 97' , 'description' => 'Indefinido']);
-    	Brigade::create(['name' => 'Contacto de la Brigada 146' , 'description' => 'Indefinido']);
-    	Brigade::create(['name' => 'Contacto de la Brigada 143' , 'description' => 'Indefinido']);
+    	Brigade::create(['name' => 'Brigada 164' , 'description' => 'Brigada de Bacheo']);
+    	Brigade::create(['name' => 'Brigada 20' , 'description' => 'Brigada Universal']);
+    	Brigade::create(['name' => 'Brigada 50' , 'description' => 'Brigada de Agua']);
+    	Brigade::create(['name' => 'Brigada 97' , 'description' => 'Brigada de Agua']);
+    	Brigade::create(['name' => 'Brigada 140' , 'description' => 'Brigada de Agua']);
+    	Brigade::create(['name' => 'Brigada 143' , 'description' => 'Brigada de Agua']);
+        Brigade::create(['name' => 'Brigada 96' , 'description' => 'Brigada de Drenaje']);
+        Brigade::create(['name' => 'Brigada 39' , 'description' => 'Brigada de Drenaje']);
     }
 }

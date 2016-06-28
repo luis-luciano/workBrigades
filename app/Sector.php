@@ -15,7 +15,7 @@ class Sector extends Model {
 	}
 
 	public function brigades(){
-		return $this->belongsToMany('App\Brigade');
+		return $this->belongsToMany('App\Brigade')->withTimestamps();
 	}
 
 	public function colonies(){

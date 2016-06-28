@@ -106,7 +106,7 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::textarea('street', null, ['class' => 'form-control', 'rows' => '2']) !!}
-                        {!! Form::label('street', trans('requests.street'), ['class' => 'control-label']) !!}
+                        {!! Form::label('street', trans('requests.between_streets'), ['class' => 'control-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -118,7 +118,7 @@
 
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('colony_id', 'Sector', ['class' => 'control-label']) !!}
+                {!! Form::label('colony_id', trans('requests.sector'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
                     {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select', 'style' => 'width: 100%']) !!}
                 </div>
@@ -127,7 +127,7 @@
 
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('colony_id', 'Brigada', ['class' => 'control-label']) !!}
+                {!! Form::label('colony_id', trans('requests.brigade'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
                     {!! Form::select('colony_id', $brigades, null, ['class' => 'form-control select', 'style' => 'width: 100%']) !!}
                 </div>
@@ -139,7 +139,7 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::textarea('street', null, ['class' => 'form-control', 'rows' => '2']) !!}
-                        {!! Form::label('street', 'Referencia', ['class' => 'control-label']) !!}
+                        {!! Form::label('street', trans('requests.reference'), ['class' => 'control-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->

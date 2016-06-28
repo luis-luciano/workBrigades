@@ -12,15 +12,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(TestSectorSeeder::class);
-        $this->call(TestColonyScopesTableSeeder::class);
-        $this->call(TestCaptureTypeTableSeeder::class);
-        $this->call(TestSettlementTypesTableSeeder::class);
-        $this->call(TestColonyTableSeeder::class);
-        $this->call(UserTableSeeder::class);
-        $this->call(TestSupervisionTableSeeder::class);
-        $this->call(TestTypologyTableSeeder::class);
-        $this->call(TestProblemTypeTableSeeder::class);
         $this->call(TestBrigadesTableSeeder::class);
-        $this->call(RequestPrioritiesTableSeeder::class);
+        $this->call(CaptureTypeTableSeeder::class);
+        $this->call(RequestStateTableSeeder::class);
+        $this->call(SectorBrigadeTableSeeder::class);
+        //$this->call(TestColonyScopesTableSeeder::class); 
+        //$this->call(TestSettlementTypesTableSeeder::class);
+        //$this->call(TestColonyTableSeeder::class);
+        //$this->call(UserTableSeeder::class);
+        //$this->call(TestSupervisionTableSeeder::class);
+        //$this->call(TestTypologyTableSeeder::class);
+        //$this->call(TestProblemTypeTableSeeder::class);
     }
 }

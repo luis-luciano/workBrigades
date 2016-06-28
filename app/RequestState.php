@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RequestState extends Model {
 	
-	protected $fillable = ['name','colour'];
+	protected $fillable = ['name','label','colour'];
 
 	public function requests() {
 		return $this->hasMany(Petition::class);
