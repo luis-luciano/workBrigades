@@ -17,12 +17,12 @@ class Colony extends Model {
 		return $this->hasMany(Petition::class);
 	}
 
-	public function settlementTypes() {
+	public function settlementType() {
 
 		return $this->belongsTo('App\SettlementType','settlement_type_id');
 	}
 
-	public function colonyScopes() {
+	public function colonyScope() {
 
 		return $this->belongsTo('App\ColonyScope','colony_scope_id');
 	}

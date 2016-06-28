@@ -62,6 +62,11 @@ return [
             'bucket' => 'your-bucket',
         ],
 
+        'seeds' => [
+            'driver' => 'local',
+            'root' => database_path('seeds'),
+        ],
+
     ],
 
 ];
