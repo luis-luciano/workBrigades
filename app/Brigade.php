@@ -19,4 +19,8 @@ class Brigade extends Model {
 		
 		return $this->belongsToMany(Sector::class);
 	}
+
+	public function typologies(){
+		return $this->belongsToMany('App\Typology');
+	}
 }

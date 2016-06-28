@@ -23,7 +23,7 @@ class CreateSupervisionTypologyTable extends Migration
         });
 
         Schema::create('request_supervision', function (Blueprint $table) {
-                $table->integer('request_id')->unsigned();
+                $table->bigInteger('request_id')->unsigned();
                 $table->integer('supervision_id')->unsigned();
 
                 $table->foreign('request_id')->references('id')->on('requests');

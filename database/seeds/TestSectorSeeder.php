@@ -14,10 +14,10 @@ class TestSectorSeeder extends Seeder
 	{
         DB::table('sectors')->delete();
 
-		Sector::create(['number' => '001']);
-		Sector::create(['number' => '002']);
-		Sector::create(['number' => '003']);
-		Sector::create(['number' => '004']);
+		Sector::create(['number' => 1]);
+		Sector::create(['number' => 2]);
+		Sector::create(['number' => 3]);
+		Sector::create(['number' => 4]);
 		
     }
 }

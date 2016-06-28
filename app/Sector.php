@@ -14,7 +14,11 @@ class Sector extends Model {
 		return $this->hasMany(Petition::class);
 	}
 
-	public function brigades() {
-		return $this->belongsToMany(Brigade::class);
+	public function brigades(){
+		return $this->belongsToMany('App\Brigade');
+	}
+
+	public function colonies(){
+		return $this->hasMany('App\Colony');
 	}
 }

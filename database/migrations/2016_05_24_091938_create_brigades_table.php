@@ -15,7 +15,7 @@ class CreateBrigadesTable extends Migration
         Schema::create('brigades', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 80);
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
         });
     }

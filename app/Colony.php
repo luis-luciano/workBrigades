@@ -32,4 +32,7 @@ class Colony extends Model {
 		return $this->hasMany(PersonalInformation::class);
 	}
 
+	public function sector(){
+		return $this->belongsTo('App\Sector');
+	}
 }

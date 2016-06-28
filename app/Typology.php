@@ -18,4 +18,8 @@ class Typology extends Model
 	public function supervisions(){
 		return $this->belongsToMany(Supervision::class)->withTimestamps();
 	}
+
+	public function brigades(){
+		return $this->belongsToMany('App\Brigade');
+	}
 }

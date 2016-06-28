@@ -19,25 +19,36 @@ class Request extends Model {
 	public function state() {
 		return $this->belongsTo(RequestState::class);
 	}
+
 	public function priority() {
 		return $this->belongsTo(RequestPriority::class);
 	}
+
 	public function sector() {
 		return $this->belongsTo(Sector::class);
 	}
+
 	public function brigade() {
 		return $this->belongsTo(Brigade::class);
 	}
+
 	public function colony() {
 		return $this->belongsTo(Colony::class);
 	}
+
 	public function type() {
 		return $this->belongsTo(ProblemType::class);
 	}
+
 	public function citizen() {
 		return $this->belongsTo(Citizen::class);
 	}
+
 	public function users() {
 		return $this->belongsToMany(User::class);
+	}
+	
+	public function capture_type(){
+		return $this->belongsTo('App\CaptureType');
 	}
 }

@@ -13,7 +13,7 @@ class CreateRequestRejectionsTable extends Migration
     public function up()
     {
         Schema::create('request_rejections', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('justification');
             $table->timestamps();
         });

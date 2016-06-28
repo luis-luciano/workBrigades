@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration
         
         
         Schema::create('knows', function (Blueprint $table) {
-            $table->integer('request_id')->unsigned();
+            $table->bigInteger('request_id')->unsigned();
             $table->integer('user_id')->unsigned();
 
             $table->foreign('request_id')->references('id')->on('requests');

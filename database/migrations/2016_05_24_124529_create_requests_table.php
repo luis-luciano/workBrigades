@@ -12,36 +12,41 @@ class CreateRequestsTable extends Migration
      */
     public function up() {
         Schema::create('requests', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('subject');
-                $table->date('start_date');
-                $table->date('finish_date');
+            $table->bigIncrements('id');
+            $table->text('subject');
+            $table->date('start_date')->nullable();
+            $table->date('finish_date')->nullable();
             
-            $table->string('avenue', 45);
-            $table->string('between_streets');
-            $table->string('reference');
+            $table->string('street', 80);
+            $table->string('number',10)->nullable();
+            $table->text('between_streets');
+            $table->text('reference');
+
+            $table->integer('colony_id')->unsigned()->index();
+            $table->foreign('colony_id')->references('id')->on('colonies');
 
             $table->bigInteger('concerned_id')->unsigned()->index(); // morph
             $table->string('concerned_type')->index(); // morph
+
             $table->bigInteger('creator_id')->unsigned()->index(); // morph
             $table->string('creator_type')->index(); // morph
 
-            $table->integer('colony_id')->unsigned();
-            $table->foreign('colony_id')->references('id')->on('colonies');
+            // $table->integer('capture_type_id')->unsigned()->index();
+            // $table->foreign('capture_type_id')->references('id')->on('capture_types');
 
-            $table->integer('state_id')->unsigned();
-            $table->foreign('state_id')->references('id')->on('request_states');
-
-            $table->integer('brigade_id')->unsigned();
-            $table->foreign('brigade_id')->references('id')->on('brigades');
-
-            $table->integer('request_priority_id')->unsigned();
+            $table->integer('request_priority_id')->unsigned()->index();
             $table->foreign('request_priority_id')->references('id')->on('request_priorities');
 
-            $table->integer('sector_id')->unsigned();
-            $table->foreign('sector_id')->references('id')->on('sectors');
+            $table->integer('request_state_id')->unsigned()->index();
+            $table->foreign('request_state_id')->references('id')->on('request_states');
 
-            $table->integer('problem_type_id')->unsigned();
+            $table->bigInteger('request_rejection_id')->unsigned()->nullable()->index();
+            $table->foreign('request_rejection_id')->references('id')->on('request_rejections');
+            
+            $table->integer('brigade_id')->unsigned()->index();
+            $table->foreign('brigade_id')->references('id')->on('brigades');
+
+            $table->integer('problem_type_id')->unsigned()->index();
             $table->foreign('problem_type_id')->references('id')->on('problem_types');
 
             $table->timestamps();

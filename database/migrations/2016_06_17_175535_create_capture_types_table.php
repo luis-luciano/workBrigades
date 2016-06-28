@@ -14,8 +14,8 @@ class CreateCaptureTypesTable extends Migration
     {
         Schema::create('capture_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('color');
+            $table->string('name',50);
+            $table->string('color',7);
             $table->timestamps();
         });
     }
