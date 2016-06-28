@@ -1,0 +1,1710 @@
+[
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "INDEFINIDO" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "PRADERAS DE SAN MIGUELITO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "ALAMEDA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "ALAMOS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "ALFA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "ANA PAULA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "BELLA VISTA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "BRILLANTE" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "DIPA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "EL CIPRES" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "EL HUERTO" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "EL MILAGRO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "ELIZABETH" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "GUADALUPE" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "INFONAVIT SAN NICOLAS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "JARDINES DE LA ALAMEDA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "JARDINES DE SAN DIMAS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "JARDINES DEL SUR" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "LOMAS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "LOMAS DE LOS ANGELES" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "LOMAS VERDES" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "LOS CAFETALES" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "LOS CEDROS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "LOS NARDOS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "LOS OLIVOS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "NUEVO CORDOBA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "NUEVO SAN JOSE" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "NVA. ELIZABETH" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "SAN JOSE" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "SAN LUIS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "SAN NICOLAS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "SANTA CLARA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "SANTA MONICA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "VILLA REAL" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "VILLA VERDE" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "VILLAS DE LA LUZ" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "VILLAS PARAISO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "VIRGINIA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "EL CAÑAVERAL" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "SAN JOSE 1" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "VILLAS DE HUILANGO" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "LOS FRESNOS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "VILLA LOS FRESNOS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "CLUB CAMPESTRE" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "SHELL" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "ORQUIDIA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "LOS ANGELES" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "FINCA REAL" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "DEL ANGEL" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "SAN ANGEL" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "LOS TULIPANES" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "ANTURIOS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "VILLAS DE SAN ISIDRO" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "PRADERAS DE SAN MIGUELITO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "EL DIAMANTE" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 06 , 
+		"name": "ARCADIA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 10 , 
+		"name": "20 DE NOVIEMBRE" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 10 , 
+		"name": "CUAUHTEMOC" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 10 , 
+		"name": "GUADALUPE BARREAL" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 10 , 
+		"name": "SAN JOSE DE TAPIA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 10 , 
+		"name": "SAN RAFAEL CALERIA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "AGUA FRIA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "AGUILLON GUZMAN" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "AGUSTIN MILLAN" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ALIANZA POPULAR" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "AMPLIACIÓN 20 DE NOVIEMBRE" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "AMPLIACIÓN ZACATEPEC" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ANTONIO LUNA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ANTORCHA SEC.  B y C " ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ANTORCHA SEC. A ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ARAUCARIAS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ARRALLANES" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "BARRIO DE LAS CONCHITAS  " ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "BARRIO DE SAN MIGUEL" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "BARRIO DE SAN PEDRO" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "BENITO JUAREZ" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "BRILLANTE CRUCERO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "CANDIDO AGUILAR" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "CARACAS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "CARRILES" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "CENTRO" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "COLORINES" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "DANTE DELGADO (30 CABALLEROS)" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "DE LOS MAESTROS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "DIVINA MORALES DE GTZ. BARRIOS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "DOS CAMINOS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL CARMEN" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL GIRASOL" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL MIRADOR" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL MIRADOR" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL PALOMAR" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL PUEBLITO (CRUCERO NACIONAL)" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL REFUGIO" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL SOL" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ELECTRICISTAS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EMILIO CARRANZA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ENRIQUE RAMOS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ESPERANZA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "FEDERAL" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "FLORES MAGON" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "FRATERNIDAD" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "FREDEPO" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "FUNDADORES 30 CABALLEROS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "GOMEZ MORIN" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "HUILANGO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "INDECO TOXPAN" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "INDEPENDENCIA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "JOSE MARIA MORELOS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LA ESMERALDA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LA ESTACION" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LA LUZ FRANCISCO I. MADERO" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LA NUEVA" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LA POSTA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LA SIDRA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LAS AZUCENAS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LAS BUGAMBILIAS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LAS FLORES" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LAZARO CARDENAS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LOMBARDO TOLEDANO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LOPEZ ARIAS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LOS ALAMOS 1 y 2" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LOS FILTROS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LOS MANGOS" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LOS ROBLES-RESERVA TERRITORIAL" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "MARQUEZ HOYOS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "MEXICO" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "MIGUEL ALEMAN" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "MIGUEL HIDALGO" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "MIRAFLORES 1 y 2" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "MODERNA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "MURILLO VIDAL" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "NUEVA ESPERANZA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "NUEVO TOXPAN" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PABLO L SIDAR" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PARAISO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PARDO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PASO COYOL" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PENJAMO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PETROLERA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PINO SUAREZ" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "POPULAR EL TREBOL" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "POPULAR LA POSTA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PRAXEDIS GUERRERO" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PUEBLO QUIETO" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PUENTE BEJUCO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "RANCHO ARCADIA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "RANCHO LA ESMERALDA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "RANCHO MIRANDA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "RANCHO MORALES" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "RODRIGUEZ CLARA" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SAN CAYETANO" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SAN CRISTOBAL" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SAN DIMAS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SAN FCO. TOXPAN" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SAN IGNACIO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SAN MARTIN" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SAN MATIAS" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SAN MIGUELITO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SANTA AURELIA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SANTA CRUZ BUENAVISTA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SANTA FE" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SANTA ROSALIA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "STA. CECILIA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "TOXPAN" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "TRANCA DE TUBOS O ZACATEPEC" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "URSULO GALVAN" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "VALLE DEL SOL" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "VENUSTIANO CARRANZA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ZACATEPEC AEROPISTA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ZONA INDUSTRIAL" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "ACCION Y SERVICIO" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LAS AZUCENAS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "PARAISO ESCONDIDO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "CENTRO 1" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "VENUSTIANO CARRANZA 1" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "TOXPAN 1" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "MEXICO 1" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "CENTRO" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "FRATERNIDAD ARBOLEDAS" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SANTA LETICIA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LA JOYITA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LA UNION" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "VILLA LOS FRESNOS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "RANCHO LA SOLEDAD" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL PEDREGAL" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "DOS ARROYOS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL BARREAL" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LAS MARGARITAS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "EL JAZMIN (ANTORCHISTA)" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "TRES ARROYOS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "CORDOBESES ILUSTRES" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LAS BRISAS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LOS LIRIOS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "BETANIA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "CENTRAL CAMIONERA" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SANTA TERESITA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LOS CEDROS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "SANTA MATILDE" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "DE LOS DEPORTES" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LA FORTALEZA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LOMAS DEL PEDREGAL" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "LA PALMA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "GUERRERO" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 02 , 
+		"name": "MARGARITA MORAN" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "ARBOLEDAS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "CECADYS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "CORDOBA 2000" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "EL DORADO" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "EL HUERTO" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "EL TREBOL" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "EL ZOPILOTE" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "ERASTO PORTILLA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "HUILANGO 3000" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "LA POSTA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "LAS CAÑAS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "LAS FUENTES" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "LOMA LINDA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "LOS ARCOS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "LOS CEREZOS" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "LOS ROBLES" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "RINCON DEL BOSQUE" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "SAN ROMAN" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "SANTA MARGARITA" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "VILLA LAS FLORES" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "VISTA HERMOSA" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 11 , 
+		"name": "CAMPESTRE" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 11 , 
+		"name": "CIRCUITO CAMPESTRE CORDOBES" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 11 , 
+		"name": "EL PARAISO" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 11 , 
+		"name": "LA TRINIDAD CHICA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 11 , 
+		"name": "LAS PALMAS" ,
+		"sector": 04, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 11 , 
+		"name": "SHANGRI-LA" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 11 , 
+		"name": "TRINIDAD CHICA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 11 , 
+		"name": "FUENTES DEL CAMPESTRE" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 13 , 
+		"name": "PALENQUE PALOTAL" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 13 , 
+		"name": "AGRICOLA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 13 , 
+		"name": "SANTA ELENA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 13 , 
+		"name": "TECAMA CALERIA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 13 , 
+		"name": "LA LUZ PALOTAL" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 13 , 
+		"name": "LA REFORMA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 12 , 
+		"name": "AGUSTIN MILLAN" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 09 , 
+		"name": "JARDIN" ,
+		"sector": 03, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 10 , 
+		"name": "SABANA LARGA" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 15 , 
+		"name": "CORDOBA-FORTIN" ,
+		"sector": 02, 
+		"colony_scope_id": 1 
+	},
+	{ 
+		"zip": "94500" , 
+		"settlement_type_id": 14 , 
+		"name": "SAN NICOLAS" ,
+		"sector": 01, 
+		"colony_scope_id": 1 
+	},
+]
