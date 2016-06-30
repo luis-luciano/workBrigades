@@ -15,13 +15,15 @@ class DatabaseSeeder extends Seeder
         $this->call(TestBrigadesTableSeeder::class);
         $this->call(CaptureTypeTableSeeder::class);
         $this->call(RequestStateTableSeeder::class);
+        $this->call(RequestPrioritiesTableSeeder::class);
         $this->call(SectorBrigadeTableSeeder::class);
         $this->call(TestColonyScopesTableSeeder::class); 
         $this->call(TestSettlementTypesTableSeeder::class);
         $this->call(TestColonyTableSeeder::class);
-        //$this->call(UserTableSeeder::class);
-        //$this->call(TestSupervisionTableSeeder::class);
-        //$this->call(TestTypologyTableSeeder::class);
-        //$this->call(TestProblemTypeTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(TestSupervisionTableSeeder::class);
+        $this->call(TestTypologyTableSeeder::class);
+        $this->call(TestProblemTypeTableSeeder::class);
+        $this->call(TypologyBrigadeTableSeeder::class);
     }
 }

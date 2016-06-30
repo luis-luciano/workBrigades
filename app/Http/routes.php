@@ -15,6 +15,7 @@ Route::resource('notifications', 'NotificationsController');
 Route::resource('permissions', 'PermissionsController');
 Route::resource('personalInformations', 'PersonalInformationsController');
 Route::resource('problemTypes', 'ProblemTypesController');
+Route::get('request/sector-brigade', ['as' => 'request.sector-brigade', 'uses' => 'RequestsController@findSectorBrigade']);
 Route::resource('requests', 'RequestsController');
 Route::resource('requestsPriorities', 'RequestPrioritiesController');
 Route::resource('requestRejections', 'RequestRejectionsController');

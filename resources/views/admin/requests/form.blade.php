@@ -12,6 +12,12 @@
                         </div>
                     </div><!--.form-group-->
                 </div>
+                <div class="col-md-3">
+                    <br>
+                    <div class="form-group text-center">
+                       <a class="btn btn-floating btn-light-blue" data-toggle="modal" data-target="#searchCreateCitizenModal"><i class="ion-android-add"></i></a>
+                    </div><!--.form-group-->
+                </div>
                 
             </div>
         </div>
@@ -75,7 +81,7 @@
             <div class="form-group">
                 {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select', 'style' => 'width: 100%']) !!}
+                    {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control', 'style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -118,18 +124,20 @@
 
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('colony_id', trans('requests.sector'), ['class' => 'control-label']) !!}
-                <div class="input-wrapper">
-                    {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select', 'style' => 'width: 100%']) !!}
+                {!! Form::label('supervisions', trans('requests.sector'), ['class' => 'control-label']) !!}
+                <div class="inputer">
+                    <div class="input-wrapper">
+                        {!! Form::textarea('supervisions', null, ['class' => 'form-control', 'rows'=>'1','disabled','id'=>'sector']) !!}
+                    </div>
                 </div>
             </div><!--.form-group-->
         </div>
 
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('colony_id', trans('requests.brigade'), ['class' => 'control-label']) !!}
+                {!! Form::label('brigades', trans('requests.brigade'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('colony_id', $brigades, null, ['class' => 'form-control select', 'style' => 'width: 100%']) !!}
+                    {!! Form::select('brigades', $brigades, null, ['class' => 'form-control', 'id'=>'brigade','style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>

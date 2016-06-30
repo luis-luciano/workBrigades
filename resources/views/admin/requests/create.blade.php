@@ -2,8 +2,20 @@
 
 @section('title', 'Requests - Create')
 
+@section('styles')
+    
+@stop
+
 @section('scripts')
-        $('select').select2();
+    
+        showColoniesAndSector($('#colony_id').val(),$('#typology').val());
+
+        $('#colony_id').change(function(){
+            showColoniesAndSector($(this).val(),$('#typology').val());
+        });
+        
+
+       $('#colony_id').select2();
         
             var typologiesSelect;
 
@@ -39,10 +51,29 @@
                 html+="<option value="+problemTypes[id]+" >"+problemTypes[problem]+"</option>\n";
             };
             
-            
+            showColoniesAndSector($('#colony_id').val(),$('#typology').val());
             $('#problem_types').html(html);
             
             $('#supervisions').val(supervisions.join(',  '));
+        }
+
+        function showColoniesAndSector(idColony,idTypology){
+            $.ajax({
+                url:"{{ route('request.sector-brigade') }}",
+                data: { 
+                        colony: idColony,
+                        typology: idTypology 
+                      },
+                dataType : 'json',
+                success: function(data){ 
+                                            $('#sector').text(data.sector);
+                                            $('#brigade').html(data.brigades);
+                                        },
+                error: function(xhr,status){
+                    alert("Error de comunicacion"+status+" con el servidor!!");
+                },
+                type:'GET'
+            });
         }
 
 @stop
@@ -70,11 +101,13 @@
         'title' => 'Agregar Colonia',
         'view' => 'admin.partials.modals.createColony'
     ])
+--}}
     @include('partials.modals.layouts.closeModal', [
         'id' => 'searchCreateCitizenModal',
         'title' => 'Buscar o Agregar Ciudadano',
         'view' => 'admin.partials.modals.searchCreateCitizen'
     ])
+{{--
     @include('partials.modals.layouts.closeModal', [
         'id' => 'editCitizenModal',
         'title' => 'Editar Ciudadano',

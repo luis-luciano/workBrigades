@@ -23,4 +23,8 @@ class Brigade extends Model {
 	public function typologies(){
 		return $this->belongsToMany('App\Typology');
 	}
+
+	public function defaultSector(){
+		return $this->belongsTo('App\Sector');
+	}
 }

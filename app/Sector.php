@@ -21,4 +21,8 @@ class Sector extends Model {
 	public function colonies(){
 		return $this->hasMany('App\Colony');
 	}
+
+	public function defaultBrigades(){
+		return $this->hasMany('App\Brigade');
+	}
 }

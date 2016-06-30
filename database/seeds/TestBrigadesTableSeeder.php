@@ -1,6 +1,7 @@
 <?php
 
 use App\Brigade;
+use App\Sector;
 use Illuminate\Database\Seeder;
 
 class TestBrigadesTableSeeder extends Seeder

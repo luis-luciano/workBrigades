@@ -12,6 +12,7 @@ use App\Supervision;
 use App\Typology;
 use App\RequestPriority;
 use Carbon\Carbon;
+use App\Sector;
 use Illuminate\Http\Request;
 
 class RequestsController extends Controller
@@ -38,6 +39,7 @@ class RequestsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function create()
     {
         $priorities=RequestPriority::lists('name','id');
@@ -46,7 +48,8 @@ class RequestsController extends Controller
         $colonies=Colony::lists('name','id');
         $brigades=Brigade::lists('name', 'id');
         $prueba=Typology::with('problemTypes','supervisions')->get(['id','name'])->toJson();
-        return view('admin.requests.create', compact('priorities','typologies','problemTypes','prueba','colonies','brigades'));
+        $sectors=Sector::lists('number', 'id');
+        return view('admin.requests.create', compact('priorities','typologies','problemTypes','prueba','colonies','brigades','sectors'));
     }
 
     /**
@@ -103,5 +106,34 @@ class RequestsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function findSectorBrigade(Request $request){
+
+        if(!$request->ajax()){
+            abort(403);
+        }
+        
+        $colony=Colony::findOrFail($request->get('colony'));
+        $sectorNumber=$colony->sector->number;
+        $sector=$colony->sector;
+        $brigades=$sector->brigades()
+                         ->join('brigade_typology','brigades.id','=','brigade_typology.brigade_id')
+                         ->join('typologies','typologies.id','=','brigade_typology.typology_id')
+                         //->where('brigade_sector.is_default_brigade','=',true)
+                         ->where('typologies.id','=',$request->get('typology'))
+                         ->orderBy('brigade_sector.is_default_brigade','desc')
+                         ->lists('brigades.name','brigades.id');
+
+        $html="";
+        foreach ($brigades as $key => $value) {
+            $html.="<option value=".$key." > ".$value." </option>\n";
+        }
+
+        $data=[
+                'sector' => $sectorNumber,
+                'brigades' => $html
+            ];
+        return response()->Json($data);
     }
 }
