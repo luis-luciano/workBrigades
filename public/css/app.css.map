@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.scss"],"names":[],"mappings":"AAEA;EACC,WAHO,EAIP","file":"app.css","sourcesContent":["$pc: red;\r\n\r\nbody {\r\n\tcolor: $pc;\r\n}\r\n"],"sourceRoot":"/source/"}

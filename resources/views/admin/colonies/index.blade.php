@@ -45,8 +45,8 @@
 				    					<tr>
 											<td><input type="hidden" id="_url" value="{{ action('ColoniesController@edit',$colony)}}">{{ $colony->name }}</a></td>
 											<td>{{ $colony->zip }}</td>
-											<td>{{ $colony->colonyScopes->name }}</td>
-											<td>{{ $colony->settlementTypes->name }}</td>
+											<td>{{ $colony->colonyScope->name }}</td>
+											<td>{{ $colony->settlementType->name }}</td>
 											
 										</tr>
 									
