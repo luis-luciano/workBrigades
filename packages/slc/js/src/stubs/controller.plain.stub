@@ -1,0 +1,7 @@
+module.exports = (function ($) {
+
+    // return the variables to be public
+    return {
+    };
+    
+})(window.jQuery);

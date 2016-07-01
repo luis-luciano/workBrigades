@@ -12,20 +12,20 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    
 	var tmpJavascript = 'resources/assets/js/tmp/';
 
 	// core scripts
 	mix.scripts([
-	    'plugins/jquery/jquery-2.1.4.min.js', 
-	    'plugins/lodash/lodash.min.js',
-	    'plugins/parsley/i18n/es.js',
-	    'plugins/parsley/parsley.min.js',
+		'plugins/jquery/jquery-2.1.4.min.js',
+		'plugins/lodash/lodash.min.js',
+		'plugins/parsley/i18n/es.js',
+		'plugins/parsley/parsley.min.js',
 	], tmpJavascript + 'core.js', 'resources/assets/');
 
 	// CSS
 	mix.styles([
-	    // template core
+		// css files
+		// template core
 	    './resources/assets/template/admin1/css/admin1.css',
 	    './resources/assets/template/globals/css/elements.css',
 	    // styles
@@ -61,12 +61,14 @@ elixir(function(mix) {
 	    // template plugins
 	    './public/assets/globals/plugins/bxslider/jquery.bxslider.css',
 	    './resources/assets/template/globals/css/plugins.css',
+
 	], 'public/css/style.css');
 
-	// Javascript
+	//Javascript
 	// uncomment if have javascript
 	mix.scripts([
-	    // template plugins
+		// javascript files
+		// template plugins
 	    'plugins/jquery-ui/jquery-ui.min.js',
 	    '../../public/assets/globals/plugins/bootstrap/dist/js/bootstrap.min.js',
 	    'plugins/velocity/velocity.min.js',
@@ -101,20 +103,18 @@ elixir(function(mix) {
 	    // template core
 	    'template/globals/js/pleasure.js',
 	    'template/admin1/js/layout.js',
-	], tmpJavascript + 'vendor.js', 'resources/assets/');
+
+	], tmpJavascript+'vendor.js', 'resources/assets/');
+	
 
 	// Application
-	/*mix.browserify('bootstrap/app.js', tmpJavascript + 'bundle.js');*/
+	mix.browserify('bootstrap/app.js', tmpJavascript + 'bundle.js');
 
 	mix.scripts([
-	    'core.js',
-	    'vendor.js', // uncomment if have javascript
-	   /* 'bundle.js',*/
+		'core.js',
+		'vendor.js', // uncomment if have javascript
+		'bundle.js',
 	], 'public/js/app.js', tmpJavascript);
-
-	// mix.version('js/app.js'); // comment if have javascript and css
-	//mix.version(['js/app.js', 'css/style.css']); // uncomment if have javascript and css
-
 
 	// PUBLIC
 	// CSS
@@ -142,7 +142,6 @@ elixir(function(mix) {
 	    'plugins/parsley/parsley.min.js',
 	], 'public/js/app-open.js', 'resources/assets/');
 
+	//mix.version('js/app.js'); // comment if have javascript and css
 	mix.version(['js/app-open.js', 'css/style-open.css', 'js/app.js', 'css/style.css']); // uncomment if have javascript and css
-
-
 });

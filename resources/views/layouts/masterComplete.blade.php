@@ -18,11 +18,11 @@
 	<meta name="apple-touch-fullscreen" content="yes">
 
 	<!-- BEGIN CORE CSS -->
-		<link rel="stylesheet" type="text/css" href="{{ asset(elixir('css/style-open.css')) }}"> 
+		<link rel="stylesheet" type="text/css" href="{{ asset(elixir('css/style-open.css')) }}">
         <link rel="stylesheet" type="text/css" href="{{ asset(elixir('css/style.css')) }}">
     <!-- END CORE CSS -->
 
-        <!--COLOR SELECTOR -->
+    <!--COLOR SELECTOR -->
 	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/pnikolov-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/minicolors/jquery.minicolors.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') }}">
@@ -82,6 +82,7 @@
 	<script src="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 	<script src="{{ asset('assets/globals/plugins/clockface/js/clockface.js') }}"></script>
 
+	<!--COLOR SELECTOR -->
 	<script src="{{ asset('assets/globals/scripts/forms-pickers.js') }}"></script>
 
 

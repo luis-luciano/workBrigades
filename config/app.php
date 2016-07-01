@@ -148,7 +148,7 @@ return [
 		Illuminate\Validation\ValidationServiceProvider::class,
 		Illuminate\View\ViewServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
-		UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+		/*UxWeb\SweetAlert\SweetAlertServiceProvider::class,*/
 
 		/*
 			         * Application Service Providers...
@@ -206,7 +206,7 @@ return [
 		'View' => Illuminate\Support\Facades\View::class,
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
-		'Alert' => UxWeb\SweetAlert\SweetAlert::class
+		/*'Alert' => UxWeb\SweetAlert\SweetAlert::class*/
 	],
 
 ];
