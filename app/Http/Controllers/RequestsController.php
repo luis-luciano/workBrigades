@@ -45,11 +45,10 @@ class RequestsController extends Controller
         $priorities=RequestPriority::lists('name','id');
         $typologies=Typology::lists('name','id');
         $problemTypes=ProblemType::lists('name', 'id');
-        $colonies=Colony::lists('name','id');
         $brigades=Brigade::lists('name', 'id');
         $prueba=Typology::with('problemTypes','supervisions')->get(['id','name'])->toJson();
         $sectors=Sector::lists('number', 'id');
-        return view('admin.requests.create', compact('priorities','typologies','problemTypes','prueba','colonies','brigades','sectors'));
+        return view('admin.requests.create', compact('priorities','typologies','problemTypes','prueba','brigades','sectors'));
     }
 
     /**

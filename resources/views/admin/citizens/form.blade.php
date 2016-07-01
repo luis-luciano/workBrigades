@@ -34,7 +34,7 @@
             <div class="form-group">
                 {!! Form::label('sex', trans('personalInformations.sex'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('sex', ["f" => 'Femenino', "m" => 'Masculino'], null, ['class' => 'select2 form-control', 'style' => 'width: 100%']) !!}
+                    {!! Form::select('sex', ["f" => 'Femenino', "m" => 'Masculino'], null, ['class' => 'select form-control', 'style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -146,7 +146,7 @@
             <div class="form-group">
                 {!! Form::label('colony_id', trans('personalInformations.colony_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('colony_id', ['centro','Loz'], null, ['class' => 'select2', 'style' => 'width: 100%']) !!}
+                    {!! Form::select('colony_id', $colonies, null, ['class'=>'select','colony_citizen','style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>

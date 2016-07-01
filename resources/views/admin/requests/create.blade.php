@@ -15,7 +15,7 @@
         });
         
 
-       $('#colony_id').select2();
+       $('.select').select2();
         
             var typologiesSelect;
 
@@ -84,7 +84,7 @@
             <div class="panel">
                 <div class="panel-heading">
                     <div class="panel-title">
-                        <h4>Peticiones</h4>
+                        <h4>Petición</h4>
                     </div>
                 </div><!--.panel-heading-->
                <div class="panel-body">
