@@ -11,7 +11,7 @@ class CreateProblemTypesTable extends Migration
      * @return void
      */
     public function up() {
-        Schema::create('problem_types', function (Blueprint $table) {
+        Schema::create('problems', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 80);
 
@@ -28,6 +28,6 @@ class CreateProblemTypesTable extends Migration
      * @return void
      */
     public function down() {
-        Schema::drop('problem_types');
+        Schema::drop('problems');
     }
 }

@@ -35,9 +35,9 @@
 
         <div class="col-md-2">
             <div class="form-group">
-                {!! Form::label('problem_type_id', trans('requests.problem'), ['class' => 'control-label']) !!}
+                {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('problem_type_id',$problemTypes , null, ['class' => 'form-control','id'=>'problem_types']) !!}
+                    {!! Form::select('problem_id',[], null, ['class' => 'form-control','id'=>'problem']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -138,7 +138,7 @@
             <div class="form-group">
                 {!! Form::label('brigades', trans('requests.brigade'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('brigades', $brigades, null, ['class' => 'form-control', 'id'=>'brigade','style' => 'width: 100%']) !!}
+                    {!! Form::select('brigades', [], null, ['class' => 'form-control', 'id'=>'brigade','style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>

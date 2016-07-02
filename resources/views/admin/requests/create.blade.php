@@ -7,40 +7,41 @@
 @stop
 
 @section('scripts')
-    
+
+       $('.select').select2();
+        
+        var typologiesSelect;
+
+        typologiesSelect=$("#typology");
+        var data=({!! $tipologiesRelations !!});
+
+        showTypologyWithProblems(data);
+
+        typologiesSelect.change(function() {
+            showTypologyWithProblems(data);
+        });
+
         showColoniesAndSector($('#colony_id').val(),$('#typology').val());
 
         $('#colony_id').change(function(){
             showColoniesAndSector($(this).val(),$('#typology').val());
         });
         
-
-       $('.select').select2();
-        
-            var typologiesSelect;
-
-            typologiesSelect=$("#typology");
-            var datos=({!! $prueba !!});
-
-            showTypologyWithProblems(datos);
-
-            typologiesSelect.change(function() {
-                showTypologyWithProblems(datos);
-            });
-        
-        
-        function showTypologyWithProblems(datos){
+        function showTypologyWithProblems(data){
             
 
             var typologyId = typologiesSelect.val();
-
-            var typology=$.grep(datos,function(typology){
+            
+            var typology=$.grep(data,function(typology){
                 return typology.id==typologyId;
             })[0];
 
-            var problemTypes = $.map(typology.problem_types, function(problem) {
+            
+
+            var problemTypes = $.map(typology.problems, function(problem) {
                  return [problem.id,problem.name];
             });
+            console.log(problemTypes);
 
             var supervisions=$.map(typology.supervisions,function(supervision){
                 return supervision.name;
@@ -52,7 +53,8 @@
             };
             
             showColoniesAndSector($('#colony_id').val(),$('#typology').val());
-            $('#problem_types').html(html);
+            
+            $('#problem').html(html);
             
             $('#supervisions').val(supervisions.join(',  '));
         }

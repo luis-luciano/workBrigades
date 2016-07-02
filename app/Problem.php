@@ -7,7 +7,7 @@ use App\RequestType;
 use App\Typology;
 use Illuminate\Database\Eloquent\Model;
 
-class ProblemType extends Model {
+class Problem extends Model {
 
 	protected $fillable=['name'];
 

@@ -6,13 +6,13 @@ namespace App\Http\Controllers;
 use App\Brigade;
 use App\Colony;
 use App\Http\Requests;
-use App\ProblemType;
 use App\SettlementType;
 use App\Supervision;
 use App\Typology;
 use App\RequestPriority;
 use Carbon\Carbon;
 use App\Sector;
+use App\Problem;
 use Illuminate\Http\Request;
 
 class RequestsController extends Controller
@@ -26,7 +26,7 @@ class RequestsController extends Controller
     {
         $prueba=Typology::with('problemTypes','supervisions')->get(['id','name']);
         $typologies=Typology::lists('name','id');
-        $problemType=ProblemType::lists('name', 'id');
+        $problemType=Problem::lists('name', 'id');
         $supervicion=Supervision::lists('name', 'id');
         $date = Carbon::now();
         $date = $date->format('l jS \\of F Y h:i:s A');
@@ -44,11 +44,8 @@ class RequestsController extends Controller
     {
         $priorities=RequestPriority::lists('name','id');
         $typologies=Typology::lists('name','id');
-        $problemTypes=ProblemType::lists('name', 'id');
-        $brigades=Brigade::lists('name', 'id');
-        $prueba=Typology::with('problemTypes','supervisions')->get(['id','name'])->toJson();
-        $sectors=Sector::lists('number', 'id');
-        return view('admin.requests.create', compact('priorities','typologies','problemTypes','prueba','brigades','sectors'));
+        $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();
+        return view('admin.requests.create', compact('priorities','tipologiesRelations','typologies'));
     }
 
     /**

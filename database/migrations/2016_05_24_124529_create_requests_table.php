@@ -46,8 +46,8 @@ class CreateRequestsTable extends Migration
             $table->integer('brigade_id')->unsigned()->index();
             $table->foreign('brigade_id')->references('id')->on('brigades');
 
-            $table->integer('problem_type_id')->unsigned()->index();
-            $table->foreign('problem_type_id')->references('id')->on('problem_types');
+            $table->integer('problem_id')->unsigned()->index();
+            $table->foreign('problem_id')->references('id')->on('problems');
 
             $table->timestamps();
         });

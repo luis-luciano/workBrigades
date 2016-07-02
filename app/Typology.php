@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\ProblemType;
+use App\Problem;
 use App\Supervision;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,9 +10,9 @@ class Typology extends Model
 {
 	protected $fillable=['name'];
 
-    public function problemTypes() {
+    public function problems() {
     	
-		return $this->hasMany(ProblemType::class);
+		return $this->hasMany(Problem::class);
 	}
 
 	public function supervisions(){
