@@ -9,10 +9,9 @@
 @section('scripts')
 
        $('.select').select2();
+       $('#request_priority_id').val(2).trigger('change');
         
-        var typologiesSelect;
-
-        typologiesSelect=$("#typology");
+        var typologiesSelect=$("#typology");
         var data=({!! $tipologiesRelations !!});
 
         showTypologyWithProblems(data);
@@ -28,7 +27,6 @@
         });
         
         function showTypologyWithProblems(data){
-            
 
             var typologyId = typologiesSelect.val();
             
@@ -36,12 +34,9 @@
                 return typology.id==typologyId;
             })[0];
 
-            
-
             var problemTypes = $.map(typology.problems, function(problem) {
                  return [problem.id,problem.name];
             });
-            console.log(problemTypes);
 
             var supervisions=$.map(typology.supervisions,function(supervision){
                 return supervision.name;
@@ -54,13 +49,15 @@
             
             showColoniesAndSector($('#colony_id').val(),$('#typology').val());
             
-            $('#problem').html(html);
-            
+            var problems=$('#problem');
+            problems.html(html);
+            problems.select2();
             $('#supervisions').val(supervisions.join(',  '));
         }
 
         function showColoniesAndSector(idColony,idTypology){
             $.ajax({
+                type:'GET',
                 url:"{{ route('request.sector-brigade') }}",
                 data: { 
                         colony: idColony,
@@ -72,9 +69,8 @@
                                             $('#brigade').html(data.brigades);
                                         },
                 error: function(xhr,status){
-                    alert("Error de comunicacion"+status+" con el servidor!!");
-                },
-                type:'GET'
+                    alert("Error de comunicacion "+status+" con el servidor!!");
+                }
             });
         }
 
@@ -106,7 +102,7 @@
 --}}
     @include('partials.modals.layouts.closeModal', [
         'id' => 'searchCreateCitizenModal',
-        'title' => 'Buscar o Agregar Ciudadano',
+        'title' => 'Agregar Ciudadano',
         'view' => 'admin.partials.modals.searchCreateCitizen'
     ])
 {{--

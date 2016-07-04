@@ -15,8 +15,12 @@
                 <div class="col-md-3">
                     <br>
                     <div class="form-group text-center">
+                    <span data-toggle="tooltip" data-placement="left" title="Editar Ciudadano"> 
                         <a class="btn btn-floating btn-light-blue"><i class="ion-edit"></i></a>
-                        <a class="btn btn-floating btn-light-blue" data-toggle="modal" data-target="#searchCreateCitizenModal"><i class="ion-android-add"></i></a>
+                    </span>
+                    <span data-toggle="tooltip" data-placement="right" title="Agregar Ciudadano">
+                        <a class="btn btn-floating btn-light-blue" data-toggle="modal" data-target="#searchCreateCitizenModal"><i class="ion-android-add" ></i></a>
+                    </span>
                     </div><!--.form-group-->
                 </div>
                 
@@ -28,7 +32,7 @@
             <div class="form-group">
                 {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control','id'=>'typology']) !!}
+                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control select','id'=>'typology']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -37,7 +41,7 @@
             <div class="form-group">
                 {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('problem_id',[], null, ['class' => 'form-control','id'=>'problem']) !!}
+                    {!! Form::select('problem_id',[], null, ['class' => 'form-control select','id'=>'problem']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
