@@ -10,7 +10,7 @@
                 </div>
                 <div class="inputer">
                     <div class="input-wrapper">
-                        {!! Form::text('colour', null, ['class' => 'minicolors form-control','data-control'=>'wheel']) !!}
+                        {!! Form::text('color', null, ['class' => 'minicolors form-control','data-control'=>'wheel']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->

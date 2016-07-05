@@ -38,6 +38,9 @@ class RequestStatesController extends Controller
     public function store(Request $request)
     {
         $state=RequestState::create($request->all());
+
+        alert()->success(trans('messages.success.store'));
+
         return redirect('requestsStates');
     }
 
@@ -75,6 +78,8 @@ class RequestStatesController extends Controller
     {
         $state=RequestState::find($id);
         $state->update($request->all());
+
+        alert()->success(trans('messages.success.update'));
         return redirect('requestsStates/' . $state->id .'/edit');
     }
 
@@ -88,6 +93,7 @@ class RequestStatesController extends Controller
     {
         $state=RequestState::find($id);
         $state->delete();
+        alert()->success(trans('messages.success.destroy'));
         return redirect('requestsStates');
     }
 }

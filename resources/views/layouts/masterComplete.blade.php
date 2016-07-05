@@ -96,6 +96,7 @@
 	</script>
 	<!-- END INITIALIZATION-->
 
+	@include('sweet::alert')
 
 	<!-- END Google Analytics -->
 	<script type="text/javascript">

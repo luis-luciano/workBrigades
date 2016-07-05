@@ -16,7 +16,7 @@ class CreateRequestStatesTable extends Migration
             $table->increments('id');
             $table->string('name', 80);
             $table->string('label',50);
-            $table->string('colour', 50);
+            $table->string('color', 50);
             $table->timestamps();
         });
     }

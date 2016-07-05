@@ -8,3 +8,10 @@
 | the command php artisan js:dumpautoload.
 |
 */
+
+var requestStatesController = require('../app/controllers/requestStatesController.js');
+var requestsController = require('../app/controllers/requestsController.js');
+require('../app/globalize.js')({
+    requestStatesController,
+    requestsController,
+});

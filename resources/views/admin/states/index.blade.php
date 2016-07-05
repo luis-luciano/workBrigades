@@ -54,7 +54,7 @@
 											</td>
 
 											<td >
-											<button type="button" class="btn btn-default btn-lg" style="background-color:{{ $state->colour }};"></button>
+											<button type="button" class="btn btn-default btn-lg" style="background-color:{{ $state->color }};"></button>
 
 
 											</td>					

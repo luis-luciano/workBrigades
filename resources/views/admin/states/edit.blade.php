@@ -8,7 +8,7 @@
 @stop
 
 @section('scripts')
-
+    requestStatesController.edit();
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
                 </div><!--.panel-heading-->
                 <div class="panel-body">
                     
-                     {!! Form::model($state, [ 'route'=> ['requestsStates.update', $state->id], 'method' => 'PATCH']) !!}
+                     {!! Form::model($state, [ 'route'=> ['requestsStates.update', $state->id], 'method' => 'PATCH', 'id' => 'editRequestStateForm']) !!}
 
                         @include('admin.states.form', ['submitButtonText' => 'Actualizar'])
 

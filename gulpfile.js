@@ -54,7 +54,7 @@ elixir(function(mix) {
 	    './resources/assets/plugins/select2/css/select2.min.css',
 	    './resources/assets/plugins/select2-bootstrap/select2-bootstrap.min.css',
 	    
-	    //'./resources/assets/plugins/sweetAlert/sweetalert.css',
+	    './resources/assets/plugins/sweetAlert/sweetalert.css',
 	    './public/assets/globals/plugins/bootstrap-fileinput/css/fileinput.css',
 	    './public/assets/globals/plugins/photoswipe/photoswipe.css',
 	    './public/assets/globals/plugins/photoswipe/default-skin/default-skin.css',
@@ -92,10 +92,10 @@ elixir(function(mix) {
 	    // plugins
 	    'plugins/select2/js/select2.full.min.js',
 	    'plugins/select2/js/i18n/es.js',
-
+		'plugins/sweetAlert/sweetalert.min.js',
 	    /*'../../public/assets/globals/scripts/forms-pickers.js',*/
 	    
-	    //'plugins/sweetAlert/sweetalert.min.js',
+	    
 	    '../../public/assets/globals/plugins/bootstrap-fileinput/js/fileinput.js',
 	    '../../public/assets/globals/plugins/bootstrap-fileinput/js/fileinput_locale_es.js',
 	    '../../public/assets/globals/plugins/photoswipe/photoswipe.min.js',
