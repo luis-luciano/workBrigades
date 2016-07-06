@@ -29,32 +29,30 @@
 	                    </form>
 
 	                </div><!--.row-->
-					<div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Brigada</th>							
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Brigada</th>
-									</tr>
-								</tfoot>
-
-								<tbody>
-									@foreach ($brigades as $brigade)
-									
-				    					<tr>
-											<td><input type="hidden" id="_url" value="{{ action('BrigadesController@edit',$brigade)}}">{{ $brigade->name }}</a></td>		
+	                <br>
+								@section('brigadesTableHeader')
+			                	<th class="col-md-6">Brigada</th>
+			                	<th class="col-md-6">Descripcion</th>
+			                	@stop
+			                	@section('brigadesTableBody')
+				                	@foreach ($brigades as $brigade)
+										<tr>
+											<td><input type="hidden" id="_url" value="{{ action('BrigadesController@edit',$brigade)}}">{{ $brigade->name }}</a></td>	
+											<td>
+												{{ $brigade->description }}
+											</td>	
 										</tr>
-									
 									@endforeach
-
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
+				                @stop
+				                @include('components.searchableTables.component', [
+				                		'elements' => 'brigades',
+				                		'modelInstance' => new App\Brigade,
+				                		'routePrefix' => 'brigades.',
+				                		])
+				                
+	
+	
+						
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->
 	    </div><!--.col-md-12-->

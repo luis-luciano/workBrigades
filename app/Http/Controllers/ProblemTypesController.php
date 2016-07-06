@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\ProblemType;
+use App\Problem;
 use App\Typology;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class ProblemTypesController extends Controller
      */
     public function index()
     {
-        $problemTypes=ProblemType::all();
+        $problemTypes = Problem::paginate(5);
         return view('admin.problemTypes.index', compact('problemTypes'));
     }
 
@@ -39,7 +39,7 @@ class ProblemTypesController extends Controller
      */
     public function store(Request $request)
     {
-        $problemType=ProblemType::create($request->all());
+        $problemType=Problem::create($request->all());
         return redirect('problemTypes');
     }
 
@@ -62,7 +62,7 @@ class ProblemTypesController extends Controller
      */
     public function edit($id)
     {
-        $problemType=ProblemType::find($id);
+        $problemType=Problem::find($id);
         $typologies=Typology::lists('name','id');
         return view('admin.problemTypes.edit',compact('problemType','typologies'));
     }
@@ -77,7 +77,7 @@ class ProblemTypesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $problemType=ProblemType::find($id);
+        $problemType=Problem::find($id);
         $problemType->update($request->all());
         $problemType->typologies()->associate(Typology::find($request->typology_id))->save();
         return redirect('problemTypes/'.$problemType->id.'/edit');
@@ -91,7 +91,7 @@ class ProblemTypesController extends Controller
      */
     public function destroy($id)
     {
-        $problemType=ProblemType::find($id);
+        $problemType=Problem::find($id);
         $problemType->delete();
         return redirect('problemTypes');
     }

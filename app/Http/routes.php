@@ -20,7 +20,7 @@ Route::resource('requests', 'RequestsController');
 Route::resource('requestsPriorities', 'RequestPrioritiesController');
 Route::resource('requestRejections', 'RequestRejectionsController');
 Route::resource('requestsStates', 'RequestStatesController');
-Route::resource('requestsTypes', 'RequestTypesController');
+Route::resource('requestTypes', 'RequestTypesController');
 Route::resource('roles', 'RolesController');
 Route::resource('sectors', 'SectorsController');
 Route::resource('settings', 'SettingsController');

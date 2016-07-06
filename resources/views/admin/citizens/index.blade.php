@@ -31,33 +31,30 @@
                         </div><!--.fomr-body-->
                     </form>
                 </div><!--.row-->
-                <div class="overflow-table">
-                            <table class="display datatables-basic">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre </th>
-                                        <th>Colonia</th>
-                                        <th>E-mail</th>
-                                        <th>Telefono</th>
-                                    </tr>
-                                </thead>
-    
-                                <tfoot>
-                                    <tr>
-                                        <th>Nombre </th>
-                                        <th>Colonia</th>
-                                        <th>E-mail</th>
-                                        <th>Telefono</th>
-                                    </tr>
-                                </tfoot>
+                <br>
+                                @section('citizensTableHeader')
+                                <th class="col-md-6">Nombre</th>
+                                <th class="col-md-6">Colonia</th>
+                                <th class="col-md-6">E-mail</th>
+                                <th class="col-md-6">Telefono</th>
+                                @stop
+                                @section('citizensTableBody')
+                                    <!-- @foreach ($citizens as $citizen)
+                                        <tr>
+                                            <td><input type="hidden" id="_url" value="{{ action('CitizensController@edit',$citizen)}}">{{ $citizen->name }}</a></td>    
+                                            <td>
+                                                {{ $citizen->description }}
+                                            </td>   
+                                        </tr>
+                                    @endforeach -->
+                                @stop
+                                @include('components.searchableTables.component', [
+                                        'elements' => 'citizens',
+                                        'modelInstance' => new App\Citizen,
+                                        'routePrefix' => 'citizens.',
+                                        ])
 
-                                <tbody>
-                                
-                                   
-
-                                </tbody>
-                            </table>
-                        </div><!--.overflow-table-->
+                
             </div><!--.panel-body-->
         </div><!--.panel-->
     </div><!--.col-md-12-->

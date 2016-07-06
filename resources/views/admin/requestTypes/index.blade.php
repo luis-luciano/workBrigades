@@ -7,9 +7,7 @@
     
 @stop
 
-@section('scripts')
-
-@stop
+@include('partials.tableScripts')
 
 @section('content')
 	<div class="row">
@@ -19,7 +17,7 @@
 	                <div class="panel-title"><h4>Tipos de Peticion</h4></div>
 	            </div><!--.panel-heading-->
 	            <div class="panel-body">
-	                <a href="{{ route('requestsTypes.create') }}">
+	                <a href="{{ route('requestTypes.create') }}">
 	                    <button type="button" class="btn btn-success btn-ripple">Nuevo</button>
 	                </a>
 
@@ -32,35 +30,28 @@
 	                    </form>
 
 	                </div><!--.row-->
-					<div class="overflow-table">
-							<table class="display datatables-basic">
-								<thead>
-									<tr>
-										<th>Tipo de Captura</th>	
-										<th>Color</th>									
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Tipo de Captura</th>
-										<th>Color</th>
-									</tr>
-								</tfoot>
-
-								<tbody>
-									@foreach ($requestsTypes as $captureType)
+	                <br>
+								@section('requestTypesTableHeader')
+			                	<th class="col-md-6">Tipo de Peticion</th>
+			                	<th class="col-md-6">Color</th>
+			                	@stop
+			                	@section('requestTypesTableBody')
+				                	@foreach ($requestTypes as $requestType)
 									
 				    					<tr>
-											<td><a href="{{ route('requestsTypes.edit', $captureType->id ) }}">{{ $captureType->name }}</a></td>
-											<th>{{  $captureType->color }}</th>										
+											<td><a href="{{ route('requestTypes.edit', $requestType->id ) }}">{{ $requestType->name }}</a></td>
+											<th><button type="button" class="btn btn-default btn-lg" style="background-color:{{ $requestType->color }};"></button>
+</th>										
 										</tr>
 									
 									@endforeach
+				                @stop
+				                @include('components.searchableTables.component', [
+				                		'elements' => 'requestTypes',
+				                		'modelInstance' => new App\RequestType,
+				                		'routePrefix' => 'requestTypes.',
+				                		])
 
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->
 	    </div><!--.col-md-12-->

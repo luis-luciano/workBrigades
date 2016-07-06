@@ -18,7 +18,7 @@ class ColoniesController extends Controller
      */
     public function index()
     {
-        $colonies=Colony::all();
+        $colonies=Colony::paginate(10);
         //$scopes=ColonyScope::all('id','name');
        // $settlements=SettlementType::all('id','name');
        //return $settlementType;

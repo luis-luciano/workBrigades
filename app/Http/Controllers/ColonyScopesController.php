@@ -15,7 +15,7 @@ class ColonyScopesController extends Controller
      */
     public function index()
     {
-        $scopes=ColonyScope::all();
+        $scopes=ColonyScope::paginate(10);
         return view('admin.colonyScopes.index', compact('scopes'));
     }
 

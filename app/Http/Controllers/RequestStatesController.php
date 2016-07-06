@@ -15,7 +15,7 @@ class RequestStatesController extends Controller
      */
     public function index()
     {
-        $states=RequestState::all();
+        $states=RequestState::paginate(5);
         return view('admin.states.index', compact('states'));
     }
 

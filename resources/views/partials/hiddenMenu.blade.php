@@ -33,6 +33,7 @@
 								<li><a href="{{ route('requestsPriorities.index') }}"><i class="fa fa-chain-broken"></i> Prioridades</a></li>
 								<li><a href="{{ route('typologies.index') }}"><i class="fa fa-asterisk"></i> Tipologías</a></li>
 								<li><a href="{{ route('captureTypes.index') }}"><i class="fa fa-pencil-square"></i> Tipo de captura</a></li>
+								<li><a href="{{ route('requestTypes.index') }}"><i class="fa fa-pencil-square"></i> Tipo de Peticion</a></li>
 								<li><a href="{{ route('problemTypes.index') }}"><i class="fa fa-clipboard"></i> Tipo de Problema</a></li>
 								<li><a href="{{ route('brigades.index') }}"><i class="fa fa-users"></i> Brigadas</a></li>
 							</ul>
@@ -46,6 +47,11 @@
 					<ul class="child-menu">
 						<li>
 						<a href="{{ route('roles.index') }}"><i class="fa fa-joomla"></i> Roles</a>
+						</li>
+					</ul>
+					<ul class="child-menu">
+						<li>
+						<a href="{{ route('permissions.index') }}"><i class="fa fa-joomla"></i> Permisos</a>
 						</li>
 					</ul>
 				</li>

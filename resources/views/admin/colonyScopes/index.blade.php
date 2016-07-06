@@ -30,32 +30,25 @@
 	                        </div><!--.fomr-body-->
 	                    </form>
 	                </div><!--.row-->
-	                <div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Tipo de Ambito</th>										
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Tipo de Ambito</th>
-									</tr>
-								</tfoot>
-
-								<tbody>
-									@foreach ($scopes as $scope)
+	                	@section('scopesTableHeader')
+	                	<th class="col-md-6">Tipo de Ambito</th>
+	                	@stop
+	                	@section('scopesTableBody')
+	                				@foreach ($scopes as $scope)
 									
 				    					<tr>
 				    						<td><input type="hidden" id="_url" value="{{ action('ColonyScopesController@edit',$scope)}}">{{ $scope->name }}</a></td>															
+											
 										</tr>
 									
 									@endforeach
-
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
+	                	@stop
+	                	@include('components.searchableTables.component', [
+	                		'elements' => 'scopes',
+	                		'modelInstance' => new App\ColonyScope,
+	                		'routePrefix' => 'colonies.scopes.',
+	                		])
+							
 
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->

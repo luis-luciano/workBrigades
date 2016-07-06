@@ -1,7 +1,7 @@
 
 @extends('layouts.masterComplete')
 
-@section('title', 'Crear Tipo de Peticion')
+@section('title', 'Crear Permiso')
 
 @section('scripts')
     
@@ -12,11 +12,11 @@
         <div class="col-md-12">
             <div class="panel">
                 <div class="panel-heading">
-                    <div class="panel-title"><h4>TIPO DE PETICION</h4></div>
+                    <div class="panel-title"><h4>Permisos</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'requestsTypes.store','method' => 'post' ,'id' => 'createUserForm']) !!}
-                        @include('admin.requestTypes.form', ['submitButtonText' => 'Guardar'])
+                    {!! Form::open(['route' => 'permissions.store','method' => 'post' ,'id' => 'createUserForm']) !!}
+                        @include('admin.permissions.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->
             </div><!--.panel-->

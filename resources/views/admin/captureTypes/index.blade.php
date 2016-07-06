@@ -29,40 +29,33 @@
 	                    </form>
 
 	                </div><!--.row-->
-					<div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Tipo de Captura</th>	
-										<th>Color</th>									
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Tipo de Captura</th>
-										<th>Color</th>
-									</tr>
-								</tfoot>
+	                <br>
+	                
+	                @section('captureTypesTableHeader')
+	                <th class="col-md-6">Tipo de Captura</th>
+	                <th class="col-md-6">Color</th>
+	                @stop
+	                @section('captureTypesTableBody')
+	                @foreach ($captureTypes as $captureType)
 
-								<tbody>
-									@foreach ($captureTypes as $captureType)
-									
-				    					<tr>
-											<td><input type="hidden" id="_url" value="{{ action('CaptureTypesController@edit',$captureType)}}">{{ $captureType->name }}</a></td>
+	                <tr>
+	                	<td><input type="hidden" id="_url" value="{{ action('CaptureTypesController@edit',$captureType)}}">{{ $captureType->name }}</a></td>
 
 
-											<td >
-											<button type="button" class="btn btn-default btn-lg" style="background-color:{{ $captureType->color }};"></button>
-											</td>
-																				
-										</tr>
-									
-									@endforeach
+	                	<td >
+	                		<button type="button" class="btn btn-default btn-lg" style="background-color:{{ $captureType->color }};"></button>
+	                	</td>
 
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
+	                </tr>
+
+	                @endforeach
+	                @stop
+	                @include('components.searchableTables.component', [
+	                	'elements' => 'captureTypes',
+	                	'modelInstance' => new App\CaptureType,
+	                	'routePrefix' => 'captureTypes.',
+	                	])
+	               
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->
 	    </div><!--.col-md-12-->

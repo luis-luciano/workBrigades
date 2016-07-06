@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Citizen;
 use App\Colony;
-
 use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class CitizensController extends Controller
 {
@@ -16,7 +16,8 @@ class CitizensController extends Controller
      */
     public function index()
     {
-        return view('admin.citizens.index');
+        $citizens=Citizen::paginate(10);
+        return view('admin.citizens.index',compact('citizens'));
     }
 
     /**

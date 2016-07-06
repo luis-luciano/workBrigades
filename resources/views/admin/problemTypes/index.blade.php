@@ -29,24 +29,13 @@
 	                    </form>
 
 	                </div><!--.row-->
-					<div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Tipo de Problema</th>	
-										<th>Tipologia</th>									
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Tipo de Problema</th>
-										<th>Tipologia</th>
-									</tr>
-								</tfoot>
-
-								<tbody>
-									@foreach ($problemTypes as $problemType)
+	                <br>
+								@section('problemTypesTableHeader')
+			                	<th class="col-md-6">Tipo de Problema</th>
+			                	<th class="col-md-6">Tipologia</th>
+			                	@stop
+			                	@section('problemTypesTableBody')
+				                	@foreach ($problemTypes as $problemType)
 									
 				    					<tr>
 											<td><input type="hidden" id="_url" value="{{ action('ProblemTypesController@edit',$problemType)}}">{{ $problemType->name }}</a></td>
@@ -60,10 +49,13 @@
 										</tr>
 									
 									@endforeach
-
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
+				                @stop
+				                @include('components.searchableTables.component', [
+				                		'elements' => 'problemTypes',
+				                		'modelInstance' => new App\Problem,
+				                		'routePrefix' => 'problemTypes.',
+				                		])
+					
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->
 	    </div><!--.col-md-12-->

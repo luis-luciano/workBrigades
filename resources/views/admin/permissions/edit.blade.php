@@ -1,6 +1,6 @@
 @extends('layouts.masterComplete')
 
-@section('title', 'Editar Tipo de Peticion')
+@section('title', 'Editar Estado')
 
 @section('styles')
     @parent
@@ -16,25 +16,24 @@
         <div class="col-md-12">
             <div class="panel">
                 <div class="panel-heading">
-                    <div class="panel-title"><h2>Editar Tipo de Peticion</h2></div>
+                    <div class="panel-title"><h2>Editar Permiso</h2></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
                     
-                     {!! Form::model($requestType, [ 'route'=> ['requestTypes.update', $requestType->id], 'method' => 'PATCH']) !!}
+                     {!! Form::model($permission, [ 'route'=> ['permissions.update', $permission->id], 'method' => 'PATCH']) !!}
 
-                        @include('admin.requestTypes.form', ['submitButtonText' => 'Actualizar'])
+                        @include('admin.permissions.form', ['submitButtonText' => 'Actualizar'])
 
                     {!! Form::close() !!}
                     <br>
 
                     
-                         
-                        {!! Form::open(['route'=> ['requestTypes.destroy', $requestType->id ], 'method' => 'DELETE']) !!}
+                        {!! Form::open(['route'=> ['permissions.destroy', $permission->id ], 'method' => 'DELETE']) !!}
                                         <button type="submit" class="btn btn-danger pull-right" >Eliminar
                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                         </button>
                                        
-                        {!! Form::close() !!} 
+                    {!! Form::close() !!}
                     
                     
                 </div><!--.panel-body-->

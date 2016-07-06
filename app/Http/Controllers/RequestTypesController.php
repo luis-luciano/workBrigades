@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\RequestType;
+use Illuminate\Http\Request;
 
 class RequestTypesController extends Controller
 {
@@ -14,8 +14,9 @@ class RequestTypesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $requestTypes=RequestType::paginate(5);
+        return view('admin.requestTypes.index',compact('requestTypes'));
     }
 
     /**
@@ -25,7 +26,7 @@ class RequestTypesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.requestTypes.create');
     }
 
     /**
@@ -36,7 +37,12 @@ class RequestTypesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $Type=RequestType::create($request->all());
+
+        alert()->success(trans('messages.success.store'));
+
+        return redirect('requestTypes');
+
     }
 
     /**
@@ -58,7 +64,11 @@ class RequestTypesController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $requestType=RequestType::find($id);
+
+       return view('admin.requestTypes.edit',compact('requestType'));
+    
     }
 
     /**
@@ -70,7 +80,12 @@ class RequestTypesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $requestType=RequestType::find($id);
+        $requestType->update($request->all());
+
+        alert()->success(trans('messages.success.update'));
+        return redirect('requestTypes/' . $requestType->id .'/edit');
+   
     }
 
     /**
@@ -81,6 +96,11 @@ class RequestTypesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $requestType=RequestType::find($id);
+        $requestType->delete();
+        alert()->success(trans('messages.success.destroy'));
+        
+        return redirect('requestTypes/');
+   
     }
 }

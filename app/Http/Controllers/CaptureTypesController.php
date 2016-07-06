@@ -15,7 +15,7 @@ class CaptureTypesController extends Controller
      */
     public function index()
     {
-        $captureTypes=CaptureType::all();
+        $captureTypes=CaptureType::paginate(5);
         return view('admin.captureTypes.index', compact('captureTypes'));
     }
 

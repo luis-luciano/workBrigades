@@ -15,7 +15,7 @@ class RequestPrioritiesController extends Controller
      */
     public function index()
     {
-        $priorities=RequestPriority::all();
+        $priorities=RequestPriority::paginate(10);
         return view('admin.priorities.index', compact('priorities'));
     }
 

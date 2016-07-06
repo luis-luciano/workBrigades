@@ -30,24 +30,13 @@
 	                    </form>
 
 	                </div><!--.row-->
-					<div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Prioridad de Peticion</th>	
-										<th>color</th>									
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Estado de Peticion</th>
-										<th>color</th>
-									</tr>
-								</tfoot>
-
-								<tbody>
-									@foreach ($priorities as $priority)
+	                <br>
+								@section('prioritiesTableHeader')
+			                	<th class="col-md-6">Prioridad de Peticion</th>
+			                	<th class="col-md-6">color</th>
+			                	@stop
+			                	@section('prioritiesTableBody')
+				                	@foreach ($priorities as $priority)
 									
 				    					<tr>
 											<td><input type="hidden" id="_url" value="{{ action('RequestPrioritiesController@edit',$priority)}}">{{ $priority->name }}</a></td>
@@ -59,10 +48,14 @@
 										</tr>
 									
 									@endforeach
+				                @stop
+				                @include('components.searchableTables.component', [
+				                		'elements' => 'priorities',
+				                		'modelInstance' => new App\RequestPriority,
+				                		'routePrefix' => 'requestsPriorities.',
+				                		])
 
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
+					
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->
 	    </div><!--.col-md-12-->

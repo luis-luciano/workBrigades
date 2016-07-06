@@ -7,6 +7,10 @@
 @stop
 
 @include('partials.tableScripts')
+<script type="text/javascript">
+function imprSelec(dataTable)
+{var ficha=document.getElementById(dataTable);var ventimp=window.open(' ','popimpr');ventimp.document.write(ficha.innerHTML);ventimp.document.close();ventimp.print();ventimp.close();}
+</script>
 
 @section('content')
 		
@@ -18,43 +22,47 @@
 						<div class="panel-title"><h4>COLONIAS CORDOBA VERACRUZ</h4></div>
 					</div><!--.panel-heading-->
 					<div class="panel-body">
+					<a href="{{ route('colonies.create') }}">
+	                    <button type="button" class="btn btn-success btn-ripple">Nuevo</button>
+	                </a>
 
-						<div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Colonia</th>
-										<th>Codigo Postal</th>
-										<th>Asentamiento</th>
-										<th>Ambito</th>
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Colonia</th>
-										<th>Codigo Postal</th>
-										<th>Asentamiento</th>
-										<th>Ambito</th>
-									</tr>
-								</tfoot>
+	                <button type="button" class="btn btn-light-blue btn-ripple" onclick="javascript:imprSelec('dataTable')">
+	                Imprimir</button>
+	                <div class="row">
+	                    <form action="#" class="form-horizontal parsley-validate">
+	                        <div class="form-body">
 
-								<tbody>
-									@foreach ($colonies as $colony)
-									
+	                        </div><!--.fomr-body-->
+	                    </form>
+
+	                </div><!--.row-->
+
+
+					<br>
+								@section('coloniesTableHeader')
+			                	<th class="col-md-6">Brigada</th>
+			                	<th class="col-md-6">Descripcion</th>
+			                	<th class="col-md-6">Brigada</th>
+			                	<th class="col-md-6">Brigada</th>
+			                	@stop
+			                	@section('coloniesTableBody')
+				                	@foreach ($colonies as $colony)
 				    					<tr>
 											<td><input type="hidden" id="_url" value="{{ action('ColoniesController@edit',$colony)}}">{{ $colony->name }}</a></td>
 											<td>{{ $colony->zip }}</td>
 											<td>{{ $colony->colonyScope->name }}</td>
 											<td>{{ $colony->settlementType->name }}</td>
-											
+					
 										</tr>
 									
 									@endforeach
+				                @stop
+				                @include('components.searchableTables.component', [
+				                		'elements' => 'colonies',
+				                		'modelInstance' => new App\Colony,
+				                		'routePrefix' => 'colonies.',
+				                		])
 
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
 					</div><!--.panel-body-->
 				</div><!--.panel-->
 			</div><!--.col-md-12-->
