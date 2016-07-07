@@ -5,10 +5,11 @@ module.exports = (function ($) {
     };
 
     var create = function() {
-        require('../validators/requestStateValidator.js')($('#createResquestStateForm'));
+        require('../validators/requestStateValidator.js')($('#createRequestStateForm'));
     };
 
     var edit = function() {
+        require('../validators/requestStateValidator.js')($('#editRequestStateForm'));
         $('#deleteRequestStateButton').click(function(e) {
             e.preventDefault();
             require('../helpers/deleteConfirmationAlert.js')(this);

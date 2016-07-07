@@ -9,9 +9,25 @@
 |
 */
 
+var citizensController = require('../app/controllers/citizensController.js');
+var coloniesController = require('../app/controllers/coloniesController.js');
+var colonyScopesController = require('../app/controllers/colonyScopesController.js');
+var requestPrioritiesController = require('../app/controllers/requestPrioritiesController.js');
 var requestStatesController = require('../app/controllers/requestStatesController.js');
+var requestTypesController = require('../app/controllers/requestTypesController.js');
 var requestsController = require('../app/controllers/requestsController.js');
+var settlementTypesController = require('../app/controllers/settlementTypesController.js');
+var supervisionsController = require('../app/controllers/supervisionsController.js');
+var typologiesController = require('../app/controllers/typologiesController.js');
 require('../app/globalize.js')({
+    citizensController,
+    coloniesController,
+    colonyScopesController,
+    requestPrioritiesController,
     requestStatesController,
+    requestTypesController,
     requestsController,
+    settlementTypesController,
+    supervisionsController,
+    typologiesController,
 });

@@ -5,6 +5,7 @@
 
 @section('scripts')
     $('select').select2();
+    citizensController.create();
 @stop
 
 @section('content')

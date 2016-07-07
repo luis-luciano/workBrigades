@@ -4,7 +4,7 @@
 @section('title', 'Crear Asentamiento')
 
 @section('scripts')
-    
+    settlementTypesController.create();
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                     <div class="panel-title"><h4>Tipos de Asentamiento</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'colonies.settlement-types.store','method' => 'post' ,'id' => 'createUserForm']) !!}
+                    {!! Form::open(['route' => 'colonies.settlement-types.store','method' => 'post' ,'id' => 'createSettlementTypeForm']) !!}
                         @include('admin.settlementTypes.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->

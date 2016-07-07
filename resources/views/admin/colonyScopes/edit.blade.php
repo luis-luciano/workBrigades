@@ -8,7 +8,7 @@
 @stop
 
 @section('scripts')
-
+    colonyScopesCotroller.edit();
 @stop
 
 @section('content')
@@ -21,7 +21,7 @@
                 <div class="panel-body">
                     
 
-                    {!! Form::model($scope, [ 'route'=> ['colonies.scopes.update', $scope->id], 'method' => 'PATCH']) !!}
+                    {!! Form::model($scope, [ 'route'=> ['colonies.scopes.update', $scope->id], 'method' => 'PATCH', 'id' => 'editColonyScopeForm']) !!}
 
                         @include('admin.colonyScopes.form', ['submitButtonText' => 'Actualizar'])
 

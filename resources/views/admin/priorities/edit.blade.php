@@ -9,6 +9,7 @@
 
 @section('scripts')
 
+    requestPrioritiesController.edit();
 @stop
 
 @section('content')
@@ -20,7 +21,7 @@
                 </div><!--.panel-heading-->
                 <div class="panel-body">
                     
-                     {!! Form::model($priority, [ 'route'=> ['requestsPriorities.update', $priority->id], 'method' => 'PATCH']) !!}
+                     {!! Form::model($priority, [ 'route'=> ['requestsPriorities.update', $priority->id], 'method' => 'PATCH' ,'id' => 'editRequestPriorityForm']) !!}
 
                         @include('admin.priorities.form', ['submitButtonText' => 'Actualizar'])
 

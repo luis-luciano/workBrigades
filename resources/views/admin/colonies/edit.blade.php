@@ -5,6 +5,7 @@
 
 @section('scripts')
     $('select').select2();
+    coloniesController.edit();
 @stop
 
 @section('content')
@@ -15,7 +16,7 @@
                     <div class="panel-title"><h4></h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::model($colony, [ 'route'=> ['colonies.update', $colony->id], 'method' => 'PATCH']) !!}
+                    {!! Form::model($colony, [ 'route'=> ['colonies.update', $colony->id], 'method' => 'PATCH', 'id' => 'editColonyForm']) !!}
 
                         @include('admin.colonies.form', ['submitButtonText' => 'Actualizar'])
 

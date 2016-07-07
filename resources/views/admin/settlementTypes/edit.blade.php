@@ -8,7 +8,7 @@
 @stop
 
 @section('scripts')
-
+    settlementTypesController.edit();
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
                 </div><!--.panel-heading-->
                 <div class="panel-body">
                     
-                     {!! Form::model($settlement, [ 'route'=> ['colonies.settlement-types.update', $settlement->id], 'method' => 'PATCH']) !!}
+                     {!! Form::model($settlement, [ 'route'=> ['colonies.settlement-types.update', $settlement->id], 'method' => 'PATCH', 'id' => 'editSettlementTypeForm']) !!}
 
                         @include('admin.settlementTypes.form', ['submitButtonText' => 'Actualizar'])
 
