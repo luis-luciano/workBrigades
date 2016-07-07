@@ -15,7 +15,7 @@ class SectorsController extends Controller
      */
     public function index()
     {
-        $sectors=Sector::all();
+        $sectors=Sector::paginate(5);
         return view('admin.sectors.index', compact('sectors'));
     }
 

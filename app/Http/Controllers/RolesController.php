@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Role;
+use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
-    /**
+/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $roles=Role::paginate(5);
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -25,7 +26,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.roles.create');
     }
 
     /**
@@ -36,7 +37,11 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $role=Role::create($request->all());
+
+        alert()->success(trans('messages.success.store'));
+
+        return redirect('roles');
     }
 
     /**
@@ -58,7 +63,8 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role=Role::find($id);
+        return view('admin.roles.edit',compact('role'));
     }
 
     /**
@@ -70,7 +76,11 @@ class RolesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $role=Role::find($id);
+        $role->update($request->all());
+
+        alert()->success(trans('messages.success.update'));
+        return redirect('roles/' . $role->id .'/edit');
     }
 
     /**
@@ -81,6 +91,9 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role=Role::find($id);
+        $role->delete();
+        alert()->success(trans('messages.success.destroy'));
+        return redirect('roles');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.masterComplete')
 
-@section('title', 'Editar Supervicion')
+@section('title', 'Editar roles')
 
 @section('styles')
     @parent
@@ -16,14 +16,14 @@
         <div class="col-md-12">
             <div class="panel">
                 <div class="panel-heading">
-                    <div class="panel-title"><h2>Supervicion</h2></div>
+                    <div class="panel-title"><h2>roles</h2></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
                     
 
-                    {!! Form::model($supervision, [ 'route'=> ['supervisions.update', $supervision->id], 'method' => 'PATCH']) !!}
+                    {!! Form::model($role, [ 'route'=> ['roles.update', $role->id], 'method' => 'PATCH']) !!}
 
-                        @include('admin.supervisions.form', ['submitButtonText' => 'Actualizar'])
+                        @include('admin.roles.form', ['submitButtonText' => 'Actualizar'])
 
                     {!! Form::close() !!}
                     

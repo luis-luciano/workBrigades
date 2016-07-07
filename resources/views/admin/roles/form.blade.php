@@ -14,8 +14,8 @@
             <div class="form-group">
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
-                        {!! Form::text('phone', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('phone', 'Telefono', ['class' => 'control-label']) !!}
+                        {!! Form::text('label', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('label', 'Etiqueta', ['class' => 'control-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -24,8 +24,8 @@
             <div class="form-group">
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
-                        {!! Form::text('extension', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('extension', 'Extencion', ['class' => 'control-label']) !!}
+                        {!! Form::text('home', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('home', 'Home', ['class' => 'control-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -38,8 +38,8 @@
         <div class="col-md-12">
             {!! Form::submit($submitButtonText, ['class' => 'btn btn-success']) !!}
             @unless(isset($onlySaveButton) && $onlySaveButton)
-                <a href="{{ route('supervisions.create') }}" class="btn btn-primary">Nuevo</a>
-                <a href="{{ route('supervisions.index') }}" class="btn btn-warning">Regresar</a>
+                <a href="{{ route('roles.create') }}" class="btn btn-primary">Nuevo</a>
+                <a href="{{ route('roles.index') }}" class="btn btn-warning">Regresar</a>
             @endif
         </div>
     </div>

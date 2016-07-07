@@ -15,7 +15,7 @@
                     <div class="panel-title"><h4>TIPO DE PETICION</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'requestsTypes.store','method' => 'post' ,'id' => 'createUserForm']) !!}
+                    {!! Form::open(['route' => 'requestTypes.store','method' => 'post' ,'id' => 'createUserForm']) !!}
                         @include('admin.requestTypes.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->

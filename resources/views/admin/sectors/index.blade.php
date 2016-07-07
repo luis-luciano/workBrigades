@@ -30,33 +30,26 @@
 	                        </div><!--.fomr-body-->
 	                    </form>
 	                </div><!--.row-->
-	                <div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Sectores</th>										
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Sectores</th>
-									</tr>
-								</tfoot>
-
-								<tbody>
-									@foreach ($sectors as $sector)
+	                <br>
+								@section('sectorsTableHeader')
+			                	<th class="col-md-6">Sector</th>
+			                	
+			                	@stop
+			                	@section('sectorsTableBody')
+				                	@foreach ($sectors as $sector)
 									
 				    					<tr>
 				    						<td><input type="hidden" id="_url" value="{{ action('SectorsController@edit',$sector)}}">{{ $sector->number }}</a></td>															
 										</tr>
 									
 									@endforeach
-
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
-
+				                @stop
+				                @include('components.searchableTables.component', [
+				                		'elements' => 'sectors',
+				                		'modelInstance' => new App\Sector,
+				                		'routePrefix' => 'sectors.',
+				                		])
+	                
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->
 	    </div><!--.col-md-12-->
