@@ -4,7 +4,7 @@
 @section('title', 'Crear Tipo de Captura')
 
 @section('scripts')
-    
+    captureTypesController.create();
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                     <div class="panel-title"><h4>TIPO DE CAPTURA</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'captureTypes.store','method' => 'post' ,'id' => 'createUserForm']) !!}
+                    {!! Form::open(['route' => 'captureTypes.store','method' => 'post' ,'id' => 'createCaptureTypeForm']) !!}
                         @include('admin.captureTypes.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->

@@ -9,6 +9,7 @@
 
 @section('scripts')
     $('select').select2();
+    brigadesController.edit();
 @stop
 
 @section('content')
@@ -20,7 +21,7 @@
                 </div><!--.panel-heading-->
                 <div class="panel-body">
                     
-                     {!! Form::model($brigade, [ 'route'=> ['brigades.update', $brigade->id], 'method' => 'PATCH']) !!}
+                     {!! Form::model($brigade, [ 'route'=> ['brigades.update', $brigade->id], 'method' => 'PATCH' ,'id' => 'editBrigadeForm']) !!}
 
                         @include('admin.brigades.form', ['submitButtonText' => 'Actualizar'])
 
