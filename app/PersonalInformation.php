@@ -28,6 +28,11 @@ class PersonalInformation extends Model {
 		return $this->hasOne(Request::class);
 	}
 
+    public function citizen()
+    {
+        return $this->hasOne('App\Citizen');
+    }
+
 	public function colony() {
 		return $this->belongsTo(Colony::class);
 	}

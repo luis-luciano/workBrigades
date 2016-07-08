@@ -35,4 +35,9 @@ class Colony extends Model {
 	public function sector(){
 		return $this->belongsTo('App\Sector');
 	}
+	
+	public function getNameWithZipAttribute()
+    {
+        return $this->name.' ('.$this->zip.')';
+    }
 }

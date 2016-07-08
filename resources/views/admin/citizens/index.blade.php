@@ -39,21 +39,26 @@
                                 <th class="col-md-6">Telefono</th>
                                 @stop
                                 @section('citizensTableBody')
-                                    <!-- @foreach ($citizens as $citizen)
+                                    @foreach ($citizens as $citizen)
                                         <tr>
                                             <td><input type="hidden" id="_url" value="{{ action('CitizensController@edit',$citizen)}}">{{ $citizen->name }}</a></td>    
                                             <td>
-                                                {{ $citizen->description }}
-                                            </td>   
+                                                {{ $citizen->colony }}
+                                            </td>
+                                            <td>
+                                                {{ $citizen->email }}
+                                            </td> 
+                                            <td>
+                                                {{ $citizen->mobile_phone }}
+                                            </td>     
                                         </tr>
-                                    @endforeach -->
+                                    @endforeach 
                                 @stop
                                 @include('components.searchableTables.component', [
                                         'elements' => 'citizens',
                                         'modelInstance' => new App\Citizen,
                                         'routePrefix' => 'citizens.',
                                         ])
-
                 
             </div><!--.panel-body-->
         </div><!--.panel-->

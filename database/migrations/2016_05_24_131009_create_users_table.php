@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('setting_id')->unsigned()->nullable();
             $table->foreign('setting_id')->references('id')->on('settings');
 
-            $table->integer('personal_information_id')->unsigned();
+            $table->bigInteger('personal_information_id')->unsigned();
             $table->foreign('personal_information_id')->references('id')->on('personal_informations');
 
             $table->string('remember_token', 100);

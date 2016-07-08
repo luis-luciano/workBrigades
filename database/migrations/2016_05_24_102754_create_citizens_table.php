@@ -13,11 +13,10 @@ class CreateCitizensTable extends Migration
     public function up() {
         Schema::create('citizens', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 80);
-            $table->string('address', 150);
-            $table->string('email', 80);
+            
+            $table->string('email', 80)->nullable();
 
-            $table->integer('personal_information_id')->unsigned();
+            $table->bigInteger('personal_information_id')->unsigned()->index()->nullable();
             $table->foreign('personal_information_id')->references('id')->on('personal_informations');
 
             $table->timestamps();

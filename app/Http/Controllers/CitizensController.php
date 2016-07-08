@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Citizen;
-use App\Colony;
-use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\PersonalInformation;
+use App\Citizen;
+
+use App\Http\Requests;
 
 class CitizensController extends Controller
 {
@@ -16,7 +17,8 @@ class CitizensController extends Controller
      */
     public function index()
     {
-        $citizens=Citizen::paginate(10);
+        $citizens=Citizen::SearchFromRequest()->PaginateForTable();
+
         return view('admin.citizens.index',compact('citizens'));
     }
 
@@ -38,7 +40,11 @@ class CitizensController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $citizen = PersonalInformation::create($request->all())->citizen()->create($request->all());
+
+        //alert()->success(trans('messages.success.store'));
+
+        return redirect()->route('citizens.edit', compact('citizen'));
     }
 
     /**

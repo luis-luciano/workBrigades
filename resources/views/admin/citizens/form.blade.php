@@ -34,7 +34,7 @@
             <div class="form-group">
                 {!! Form::label('sex', trans('personalInformations.sex'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('sex', ["f" => 'Femenino', "m" => 'Masculino'], null, ['class' => 'select form-control', 'style' => 'width: 100%']) !!}
+                    {!! Form::select('sex', ["F" => 'Femenino', "M" => 'Masculino'], null, ['class' => 'select form-control', 'style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
