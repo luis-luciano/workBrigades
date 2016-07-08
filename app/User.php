@@ -17,7 +17,7 @@ class User extends Authenticatable {
 	 */
 	
 	protected $fillable = [
-		'name', 'email', 'password',
+		'email', 'password','sub_email','is_active'
 	];
 
 	/**
@@ -34,6 +34,16 @@ class User extends Authenticatable {
 		return $this->belongsTo(PersonalInformation::class); //correct
 	}
 
+	public function syncRoles($roles)
+    {
+        return $this->roles()->sync($roles ?: []);
+    }
+
+    public function getRolesListAttribute()
+    {
+        return $this->roles->lists('id')->toArray();
+    }
+
 	public function activities() {
 		return $this->hasMany(Activity::class); //correct
 	}
@@ -45,4 +55,9 @@ class User extends Authenticatable {
 	public function roles() {
 		return $this->belongsToMany(Role::class);
 	}
+
+	public function belongsToSupervisions()
+    {
+        return $this->belongsToMany(Supervision::class)->withTimestamps();
+    }
 }

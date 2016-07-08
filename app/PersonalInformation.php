@@ -17,6 +17,7 @@ class PersonalInformation extends Model {
         'represent',
         'house_phone',
         'mobile_phone',
+        'fax',
         'street',
         'number',
         'interior',
@@ -24,7 +25,7 @@ class PersonalInformation extends Model {
         'colony_id',
     ];
 
-	public function users() {
+	public function user() {
 		return $this->hasOne(Request::class);
 	}
 

@@ -26,8 +26,8 @@ class CreatePersonalInformationsTable extends Migration
             $table->string('number', 50)->nullable();
             $table->string('interior', 50)->nullable();
             $table->string('profession', 80)->nullable();
-
             $table->integer('colony_id')->unsigned()->nullable()->index();
+            
             $table->foreign('colony_id')->references('id')->on('colonies');
 
             $table->timestamps();

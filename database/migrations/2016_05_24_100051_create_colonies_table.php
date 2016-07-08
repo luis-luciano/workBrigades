@@ -13,9 +13,9 @@ class CreateColoniesTable extends Migration
     public function up() {
         Schema::create('colonies', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('zip', 06);
-            $table->string('name', 80);
-
+            $table->string('zip', 6)->default('');
+            $table->string('name', 80)->default('');
+            
             $table->integer('colony_scope_id')->unsigned()->default(1)->index();
             $table->foreign('colony_scope_id')->references('id')->on('colony_scopes');
 

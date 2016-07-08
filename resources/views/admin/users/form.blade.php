@@ -92,6 +92,13 @@
         </div>
         <div class="col-md-3">
             <!-- roles -->
+            <div class="form-group">
+                {!! Form::label('roles_list[]','Roles', ['class' => 'control-label']) !!}
+                <div class="input-wrapper">
+                    {!! Form::select('roles_list[]', $roles, null, ['class' => 'select2 form-control', 'style' => 'width: 100%', 'multiple']) !!}
+                </div>
+            <!--.form-group-->
+            </div>
         </div>
     </div>
 </div><!--.form-content-->

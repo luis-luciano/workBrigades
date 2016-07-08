@@ -70,7 +70,11 @@ class PersonalInformationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user->personalInformation()->update($request->all());
+
+        alert()->success(trans('messages.success.update'));
+
+        return redirect(route('users.edit', compact('user')));
     }
 
     /**

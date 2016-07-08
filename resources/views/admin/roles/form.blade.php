@@ -31,6 +31,16 @@
             </div><!--.form-group-->
         </div> 
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                {!! Form::label('permissions_list[]', 'Permisos', ['class' => 'control-label']) !!}
+                <div class="input-wrapper">
+                    {!! Form::select('permissions_list[]', $permissions, null, ['class' => 'select2 form-control', 'style' => 'width: 100%', 'multiple']) !!}
+                </div>
+            </div><!--.form-group-->
+        </div>
+    </div>
 </div><!--.form-content-->
 
 <div class="form-buttons form-group clearfix">

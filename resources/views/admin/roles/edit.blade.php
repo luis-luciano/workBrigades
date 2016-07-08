@@ -26,6 +26,13 @@
                         @include('admin.roles.form', ['submitButtonText' => 'Actualizar'])
 
                     {!! Form::close() !!}
+                <br>
+                {!! Form::open(['route'=> ['roles.destroy', $role->id ], 'method' => 'DELETE', 'id' => 'deleteRoleForm']) !!}
+                                        <button type="submit" class="btn btn-danger pull-right" >Eliminar
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        </button>
+                                       
+                    {!! Form::close() !!}
                     
                 </div><!--.panel-body-->
                 

@@ -21,10 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('last_login');
             $table->string('callback_type');
 
-            $table->integer('setting_id')->unsigned()->nullable();
+            $table->integer('setting_id')->unsigned()->index()->nullable();
             $table->foreign('setting_id')->references('id')->on('settings');
 
-            $table->bigInteger('personal_information_id')->unsigned();
+            $table->bigInteger('personal_information_id')->unsigned()->index()->nullable();
             $table->foreign('personal_information_id')->references('id')->on('personal_informations');
 
             $table->string('remember_token', 100);
@@ -43,12 +43,12 @@ class CreateUsersTable extends Migration
         });
 
         Schema::create('role_user', function (Blueprint $table) {
-            $table->integer('role_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('role_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
 
             $table->foreign('role_id')->references('id')->on('roles');
             $table->foreign('user_id')->references('id')->on('users');
-
+            $table->primary(['role_id', 'user_id']);
         });
     }
 

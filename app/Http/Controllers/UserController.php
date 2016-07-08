@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Colony;
 use App\Http\Requests;
+use App\PersonalInformation;
+use App\Role;
+use App\User;
+use Illuminate\Http\Request;
 
 
 
@@ -17,7 +20,8 @@ class UserController extends Controller
      */
     public function index()
     {
-       return view('admin.users.index');
+        $users= User::paginate(5);
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -26,8 +30,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.users.create');
+    {   
+        $roles=Role::lists('label','id');
+        //return $roles;
+        return view('admin.users.create',compact('roles'));
     }
 
     /**
@@ -38,7 +44,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = PersonalInformation::create($request->all())->user()->create($request->all());
+
+        $user->syncRoles($request->roles_list);
+
+        $user->setDefaultPhoto(); // auth
+
+        alert()->success(trans('messages.success.store'));
+
+        return redirect()->route('users.edit', compact('user'));
     }
 
     /**
@@ -60,7 +74,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user->load('personalInformation');
+
+        $roles = Role::lists('label', 'id');
+        $colonies = Colony::lists('name', 'id');
+
+        return view('admin.users.edit', compact('user', 'roles', 'colonies'));
     }
 
     /**
@@ -72,7 +91,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (empty($request['password'])) {
+            unset($request['password']);
+        }
+
+        $user->update($request->all());
+
+        $user->personalInformation()->update($request->all());
+
+        $user->syncRoles($request->roles_list);
+
+        alert()->success(trans('messages.success.update'));
+
+        return redirect()->route('users.edit', compact('user'));
     }
 
     /**
@@ -83,6 +114,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role->delete();
+
+        alert()->success(trans('messages.success.destroy'));
+
+        return redirect()->route('users.index');
     }
 }
