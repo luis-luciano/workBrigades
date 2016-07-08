@@ -34,14 +34,18 @@
 	                </div><!--.row-->
 	                <br>
 								@section('usersTableHeader')
-			                	<th class="col-md-6">Nombre</th>
+			                	<th class="col-md-2">Usuario</th>
+			                	<th class="col-md-6">Nombre Completo</th>
 			                	
 			                	@stop
 			                	@section('usersTableBody')
 				                	@foreach ($users as $user)
 									
 				    					<tr>
-											<td><input type="hidden" id="_url" value="{{ action('UsersController@edit',$user)}}">{{ $user->email }}</a></td>										
+											<td><input type="hidden" id="_url" value="{{ action('UsersController@edit',$user)}}">{{ $user->email }}</a></td>
+											<td>
+												{{ $user->personalInformation->name.'  '.$user->personalInformation->paternal_surname.'  '.$user->personalInformation->maternal_surname }}
+											</td>										
 										</tr>
 									
 									@endforeach
