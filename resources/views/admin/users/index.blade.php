@@ -7,9 +7,7 @@
     
 @stop
 
-@section('scripts')
-
-@stop
+@include('partials.tableScripts')
 
 @section('content')
 		
@@ -18,7 +16,7 @@
 				<div class="panel">
 
 					<div class="panel-heading">
-						<div class="panel-title"><h4>BASIC DATA TABLE</h4></div>
+						<div class="panel-title"><h4>Usuarios</h4></div>
 					</div><!--.panel-heading-->
 					<div class="panel-body">
 					<a href="{{ route('users.create') }}">
