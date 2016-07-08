@@ -4,7 +4,7 @@
 @section('title', 'Crear Ambito')
 
 @section('scripts')
-    
+    colonyScopesCotroller.create();
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                     <div class="panel-title"><h4>Ámbito</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'colonies.scopes.store', 'id' => 'createUserForm']) !!}
+                    {!! Form::open(['route' => 'colonies.scopes.store', 'id' => 'createColonyScopeForm']) !!}
                         @include('admin.colonyScopes.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->

@@ -4,7 +4,7 @@
 @section('title', 'Crear Tipologia')
 
 @section('scripts')
-    
+    typologiesController.create();
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                     <div class="panel-title"><h4>Tipologias</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'typologies.store','method' => 'post' ,'id' => 'createUserForm']) !!}
+                    {!! Form::open(['route' => 'typologies.store','method' => 'post' ,'id' => 'createTypologyForm']) !!}
                         @include('admin.typologies.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->

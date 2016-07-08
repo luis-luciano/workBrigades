@@ -15,7 +15,7 @@ class SupervisionsController extends Controller
      */
     public function index()
     {
-        $supervisions=Supervision::all();
+        $supervisions=Supervision::paginate(5);
         return view('admin.supervisions.index', compact('supervisions'));
     }
 

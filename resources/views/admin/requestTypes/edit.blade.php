@@ -8,7 +8,7 @@
 @stop
 
 @section('scripts')
-
+    requestTypesController.edit();
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
                 </div><!--.panel-heading-->
                 <div class="panel-body">
                     
-                     {!! Form::model($requestType, [ 'route'=> ['requestTypes.update', $requestType->id], 'method' => 'PATCH']) !!}
+                     {!! Form::model($requestType, [ 'route'=> ['requestTypes.update', $requestType->id], 'method' => 'PATCH' ,'id' => 'editRequestTypeForm']) !!}
 
                         @include('admin.requestTypes.form', ['submitButtonText' => 'Actualizar'])
 

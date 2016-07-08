@@ -30,34 +30,26 @@
 	                    </form>
 
 	                </div><!--.row-->
-					<div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Tipologia</th>	
-																			
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Tipologia</th>
-										
-									</tr>
-								</tfoot>
-
-								<tbody>
-									@foreach ($typologies as $typology)
+	                <br>
+								@section('typologiesTableHeader')
+			                	<th class="col-md-6">Tipologia</th>
+			                	
+			                	@stop
+			                	@section('typologiesTableBody')
+				                	@foreach ($typologies as $typology)
 									
 				    					<tr>
 											<td><input type="hidden" id="_url" value="{{ action('TypologiesController@edit',$typology)}}">{{ $typology->name }}</a></td>										
 										</tr>
 									
 									@endforeach
-
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
+				                @stop
+				                @include('components.searchableTables.component', [
+				                		'elements' => 'typologies',
+				                		'modelInstance' => new App\Typology,
+				                		'routePrefix' => 'typologies.',
+				                		])
+					
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->
 	    </div><!--.col-md-12-->

@@ -4,6 +4,8 @@
 @section('title', 'Crear Tipo de Problema')
 
 @section('scripts')
+
+    problemTypesController.create();
     
 @stop
 
@@ -15,7 +17,7 @@
                     <div class="panel-title"><h4>TIPO DE PROBLEMA</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'problemTypes.store','method' => 'post' ,'id' => 'createUserForm']) !!}
+                    {!! Form::open(['route' => 'problemTypes.store','method' => 'post' ,'id' => 'createProblemTypeForm']) !!}
                         @include('admin.problemTypes.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->

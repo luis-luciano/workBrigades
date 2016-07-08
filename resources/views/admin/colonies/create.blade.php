@@ -5,6 +5,7 @@
 
 @section('scripts')
     $('select').select2();
+    coloniesController.create();
 @stop
 
 @section('content')
@@ -15,7 +16,7 @@
                     <div class="panel-title"><h4></h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'colonies.store', 'id' => 'createUserForm']) !!}
+                    {!! Form::open(['route' => 'colonies.store', 'id' => 'createColonyForm']) !!}
                         @include('admin.colonies.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->

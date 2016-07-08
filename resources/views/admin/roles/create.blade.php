@@ -1,7 +1,7 @@
 
 @extends('layouts.masterComplete')
 
-@section('title', 'Crear Supervicion')
+@section('title', 'Crear Roles')
 
 @section('scripts')
     
@@ -12,11 +12,11 @@
         <div class="col-md-12">
             <div class="panel">
                 <div class="panel-heading">
-                    <div class="panel-title"><h4>Supervicion</h4></div>
+                    <div class="panel-title"><h4>Roles</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'supervisions.store', 'id' => 'createUserForm']) !!}
-                        @include('admin.supervisions.form', ['submitButtonText' => 'Guardar'])
+                    {!! Form::open(['route' => 'roles.store', 'id' => 'createUserForm']) !!}
+                        @include('admin.roles.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->
             </div><!--.panel-->

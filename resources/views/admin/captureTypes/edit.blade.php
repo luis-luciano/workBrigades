@@ -8,7 +8,7 @@
 @stop
 
 @section('scripts')
-
+    captureTypesController.edit();
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
                 </div><!--.panel-heading-->
                 <div class="panel-body">
                     
-                     {!! Form::model($captureType, [ 'route'=> ['captureTypes.update', $captureType->id], 'method' => 'PATCH']) !!}
+                     {!! Form::model($captureType, [ 'route'=> ['captureTypes.update', $captureType->id], 'method' => 'PATCH' ,'id' => 'editCaptureTypeForm']) !!}
 
                         @include('admin.captureTypes.form', ['submitButtonText' => 'Actualizar'])
 

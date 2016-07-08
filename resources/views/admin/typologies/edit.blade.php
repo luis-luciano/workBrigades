@@ -8,7 +8,7 @@
 @stop
 
 @section('scripts')
-
+    typologiesController.edit();
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
                 </div><!--.panel-heading-->
                 <div class="panel-body">
                     
-                     {!! Form::model($typology, [ 'route'=> ['typologies.update', $typology->id], 'method' => 'PATCH']) !!}
+                     {!! Form::model($typology, [ 'route'=> ['typologies.update', $typology->id], 'method' => 'PATCH' ,'id' => 'editTypologyForm']) !!}
 
                         @include('admin.typologies.form', ['submitButtonText' => 'Actualizar'])
 

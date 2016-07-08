@@ -29,28 +29,17 @@
 	                    </form>
 
 	                </div><!--.row-->
-					<div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Estado de Peticion</th>	
-										<th>color</th>									
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Estado de Peticion</th>
-										<th>color</th>
-									</tr>
-								</tfoot>
-
-								<tbody>
-									@foreach ($states as $state)
+	                <br>
+								@section('statesTableHeader')
+			                	<th class="col-md-6">Estado de Peticion</th>
+			                	<th class="col-md-6">Color</th>
+			                	@stop
+			                	@section('statesTableBody')
+				                	@foreach ($states as $state)
 									
 				    					<tr>
 											<td>
-											<input type="hidden" id="_url" value="{{ action('RequestStatesController@edit',$state)}}">{{ $state->name }}</a>
+											<input type="hidden" id="_url" value="{{ action('RequestStatesController@edit',$state)}}">{{ $state->label }}</a>
 											</td>
 
 											<td >
@@ -61,10 +50,13 @@
 										</tr>
 									
 									@endforeach
-
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
+				                @stop
+				                @include('components.searchableTables.component', [
+				                		'elements' => 'states',
+				                		'modelInstance' => new App\RequestState,
+				                		'routePrefix' => 'requestsStates.',
+				                		])
+					
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->
 	    </div><!--.col-md-12-->

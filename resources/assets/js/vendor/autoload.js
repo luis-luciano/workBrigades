@@ -9,9 +9,33 @@
 |
 */
 
+var brigadesController = require('../app/controllers/brigadesController.js');
+var captureTypesController = require('../app/controllers/captureTypesController.js');
+var citizensController = require('../app/controllers/citizensController.js');
+var coloniesController = require('../app/controllers/coloniesController.js');
+var colonyScopesController = require('../app/controllers/colonyScopesController.js');
+var problemTypesController = require('../app/controllers/problemTypesController.js');
+var requestPrioritiesController = require('../app/controllers/requestPrioritiesController.js');
 var requestStatesController = require('../app/controllers/requestStatesController.js');
+var requestTypesController = require('../app/controllers/requestTypesController.js');
 var requestsController = require('../app/controllers/requestsController.js');
+var sectorsController = require('../app/controllers/sectorsController.js');
+var settlementTypesController = require('../app/controllers/settlementTypesController.js');
+var supervisionsController = require('../app/controllers/supervisionsController.js');
+var typologiesController = require('../app/controllers/typologiesController.js');
 require('../app/globalize.js')({
+    brigadesController,
+    captureTypesController,
+    citizensController,
+    coloniesController,
+    colonyScopesController,
+    problemTypesController,
+    requestPrioritiesController,
     requestStatesController,
+    requestTypesController,
     requestsController,
+    sectorsController,
+    settlementTypesController,
+    supervisionsController,
+    typologiesController,
 });

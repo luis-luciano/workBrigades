@@ -37,12 +37,14 @@
 			                	@stop
 			                	@section('requestTypesTableBody')
 				                	@foreach ($requestTypes as $requestType)
-									
-				    					<tr>
-											<td><a href="{{ route('requestTypes.edit', $requestType->id ) }}">{{ $requestType->name }}</a></td>
-											<th><button type="button" class="btn btn-default btn-lg" style="background-color:{{ $requestType->color }};"></button>
-</th>										
+										<tr>
+											<td><input type="hidden" id="_url" value="{{ action('RequestTypesController@edit',$requestType)}}">{{ $requestType->name }}</a></td>	
+											<th>
+											<button type="button" class="btn btn-default btn-lg" style="background-color:{{ $requestType->color }};"></button>
+											</th>											
 										</tr>
+
+				    					
 									
 									@endforeach
 				                @stop

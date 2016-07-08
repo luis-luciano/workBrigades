@@ -30,35 +30,26 @@
 	                        </div><!--.fomr-body-->
 	                    </form>
 	                </div><!--.row-->
-	                <div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Superviciones</th>										
-										<th>Extencion</th>
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Superviciones</th>
-										<th>Extencion</th>
-									</tr>
-								</tfoot>
-
-								<tbody>
-									@foreach ($supervisions as $supervision)
-									
-				    					<tr>
-				    						<td><input type="hidden" id="_url" value="{{ action('SupervisionsController@edit',$supervision)}}">{{ $supervision->name }}</a></td>
-				    						<td>{{ $supervision->extension }}</td>														
+	                <br>
+								@section('supervisionsTableHeader')
+			                	<th class="col-md-6">Supervicion</th>
+			                	<th class="col-md-6">Extencion</th>
+			                	@stop
+			                	@section('supervisionsTableBody')
+				                	@foreach ($supervisions as $supervision)
+										<tr>
+											<td><input type="hidden" id="_url" value="{{ action('SupervisionsController@edit',$supervision)}}">{{ $supervision->name }}</a></td>	
+											<td>
+												{{ $supervision->estension }}
+											</td>	
 										</tr>
-									
 									@endforeach
-
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
+				                @stop
+				                @include('components.searchableTables.component', [
+				                		'elements' => 'supervisions',
+				                		'modelInstance' => new App\Supervision,
+				                		'routePrefix' => 'supervisions.',
+				                		])
 
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->

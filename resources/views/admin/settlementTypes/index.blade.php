@@ -31,22 +31,13 @@
 	                    </form>
 
 	                </div><!--.row-->
-					<div class="overflow-table">
-							<table class="display datatables-basic" id="dataTable">
-								<thead>
-									<tr>
-										<th>Tipo de Acentamiento</th>										
-									</tr>
-								</thead>
-	
-								<tfoot>
-									<tr>
-										<th>Tipo de Acentamiento</th>
-									</tr>
-								</tfoot>
-
-								<tbody>
-									@foreach ($settlements as $settlement)
+	                <br>
+								@section('settlementsTableHeader')
+			                	<th class="col-md-6">Tipo de Asentamiento</th>
+			                	
+			                	@stop
+			                	@section('settlementsTableBody')
+				                	@foreach ($settlements as $settlement)
 									
 				    					<tr>
 				    						<td><input type="hidden" id="_url" value="{{ action('SettlementTypesController@edit',$settlement)}}">{{ $settlement->name }}</a></td>
@@ -54,10 +45,13 @@
 										</tr>
 									
 									@endforeach
-
-								</tbody>
-							</table>
-						</div><!--.overflow-table-->
+				                @stop
+				                @include('components.searchableTables.component', [
+				                		'elements' => 'settlements',
+				                		'modelInstance' => new App\SettlementType,
+				                		'routePrefix' => 'colonies.settlement-types.',
+				                		])
+					
 	            </div><!--.panel-body-->
 	        </div><!--.panel-->
 	    </div><!--.col-md-12-->

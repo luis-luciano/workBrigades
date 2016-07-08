@@ -4,7 +4,7 @@
 @section('title', 'Crear Supervicion')
 
 @section('scripts')
-    
+    supervisionsController.create();
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                     <div class="panel-title"><h4>Supervicion</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'supervisions.store', 'id' => 'createUserForm']) !!}
+                    {!! Form::open(['route' => 'supervisions.store', 'id' => 'createSupervisionForm']) !!}
                         @include('admin.supervisions.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->

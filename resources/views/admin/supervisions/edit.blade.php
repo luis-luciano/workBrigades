@@ -8,7 +8,7 @@
 @stop
 
 @section('scripts')
-
+    supervisionsController.edit();
 @stop
 
 @section('content')
@@ -21,7 +21,7 @@
                 <div class="panel-body">
                     
 
-                    {!! Form::model($supervision, [ 'route'=> ['supervisions.update', $supervision->id], 'method' => 'PATCH']) !!}
+                    {!! Form::model($supervision, [ 'route'=> ['supervisions.update', $supervision->id], 'method' => 'PATCH' , 'id' => 'editSupervisionForm']) !!}
 
                         @include('admin.supervisions.form', ['submitButtonText' => 'Actualizar'])
 

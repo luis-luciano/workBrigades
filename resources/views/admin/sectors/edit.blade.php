@@ -8,7 +8,7 @@
 @stop
 
 @section('scripts')
-
+    sectorsController.edit();
 @stop
 
 @section('content')
@@ -21,7 +21,7 @@
                 <div class="panel-body">
                     
 
-                    {!! Form::model($sector, [ 'route'=> ['sectors.update', $sector->id], 'method' => 'PATCH']) !!}
+                    {!! Form::model($sector, [ 'route'=> ['sectors.update', $sector->id], 'method' => 'PATCH', 'id' => 'createSectorForm']) !!}
 
                         @include('admin.sectors.form', ['submitButtonText' => 'Actualizar'])
 
