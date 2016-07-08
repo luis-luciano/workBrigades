@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +20,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users= User::paginate(5);
-        return view('admin.users.index',compact('users'));
+        $users=User::paginate(10);
+       return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -30,10 +30,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $roles=Role::lists('label','id');
-        //return $roles;
-        return view('admin.users.create',compact('roles'));
+    {
+        $roles = Role::lists('label', 'id');
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -44,13 +43,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = PersonalInformation::create($request->all())->user()->create($request->all());
+        // $user_data=PersonalInformation::create($request->all());
+        // $user = User::create($request->all());
+        // $user->personalInformation()->associate(PersonalInformation::find($user_data->id))->save();
 
+        $user = PersonalInformation::create($request->all())->user()->create($request->all());
         $user->syncRoles($request->roles_list);
 
-        $user->setDefaultPhoto(); // auth
-
-        alert()->success(trans('messages.success.store'));
+        // alert()->success(trans('messages.success.store'));
 
         return redirect()->route('users.edit', compact('user'));
     }
@@ -74,6 +74,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $user=User::find($id);
         $user->load('personalInformation');
 
         $roles = Role::lists('label', 'id');
@@ -94,7 +95,7 @@ class UserController extends Controller
         if (empty($request['password'])) {
             unset($request['password']);
         }
-
+        $user=User::find($id);
         $user->update($request->all());
 
         $user->personalInformation()->update($request->all());
@@ -114,9 +115,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $role->delete();
-
-        alert()->success(trans('messages.success.destroy'));
+        
 
         return redirect()->route('users.index');
     }

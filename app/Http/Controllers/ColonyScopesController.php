@@ -37,6 +37,7 @@ class ColonyScopesController extends Controller
      */
     public function store(ScopesRequest $request)
     {
+        //return 'hi';
         $scope=ColonyScope::create($request->all());
         return redirect('colonies/scopes');
     }

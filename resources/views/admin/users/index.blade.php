@@ -35,15 +35,15 @@
 
 	                </div><!--.row-->
 	                <br>
-								@section('UsersTableHeader')
+								@section('usersTableHeader')
 			                	<th class="col-md-6">Nombre</th>
 			                	
 			                	@stop
-			                	@section('UsersTableBody')
+			                	@section('usersTableBody')
 				                	@foreach ($users as $user)
 									
 				    					<tr>
-											<td><input type="hidden" id="_url" value="{{ action('usersController@edit',$user)}}">{{ $user->name }}</a></td>										
+											<td><input type="hidden" id="_url" value="{{ action('UsersController@edit',$user)}}">{{ $user->email }}</a></td>										
 										</tr>
 									
 									@endforeach

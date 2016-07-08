@@ -6,9 +6,13 @@ use App\Activity;
 use App\PersonalInformation;
 use App\Request as Petition;
 use App\Role;
+use App\Traits\HasPersonalInformation;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable {
+
+	use HasPersonalInformation;
+
 	
 	/**
 	 * The attributes that are mass assignable.

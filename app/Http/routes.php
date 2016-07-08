@@ -2,7 +2,7 @@
 
 Route::resource('admin', 'AdminController');
 
-Route::resource('users', 'UserController');
+Route::resource('users', 'UsersController');
 Route::resource('activities', 'ActivitiesController');
 Route::resource('brigades', 'BrigadesController');
 Route::resource('citizens', 'CitizensController');

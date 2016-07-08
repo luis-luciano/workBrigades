@@ -38,8 +38,9 @@ class ProblemTypesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $problemType=Problem::create($request->all());
+        $problemType->typologies()->associate(Typology::find($request->typology_id))->save();
         return redirect('problemTypes');
     }
 

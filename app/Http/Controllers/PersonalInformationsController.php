@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\User;
+use Illuminate\Http\Request;
 
 class PersonalInformationsController extends Controller
 {
@@ -70,11 +70,12 @@ class PersonalInformationsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user=User::find($id);
         $user->personalInformation()->update($request->all());
 
         alert()->success(trans('messages.success.update'));
 
-        return redirect(route('users.edit', compact('user')));
+        return redirect(route('users.edit', compact('user')).'#tab_personal-information');
     }
 
     /**
