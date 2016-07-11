@@ -5,6 +5,7 @@
 
 @section('scripts')
     requestStatesController.create();
+    
 @stop
 
 @section('content')

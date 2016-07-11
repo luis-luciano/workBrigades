@@ -1,5 +1,7 @@
 <?php
 
+Route::get('/',['as'=>'home','uses'=>'PagesController@index']);
+
 Route::resource('admin', 'AdminController');
 
 Route::resource('users', 'UsersController');

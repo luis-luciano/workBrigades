@@ -82,7 +82,7 @@
 	<script src="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 	<script src="{{ asset('assets/globals/plugins/clockface/js/clockface.js') }}"></script>
 
-	<!--COLOR SELECTOR -->
+	
 	<script src="{{ asset('assets/globals/scripts/forms-pickers.js') }}"></script>
 
 
@@ -97,9 +97,9 @@
 	<!-- END INITIALIZATION-->
 
 	@include('sweet::alert')
-
-	<!-- END Google Analytics -->
+	
 	<script type="text/javascript">
+		
 		@yield('scripts')
 	</script>
 

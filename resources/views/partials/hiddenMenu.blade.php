@@ -4,7 +4,7 @@
 		<div class="menu-layer">
 			<ul>
 				<li>
-					<a href="{{ route('citizens.index') }}"><i class="fa fa-home"></i> Inicio</a>
+					<a href="{{ route('home') }}"><i class="fa fa-home"></i> Inicio</a>
 				</li>			
 				<li>
 					<a href="{{ route('citizens.index') }}"><i class="fa fa-users"></i> Ciudadanos</a>
@@ -56,7 +56,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href="{{ route('citizens.index') }}"><i class="fa fa-power-off"></i> Salir</a>
+					<a href="{{ route('login') }}"><i class="fa fa-power-off"></i> Salir</a>
 				</li>
 
 			</ul>

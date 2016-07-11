@@ -1839,16 +1839,16 @@
         },
         {
             "name": "uxweb/sweet-alert",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uxweb/sweet-alert.git",
-                "reference": "b22ba7c206c6f39c98d438ff1587b41f7571d917"
+                "reference": "45177ff359982a327387ba7fb11e0309ea43187e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uxweb/sweet-alert/zipball/b22ba7c206c6f39c98d438ff1587b41f7571d917",
-                "reference": "b22ba7c206c6f39c98d438ff1587b41f7571d917",
+                "url": "https://api.github.com/repos/uxweb/sweet-alert/zipball/45177ff359982a327387ba7fb11e0309ea43187e",
+                "reference": "45177ff359982a327387ba7fb11e0309ea43187e",
                 "shasum": ""
             },
             "require": {
@@ -1881,7 +1881,7 @@
                 "laravel",
                 "sweet"
             ],
-            "time": "2016-05-29 03:32:56"
+            "time": "2016-07-10 21:08:39"
         },
         {
             "name": "vlucas/phpdotenv",

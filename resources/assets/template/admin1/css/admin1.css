@@ -12049,10 +12049,28 @@ p {
 /*
 4 - Layouts
 */
-body {
+/*body {
   margin: 0 0 0 81px;
-  background: #F7F7F7;
+
+  background: url("../../assets/globals/img/resources/body.png") no-repeat 0px 0px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center top;
+}*/
+
+body {
+    margin: 0 0 0 81px;
+    background: url("../../assets/globals/img/resources/body.png") no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
+
+
 body.disable-scroll {
   overflow: hidden !important;
 }
