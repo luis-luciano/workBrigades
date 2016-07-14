@@ -15,7 +15,7 @@ class ColonyScopesController extends Controller
      */
     public function index()
     {
-        $scopes=ColonyScope::paginate(10);
+        $scopes=ColonyScope::SearchFromRequest()->PaginateForTable();
         return view('admin.colonyScopes.index', compact('scopes'));
     }
 

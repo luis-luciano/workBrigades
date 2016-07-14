@@ -31,13 +31,13 @@
                     @if($scope->colonies()->count() == 0)
                          {!! Form::open(['route'=> ['colonies.scopes.destroy', $scope->id ], 'method' => 'DELETE']) !!}
                                         <button type="submit" class="btn btn-danger pull-right">Eliminar
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                       
                                         </button>
                         {!! Form::close() !!}
                     @else
                         {!! Form::open(['route'=> ['colonies.scopes.destroy', $scope->id ], 'method' => 'DELETE']) !!}
                                         <button type="submit" class="btn btn-danger pull-right" disabled>Eliminar
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                       
                                         </button>
                     {!! Form::close() !!}
                     @endif
