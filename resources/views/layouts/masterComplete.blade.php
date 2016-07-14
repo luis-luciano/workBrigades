@@ -71,8 +71,7 @@
 
 	@include('partials.hiddenMenu')
 
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
-    <!-- BEGIN CORE JAVASCRIPT -->
+	<!-- BEGIN CORE JAVASCRIPT -->
     <script type="text/javascript" src="{{ asset(elixir('js/app.js')) }}"></script>
     <!-- END CORE JAVASCRIPT -->
 

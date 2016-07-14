@@ -40,16 +40,19 @@ function imprSelec(dataTable)
 
 					<br>
 								@section('coloniesTableHeader')
-			                	<th class="col-md-6">Brigada</th>
-			                	<th class="col-md-6">Descripcion</th>
-			                	<th class="col-md-6">Brigada</th>
-			                	<th class="col-md-6">Brigada</th>
+			                	<th class="col-md-4">Colonia</th>
+			                	<th class="col-md-2">Codigo Postal</th>
+			                	<th class="col-md-1">Sector</th>
+			                	<th class="col-md-1">Ambio</th>
+			                	<th class="col-md-2">Tipo de Asentamiento</th>
+
 			                	@stop
 			                	@section('coloniesTableBody')
 				                	@foreach ($colonies as $colony)
 				    					<tr>
 											<td><input type="hidden" id="_url" value="{{ action('ColoniesController@edit',$colony)}}">{{ $colony->name }}</a></td>
 											<td>{{ $colony->zip }}</td>
+											<td>{{ $colony->sector->number }}</td>
 											<td>{{ $colony->colonyScope->name }}</td>
 											<td>{{ $colony->settlementType->name }}</td>
 					

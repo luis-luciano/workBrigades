@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Brigade;
-use App\Http\Requests;
+use App\Http\Requests\BrigadesRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BrigadesController extends Controller
 {

@@ -1,19 +1,19 @@
-<div class="form-content">
+<div class="form-content"> 
     <div class="row">
         <div class="col-md-3">
-            <div class="form-group">
+            <div class="form-group">  
                 <div class="inputer floating-label">
-                    <div class="input-wrapper">
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                     <div class="input-wrapper">
+                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
                         {!! Form::label('name', trans('personalInformations.name'), ['class' => 'control-label']) !!}
-                    </div>
+                    </div> 
                 </div>
             </div><!--.form-group-->
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2"> 
             <div class="form-group">
                 <div class="inputer floating-label">
-                    <div class="input-wrapper">
+                     <div class="input-wrapper">
                         {!! Form::text('paternal_surname', null, ['class' => 'form-control']) !!}
                         {!! Form::label('paternal_surname', trans('personalInformations.paternal_surname'), ['class' => 'control-label']) !!}
                     </div>

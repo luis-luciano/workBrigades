@@ -20,7 +20,7 @@
                 </div>
             </div><!--.form-group-->
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="form-group">
                 {!! Form::label('settlement_type_id', trans('colonies.settlement_type_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
@@ -32,7 +32,15 @@
             <div class="form-group">
                 {!! Form::label('colony_scope_id', trans('colonies.colony_scope_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                  {!! Form::select('colony_scope_id', $scopes, null, ['class' => 'js-example-basic-single form-control', 'style' => 'width: 100%']) !!}
+                  {!! Form::select('colony_scope_id', $scopes, null, ['class' => 'select2 form-control', 'style' => 'width: 100%']) !!}
+                </div>
+            </div><!--.form-group-->
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                {!! Form::label('sector_id', trans('Sector'), ['class' => 'control-label']) !!}
+                <div class="input-wrapper">
+                  {!! Form::select('sector_id', $sectors, null, ['class' => 'js-example-basic-single form-control', 'style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>

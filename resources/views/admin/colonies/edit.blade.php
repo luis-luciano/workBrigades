@@ -26,13 +26,13 @@
                     @if($colony->personalInformation()->count() == 0)
                          {!! Form::open(['route'=> ['colonies.destroy', $colony->id ], 'method' => 'DELETE']) !!}
                                         <button type="submit" class="btn btn-danger">Eliminar
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        
                                         </button>
                         {!! Form::close() !!}
                     @else
                         {!! Form::open(['route'=> ['colonies.destroy', $colony->id ], 'method' => 'DELETE']) !!}
                                         <button type="submit" class="btn btn-danger " disabled>Eliminar
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        
                                         </button>
                     {!! Form::close() !!}
                     @endif

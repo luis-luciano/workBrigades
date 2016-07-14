@@ -4,11 +4,15 @@ namespace App;
 
 use App\ColonyScope;
 use App\PersonalInformation;
+use App\Traits\SimpleSearchableTables;
+use Illuminate\Database\Eloquent\Builder;
 use App\Request as Petition;
 use App\SettlementType;
 use Illuminate\Database\Eloquent\Model;
 
 class Colony extends Model {
+
+	use SimpleSearchableTables;
 
 	protected $fillable=['zip','name'];
 
@@ -39,5 +43,29 @@ class Colony extends Model {
 	public function getNameWithZipAttribute()
     {
         return $this->name.' ('.$this->zip.')';
+    }
+
+    public function scopeSearch(Builder $query,$search){
+
+    	$query->where(function($query) use($search){
+    			$query->where('name', 'like', "%{$search}%")
+    		  		  ->orWhere('zip', 'like', "%{$search}%");
+
+    		  	$query->orWhereHas('sector',function($query) use ($search){
+    		  		$query->where('number','=',$search);
+    		  	});
+    		  	$query->orWhereHas('colonyScope', function ($query) use ($search) {
+                	$query->where(function ($query) use ($search) {
+	                    $query->where('name', 'like', "%{$search}%");
+	                });
+	            });
+	            $query->orWhereHas('settlementType', function ($query) use ($search) {
+                	$query->where(function ($query) use ($search) {
+	                    $query->where('name', 'like', "%{$search}%");
+	                });
+	            });
+    	});
+
+    	return $query;
     }
 }
