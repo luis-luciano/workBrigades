@@ -15,7 +15,7 @@ class SettlementTypesController extends Controller
      */
     public function index()
     {   
-        $settlements=SettlementType::paginate(5);
+        $settlements=SettlementType::SearchFromRequest()->PaginateForTable();;
         return view('admin.settlementTypes.index', compact('settlements'));
     }
 

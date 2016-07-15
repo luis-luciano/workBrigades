@@ -15,7 +15,7 @@ class SectorsController extends Controller
      */
     public function index()
     {
-        $sectors=Sector::paginate(5);
+        $sectors=Sector::SearchFromRequest()->PaginateForTable();
         return view('admin.sectors.index', compact('sectors'));
     }
 

@@ -26,6 +26,20 @@
                         @include('admin.sectors.form', ['submitButtonText' => 'Actualizar'])
 
                     {!! Form::close() !!}
+                <br>
+
+                    @if($sector->Colonies()->count() == 0)
+                         {!! Form::open(['route'=> ['sectors.destroy', $sector->id ], 'method' => 'DELETE']) !!}
+                                        <button type="submit" class="btn btn-danger pull-right">Eliminar
+                                        </button>
+                        {!! Form::close() !!}
+                    @else
+                        {!! Form::open(['route'=> ['sectors.destroy', $sector->id ], 'method' => 'DELETE']) !!}
+                                        <button type="submit" class="btn btn-danger pull-right" disabled>Eliminar
+                                        </button>
+                                       
+                    {!! Form::close() !!}
+                    @endif
                     
                 </div><!--.panel-body-->
                 

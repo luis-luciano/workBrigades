@@ -7,8 +7,7 @@
     
 @stop
 
-@section('scripts')
-@stop
+
 @include('partials.tableScripts')
 
 @section('content')
@@ -41,9 +40,9 @@
                                 @section('citizensTableBody')
                                     @foreach ($citizens as $citizen)
                                         <tr>
-                                            <td><input type="hidden" id="_url" value="{{ action('CitizensController@edit',$citizen)}}">{{ $citizen->name }}</a></td>    
+                                            <td><input type="hidden" id="_url" value="{{ action('CitizensController@edit',$citizen->id)}}">{{ $citizen->name }}</a></td>    
                                             <td>
-                                                {{ $citizen->colony }}
+                                                {{ $citizen->colonyName }}
                                             </td>
                                             <td>
                                                 {{ $citizen->email }}

@@ -5,10 +5,15 @@ namespace App;
 use App\Brigade;
 use App\Request as Petition;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SimpleSearchableTables;
 
 class Sector extends Model {
 
+	use SimpleSearchableTables;
+
 	protected $fillable=['number'];
+
+	protected $searchable=['number'];
 
 	public function requests() {
 		return $this->hasMany(Petition::class);

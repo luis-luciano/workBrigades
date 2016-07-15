@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\PersonalInformation;
 use App\Citizen;
-
+use App\Colony;
 use App\Http\Requests;
+use App\PersonalInformation;
+use Illuminate\Http\Request;
 
 class CitizensController extends Controller
 {
@@ -64,9 +64,9 @@ class CitizensController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Citizen $citizen)
     {
-        //
+        return view('admin.citizens.edit', compact('citizen'));
     }
 
     /**
@@ -76,9 +76,11 @@ class CitizensController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Citizen $citizen)
     {
-        //
+        $citizen->update($request->all());
+        $citizen->personalInformation()->update($request->all());
+        return redirect()->route('citizens.edit', compact('citizen'));
     }
 
     /**

@@ -93,4 +93,9 @@ trait HasPersonalInformation
     {
         return $this->personalInformation->colony_id;
     }
+
+    public function getColonyNameAttribute()
+    {
+        return $this->personalInformation->colony->name;
+    }
 }

@@ -5,10 +5,26 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('name','Nombre', ['class' => 'control-label']) !!}
+                        {!! Form::label('name','Nombre', ['class' => 'control-label','placeholder'=>'in_process / expired ']) !!}
                     </div>
                 </div>
+             </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
                 <div class="inputer">
+                {!! Form::label('label','Label', ['class' => 'control-label']) !!} <br>
+                    <div class="input-wrapper">
+                        {!! Form::text('label', null, ['class' => 'form-control']) !!}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="inputer">
+                {!! Form::label('color','Color Identificador', ['class' => 'control-label']) !!} <br>
                     <div class="input-wrapper">
                         {!! Form::text('color', null, ['class' => 'minicolors form-control','data-control'=>'wheel']) !!}
                     </div>
