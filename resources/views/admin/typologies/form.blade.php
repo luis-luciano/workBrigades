@@ -11,6 +11,13 @@
                 
             </div><!--.form-group-->
         </div>
+        <div class="col-md-7">
+            <div class="form-group">
+                {!! Form::label('supervisions_list[]', 'Supervición', ['class' => 'control-label']) !!}
+                <div class="input-wrapper">
+                    {!! Form::select('supervisions_list[]', $supervisions, null, ['class' => 'select2 form-control', 'style' => 'width: 100%', 'multiple']) !!}
+                </div>
+            </div><!--.form-group-->
     </div>
 </div><!--.form-content-->
 

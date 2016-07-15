@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Supervision;
 use App\Typology;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,9 @@ class TypologiesController extends Controller
     public function store(Request $request)
     {
         $typology=Typology::create($request->all());
+        $typology->syncSupervisions($request->supervisions_list);
+
+        alert()->success(trans('messages.success.store'));
         return redirect('typologies');
     }
 
@@ -62,7 +66,7 @@ class TypologiesController extends Controller
     public function edit($id)
     {
         $typology=Typology::find($id);
-        return view('admin.typologies.edit', compact('typology'));
+        return view('admin.typologies.edit', compact('typology','supervisions'));
     }
 
     /**
@@ -76,6 +80,7 @@ class TypologiesController extends Controller
     {
         $typology=Typology::find($id);
         $typology->update($request->all());
+        $typology->syncSupervisions($request->supervisions_list);
         return redirect('typologies/'.$typology->id.'/edit');
     }
 

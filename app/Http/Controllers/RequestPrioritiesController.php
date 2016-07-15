@@ -15,7 +15,7 @@ class RequestPrioritiesController extends Controller
      */
     public function index()
     {
-        $priorities=RequestPriority::paginate(10);
+        $priorities=RequestPriority::SearchFromRequest()->PaginateForTable();
         return view('admin.priorities.index', compact('priorities'));
     }
 
@@ -88,6 +88,6 @@ class RequestPrioritiesController extends Controller
     {
         $priority=RequestPriority::find($id);
         $priority->delete();
-        return redirect('RequestPriority');
+        return redirect('requestsPriorities');
     }
 }
