@@ -15,7 +15,7 @@ class SupervisionsController extends Controller
      */
     public function index()
     {
-        $supervisions=Supervision::paginate(5);
+        $supervisions=Supervision::SearchFromRequest()->PaginateForTable();
         return view('admin.supervisions.index', compact('supervisions'));
     }
 
@@ -67,6 +67,7 @@ class SupervisionsController extends Controller
     public function edit($id)
     {   
         $supervision=Supervision::find($id);
+        //dd($supervision);
         return view('admin.supervisions.edit',compact('supervision'));
     }
 
@@ -81,6 +82,7 @@ class SupervisionsController extends Controller
     {
         $supervision=Supervision::find($id);
         $supervision->update($request->all());
+
         return redirect('supervisions/' . $supervision->id .'/edit'); 
     }
 

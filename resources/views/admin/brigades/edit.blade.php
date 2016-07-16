@@ -27,15 +27,22 @@
 
                     {!! Form::close() !!}
                     <br>
+                    @if($brigade->requests()->count() == 0 && $brigade->sectors()->count() == 0 && $brigade->typologies()->count() == 0)
+                         {!! Form::open(['route'=> ['brigades.destroy', $brigade->id ], 'method' => 'DELETE']) !!}
+                                        <button type="submit" class="btn btn-danger pull-right">Eliminar
+                                        </button>
+                        {!! Form::close() !!}
+                    @else
+                        {!! Form::open(['route'=> ['brigades.destroy', $brigade->id ], 'method' => 'DELETE']) !!}
+                                        <button type="submit" class="btn btn-danger pull-right" disabled>Eliminar
+                                        </button>
+                                       
+                    {!! Form::close() !!}
+                    @endif
 
                     
                          
-                        {!! Form::open(['route'=> ['brigades.destroy', $brigade->id ], 'method' => 'DELETE']) !!}
-                                        <button type="submit" class="btn btn-danger pull-right" >Eliminar
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                        </button>
-                                       
-                        {!! Form::close() !!} 
+                        
                     
                     
                 </div><!--.panel-body-->

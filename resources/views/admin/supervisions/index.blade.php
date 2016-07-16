@@ -40,7 +40,7 @@
 										<tr>
 											<td><input type="hidden" id="_url" value="{{ action('SupervisionsController@edit',$supervision)}}">{{ $supervision->name }}</a></td>	
 											<td>
-												{{ $supervision->estension }}
+												{{ $supervision->extension }}
 											</td>	
 										</tr>
 									@endforeach

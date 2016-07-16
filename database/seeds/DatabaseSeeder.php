@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CaptureTypeTableSeeder::class);
         $this->call(RequestStateTableSeeder::class);
         $this->call(RequestPrioritiesTableSeeder::class);
+        $this->call(RequestTypesTableSeeder::class);
         $this->call(SectorBrigadeTableSeeder::class);
         $this->call(TestColonyScopesTableSeeder::class); 
         $this->call(TestSettlementTypesTableSeeder::class);

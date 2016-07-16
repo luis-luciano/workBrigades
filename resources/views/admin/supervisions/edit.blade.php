@@ -26,6 +26,20 @@
                         @include('admin.supervisions.form', ['submitButtonText' => 'Actualizar'])
 
                     {!! Form::close() !!}
+                    <br>
+                    <!-- 
+                    @if($supervision->typologies()->count() == 0)
+                         {!! Form::open(['route'=> ['supervisions.destroy', $supervision->id ], 'method' => 'DELETE']) !!}
+                                        <button type="submit" class="btn btn-danger pull-right">Eliminar
+                                        </button>
+                        {!! Form::close() !!}
+                    @else
+                        {!! Form::open(['route'=> ['supervisions.destroy', $supervision->id ], 'method' => 'DELETE']) !!}
+                                        <button type="submit" class="btn btn-danger pull-right" disabled>Eliminar
+                                        </button>
+                                       
+                    {!! Form::close() !!}
+                    @endif -->
                     
                 </div><!--.panel-body-->
                 

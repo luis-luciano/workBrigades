@@ -28,15 +28,20 @@
                     {!! Form::close() !!}
                     <br>
 
-                    
-                         
+                    @if($problemType->requests()->count() == 0)
+                         {!! Form::open(['route'=> ['problemTypes.destroy', $problemType->id ], 'method' => 'DELETE']) !!}
+                                        <button type="submit" class="btn btn-danger pull-right">Eliminar
+                                        </button>
+                        {!! Form::close() !!}
+                    @else
                         {!! Form::open(['route'=> ['problemTypes.destroy', $problemType->id ], 'method' => 'DELETE']) !!}
-                                        <button type="submit" class="btn btn-danger pull-right" >Eliminar
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        <button type="submit" class="btn btn-danger pull-right" disabled>Eliminar
                                         </button>
                                        
-                        {!! Form::close() !!} 
-                    
+                    {!! Form::close() !!}
+                    @endif
+                         
+                       
                     
                 </div><!--.panel-body-->
                 

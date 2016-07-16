@@ -5,10 +5,18 @@ namespace App;
 use App\Request as Petition;
 use App\Sector;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SimpleSearchableTables;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class Brigade extends Model {
 
+	use SimpleSearchableTables;
+
 	protected $fillable=['name','description'];
+
+	protected $searchable=['name','description'];
+	//
 	//
 	public function requests() {
 

@@ -15,7 +15,7 @@ class RequestTypesController extends Controller
      */
     public function index()
     {   
-        $requestTypes=RequestType::paginate(5);
+        $requestTypes=RequestType::SearchFromRequest()->PaginateForTable();
         return view('admin.requestTypes.index',compact('requestTypes'));
     }
 

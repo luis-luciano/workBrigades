@@ -16,7 +16,7 @@ class BrigadesController extends Controller
      */
     public function index()
     {
-        $brigades=Brigade::paginate(10);
+        $brigades=Brigade::SearchFromRequest()->PaginateForTable();
         return view('admin.brigades.index', compact('brigades'));
     }
 

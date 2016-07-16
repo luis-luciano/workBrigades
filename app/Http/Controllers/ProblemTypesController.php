@@ -16,7 +16,7 @@ class ProblemTypesController extends Controller
      */
     public function index()
     {
-        $problemTypes = Problem::paginate(5);
+        $problemTypes = Problem::SearchFromRequest()->PaginateForTable();
         return view('admin.problemTypes.index', compact('problemTypes'));
     }
 
