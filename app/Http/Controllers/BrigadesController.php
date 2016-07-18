@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Brigade;
 use App\Http\Requests\BrigadesRequest;
+use App\Sector;
+use App\Typology;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -27,7 +29,9 @@ class BrigadesController extends Controller
      */
     public function create()
     {
-        return view ('admin.brigades.create');
+        $typologies=Typology::lists('name','id');
+        $sectors=Sector::lists('number','id');
+        return view ('admin.brigades.create',compact('typologies','sectors'));
     }
 
     /**
@@ -37,8 +41,11 @@ class BrigadesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        //dd($request->typologies_list);
         $brigade=Brigade::create($request->all());
+        $brigade->syncTypologies($request->typologies_list);
+
         return redirect()->route('brigades.index');
     }
 
@@ -62,7 +69,9 @@ class BrigadesController extends Controller
     public function edit($id)
     {
         $brigade=Brigade::find($id);
-        return view('admin.brigades.edit', compact('brigade'));
+        $typologies=Typology::lists('name','id');
+        $sectors=Sector::lists('number','id');
+        return view('admin.brigades.edit', compact('brigade','typologies','sectors'));
     }
 
 
@@ -77,6 +86,8 @@ class BrigadesController extends Controller
     {
         $brigade=Brigade::find($id);
         $brigade->update($request->all());
+        $brigade->syncTypologies($request->typologies_list);
+        $brigade->syncSectors($request->sectors_list);
         return redirect('brigades/' . $brigade->id .'/edit');
     }
 

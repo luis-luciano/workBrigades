@@ -16,7 +16,7 @@ class TypologiesController extends Controller
      */
     public function index()
     {
-        $typologies=Typology::paginate(5);
+        $typologies=Typology::SearchFromRequest()->PaginateForTable();
 
         return view('admin.typologies.index', compact('typologies'));
     }

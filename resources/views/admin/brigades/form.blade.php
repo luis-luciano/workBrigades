@@ -9,14 +9,28 @@
                     </div>
                 </div>
             </div><!--.form-group-->
+            <div class="form-group">
+                {!! Form::label('typologies_list[]', 'Tipologia', ['class' => 'control-label']) !!}
+                <div class="input-wrapper">
+                  {!! Form::select('typologies_list[]', $typologies , null, ['class' => 'select2 form-control', 'style' => 'width:100%;','multiple']) !!}
+                </div>
+            </div><!--.form-group-->
+            <div class="form-group">
+                {!! Form::label('sectors_list[]', 'Sector Atencion', ['class' => 'control-label']) !!}
+                <div class="input-wrapper">
+                  {!! Form::select('sectors_list[]', $sectors , null, ['class' => 'select2 form-control', 'style' => 'width:100%;','multiple']) !!}
+                </div>
+            </div><!--.form-group-->
+
         </div>
+      
         
 <div class="col-md-6">
             <div class="form-group">
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
-                        {!! Form::textArea('description', null, ['class' => 'form-control','style'=>'with:15%'] ) !!}
-                        {!! Form::label('description','Descripcion', ['class' => 'control-label']) !!}
+                        {!! Form::textArea('description', null, ['class' => 'form-control js-auto-size valid','style'=>'height:100px'] ) !!}
+                        {!! Form::label('description','Descripcion De la Brigada', ['class' => 'control-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
