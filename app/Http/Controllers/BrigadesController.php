@@ -40,7 +40,7 @@ class BrigadesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BrigadesRequest $request)
     {   
         //dd($request->typologies_list);
         $brigade=Brigade::create($request->all());

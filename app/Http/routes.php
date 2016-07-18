@@ -40,3 +40,8 @@ Route::get('auth/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getL
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+//Routes for ajax call
+Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
+	Route::resource('citizens','CitizensController',['only'=>['store']]);
+});

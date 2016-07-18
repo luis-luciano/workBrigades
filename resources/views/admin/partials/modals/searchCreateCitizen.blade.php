@@ -7,9 +7,9 @@
     <div class="tab-content with-panel">
         <div id="personal-information" class="tab-pane active">
             {{--@include('errors.htmlList', ['form' => 'CreateCitizenForm'])--}}
-            {{--{!! Form::open(['route' => 'ajax.citizens.store', 'id' => 'createCitizenForm']) !!}--}}
+            {!! Form::open(['route' => 'ajax.citizens.store', 'id' => 'createCitizenForm']) !!}
                 @include('admin.citizens.form', ['submitButtonText' => 'Guardar', 'onlySaveButton' => true])
-           {{-- {!! Form::close() !!} --}}
+            {!! Form::close() !!}
         </div><!--.tab-pane-->
     </div><!--.tab-content-->
 </div><!--.panel-body-->

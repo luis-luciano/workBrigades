@@ -15,7 +15,7 @@
                     <div class="panel-title"><h4>BRIGADA</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-
+                 @include('errors.list')
                     {!! Form::open(['route' => 'brigades.store','method' => 'post' ,'id' => 'createBrigadeForm']) !!}
                         @include('admin.brigades.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
