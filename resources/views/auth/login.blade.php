@@ -11,21 +11,14 @@
 	<meta name="author" content="Lucas Bebber for Codrops" />
 	<link rel="shortcut icon" href="{{ asset('assets/globals/img/icon.ico') }}">
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  	
+  	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap/dist/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/normalize.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/demo.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/style1.css') }}">
 
-			     	 	 	 	 	 	
-
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'
-        
-
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+	<![endif]-->
 </head>
 
 <body class="demo-1">
@@ -46,7 +39,6 @@
 		<header class="codrops-header">
 			
 			<img class="img-logo" src="{{ asset('assets/globals/img/logo_h.png') }}" />
-			<p style="font-size:8px;">cm@gno</p>
 
 		</header>
 
@@ -102,10 +94,9 @@
 		</div>
 		<p class="nosupport">Sorry, but your browser does not support WebGL!</p>
 	</div>
-
-	<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<!-- /container -->
+	
+	<script src= "{{ asset('assets/globals/plugins/jquery/dist/jquery.min.js') }}"></script>
+	<script src= "{{ asset('assets/globals/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 	<script src= "{{ asset('assets/globals/js/index.js') }}"></script>
 
 
