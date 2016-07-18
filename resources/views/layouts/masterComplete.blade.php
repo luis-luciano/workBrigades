@@ -65,10 +65,6 @@
                 </div><!--.row-->
             </div><!--.page-header-->
 
-		
-       
-
-
 		@yield('content')
 	</div><!--.content-->
 
