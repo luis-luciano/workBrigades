@@ -45,7 +45,7 @@
                 </table>
             </div>
             <div class="pull-left">
-                {{ $$elements->total() }} {{ $elements }}
+                {{ $$elements->total() }} {{ ($$elements->total()>1)? plural($elements) :singular($elements) }}
             </div>
             <div class="pull-right">
                 {!! $$elements->render() !!}

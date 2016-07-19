@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Citizen;
 use App\Colony;
-use App\Http\Requests;
+use App\Http\Requests\StoreCitizenRequest;
 use App\PersonalInformation;
 use Illuminate\Http\Request;
 
@@ -38,7 +38,7 @@ class CitizensController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCitizenRequest $request)
     {
         $citizen = PersonalInformation::create($request->all())->citizen()->create($request->all());
 
