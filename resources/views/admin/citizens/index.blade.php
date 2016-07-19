@@ -32,24 +32,30 @@
                 </div><!--.row-->
                 <br>
                                 @section('citizensTableHeader')
-                                <th class="col-md-6">Nombre</th>
-                                <th class="col-md-6">Colonia</th>
-                                <th class="col-md-6">E-mail</th>
-                                <th class="col-md-6">Telefono</th>
+                                <th class="col-md-2">Nombre</th>
+                                <th class="col-md-2">E-mail</th>
+                                <th class="col-md-2">Tel. Celular</th>
+                                <th class="col-md-2">Tel. Casa</th>
+                                <th class="col-md-4">Colonia</th>
                                 @stop
                                 @section('citizensTableBody')
                                     @foreach ($citizens as $citizen)
                                         <tr>
-                                            <td><input type="hidden" id="_url" value="{{ action('CitizensController@edit',$citizen->id)}}">{{ $citizen->name }}</a></td>    
-                                            <td>
-                                                {{ $citizen->colonyName }}
-                                            </td>
-                                            <td>
-                                                {{ $citizen->email }}
+                                            <td><input type="hidden" id="_url" value="{{ action('CitizensController@edit',$citizen->id)}}">{{ $citizen->fullName }}</a>
                                             </td> 
                                             <td>
+                                                {{ $citizen->email }}
+                                            </td>    
+                                            <td>
                                                 {{ $citizen->mobile_phone }}
-                                            </td>     
+                                            </td>
+                                            
+                                            <td>
+                                                {{ $citizen->house_phone }}
+                                            </td>  
+                                            <td>
+                                                {{ $citizen->colonyName }}
+                                            </td>   
                                         </tr>
                                     @endforeach 
                                 @stop

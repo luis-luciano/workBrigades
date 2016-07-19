@@ -19,7 +19,7 @@ class Citizen extends Model implements HasPresenter {
      * @var array
      */
     
-	protected $fillable=['email'];
+	  protected $fillable = ['email', 'personal_information_id'];
 
 	/**
      * The relations to eager load on every query.

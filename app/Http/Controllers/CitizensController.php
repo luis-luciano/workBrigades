@@ -42,7 +42,11 @@ class CitizensController extends Controller
     {
         $citizen = PersonalInformation::create($request->all())->citizen()->create($request->all());
 
-        //alert()->success(trans('messages.success.store'));
+        //$citizen->personalInformation->colony()->associate(Colony::find($request->get('colony_id')));
+
+        //$citizen->save();
+
+        alert()->success(trans('messages.success.store'));
 
         return redirect()->route('citizens.edit', compact('citizen'));
     }
@@ -55,7 +59,7 @@ class CitizensController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -80,6 +84,8 @@ class CitizensController extends Controller
     {
         $citizen->update($request->all());
         $citizen->personalInformation()->update($request->all());
+
+        alert()->success(trans('messages.success.update'));
         return redirect()->route('citizens.edit', compact('citizen'));
     }
 

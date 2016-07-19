@@ -4,6 +4,7 @@ namespace App;
 
 use App\Colony;
 use App\Request;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class PersonalInformation extends Model {
@@ -37,4 +38,9 @@ class PersonalInformation extends Model {
 	public function colony() {
 		return $this->belongsTo(Colony::class);
 	}
+
+    public function getBirthdayAttribute($date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
+    }
 }

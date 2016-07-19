@@ -8,13 +8,16 @@ use App\Traits\SimpleSearchableTables;
 use Illuminate\Database\Eloquent\Builder;
 use App\Request as Petition;
 use App\SettlementType;
+use App\Presenters\CitizenPresenter;
+use McCool\LaravelAutoPresenter\HasPresenter;
 use Illuminate\Database\Eloquent\Model;
 
-class Colony extends Model {
+class Colony extends Model implements hasPresenter{
 
 	use SimpleSearchableTables;
 
-	protected $fillable=['zip','name'];
+	protected $fillable = ['zip', 'name', 'colony_scope_id', 'settlement_type_id'];
+
 
 	public function requests() {
 
@@ -33,7 +36,7 @@ class Colony extends Model {
 	
 	public function personalInformation() {
 
-		return $this->hasMany(PersonalInformation::class);
+		return $this->hasOne(PersonalInformation::class);
 	}
 
 	public function sector(){
@@ -67,5 +70,10 @@ class Colony extends Model {
     	});
 
     	return $query;
+    }
+
+    public function getPresenterClass()
+    {
+    	return CitizenPresenter::class;
     }
 }
