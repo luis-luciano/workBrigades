@@ -6,7 +6,7 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('name','Nombre', ['class' => 'control-label','placeholder'=>'in_process / expired ']) !!}
+                        {!! Form::label('name',trans('states.name'), ['class' => 'control-label','placeholder'=>'in_process / expired ']) !!}
                     </div>
                 </div>
              </div>

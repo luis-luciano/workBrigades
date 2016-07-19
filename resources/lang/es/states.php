@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'requestState' => 'Estado|Estados',
+    'state' => 'Estado|Estados',
     'name' => 'Nombre',
     'color' => 'Color',
 ];
