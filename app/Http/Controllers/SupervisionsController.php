@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\SupervisionRequest;
 use App\Supervision;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class SupervisionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SupervisionRequest $request)
     {
             $supervision = new Supervision;
             $supervision->name = $request->name;
@@ -78,7 +79,7 @@ class SupervisionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SupervisionRequest $request, $id)
     {
         $supervision=Supervision::find($id);
         $supervision->update($request->all());

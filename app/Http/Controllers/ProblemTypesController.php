@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\ProblemRequest;
 use App\Problem;
 use App\Typology;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class ProblemTypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProblemRequest $request)
     {   
         $problemType=Problem::create($request->all());
         $problemType->typologies()->associate(Typology::find($request->typology_id))->save();
@@ -76,7 +77,7 @@ class ProblemTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProblemRequest $request, $id)
     {
         $problemType=Problem::find($id);
         $problemType->update($request->all());

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\RoleRequest;
 use App\Permission;
 use App\Role;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class RolesController extends Controller
      */
     public function index()
     {
-        $roles=Role::paginate(5);
+        $roles=Role::SearchFromRequest()->PaginateForTable();
         
         //return $permissions;
         return view('admin.roles.index', compact('roles'));
@@ -39,7 +40,7 @@ class RolesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
         $role=Role::create($request->all());
         $role->syncPermissions($request->permissions_list);
@@ -79,7 +80,7 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, $id)
     {
         $role=Role::find($id);
         $role->update($request->all());

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\ColonyScope;
 use App\Http\Requests;
+use App\Http\Requests\ColonyScopeRequest;
 use App\Http\Requests\ScopesRequest;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class ColonyScopesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ColonyScopeRequest $request)
     {
        
         $scope=ColonyScope::create($request->all());
@@ -72,7 +73,7 @@ class ColonyScopesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ColonyScopeRequest $request, $id)
     {
         $scope=ColonyScope::find($id);
         $scope->update($request->all());

@@ -5,12 +5,16 @@ namespace App;
 use App\Permission;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SimpleSearchableTables;
+use Illuminate\Database\Eloquent\Builder;
 
 class Role extends Model {
 
-	
+	use SimpleSearchableTables;
 
 	protected $fillable=['name','label','home'];
+
+    protected $searchable=['name','label'];
 
 	public function users() {
 		return $this->belongsToMany(User::class);

@@ -28,12 +28,12 @@
                     <br>
                     @if($state->requests()->count() == 0)
                          {!! Form::open(['route'=> ['requestsStates.destroy', $state->id ], 'method' => 'DELETE']) !!}
-                                        <button type="submit" class="btn btn-danger pull-right">Eliminar
+                                        <button id="deleteRequestStateButton" type="submit" class="btn btn-danger pull-right">Eliminar
                                         </button>
                         {!! Form::close() !!}
                     @else
                         {!! Form::open(['route'=> ['requestsStates.destroy', $state->id ], 'method' => 'DELETE']) !!}
-                                        <button type="submit" class="btn btn-danger pull-right" disabled>Eliminar
+                                        <button id="deleteRequestStateButton" type="submit" class="btn btn-danger pull-right" disabled>Eliminar
                                         </button>
                                        
                     {!! Form::close() !!}

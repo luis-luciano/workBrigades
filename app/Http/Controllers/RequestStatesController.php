@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\RequestStateRequest;
 use App\RequestState;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class RequestStatesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestStateRequest $request)
     {
         $state=RequestState::create($request->all());
 
@@ -74,7 +75,7 @@ class RequestStatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestStateRequest $request, $id)
     {
         $state=RequestState::find($id);
         $state->update($request->all());

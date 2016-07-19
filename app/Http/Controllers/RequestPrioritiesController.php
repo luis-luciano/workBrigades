@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\RequestPriorityRequest;
 use App\RequestPriority;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class RequestPrioritiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestPriorityRequest $request)
     {
         $priority=RequestPriority::create($request->all());
         return redirect('requestsPriorities');
@@ -71,7 +72,7 @@ class RequestPrioritiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestPriorityRequest $request, $id)
     {
         $priority=RequestPriority::find($id);
         $priority->update($request->all());

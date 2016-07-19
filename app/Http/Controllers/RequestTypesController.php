@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\RequestTypeRequest;
 use App\RequestType;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class RequestTypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestTypeRequest $request)
     {
          $Type=RequestType::create($request->all());
 
@@ -78,7 +79,7 @@ class RequestTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestTypeRequest $request, $id)
     {
         $requestType=RequestType::find($id);
         $requestType->update($request->all());

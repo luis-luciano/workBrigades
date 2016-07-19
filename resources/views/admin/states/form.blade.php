@@ -1,4 +1,5 @@
 <div class="form-content">
+     @include('errors.list')
     <div class="row">
         <div class="col-md-5">
             <div class="form-group">
@@ -13,7 +14,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <div class="inputer">
-                {!! Form::label('label','Label', ['class' => 'control-label']) !!} <br>
+                {!! Form::label('label','Etiqueta', ['class' => 'control-label']) !!} <br>
                     <div class="input-wrapper">
                         {!! Form::text('label', null, ['class' => 'form-control']) !!}
                         
@@ -32,6 +33,7 @@
             </div><!--.form-group-->
         </div>
     </div>
+
 </div><!--.form-content-->
 
 <div class="form-buttons form-group clearfix">

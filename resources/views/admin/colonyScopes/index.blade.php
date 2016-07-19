@@ -30,6 +30,7 @@
 	                        </div><!--.fomr-body-->
 	                    </form>
 	                </div><!--.row-->
+	                <br>
 	                	@section('scopesTableHeader')
 	                	<th class="col-md-6">Tipo de Ambito</th>
 	                	@stop

@@ -11,6 +11,7 @@
             </div><!--.form-group-->
         </div>
     </div>
+     @include('errors.list')
 </div><!--.form-content-->
 
 <div class="form-buttons form-group clearfix">

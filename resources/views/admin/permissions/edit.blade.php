@@ -26,15 +26,22 @@
 
                     {!! Form::close() !!}
                     <br>
+                    @if($permission->roles()->count() == 0)
+                         {!! Form::open(['route'=> ['permissions.destroy', $permission->id ], 'method' => 'DELETE']) !!}
+                                        <button type="submit" class="btn btn-danger">Eliminar
+                                        
+                                        </button>
+                        {!! Form::close() !!}
+                    @else
+                        {!! Form::open(['route'=> ['permissions.destroy', $permission->id ], 'method' => 'DELETE']) !!}
+                                        <button type="submit" class="btn btn-danger " disabled>Eliminar
+                                        
+                                        </button>
+                    {!! Form::close() !!}
+                    @endif
 
                     
-                        {!! Form::open(['route'=> ['permissions.destroy', $permission->id ], 'method' => 'DELETE']) !!}
-                                        <button type="submit" class="btn btn-danger pull-right" >Eliminar
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                        </button>
-                                       
-                    {!! Form::close() !!}
-                    
+                       
                     
                 </div><!--.panel-body-->
                 

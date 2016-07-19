@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CaptureType;
 use App\Http\Requests;
+use App\Http\Requests\CaptureTypeRequest;
 use Illuminate\Http\Request;
 
 class CaptureTypesController extends Controller
@@ -35,7 +36,7 @@ class CaptureTypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CaptureTypeRequest $request)
     {
         $captureType=CaptureType::create($request->all());
         return redirect('captureTypes');
@@ -71,7 +72,7 @@ class CaptureTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CaptureTypeRequest $request, $id)
     {
         $captureType=CaptureType::find($id);
         $captureType->update($request->all());

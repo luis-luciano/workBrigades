@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\SectorRequest;
 use App\Sector;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class SectorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SectorRequest $request)
     {
         $sector=Sector::create($request->all());
         return redirect('sectors');
@@ -71,7 +72,7 @@ class SectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SectorRequest $request, $id)
     {
         $sector=Sector::find($id);
         $sector->update($request->all());

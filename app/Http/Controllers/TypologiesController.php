@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\TypologyRequest;
 use App\Supervision;
 use App\Typology;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class TypologiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TypologyRequest $request)
     {
         $typology=Typology::create($request->all());
         $typology->syncSupervisions($request->supervisions_list);
@@ -76,7 +77,7 @@ class TypologiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TypologyRequest $request, $id)
     {
         $typology=Typology::find($id);
         $typology->update($request->all());

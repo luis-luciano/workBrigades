@@ -32,8 +32,8 @@
 	                </div><!--.row-->
 	                <br>
 								@section('rolesTableHeader')
-			                	<th class="col-md-6">Supervicion</th>
-			                	<th class="col-md-6">Extencion</th>
+			                	<th class="col-md-6">Nombre</th>
+			                	<th class="col-md-6">Etiqueta</th>
 			                	@stop
 			                	@section('rolesTableBody')
 				                	@foreach ($roles as $role)

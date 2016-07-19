@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\SettlementTypeRequest;
 use App\SettlementType;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class SettlementTypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SettlementTypeRequest $request)
     {
         $settlement=SettlementType::create($request->all());
         return redirect()->route('colonies.settlement-types.index');
@@ -72,7 +73,7 @@ class SettlementTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SettlementTypeRequest $request, $id)
     {
         $settlement=SettlementType::find($id);
         $settlement->update($request->all());

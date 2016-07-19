@@ -5,7 +5,7 @@
         <div class="col-md-12">
             {!! Form::open(['method' => 'GET' , 'id' => $elements.'SearchForm']) !!}
                 <div class="row" style="padding-bottom: 2em;">
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <div class="form-group">
                             {!! Form::select('limit', ['10' => '10', '15' => '15', '20' => '20', $$elements->total() => 'Todos'], $$elements->perPage(), ['class' => 'selecter', 'onchange' => 'this.form.submit()', 'data-width' => '100%']) !!}
                         </div>
@@ -19,7 +19,7 @@
                             </div>
                         </div><!--.form-group-->
                     </div>
-                    <div class="col-md-3 col-md-offset-4">  
+                    <div class="col-md-3 col-md-offset-3">  
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary">Buscar</button>
                             <a href="{{ route($routePrefix . 'index') }}" class="btn btn-purple">Ver todos</a>

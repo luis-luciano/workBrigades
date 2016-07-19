@@ -1,4 +1,3 @@
-@include('errors.list')
 <div class="form-content">
     <div class="row">
         <div class="col-md-6">
@@ -17,7 +16,7 @@
                 </div>
             </div><!--.form-group-->
             <div class="form-group">
-                {!! Form::label('sectors_list[]', 'Sector Atencion', ['class' => 'control-label']) !!}
+                {!! Form::label('sectors_list[]', 'Sector De Atencion', ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
                   {!! Form::select('sectors_list[]', $sectors , null, ['class' => 'select2 form-control', 'style' => 'width:100%;','multiple']) !!}
                 </div>
@@ -38,8 +37,8 @@
         </div>
 </div>
 
- 
-    </div><!--.form-content-->
+ @include('errors.list')
+</div><!--.form-content-->
 
 <div class="form-buttons form-group clearfix">
     <div class="row">

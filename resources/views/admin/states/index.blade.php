@@ -31,8 +31,9 @@
 	                </div><!--.row-->
 	                <br>
 								@section('statesTableHeader')
-			                	<th class="col-md-6">Estado de Peticion</th>
-			                	<th class="col-md-6">Color</th>
+			                	<th class="col-md-6">Etiqueta</th>
+			                	<th class="col-md-5">Nombre</th>
+			                	<th class="col-md-1">Color</th>
 			                	@stop
 			                	@section('statesTableBody')
 				                	@foreach ($states as $state)
@@ -41,6 +42,7 @@
 											<td>
 											<input type="hidden" id="_url" value="{{ action('RequestStatesController@edit',$state)}}">{{ $state->label }}</a>
 											</td>
+											<td>{{ $state->name }}</td>
 
 											<td >
 											<button type="button" class="btn btn-default btn-lg" style="background-color:{{ $state->color }};"></button>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Colony;
 use App\ColonyScope;
 use App\Http\Requests;
+use App\Http\Requests\ColonyRequest;
 use App\PersonalInformation;
 use App\Sector;
 use App\SettlementType;
@@ -42,12 +43,12 @@ class ColoniesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ColonyRequest $request)
     {
         $colony=Colony::create($request->all());
         $colony->colonyScope()->associate(ColonyScope::find($request->colony_scope_id))->save();
         $colony->settlementType()->associate(SettlementType::find($request->settlement_type_id))->save();
-        $colony->sector()->associate(Sector::find($request->sector))->save();
+        $colony->sector()->associate(Sector::find($request->sector_id))->save();
         return redirect()->route('colonies.index');
     }
 
@@ -89,13 +90,14 @@ class ColoniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ColonyRequest $request, $id)
     {
         
         $colony=Colony::find($id);
         $colony->update($request->all());
         $colony->colonyScope()->associate(ColonyScope::find($request->colony_scope_id))->save();
         $colony->settlementType()->associate(SettlementType::find($request->settlement_type_id))->save();
+        $colony->sector()->associate(Sector::find($request->sector_id))->save();
         return redirect('colonies/' . $colony->id .'/edit');
         
     }

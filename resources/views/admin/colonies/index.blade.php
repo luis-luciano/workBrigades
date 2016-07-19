@@ -43,7 +43,7 @@ function imprSelec(dataTable)
 			                	<th class="col-md-4">Colonia</th>
 			                	<th class="col-md-2">Codigo Postal</th>
 			                	<th class="col-md-1">Sector</th>
-			                	<th class="col-md-1">Ambio</th>
+			                	<th class="col-md-1">Ambito</th>
 			                	<th class="col-md-2">Tipo de Asentamiento</th>
 
 			                	@stop
