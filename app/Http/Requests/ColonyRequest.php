@@ -25,8 +25,11 @@ class ColonyRequest extends Request
     {
 
         return [
-            'name' => 'required',
-            'zip' => 'required|numeric|min:5',
+            'name' => 'required|min:3|max:80',
+            'zip' => 'required|digits_between:5,6',
+            'settlement_type_id' => 'required|numeric|exists:settlement_types,id',
+            'colony_scope_id' => 'required|numeric|exists:colony_scopes,id',
+            'sector_id' => 'required|numeric|exists:sectors,id',
         ];
     }
 }

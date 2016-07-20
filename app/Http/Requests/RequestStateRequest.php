@@ -29,15 +29,15 @@ class RequestStateRequest extends Request
             return 
             [
             'name' => 'required|unique:request_states,name,'.$state->id.',id',
-            'label' => 'required',
-            'color' => 'required'
+            'label' => 'required|unique:request_states,label,'.$state->id.',id',
+            'color' => 'required|size:7'
             ];
         } else {
             return 
             [
             'name' => 'required|unique:request_states',
             'label' => 'required',
-            'color' => 'required'
+            'color' => 'required|size:7'
             ];
         }
         

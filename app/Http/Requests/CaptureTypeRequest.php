@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\CaptureType;
 use App\Http\Requests\Request;
 
 class CaptureTypeRequest extends Request
@@ -13,7 +14,7 @@ class CaptureTypeRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +24,22 @@ class CaptureTypeRequest extends Request
      */
     public function rules()
     {
+        $captureType= CaptureType::find($this->route('captureTypes'));
+        if (isset($captureType)) {
+            return 
+            [
+            'name' => 'required|min:3|max:50|unique:capture_types,name,'.$captureType->id.',id',
+            'color' => 'required|size:7'
+            ];
+        } else {
+            return 
+            [
+            'name' => 'required|min:3|max:50|unique:capture_types',
+            'color' => 'required|size:7',
+            ];
+        }
         return [
-            //
+            
         ];
     }
 }

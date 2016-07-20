@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\ColonyScope;
 use App\Http\Requests\Request;
 
 class ColonyScopeRequest extends Request
@@ -23,8 +24,17 @@ class ColonyScopeRequest extends Request
      */
     public function rules()
     {
-        return [
-            'name' => 'required'
-        ];
+        $scope= ColonyScope::find($this->route('colonies/scopes'));
+        if (isset($scope)) {
+            return 
+            [
+            'name' => 'required|unique:colony_scopes,name,'.$scope->id.',id'
+            ];
+        } else {
+            return 
+            [
+            'name' => 'required|unique:colony_scopes'
+            ];
+        }
     }
 }
