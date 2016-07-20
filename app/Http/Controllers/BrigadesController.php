@@ -19,6 +19,7 @@ class BrigadesController extends Controller
     public function index()
     {
         $brigades=Brigade::SearchFromRequest()->PaginateForTable();
+        
         return view('admin.brigades.index', compact('brigades'));
     }
 
@@ -30,7 +31,9 @@ class BrigadesController extends Controller
     public function create()
     {
         $typologies=Typology::lists('name','id');
+        
         $sectors=Sector::lists('number','id');
+        
         return view ('admin.brigades.create',compact('typologies','sectors'));
     }
 
@@ -44,7 +47,10 @@ class BrigadesController extends Controller
     {   
         //dd($request->typologies_list);
         $brigade=Brigade::create($request->all());
+        
         $brigade->syncTypologies($request->typologies_list);
+
+        alert()->success(trans('messages.success.store'));
 
         return redirect()->route('brigades.index');
     }
@@ -69,8 +75,11 @@ class BrigadesController extends Controller
     public function edit($id)
     {
         $brigade=Brigade::find($id);
+        
         $typologies=Typology::lists('name','id');
+        
         $sectors=Sector::lists('number','id');
+        
         return view('admin.brigades.edit', compact('brigade','typologies','sectors'));
     }
 
@@ -85,9 +94,15 @@ class BrigadesController extends Controller
     public function update(BrigadesRequest $request, $id)
     {
         $brigade=Brigade::find($id);
+        
         $brigade->update($request->all());
+        
         $brigade->syncTypologies($request->typologies_list);
+        
         $brigade->syncSectors($request->sectors_list);
+
+        alert()->success(trans('messages.success.update'));
+        
         return redirect('brigades/' . $brigade->id .'/edit');
     }
 
@@ -100,8 +115,11 @@ class BrigadesController extends Controller
     public function destroy($id)
     {
         $brigade=Brigade::find($id);
+        
         $brigade->delete();
-
+        
+        alert()->success(trans('messages.success.destroy'));
+        
         return redirect('brigades');
     }
 }

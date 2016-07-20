@@ -43,7 +43,7 @@
 <div class="form-buttons form-group clearfix">
     <div class="row">
         <div class="col-md-12">
-            {!! Form::submit($submitButtonText, ['class' => 'btn btn-success']) !!}
+            {!! Form::submit($submitButtonText, ['class' => 'btn btn-success','id' => 'editBrigadeForm']) !!}
             <a href="{{ route('brigades.create') }}" class="btn btn-primary">Nuevo</a>
             <a href="{{ route('brigades.index') }}" class="btn btn-warning">Regresar</a>
         </div>

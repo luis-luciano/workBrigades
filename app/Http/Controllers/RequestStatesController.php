@@ -65,6 +65,7 @@ class RequestStatesController extends Controller
     public function edit($id)
     {
         $state=RequestState::find($id);
+        
         return view('admin.states.edit',compact('state'));
     }
 
@@ -78,9 +79,11 @@ class RequestStatesController extends Controller
     public function update(RequestStateRequest $request, $id)
     {
         $state=RequestState::find($id);
+        
         $state->update($request->all());
 
         alert()->success(trans('messages.success.update'));
+        
         return redirect('requestsStates/' . $state->id .'/edit');
     }
 
@@ -93,8 +96,11 @@ class RequestStatesController extends Controller
     public function destroy($id)
     {
         $state=RequestState::find($id);
+        
         $state->delete();
+        
         alert()->success(trans('messages.success.destroy'));
+        
         return redirect('requestsStates');
     }
 }

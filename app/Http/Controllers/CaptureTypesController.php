@@ -17,6 +17,7 @@ class CaptureTypesController extends Controller
     public function index()
     {
         $captureTypes=CaptureType::SearchFromRequest()->PaginateForTable();
+        
         return view('admin.captureTypes.index', compact('captureTypes'));
     }
 
@@ -39,6 +40,9 @@ class CaptureTypesController extends Controller
     public function store(CaptureTypeRequest $request)
     {
         $captureType=CaptureType::create($request->all());
+        
+        alert()->success(trans('messages.success.store'));
+
         return redirect('captureTypes');
     }
 
@@ -62,6 +66,7 @@ class CaptureTypesController extends Controller
     public function edit($id)
     {
         $captureType=CaptureType::find($id);
+        
         return view('admin.captureTypes.edit',compact('captureType'));
     }
 
@@ -75,7 +80,11 @@ class CaptureTypesController extends Controller
     public function update(CaptureTypeRequest $request, $id)
     {
         $captureType=CaptureType::find($id);
+        
         $captureType->update($request->all());
+
+        alert()->success(trans('messages.success.update'));
+        
         return redirect('captureTypes/' . $captureType->id .'/edit'); 
     }
 
@@ -88,7 +97,11 @@ class CaptureTypesController extends Controller
     public function destroy($id)
     {
         $captureType=CaptureType::find($id);
+
         $captureType->delete();
+
+        alert()->success(trans('messages.success.destroy'));
+        
         return redirect('captureTypes');
     }
 }

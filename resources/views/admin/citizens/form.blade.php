@@ -157,7 +157,7 @@
 <div class="form-buttons form-group clearfix">
     <div class="row">
         <div class="col-md-12">
-            {!! Form::submit($submitButtonText, ['class' => 'btn btn-success']) !!}
+            {!! Form::submit($submitButtonText, ['class' => 'btn btn-success', 'id' => '#editCitizenForm']) !!}
             @unless(isset($onlySaveButton) && $onlySaveButton)
                 <a href="{{ route('citizens.create') }}" class="btn btn-primary">Nuevo</a>
                 <a href="{{ route('citizens.index') }}" class="btn btn-warning">Regresar</a>

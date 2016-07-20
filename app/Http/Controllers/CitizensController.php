@@ -83,9 +83,11 @@ class CitizensController extends Controller
     public function update(Request $request, Citizen $citizen)
     {
         $citizen->update($request->all());
+        
         $citizen->personalInformation()->update($request->all());
 
         alert()->success(trans('messages.success.update'));
+        
         return redirect()->route('citizens.edit', compact('citizen'));
     }
 
@@ -97,6 +99,6 @@ class CitizensController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /*alert()->success(trans('messages.success.destroy'));*/
     }
 }

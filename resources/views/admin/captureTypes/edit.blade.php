@@ -29,12 +29,12 @@
 
                     @if($captureType->requests()->count() == 0)
                          {!! Form::open(['route'=> ['captureTypes.destroy', $captureType->id ], 'method' => 'DELETE']) !!}
-                                        <button type="submit" class="btn btn-danger pull-right">Eliminar
+                                        <button id="deleteCaptureTypeButton" type="submit" class="btn btn-danger pull-right">Eliminar
                                         </button>
                         {!! Form::close() !!}
                     @else
                         {!! Form::open(['route'=> ['captureTypes.destroy', $captureType->id ], 'method' => 'DELETE']) !!}
-                                        <button type="submit" class="btn btn-danger pull-right" disabled>Eliminar
+                                        <button id="deleteCaptureTypeButton" type="submit" class="btn btn-danger pull-right" disabled>Eliminar
                                         </button>
                                        
                     {!! Form::close() !!}
