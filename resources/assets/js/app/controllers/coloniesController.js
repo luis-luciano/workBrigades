@@ -10,6 +10,10 @@ module.exports = (function ($) {
 
     var edit = function() {
         require('../validators/colonyValidator.js')($('#editColonyForm'));
+        $('#deleteColonyButton').click(function(e) {
+            e.preventDefault();
+            require('../helpers/deleteConfirmationAlert.js')(this);
+        });
     };
 
     // return the variables to be public

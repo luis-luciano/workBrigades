@@ -21,6 +21,7 @@ class ColoniesController extends Controller
     public function index()
     {
         $colonies=Colony::SearchFromRequest()->PaginateForTable();
+        
         return  view('admin.colonies.index',compact('colonies'));
     }
 
@@ -31,9 +32,12 @@ class ColoniesController extends Controller
      */
     public function create()
     {   
-             $scopes=ColonyScope::lists('name','id');
+            $scopes=ColonyScope::lists('name','id');
+            
             $settlements=SettlementType::lists('name', 'id');
+            
             $sectors=Sector::lists('number','id');
+            
             return view ('admin.colonies.create', compact('scopes','settlements','sectors'));
     }
 
@@ -46,9 +50,15 @@ class ColoniesController extends Controller
     public function store(ColonyRequest $request)
     {
         $colony=Colony::create($request->all());
+        
         $colony->colonyScope()->associate(ColonyScope::find($request->colony_scope_id))->save();
+        
         $colony->settlementType()->associate(SettlementType::find($request->settlement_type_id))->save();
+        
         $colony->sector()->associate(Sector::find($request->sector_id))->save();
+
+        alert()->success(trans('messages.success.store'));
+        
         return redirect()->route('colonies.index');
     }
 
@@ -61,8 +71,11 @@ class ColoniesController extends Controller
     public function show($id)
     {
         $colony=Colony::find($id);
+        
         $scopes=ColonyScope::lists('name','id');
+        
         $settlements=SettlementType::lists('name', 'id');
+        
         $i=$colony->personalInformation()->count();
         
         return view('admin.colonies.show', compact('colony','scopes','settlements','i'));
@@ -77,9 +90,13 @@ class ColoniesController extends Controller
     public function edit($id)
     {
         $colony=Colony::find($id);
+        
         $scopes=ColonyScope::lists('name','id');
+        
         $settlements=SettlementType::lists('name', 'id');
+        
         $sectors=Sector::lists('number','id');
+        
         return view('admin.colonies.edit', compact('colony','scopes','settlements','sectors'));
     }
 
@@ -94,10 +111,17 @@ class ColoniesController extends Controller
     {
         
         $colony=Colony::find($id);
+
         $colony->update($request->all());
+        
         $colony->colonyScope()->associate(ColonyScope::find($request->colony_scope_id))->save();
+        
         $colony->settlementType()->associate(SettlementType::find($request->settlement_type_id))->save();
+        
         $colony->sector()->associate(Sector::find($request->sector_id))->save();
+
+        alert()->success(trans('messages.success.update'));
+
         return redirect('colonies/' . $colony->id .'/edit');
         
     }
@@ -112,7 +136,10 @@ class ColoniesController extends Controller
     public function destroy($id)
     {
         $colony=Colony::find($id);
+        
         $colony->delete();
+
+        alert()->success(trans('messages.success.destroy'));
 
         return redirect('colonies');
     }

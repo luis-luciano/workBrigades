@@ -51,7 +51,7 @@
 <div class="form-buttons form-group clearfix">
     <div class="row">
         <div class="col-md-12">
-            {!! Form::submit($submitButtonText, ['class' => 'btn btn-success']) !!}
+            {!! Form::submit($submitButtonText, ['class' => 'btn btn-success', 'id' => 'editColonyForm']) !!}
             @unless(isset($onlySaveButton) && $onlySaveButton)
                 <a href="{{ route('colonies.create') }}" class="btn btn-primary">Nuevo</a>
                 <a href="{{ route('colonies.index') }}" class="btn btn-warning">Regresar</a>
