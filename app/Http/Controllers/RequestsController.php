@@ -24,14 +24,7 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        $prueba=Typology::with('problemTypes','supervisions')->get(['id','name']);
-        $typologies=Typology::lists('name','id');
-        $problemType=Problem::lists('name', 'id');
-        $supervicion=Supervision::lists('name', 'id');
-        $date = Carbon::now();
-        $date = $date->format('l jS \\of F Y h:i:s A');
-        $brigades=Brigade::lists('name', 'id');
-        return view('requests.index',compact('typologies', 'problemType', 'supervicion','date', 'brigades','prueba'));
+        
     }
 
     /**

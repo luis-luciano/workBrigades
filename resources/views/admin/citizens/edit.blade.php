@@ -4,6 +4,7 @@
 @section('title', 'Ciudadanos')
 
 @section('scripts')
+    //citizensController.edit();
     $('select').select2();
 @stop
 

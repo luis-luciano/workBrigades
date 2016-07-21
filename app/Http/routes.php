@@ -43,5 +43,5 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 //Routes for ajax call
 Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
-	Route::resource('citizens','CitizensController',['only'=>['store']]);
+	Route::resource('citizens','CitizensController');
 });
