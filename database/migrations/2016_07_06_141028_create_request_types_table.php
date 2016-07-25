@@ -18,6 +18,10 @@ class CreateRequestTypesTable extends Migration
                 $table->string('color');
             $table->timestamps();
         });
+        Schema::table('requests', function (Blueprint $table) {
+            $table->integer('request_type_id')->unsigned()->index();
+            $table->foreign('request_type_id')->references('id')->on('request_types');
+        });
     }
 
     /**
@@ -27,6 +31,11 @@ class CreateRequestTypesTable extends Migration
      */
     public function down()
     {
+        Schema::table('requests', function (Blueprint $table) {
+           $table->dropForeign('requests_request_type_id_foreign');
+           $table->dropIndex('requests_request_type_id_index');
+           $table->dropColumn('request_type_id');
+        });
         Schema::drop('request_types');
     }
 }
