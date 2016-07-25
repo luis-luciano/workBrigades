@@ -13,7 +13,7 @@ class PersonalInformationRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,18 @@ class PersonalInformationRequest extends Request
      */
     public function rules()
     {
+        //dd('hola');
         return [
-            //
+            'birthday' => 'max:80',
+            'represent' => 'max:80',
+            'house_phone' => 'numeric|size:10',
+            'mobile_phone' => 'numeric|size:10',
+            'fax' => 'numeric|size:10',
+            'street' => 'max:80',
+            'number' => 'max:80',
+            'interior' => 'max:80',
+            'colony_id' => 'required|numeric|exists:colonies,id',
+            'profession'=> 'max:80',
         ];
     }
 }

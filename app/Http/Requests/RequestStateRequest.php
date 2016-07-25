@@ -36,7 +36,7 @@ class RequestStateRequest extends Request
             return 
             [
             'name' => 'required|unique:request_states',
-            'label' => 'required',
+            'label' => 'required|unique:request_states',
             'color' => 'required|size:7'
             ];
         }

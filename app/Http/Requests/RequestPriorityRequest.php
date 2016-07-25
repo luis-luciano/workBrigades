@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use App\RequestPriority;
 
 class RequestPriorityRequest extends Request
 {
@@ -13,7 +14,7 @@ class RequestPriorityRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +24,19 @@ class RequestPriorityRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        $requestsPriority= RequestPriority::find($this->route('requestsPriorities'));
+        if (isset($requestsPriority)) {
+            return 
+            [
+            'name' => 'required|min:3|max:50|unique:request_priorities,name,'.$requestsPriority->id.',id',
+            'color' => 'required|size:7'
+            ];
+        } else {
+            return 
+            [
+            'name' => 'required|min:3|max:50|unique:request_priorities',
+            'color' => 'required|size:7',
+            ];
+        }
     }
 }

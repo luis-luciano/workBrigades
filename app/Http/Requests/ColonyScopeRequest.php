@@ -24,17 +24,21 @@ class ColonyScopeRequest extends Request
      */
     public function rules()
     {
-        $scope= ColonyScope::find($this->route('colonies/scopes'));
+        $scope= $this->route('scopes');
+        
         if (isset($scope)) {
             return 
             [
-            'name' => 'required|unique:colony_scopes,name,'.$scope->id.',id'
+            'name' => 'required|min:1|max:50|unique:settlement_types,name,'.$scope.',id',
+            
             ];
         } else {
             return 
             [
-            'name' => 'required|unique:colony_scopes'
+            'name' => 'required|min:1|max:50|unique:settlement_types',
+            
             ];
         }
+    
     }
 }

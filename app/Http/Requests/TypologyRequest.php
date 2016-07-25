@@ -13,7 +13,7 @@ class TypologyRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,20 @@ class TypologyRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        $typology= $this->route('typologies');
+        
+        if (isset($typology)) {
+            return 
+            [
+            'name' => "required|min:3|max:80|unique:typologies,name,$typology",
+            'supervisions_list' => 'required|array'
+            ];
+        } else {
+            return 
+            [
+            'name' => 'required|min:3|max:80|unique:typologies',
+            'supervisions_list' => 'required|array'
+            ];
+        }
     }
 }

@@ -13,7 +13,7 @@ class SupervisionRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,22 @@ class SupervisionRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        $supervision= $this->route('supervisions');
+        
+        if (isset($supervision)) {
+            return 
+            [
+            'name' => "required|min:3|max:80|unique:supervisions,name,$supervision",
+            'phone' => 'required|max:50',
+            'extension' => 'max:50',
+            ];
+        } else {
+            return 
+            [
+            'name' => 'required|min:3|max:80|unique:supervisions',
+            'phone' => 'required|max:50',
+            'extension' => 'max:50'            
+            ];
+        }
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use App\Role;
 
 class RoleRequest extends Request
 {
@@ -13,7 +14,7 @@ class RoleRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +24,25 @@ class RoleRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        
+        $role= Role::find($this->route('roles'));
+        if (isset($role)) {
+            return 
+            [
+            'name' => 'required|min:3|max:50|unique:roles,name,'.$role->id.',id',
+            'label' => 'required|min:3|max:50|unique:roles,label,'.$role->id.',id',
+            'home' => 'required|min:3|max:50|unique:roles,home,'.$role->id.',id',
+            'permissions_list' => 'required|array'
+            ];
+        } else {
+            return 
+            [
+            'name' => 'required|min:3|max:50|unique:roles',
+            'label' => 'required|min:3|max:50|unique:roles',
+            'home' => 'required|min:3|max:50|unique:roles',
+            'permissions_list' => 'required|array'
+            ];
+        }
+        
     }
 }

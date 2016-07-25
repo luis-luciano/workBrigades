@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use App\Sector;
 
 class SectorRequest extends Request
 {
@@ -23,8 +24,20 @@ class SectorRequest extends Request
      */
     public function rules()
     {
-        return [
-            'number' => 'required'
-        ];
+        $sector= Sector::find($this->route('sectors'));
+        if (isset($sector)) {
+            return 
+            [
+            'number' => 'required|min:1|max:50|unique:sectors,number,'.$sector->id.',id',
+            
+            ];
+        } else {
+            return 
+            [
+            'number' => 'required|min:1|max:50|unique:sectors',
+            
+            ];
+        }
+        
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use App\RequestType;
 
 class RequestTypeRequest extends Request
 {
@@ -13,7 +14,7 @@ class RequestTypeRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +24,19 @@ class RequestTypeRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        $requestType= RequestType::find($this->route('requestTypes'));
+        if (isset($requestType)) {
+            return 
+            [
+            'name' => 'required|min:3|max:50|unique:request_types,name,'.$requestType->id.',id',
+            'color' => 'required|size:7'
+            ];
+        } else {
+            return 
+            [
+            'name' => 'required|min:3|max:50|unique:request_types',
+            'color' => 'required|size:7',
+            ];
+        }
     }
 }

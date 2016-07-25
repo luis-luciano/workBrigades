@@ -12,24 +12,24 @@
 @stop
 
 @section('content')
-		
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
 
-					<div class="panel-heading">
-						<div class="panel-title">
-	                        <div class="panel-title">
-	                            <h4>Usuario</h4>
-	                        </div>
-	                        <ul class="nav nav-tabs with-panel nav-justified">
-		                        <li class="active"><a href="#account" data-toggle="tab" class="btn-ripple">Cuenta</a></li>
-		                        <li><a href="#personal-information" data-toggle="tab" class="btn-ripple">Información Personal</a></li>
-		                    </ul>
-	                    </div>
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <div class="panel-title">
+                                <h4>Usuario</h4>
+                            </div>
+                            <ul class="nav nav-tabs with-panel nav-justified">
+                                <li class="active"><a href="#account" data-toggle="tab" class="btn-ripple">Cuenta</a></li>
+                                <li><a href="#personal-information" data-toggle="tab" class="btn-ripple">Información Personal</a></li>
+                            </ul>
+                        </div>
 
-					</div><!--.panel-heading-->
-					<div class="panel-body">
+                    </div><!--.panel-heading-->
+                    <div class="panel-body">
 
                     <div class="tab-content with-panel">
                         
@@ -52,6 +52,7 @@
                             {!! Form::model($user->personalInformation, ['route' => ['personalInformations.update', $user->id], 'method' => 'PATCH', 'id' => 'editPersonalInformationForm']) !!}
                                 
                                 <div class="form-content">
+                                 @include('errors.list')
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
@@ -167,9 +168,9 @@
                         
                     </div><!--.tab-content-->
                 
-					
-					</div><!--.panel-body-->
-				</div><!--.panel-->
-			</div><!--.col-md-12-->
-		</div><!--.row-->
+                    
+                    </div><!--.panel-body-->
+                </div><!--.panel-->
+            </div><!--.col-md-12-->
+        </div><!--.row-->
 @stop

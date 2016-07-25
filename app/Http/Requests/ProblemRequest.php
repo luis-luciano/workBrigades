@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use App\Problem;
 
 class ProblemRequest extends Request
 {
@@ -13,7 +14,7 @@ class ProblemRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +24,22 @@ class ProblemRequest extends Request
      */
     public function rules()
     {
+        $problem= Problem::find($this->route('problemTypes'));
+        if (isset($problem)) {
+            return 
+            [
+            'name' => 'required|min:3|max:50|unique:problems,name,'.$problem->id.',id',
+            'typology_id' => 'required|numeric|exists:typologies,id'
+            ];
+        } else {
+            return 
+            [
+            'name' => 'required|min:3|max:50|unique:problems',
+            'typology_id' => 'required|numeric|exists:typologies,id'
+            ];
+        }
         return [
-            //
+            
         ];
     }
 }

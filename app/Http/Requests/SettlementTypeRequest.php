@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use App\SettlementType;
 
 class SettlementTypeRequest extends Request
 {
@@ -23,8 +24,20 @@ class SettlementTypeRequest extends Request
      */
     public function rules()
     {
-        return [
-            'name' => 'required'
-        ];
+        $settlementType= $this->route('settlement_types');
+        
+        if (isset($settlementType)) {
+            return 
+            [
+            'name' => 'required|min:1|max:50|unique:settlement_types,name,'.$settlementType.',id',
+            
+            ];
+        } else {
+            return 
+            [
+            'name' => 'required|min:1|max:50|unique:settlement_types',
+            
+            ];
+        }
     }
 }

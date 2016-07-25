@@ -26,16 +26,18 @@
 
                     {!! Form::close() !!}
                     <br>
-
-                    
-                         
+                    @if($requestType->requests()->count() == 0)
+                         {!! Form::open(['route'=> ['requestTypes.destroy', $requestType->id ], 'method' => 'DELETE']) !!}
+                                        <button id="deleteRequestrequestTypeButton" type="submit" class="btn btn-danger pull-right">Eliminar
+                                        </button>
+                        {!! Form::close() !!}
+                    @else
                         {!! Form::open(['route'=> ['requestTypes.destroy', $requestType->id ], 'method' => 'DELETE']) !!}
-                                        <button type="submit" class="btn btn-danger pull-right" >Eliminar
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        <button id="deleteRequestrequestTypeButton" type="submit" class="btn btn-danger pull-right" disabled>Eliminar
                                         </button>
                                        
-                        {!! Form::close() !!} 
-                    
+                    {!! Form::close() !!}
+                    @endif
                     
                 </div><!--.panel-body-->
                 
