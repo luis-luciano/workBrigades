@@ -82,4 +82,13 @@ class Request extends Model {
 	{
 		return $this->belongsTo('App\RequestType');
 	}
+
+	public function scopeCountTypology($query,$id)
+    {
+        return $query->whereHas('problem.typology',function($q) use($id)
+	    	{ 
+	    		$q->where('id','=',$id); 
+	    	});
+    }
+
 }
