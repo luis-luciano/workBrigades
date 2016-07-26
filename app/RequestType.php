@@ -2,8 +2,7 @@
 
 namespace App;
 
-use App\ProblemType;
-use App\Request as Petition;
+
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\SimpleSearchableTables;
 use Illuminate\Database\Eloquent\Builder;
@@ -17,11 +16,13 @@ class RequestType extends Model {
 
 	protected $searchable=['name'];
 	
-	public function requests() {
-		return $this->hasMany(Petition::class);
-	}
-	public function problemTypes() {
-		return $this->hasMany(ProblemType::class);
+	public function requests() 
+	{
+		return $this->hasMany('App\Request');
 	}
 
+	public function problems() 
+	{
+		return $this->hasMany('App\Problem');
+	}
 }

@@ -13,7 +13,7 @@ class AddCaptureType extends Migration
     public function up()
     {
         Schema::table('requests', function (Blueprint $table) {
-            $table->integer('capture_type_id')->unsigned()->index();
+            $table->integer('capture_type_id')->unsigned()->default(1)->index();
             $table->foreign('capture_type_id')->references('id')->on('capture_types');
         });
     }

@@ -13,6 +13,8 @@ use App\RequestPriority;
 use Carbon\Carbon;
 use App\Sector;
 use App\Problem;
+use App\Citizen;
+use App\Request as Inquiry;
 use Illuminate\Http\Request;
 
 class RequestsController extends Controller
@@ -24,7 +26,7 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        
+        return view('admin.requests.index');
     }
 
     /**
@@ -38,7 +40,10 @@ class RequestsController extends Controller
         $priorities=RequestPriority::lists('name','id');
         $typologies=Typology::lists('name','id');
         $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();
-        return view('admin.requests.create', compact('priorities','tipologiesRelations','typologies'));
+
+        $citizen=Citizen::first();
+        $citizen=[$citizen->id=>$citizen->fullName];
+        return view('admin.requests.create', compact('priorities','tipologiesRelations','typologies','citizen'));
     }
 
     /**
@@ -49,7 +54,12 @@ class RequestsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inquiry = new Inquiry($request->all());
+        //$inquiry->creator()->associate($this->currentUser);
+        $inquiry->concerned()->associate(Citizen::findOrFail($request->citizen_id));
+        $inquiry->save();
+
+        return redirect()->route('requests.index');
     }
 
     /**
@@ -71,7 +81,10 @@ class RequestsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $priorities=RequestPriority::lists('name','id');
+        $typologies=Typology::lists('name','id');
+        $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();
+        return view('admin.requests.edit', compact('priorities','tipologiesRelations','typologies'));
     }
 
     /**

@@ -1,6 +1,6 @@
 @extends('layouts.masterComplete')
 
-@section('title', 'Petición - Crear')
+@section('title', 'Petición - Editar')
 
 @section('styles')
     
@@ -86,7 +86,7 @@
                     </div>
                 </div><!--.panel-heading-->
                <div class="panel-body">
-                    {!! Form::open(['route' => 'requests.store', 'id' => 'createRequestForm']) !!}
+                    {!! Form::model(['route' => 'requests.update', 'id' => 'createRequestForm']) !!}
                         @include('admin.requests.form', ['submitButtonText' => 'Guardar', 'type' => 'create'])
                     {!! Form::close() !!} 
                 </div><!--.panel-body-->

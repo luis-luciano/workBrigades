@@ -1,26 +1,40 @@
 <div class="form-content">
     <div class="row">
-        {{--<div class="col-md-{{ $type == 'edit' ? '5' : '7' }}">--}}
-        <div class="col-md-6">
+        @if($type === 'edit')
+            <div class="col-md-2">
+                    <div class="form-group">
+                        {!! Form::label('id', trans('requests.id'), ['class' => 'control-label']) !!}
+                        <div class="inputer">
+                            <div class="input-wrapper">
+                                {!! Form::text('id', null, ['class' => 'form-control', 'disabled']) !!}
+                            </div>
+                        </div>
+                    </div><!--.form-group-->
+            </div>
+        @endif
+
+        <div class="col-md-{{ $type == 'edit' ? '4' : '6' }}">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <div class="form-group">
                         {!! Form::label('citizen_id', trans('requests.citizen'), ['class' => 'control-label']) !!}
                         <div class="input-wrapper">
                             <input type="hidden" id="citizenSearchUri" value="">
-                            {!! Form::select('citizen_id', (isset($citizens) ? $citizens: []), null, ['class' => 'citizen-search-box form-control', 'style' => 'width: 100%']) !!}
+                            {!! Form::select('citizen_id', $citizen, null, ['class' => 'citizen-search-box form-control', 'style' => 'width: 100%']) !!}
                         </div>
                     </div><!--.form-group-->
                 </div>
                 <div class="col-md-3">
                     <br>
                     <div class="form-group text-center">
-                    <span data-toggle="tooltip" data-placement="left" title="Editar Ciudadano"> 
-                        <a class="btn btn-floating btn-light-blue"><i class="ion-edit"></i></a>
-                    </span>
-                    <span data-toggle="tooltip" data-placement="right" title="Agregar Ciudadano">
-                        <a class="btn btn-floating btn-light-blue" data-toggle="modal" data-target="#searchCreateCitizenModal"><i class="ion-android-add" ></i></a>
-                    </span>
+                        @if($type === 'edit')
+                            <span data-toggle="tooltip" data-placement="left" title="Editar Ciudadano"> 
+                                <a class="btn btn-floating btn-light-blue"><i class="ion-edit"></i></a>
+                            </span>
+                        @endif
+                            <span data-toggle="tooltip" data-placement="right" title="Agregar Ciudadano">
+                                <a class="btn btn-floating btn-light-blue" data-toggle="modal" data-target="#searchCreateCitizenModal"><i class="ion-android-add" ></i></a>
+                            </span>
                     </div><!--.form-group-->
                 </div>
                 
@@ -116,8 +130,8 @@
             <div class="form-group">
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
-                        {!! Form::textarea('street', null, ['class' => 'form-control', 'rows' => '2']) !!}
-                        {!! Form::label('street', trans('requests.between_streets'), ['class' => 'control-label']) !!}
+                        {!! Form::textarea('between_streets', null, ['class' => 'form-control', 'rows' => '2']) !!}
+                        {!! Form::label('between_streets', trans('requests.between_streets'), ['class' => 'control-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -129,10 +143,10 @@
 
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('supervisions', trans('requests.sector'), ['class' => 'control-label']) !!}
+                {!! Form::label('sector', trans('requests.sector'), ['class' => 'control-label']) !!}
                 <div class="inputer">
                     <div class="input-wrapper">
-                        {!! Form::textarea('supervisions', null, ['class' => 'form-control', 'rows'=>'1','disabled','id'=>'sector']) !!}
+                        {!! Form::textarea('sector', null, ['class' => 'form-control', 'rows'=>'1','disabled','id'=>'sector']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -140,9 +154,9 @@
 
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('brigades', trans('requests.brigade'), ['class' => 'control-label']) !!}
+                {!! Form::label('brigade_id', trans('requests.brigade'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('brigades', [], null, ['class' => 'form-control', 'id'=>'brigade','style' => 'width: 100%']) !!}
+                    {!! Form::select('brigade_id', [], null, ['class' => 'form-control', 'id'=>'brigade','style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -151,8 +165,8 @@
             <div class="form-group">
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
-                        {!! Form::textarea('street', null, ['class' => 'form-control', 'rows' => '2']) !!}
-                        {!! Form::label('street', trans('requests.reference'), ['class' => 'control-label']) !!}
+                        {!! Form::textarea('reference', null, ['class' => 'form-control', 'rows' => '2']) !!}
+                        {!! Form::label('reference', trans('requests.reference'), ['class' => 'control-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->

@@ -3,6 +3,7 @@
 use App\Colony;
 use App\PersonalInformation;
 use App\User;
+use App\Citizen;
 use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends Seeder
@@ -86,5 +87,6 @@ class UserTableSeeder extends Seeder
                         'last_login'=>'2016-06-07 15:47:12',
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>1]);
+        Citizen::create(['email'=>'usuario@example.com'])->personalInformation()->associate($user)->save();
     }
 }

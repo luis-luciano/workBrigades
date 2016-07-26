@@ -1,7 +1,7 @@
 <div class="form-content">
  @include('errors.list')
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
@@ -11,7 +11,7 @@
                 </div>
             </div><!--.form-group-->
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 {!! Form::label('typology_id', 'Tipologia', ['class' => 'control-label']) !!}
                 <div class="input-wrapper">

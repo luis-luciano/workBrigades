@@ -14,9 +14,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model {
 	//
-	protected $filable;
+	protected $fillable=[
+						'subject',
+						'start_date',
+						'finish_date',
+						'street',
+						'number',
+						'between_streets',
+						'reference',
+						'colony_id',
+						'request_priority_id',
+						'problem_id',
+						'brigade_id'
+					   ];
 
-	public function state() {
+	public function concerned()
+	{
+		return $this->morphTo();
+	}
+
+	public function creator()
+	{
+		return $this->morphTo();
+	}
+
+	public function state() 
+	{
 		return $this->belongsTo(RequestState::class);
 	}
 
@@ -36,19 +59,27 @@ class Request extends Model {
 		return $this->belongsTo(Colony::class);
 	}
 
-	public function type() {
-		return $this->belongsTo(ProblemType::class);
+	public function problem() 
+	{
+		return $this->belongsTo('App\Problem');
 	}
 
 	public function citizen() {
 		return $this->belongsTo(Citizen::class);
 	}
 
-	public function users() {
+	public function users() 
+	{
 		return $this->belongsToMany(User::class);
 	}
 	
-	public function capture_type(){
+	public function captureType()
+	{
 		return $this->belongsTo('App\CaptureType');
+	}
+
+	public function type()
+	{
+		return $this->belongsTo('App\RequestType');
 	}
 }

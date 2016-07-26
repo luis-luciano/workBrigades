@@ -15,11 +15,13 @@ class Problem extends Model {
 
 	protected $fillable=['name'];
 
-	public function requests() {
+	public function requests() 
+	{
 		return $this->hasMany(Petition::class);
 	}
 	
-	public function typologies() {
+	public function typology() 
+	{
 		return $this->belongsTo('App\Typology','typology_id');
 	}
 
@@ -28,7 +30,7 @@ class Problem extends Model {
     	$query->where(function($query) use($search){
     			$query->where('name', 'like', "%{$search}%");
 
-    		  	$query->orWhereHas('typologies',function($query) use ($search){
+    		  	$query->orWhereHas('typology',function($query) use ($search){
     		  		$query->where('name', 'like', "%{$search}%");
     		  	});
     		  	
@@ -36,5 +38,4 @@ class Problem extends Model {
 
     	return $query;
     }
-
 }

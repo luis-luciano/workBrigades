@@ -19,18 +19,19 @@ class Brigade extends Model implements HasPresenter {
 	protected $fillable=['name','description'];
 
 	protected $searchable=['name','description'];
-	//
-	//
-	public function requests() {
-
+	
+	public function requests() 
+	{
 		return $this->hasMany(Petition::class);
 	}
 
-	public function defaultSector(){
+	public function defaultSector()
+	{
 		return $this->belongsTo('App\Sector');
 	}
 
-	public function typologies(){
+	public function typologies()
+	{
 		return $this->belongsToMany(Typology::class)->withTimestamps();
 	}
 
@@ -44,9 +45,8 @@ class Brigade extends Model implements HasPresenter {
         return $this->typologies->pluck('id')->toArray();
     }
 
-
-    public function sectors() {
-		
+    public function sectors() 
+    {	
 		return $this->belongsToMany(Sector::class)->withTimestamps();
 	}
 

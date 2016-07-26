@@ -2,8 +2,6 @@
 
 namespace App;
 
-use App\Brigade;
-use App\Request as Petition;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\SimpleSearchableTables;
 
@@ -16,7 +14,7 @@ class Sector extends Model {
 	protected $searchable=['number'];
 
 	public function requests() {
-		return $this->hasMany(Petition::class);
+		return $this->hasMany('App\Sector');
 	}
 
 	public function brigades(){

@@ -37,7 +37,7 @@ class CitizensController extends Controller
      */
     public function store(Request $request)
     {
-        return "correcto";
+        dd($request);
     }
 
     /**

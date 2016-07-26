@@ -34,10 +34,10 @@ class Citizen extends Model implements HasPresenter {
 		return $this->morphMany('App\Request','concerned');
 	}
 
-	// public function personalInformation()
- //    {
- //        return $this->belongsTo('App\PersonalInformation');
- //    }
+	public function requestsCreated()
+    {
+        return $this->morphMany('App\Request','creator');
+    }
  
  	public function scopeSearch(Builder $query, $search)
     {

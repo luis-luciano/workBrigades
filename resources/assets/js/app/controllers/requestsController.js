@@ -5,7 +5,7 @@ module.exports = (function ($) {
     };
 
     var create = function() {
-       
+       require('../validators/citizenValidator.js')($('#createCitizenForm'));
     };
 
     var edit = function() {

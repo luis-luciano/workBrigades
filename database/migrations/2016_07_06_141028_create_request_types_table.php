@@ -19,7 +19,7 @@ class CreateRequestTypesTable extends Migration
             $table->timestamps();
         });
         Schema::table('requests', function (Blueprint $table) {
-            $table->integer('request_type_id')->unsigned()->index();
+            $table->integer('request_type_id')->unsigned()->default(2)->index();
             $table->foreign('request_type_id')->references('id')->on('request_types');
         });
     }

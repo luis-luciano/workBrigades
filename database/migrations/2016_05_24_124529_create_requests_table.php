@@ -16,11 +16,12 @@ class CreateRequestsTable extends Migration
             $table->text('subject');
             $table->date('start_date')->nullable();
             $table->date('finish_date')->nullable();
+            $table->boolean('is_public')->default(false);
             
             $table->string('street', 80);
             $table->string('number',10)->nullable();
-            $table->text('between_streets');
-            $table->text('reference');
+            $table->text('between_streets')->nullable();
+            $table->text('reference')->nullable();
 
             $table->integer('colony_id')->unsigned()->index();
             $table->foreign('colony_id')->references('id')->on('colonies');
@@ -28,16 +29,13 @@ class CreateRequestsTable extends Migration
             $table->bigInteger('concerned_id')->unsigned()->index(); // morph
             $table->string('concerned_type')->index(); // morph
 
-            $table->bigInteger('creator_id')->unsigned()->index(); // morph
-            $table->string('creator_type')->index(); // morph
-
-            // $table->integer('capture_type_id')->unsigned()->index();
-            // $table->foreign('capture_type_id')->references('id')->on('capture_types');
+            $table->bigInteger('creator_id')->unsigned()->nullable()->index(); // morph
+            $table->string('creator_type')->nullable()->index(); // morph
 
             $table->integer('request_priority_id')->unsigned()->index();
             $table->foreign('request_priority_id')->references('id')->on('request_priorities');
 
-            $table->integer('request_state_id')->unsigned()->index();
+            $table->integer('request_state_id')->unsigned()->default(1)->index();
             $table->foreign('request_state_id')->references('id')->on('request_states');
 
             $table->bigInteger('request_rejection_id')->unsigned()->nullable()->index();
