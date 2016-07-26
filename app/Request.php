@@ -6,7 +6,6 @@ use App\Brigade;
 use App\Citizen;
 use App\Colony;
 use App\RequestPriority;
-use App\RequestState;
 use App\RequestType;
 use App\Sector;
 use App\User;
@@ -25,7 +24,8 @@ class Request extends Model {
 						'colony_id',
 						'request_priority_id',
 						'problem_id',
-						'brigade_id'
+						'brigade_id',
+						'request_state_id'
 					   ];
 
 	public function concerned()
@@ -40,7 +40,7 @@ class Request extends Model {
 
 	public function state() 
 	{
-		return $this->belongsTo(RequestState::class);
+		return $this->belongsTo('App\RequestState','request_state_id');
 	}
 
 	public function priority() {
@@ -80,15 +80,19 @@ class Request extends Model {
 
 	public function type()
 	{
-		return $this->belongsTo('App\RequestType');
+		return $this->belongsTo('App\RequestType','request_type_id');
+	}
+
+	public function getSectorAttribute()
+	{
+		return $this->colony->sector;
 	}
 
 	public function scopeCountTypology($query,$id)
     {
-        return $query->whereHas('problem.typology',function($q) use($id)
-	    	{ 
-	    		$q->where('id','=',$id); 
-	    	});
+        return  $query->whereHas('problem.typology',function($q) use($id)
+	    		{ 
+	    			$q->where('id','=',$id); 
+	    		});
     }
-
 }

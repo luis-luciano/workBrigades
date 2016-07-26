@@ -42,8 +42,7 @@
 
 
 											<td >
-											{{ $problemType->typology->name }}
-												
+												{{ $problemType->typology->name }}		
 											</td>
 																				
 										</tr>
