@@ -44,11 +44,7 @@ class Request extends Model {
 	}
 
 	public function priority() {
-		return $this->belongsTo(RequestPriority::class);
-	}
-
-	public function sector() {
-		return $this->belongsTo(Sector::class);
+		return $this->belongsTo('App\RequestPriority','request_priority_id');
 	}
 
 	public function brigade() {
@@ -64,7 +60,8 @@ class Request extends Model {
 		return $this->belongsTo('App\Problem');
 	}
 
-	public function citizen() {
+	public function citizen() 
+	{
 		return $this->belongsTo(Citizen::class);
 	}
 

@@ -26,7 +26,8 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        return view('admin.requests.index');
+        $requests=Inquiry::paginate(10);
+        return view('admin.requests.index',compact('requests'));
     }
 
     /**
