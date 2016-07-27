@@ -15,27 +15,27 @@ class RequestStateTableSeeder extends Seeder
             [
                 'name' => 'in_process',
                 'label' => 'En Proceso',
-                'color' => '#f0ad4e',
+                'color' => '#2095f2',
             ],
             [
                 'name' => 'in_process_with_answer',
                 'label' => 'En Proceso con respuesta',
-                'color' => '#5cb85c',
+                'color' => '#009587',
             ],
             [
                 'name' => 'concluded',
                 'label' => 'Concluida',
-                'color' => '#5bbfde',
+                'color' => '#4bae4f',
             ],
             [
                 'name' => 'expired',
                 'label' => 'Vencida',
-                'color' => '#d9524e',
+                'color' => '#f39c12',
             ],
             [
                 'name' => 'unapproved',
                 'label' => 'No Aprobada',
-                'color' => '#d9524e',
+                'color' => '#f34235',
             ],
         ];
         

@@ -43,15 +43,18 @@ class Request extends Model {
 		return $this->belongsTo('App\RequestState','request_state_id');
 	}
 
-	public function priority() {
+	public function priority() 
+	{
 		return $this->belongsTo('App\RequestPriority','request_priority_id');
 	}
 
-	public function brigade() {
+	public function brigade() 
+	{
 		return $this->belongsTo(Brigade::class);
 	}
 
-	public function colony() {
+	public function colony() 
+	{
 		return $this->belongsTo(Colony::class);
 	}
 
