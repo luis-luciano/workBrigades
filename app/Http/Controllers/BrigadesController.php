@@ -50,6 +50,8 @@ class BrigadesController extends Controller
         
         $brigade->syncTypologies($request->typologies_list);
 
+        $brigade->syncSectors($request->sectors_list);
+
         alert()->success(trans('messages.success.store'));
 
         return redirect()->route('brigades.index');
@@ -115,6 +117,10 @@ class BrigadesController extends Controller
     public function destroy($id)
     {
         $brigade=Brigade::find($id);
+
+        $brigade->typologies()->detach();
+
+        $brigade->sectors()->detach();
         
         $brigade->delete();
         

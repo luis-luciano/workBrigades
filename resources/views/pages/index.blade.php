@@ -7,14 +7,17 @@
 @stop
 
 @section('scripts')
+
+	var counters={!! $counters !!};
+	console.log(counters[1]);
+
     var chart = c3.generate({
 	    bindto: '#chart-donut',
 	    data: {
 	      columns: [
-	        ['Drenaje', 50],
-	        ['Alcantarillado', 50],
-	        ['Bacheo', 50],
-	        ['Agua', 50]
+	        ['Drenaje', counters[2]],
+	        ['Bacheo', counters[3]],
+	        ['Agua', counters[1]]
 	      ], 
 	      type: 'donut', 
 	    },
@@ -27,10 +30,9 @@
 	    bindto: '#chart-bar',
 	    data: {
 	      columns: [
-	        ['Drenaje', 10],
-	        ['Alcantarillado', 50],
-	        ['Bacheo', 40],
-	        ['Agua', 70]
+	        ['Drenaje', counters[2]],
+	        ['Bacheo', counters[3]],
+	        ['Agua', counters[1]]
 	      ], 
 	      type: 'bar', 
 	    },
