@@ -53,7 +53,9 @@ elixir(function(mix) {
 	    // plugins select2
 	    './resources/assets/plugins/select2/css/select2.min.css',
 	    './resources/assets/plugins/select2-bootstrap/select2-bootstrap.min.css',
-	    
+	    //chart
+	    './resources/assets/plugins/c3js-chart/c3.min.css',
+	    //sweetAlert
 	    './resources/assets/plugins/sweetAlert/sweetalert.css',
 	    './public/assets/globals/plugins/bootstrap-fileinput/css/fileinput.css',
 	    './public/assets/globals/plugins/photoswipe/photoswipe.css',
@@ -79,12 +81,6 @@ elixir(function(mix) {
 	    'plugins/bootstrap-select/dist/js/bootstrap-select.min.js',
 	    'plugins/fastclick/lib/fastclick.js',
 	    '../../public/assets/globals/plugins/bxslider/jquery.bxslider.min.js',
-	    //color selector
-		/*'plugins/pnikolov-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js',
-		'plugins/minicolors/jquery.minicolors.min.js',
-		'plugins/bootstrap-daterangepicker/daterangepicker.js',
-		'plugins/clockface/js/clockface.js',*/
-		
 	     //Tables
 	    'plugins/datatables/media/js/jquery.dataTables.min.js',
 	    'plugins/datatables/themes/bootstrap/dataTables.bootstrap.js',
@@ -93,8 +89,11 @@ elixir(function(mix) {
 	    'plugins/select2/js/select2.full.min.js',
 	    'plugins/select2/js/i18n/es.js',
 		'plugins/sweetAlert/sweetalert.min.js',
-	    /*'../../public/assets/globals/scripts/forms-pickers.js',*/
-	    
+	    // chart
+	    'plugins/d3/d3.min.js',
+		'plugins/c3js-chart/c3.min.js',
+
+	//<script src="{{ asset('assets/globals/scripts/charts-c3.js'
 	    
 	    '../../public/assets/globals/plugins/bootstrap-fileinput/js/fileinput.js',
 	    '../../public/assets/globals/plugins/bootstrap-fileinput/js/fileinput_locale_es.js',

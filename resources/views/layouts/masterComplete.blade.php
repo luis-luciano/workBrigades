@@ -84,12 +84,14 @@
 	<script src="{{ asset('assets/globals/scripts/forms-pickers.js') }}"></script>
 
 
+
 	<script>
 	$(document).ready(function () {
 		Pleasure.init();
 		Layout.init();
 		TablesDataTables.init();
 		FormsPickers.init();// COLOR SELECTOR
+		ChartsC3.init();
 	});
 	</script>
 	<!-- END INITIALIZATION-->
