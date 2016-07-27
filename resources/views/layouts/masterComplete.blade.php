@@ -80,8 +80,8 @@
 	<script src="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 	<script src="{{ asset('assets/globals/plugins/clockface/js/clockface.js') }}"></script>
 
-	
 	<script src="{{ asset('assets/globals/scripts/forms-pickers.js') }}"></script>
+
 
 
 
@@ -91,7 +91,7 @@
 		Layout.init();
 		TablesDataTables.init();
 		FormsPickers.init();// COLOR SELECTOR
-		ChartsC3.init();
+
 	});
 	</script>
 	<!-- END INITIALIZATION-->

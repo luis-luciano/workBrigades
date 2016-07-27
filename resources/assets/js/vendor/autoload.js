@@ -19,6 +19,7 @@ var requestPrioritiesController = require('../app/controllers/requestPrioritiesC
 var requestStatesController = require('../app/controllers/requestStatesController.js');
 var requestTypesController = require('../app/controllers/requestTypesController.js');
 var requestsController = require('../app/controllers/requestsController.js');
+var rolesController = require('../app/controllers/rolesController.js');
 var sectorsController = require('../app/controllers/sectorsController.js');
 var settlementTypesController = require('../app/controllers/settlementTypesController.js');
 var supervisionsController = require('../app/controllers/supervisionsController.js');
@@ -34,6 +35,7 @@ require('../app/globalize.js')({
     requestStatesController,
     requestTypesController,
     requestsController,
+    rolesController,
     sectorsController,
     settlementTypesController,
     supervisionsController,

@@ -4,7 +4,7 @@
 @section('title', 'Crear Roles')
 
 @section('scripts')
-    
+    rolesController.create();
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                     <div class="panel-title"><h4>Roles</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'roles.store', 'id' => 'createUserForm']) !!}
+                    {!! Form::open(['route' => 'roles.store', 'id' => 'createRolForm']) !!}
                         @include('admin.roles.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->

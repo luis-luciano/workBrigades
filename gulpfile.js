@@ -92,8 +92,7 @@ elixir(function(mix) {
 	    // chart
 	    'plugins/d3/d3.min.js',
 		'plugins/c3js-chart/c3.min.js',
-
-	//<script src="{{ asset('assets/globals/scripts/charts-c3.js'
+	    /*'../../public/assets/globals/scripts/charts-c3.js'*/,
 	    
 	    '../../public/assets/globals/plugins/bootstrap-fileinput/js/fileinput.js',
 	    '../../public/assets/globals/plugins/bootstrap-fileinput/js/fileinput_locale_es.js',

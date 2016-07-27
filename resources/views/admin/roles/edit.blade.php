@@ -8,7 +8,7 @@
 @stop
 
 @section('scripts')
-
+    rolesController.edit();
 @stop
 
 @section('content')
@@ -21,14 +21,14 @@
                 <div class="panel-body">
                     
 
-                    {!! Form::model($role, [ 'route'=> ['roles.update', $role->id], 'method' => 'PATCH']) !!}
+                    {!! Form::model($role, [ 'route'=> ['roles.update', $role->id], 'method' => 'PATCH', 'id' => 'deleteRolButton']) !!}
 
                         @include('admin.roles.form', ['submitButtonText' => 'Actualizar'])
 
                     {!! Form::close() !!}
                 <br>
                 {!! Form::open(['route'=> ['roles.destroy', $role->id ], 'method' => 'DELETE', 'id' => 'deleteRoleForm']) !!}
-                                        <button type="submit" class="btn btn-danger pull-right" >Eliminar
+                                        <button id="deleteRolButton" type="submit" class="btn btn-danger pull-right" >Eliminar
                                         
                                         </button>
                                        
