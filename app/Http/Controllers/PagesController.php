@@ -13,17 +13,22 @@ class PagesController extends Controller
     public function index()
     {
 
-    	$r=Petition::countTypology(1)->count();
+    	$r=Petition::countTypology(3)->count();
 
 
     	
 
-    	dd($r);
+    	
 
 
     	$typologies=Typology::all();
+
+    	$counters=array();
+    	foreach ($typologies as $typology) {
+    		$counters[$typology->id]=Petition::countTypology($typology->id)->count();
+    	}
     	$requests=Petition::all();
-        return view('pages.index',compact('typologies','requests'));
+        return view('pages.index',compact('typologies','requests','counters'));
     }
 
 }
