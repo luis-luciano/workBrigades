@@ -15,15 +15,15 @@ class RequestPrioritiesTableSeeder extends Seeder
         $requestPriorities = [
             [
                 'name' => 'Alta',
-                'color' => '#337ab7',
+                'color' => '#f34235',
             ],
             [
                 'name' => 'Normal',
-                'color' => '#2da7cc',
+                'color' => '#f39c12',
             ],
             [
                 'name' => 'Baja',
-                'color' => '#94c8d8',
+                'color' => '#009587',
             ],
         ];
 

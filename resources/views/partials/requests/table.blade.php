@@ -25,7 +25,9 @@
                                     {{ $request->problem->name }}
                                 </td>    
                                 <td>
-                                    {{ $request->priority->name }}
+                                    <div class="status text-white text-center" style="background: {{ $request->priority->color }}; border-radius: 10px">
+                                        {{ $request->priority->name }}
+                                    </div>
                                 </td>              
                                 <td>
                                     {{ $request->concerned->full_name}}          
