@@ -4,7 +4,7 @@
 @section('title', 'Crear Ambito')
 
 @section('scripts')
-    
+    colonyScopesController.create();
 @stop
 
 @section('content')

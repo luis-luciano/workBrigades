@@ -29,6 +29,7 @@ module.exports = function(form) {
 	        maxlength: 50,
 	    },
 	    mobile_phone: {
+	    	required: "true",
 	        maxlength: 50,
 	    },
 	    fax: {
