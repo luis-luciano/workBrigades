@@ -26,7 +26,7 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        $requests=Inquiry::orderBy('created_at', 'desc')->paginate(10);
+        $requests=Inquiry::orderBy('created_at', 'desc')->paginate(5);
         return view('admin.requests.index',compact('requests'));
     }
 
@@ -59,6 +59,8 @@ class RequestsController extends Controller
         //$inquiry->creator()->associate($this->currentUser);
         $inquiry->concerned()->associate(Citizen::findOrFail($request->citizen_id));
         $inquiry->save();
+
+        $inquiry->supervisions()->attach(Typology::findOrFail($request->typology_id)->supervisions()->pluck('id')->toArray());
 
         return redirect()->route('requests.index');
     }

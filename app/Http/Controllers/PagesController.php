@@ -23,5 +23,4 @@ class PagesController extends Controller
         $counters=json_encode($counters);
         return view('pages.index',compact('typologies','requests','counters'));
     }
-
 }

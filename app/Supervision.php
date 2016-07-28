@@ -14,7 +14,13 @@ class Supervision extends Model
 
     protected $searchable=['name'];
 
-    public function typologies(){
+    public function typologies()
+    {
     	$this->belongsToMany(Typology::class)->withTimestamps();
+    }
+
+    public function requests()
+    {
+    	return $this->belongsToMany('App\Request')->withTimestamps();
     }
 }

@@ -28,7 +28,7 @@ class CreateSupervisionTypologyTable extends Migration
 
                 $table->foreign('request_id')->references('id')->on('requests');
                 $table->foreign('supervision_id')->references('id')->on('supervisions');
-
+                $table->timestamps();
             });
     }
 

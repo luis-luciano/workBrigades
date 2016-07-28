@@ -33,11 +33,11 @@
                                     {{ $request->concerned->full_name}}          
                                 </td>  
                                 <td>
-                                    <b>Colonia: </b>{{ $request->colony->name }} <br>
-                                    <b>Calle: </b>{{ $request->street }} <br>
-                                    <b>Número: </b>{{ $request->number }} <br>
-                                    <b>Referencia: </b>{{ $request->reference }} 
-                                </td>   
+                                    {{ $request->colony->settlementType->name }}: {{ $request->colony->name }} <br>
+                                    Calle: {{ $request->street }} 
+                                    {{  (!empty($request->number)) ? "Número: " . $request->number : "" }}
+                                    {{  (!empty($request->reference)) ? "Referencia: " . $request->reference : "" }}
+                                </td>  
             </tr>
         @endforeach
     </tbody>

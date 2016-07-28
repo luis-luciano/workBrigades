@@ -83,6 +83,11 @@ class Request extends Model {
 		return $this->belongsTo('App\RequestType','request_type_id');
 	}
 
+	public function supervisions()
+	{
+		return $this->belongsToMany('App\Supervision')->withTimestamps();
+	}
+
 	public function getSectorAttribute()
 	{
 		return $this->colony->sector;
