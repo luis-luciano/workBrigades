@@ -82,8 +82,9 @@ class RequestsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Inquiry $inquiry)
     {
+        dd($inquiry);
         $priorities=RequestPriority::lists('name','id');
         $typologies=Typology::lists('name','id');
         $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();

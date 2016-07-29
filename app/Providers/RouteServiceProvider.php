@@ -25,6 +25,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(Router $router)
     {
         $router->model('citizens','App\Citizen');
+        $router->model('requests', '\App\Request');
 
         parent::boot($router);
     }
@@ -37,9 +38,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map(Router $router)
     {
-        // $router->group(['namespace' => $this->namespace], function ($router) {
-        //     require app_path('Http/routes.php');
-        // });
         $this->mapWebRoutes($router);
     }
 

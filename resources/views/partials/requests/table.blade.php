@@ -14,35 +14,35 @@
         <tbody>
             @foreach ($requests as $request)
                 <tr class='clickable-row' data-href='{{ route($baseRequestRoute, $request) }}'>
-                     <td>
-                                        {{ $request->id }}
-                                    </td>
-                               {{--  <input type="hidden" id="_url" value="{{ action('RequestsController@edit',$request->id)}}"></a>  --}}
-                                    <td>
-                                        {{ \Carbon\carbon::parse($request->created_at)->toDateString() }}
-                                    </td>
-                                    <td id="state">
-                                        <div class="status text-white text-center" style="background: {{ $request->state->color }}; border-radius: 10px">
-                                            {{ $request->state->label }}
-                                        </div>
-                                    </td> 
-                                    <td>
-                                        {{ $request->problem->name }}
-                                    </td>    
-                                    <td>
-                                        <div class="status text-white text-center" style="background: {{ $request->priority->color }}; border-radius: 10px">
-                                            {{ $request->priority->name }}
-                                        </div>
-                                    </td>              
-                                    <td>
-                                        {{ $request->concerned->full_name}}          
-                                    </td>  
-                                    <td>
-                                        {{ $request->colony->settlementType->name }}: {{ $request->colony->name }} <br>
-                                        Calle: {{ $request->street }} 
-                                        {{  (!empty($request->number)) ? "Número: " . $request->number : "" }}
-                                        {{  (!empty($request->reference)) ? "Referencia: " . $request->reference : "" }}
-                                    </td>  
+                    <td>
+                        <input type="hidden" id="_url" value="{{ action('RequestsController@edit',$request->id)}}">
+                        {{ $request->id }}
+                    </td>
+                    <td>
+                        {{ \Carbon\carbon::parse($request->created_at)->toDateString() }}
+                    </td>
+                    <td id="state">
+                        <div class="status text-white text-center" style="background: {{ $request->state->color }}; border-radius: 10px">
+                            {{ $request->state->label }}
+                        </div>
+                    </td> 
+                    <td>
+                        {{ $request->problem->name }}
+                    </td>    
+                    <td>
+                        <div class="status text-white text-center" style="background: {{ $request->priority->color }}; border-radius: 10px">
+                            {{ $request->priority->name }}
+                        </div>
+                    </td>              
+                    <td>
+                        {{ $request->concerned->full_name}}          
+                    </td>  
+                    <td>
+                        {{ $request->colony->settlementType->name }}: {{ $request->colony->name }} <br>
+                        Calle: {{ $request->street }} 
+                        {{  (!empty($request->number)) ? "Número: " . $request->number : "" }}
+                        {{  (!empty($request->reference)) ? "Referencia: " . $request->reference : "" }}
+                    </td>  
                 </tr>
             @endforeach
         </tbody>
