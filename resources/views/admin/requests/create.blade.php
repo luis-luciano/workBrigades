@@ -6,74 +6,8 @@
     
 @stop
 
-@section('scripts')
-        
-       $('.select').select2();
-       $('#request_priority_id').val(2).trigger('change');
-        
-        var typologiesSelect=$("#typology");
-        var data=({!! $tipologiesRelations !!});
-
-        showTypologyWithProblems(data);
-
-        typologiesSelect.change(function() {
-            showTypologyWithProblems(data);
-        });
-
-        showColoniesAndSector($('#colony_id').val(),$('#typology').val());
-
-        $('#colony_id').change(function(){
-            showColoniesAndSector($(this).val(),$('#typology').val());
-        });
-        
-        function showTypologyWithProblems(data){
-
-            var typologyId = typologiesSelect.val();
-            
-            var typology=$.grep(data,function(typology){
-                return typology.id==typologyId;
-            })[0];
-
-            var problemTypes = $.map(typology.problems, function(problem) {
-                 return [problem.id,problem.name];
-            });
-
-            var supervisions=$.map(typology.supervisions,function(supervision){
-                return supervision.name;
-            });
-
-            var html="";
-            for (var id =0,problem=1; id <problemTypes.length && problem <problemTypes.length; id+=2,problem+=2) {
-                html+="<option value="+problemTypes[id]+" >"+problemTypes[problem]+"</option>\n";
-            };
-            
-            showColoniesAndSector($('#colony_id').val(),$('#typology').val());
-            
-            var problems=$('#problem');
-            problems.html(html);
-            problems.select2();
-            $('#supervisions').val(supervisions.join(',  '));
-        }
-
-        function showColoniesAndSector(idColony,idTypology){
-            $.ajax({
-                type:'GET',
-                url:"{{ route('request.sector-brigade') }}",
-                data: { 
-                        colony: idColony,
-                        typology: idTypology 
-                      },
-                dataType : 'json',
-                success: function(data){ 
-                                            $('#sector').text(data.sector);
-                                            $('#brigade').html(data.brigades);
-                                        },
-                error: function(xhr,status){
-                    alert("Error de comunicacion "+status+" con el servidor!!");
-                }
-            });
-        }
-
+@section('scripts')       
+    requestsController.create({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}");
 @stop
 
 @section('content')
