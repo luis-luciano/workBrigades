@@ -1,0 +1,35 @@
+@page  {size: landscape;}
+
+.btn{
+	display:none;
+}
+
+.pagination{
+	display: none;
+}
+
+
+.page-header{
+	top: -10px;
+	display: block;
+}
+
+.panel{
+	top: -80px
+}
+
+.no-print{
+	display: none;
+}
+
+img.img-logo{
+	 width: 250px; height: 50px;
+}
+
+img.print-left{
+	margin-left: 370px;
+	width: 200px;
+}
+
+a[href]:after { content: none !important; }
+img[src]:after { content: none !important; }

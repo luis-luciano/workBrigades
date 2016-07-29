@@ -21,21 +21,22 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset(elixir('css/style-open.css')) }}">
         <link rel="stylesheet" type="text/css" href="{{ asset(elixir('css/style.css')) }}">
     <!-- END CORE CSS -->
+		<link rel="stylesheet" type="text/css" media="print" href="{{ asset('assets/globals/css/print.css') }}" />
 
     <!--COLOR SELECTOR -->
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/pnikolov-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/minicolors/jquery.minicolors.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/clockface/css/clockface.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/pnikolov-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/minicolors/jquery.minicolors.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/clockface/css/clockface.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
 
     <!-- BEGIN SHORTCUT AND TOUCH ICONS -->
-    <link rel="shortcut icon" href="{{ asset('assets/globals/img/icons/favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/globals/img/icons/apple-touch-icon.png') }}">
+	    <link rel="shortcut icon" href="{{ asset('assets/globals/img/icons/favicon.ico') }}">
+	    <link rel="apple-touch-icon" href="{{ asset('assets/globals/img/icons/apple-touch-icon.png') }}">
     <!-- END SHORTCUT AND TOUCH ICONS -->
 
-    <script type="text/javascript" src="{{ asset('assets/globals/plugins/modernizr/modernizr.min.js') }}"></script>
+    	<script type="text/javascript" src="{{ asset('assets/globals/plugins/modernizr/modernizr.min.js') }}"></script>
 
 	
 
@@ -47,19 +48,19 @@
 
 	
 	<div class="content">
-		<div class="page-header full-content bg-purple">
+			<div class="page-header full-content bg-purple">
                 <div class="row">
                     <div class="col-xs-12 col-md-8">
                         <div class="row">
                             <div class="col-xs-5 col-sm-5 col-md-5">
-                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/logohidro.png') }}" alt="">
+                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/logo_hidro.png') }}" alt="">
                             </div>
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/cordoba-solo.png') }}" alt="">
+                                <img class="img-logo zoom print-left" src="{{ asset('assets/globals/img/resources/cordoba-solo.png') }}" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-md-4">
+                    <div class="col-xs-12 col-md-4 no-print" >
                         <h1 class="pull-right">Hidrosistema<small> Sistema de atención</small></h1>
                     </div><!--.col-->
                 </div><!--.row-->

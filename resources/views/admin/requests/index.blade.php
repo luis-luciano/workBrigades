@@ -2,6 +2,10 @@
 
 @section('title', 'Peticiones')
 
+@section('styles')
+    
+@stop 
+
 @section('scripts')
     //requestsController.index();
 @stop
@@ -18,7 +22,7 @@
                         <button type="button" class="btn btn-success btn-ripple">Nuevo</button>
                     </a>
 
-                    <button type="button" class="btn btn-light-blue btn-ripple">Imprimir</button>
+                    <button type="button" class="btn btn-light-blue btn-ripple" onClick="window.print();">Imprimir</button>
                     <div class="row">
                         <form action="#" class="form-horizontal parsley-validate">
                             <div class="form-body">
