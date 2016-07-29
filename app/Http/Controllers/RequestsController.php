@@ -26,7 +26,7 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        $requests=Inquiry::orderBy('created_at', 'desc')->paginate(5);
+        $requests=Inquiry::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.requests.index',compact('requests'));
     }
 

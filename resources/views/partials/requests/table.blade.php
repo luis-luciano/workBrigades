@@ -3,7 +3,8 @@
         <thead>
             <tr>
                <th class="col-md-1">Folio</th>
-               <th class="col-md-2">Estado</th>
+               <th class="col-md-1">Fecha</th>
+               <th class="col-md-1">Estado</th>
                <th class="col-md-2">Problema</th>
                <th class="col-md-1">Prioridad</th>
                <th class="col-md-2">Ciudadano</th>
@@ -17,6 +18,9 @@
                                         {{ $request->id }}
                                     </td>
                                {{--  <input type="hidden" id="_url" value="{{ action('RequestsController@edit',$request->id)}}"></a>  --}}
+                                    <td>
+                                        {{ \Carbon\carbon::parse($request->created_at)->toDateString() }}
+                                    </td>
                                     <td id="state">
                                         <div class="status text-white text-center" style="background: {{ $request->state->color }}; border-radius: 10px">
                                             {{ $request->state->label }}
