@@ -6033,17 +6033,17 @@ module.exports = function ($) {
 }(window.jQuery);
 
 },{"../validators/requestTypeValidator.js":29}],10:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function ($) {
 
-    var _typologiesInit = function _typologiesInit(tipologiesRelations, route) {
+    var _typologiesInit = function _typologiesInit(tipologiesRelations, route, type) {
         var typologiesSelect = $("#typology");
         var coloniesSelect = $('#colony_id');
+        var problems = $('#problem');
 
         var showTypologyWithProblems = function () {
             var html = "";
-            var problems = $('#problem');
             var typologyId = typologiesSelect.val();
 
             var typology = $.grep(tipologiesRelations, function (typology) {
@@ -6062,12 +6062,12 @@ module.exports = function ($) {
                 html += "<option value=" + problem.id + " >" + problem.name + "</option>\n";
             });
 
-            showColoniesAndSector($('#colony_id').val(), $('#typology').val());
+            showColoniesAndSector(coloniesSelect.val(), typologiesSelect.val());
 
             problems.html(html);
             problems.select2();
             $('#supervisions').val(supervisions.join(',  '));
-        }.bind(typologiesSelect, tipologiesRelations);
+        }.bind(typologiesSelect, tipologiesRelations, problems, coloniesSelect);
 
         var showColoniesAndSector = function (idColony, idTypology) {
             $.ajax({
@@ -6088,13 +6088,13 @@ module.exports = function ($) {
             });
         }.bind(route);
 
-        showTypologyWithProblems();
+        if (type != 'edit') {
+            showTypologyWithProblems();
+        }
 
         typologiesSelect.change(function () {
             showTypologyWithProblems();
         });
-
-        showColoniesAndSector(coloniesSelect.val(), typologiesSelect.val());
 
         coloniesSelect.change(function () {
             showColoniesAndSector($(this).val(), typologiesSelect.val());
@@ -6105,13 +6105,16 @@ module.exports = function ($) {
         //
     };
 
-    var create = function create(tipologiesRelations, route) {
+    var create = function create(tipologiesRelations, route, type) {
         $('.select').select2();
         $('#request_priority_id').val(2).trigger('change');
-        _typologiesInit(tipologiesRelations, route);
+        _typologiesInit(tipologiesRelations, route, type);
     };
 
-    var edit = function edit() {};
+    var edit = function edit(tipologiesRelations, route, type) {
+        $('.select').select2();
+        _typologiesInit(tipologiesRelations, route, type);
+    };
 
     // return the variables to be public
     return {

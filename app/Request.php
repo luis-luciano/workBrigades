@@ -93,6 +93,31 @@ class Request extends Model {
 		return $this->colony->sector;
 	}
 
+	public function getCitizenIdAttribute()
+	{
+		return $this->concerned->id;
+	}
+
+	public function getSectorIdAttribute()
+	{
+		return $this->colony->sector->id;
+	}
+
+	public function getTypologyIdAttribute()
+	{
+		return $this->problem->typology->id;
+	}
+
+	public function getSupervisionsNameAttribute()
+	{
+		return $this->supervisions->implode('name',',  ');
+	}
+
+	public function getProblemsListAttribute()
+	{
+		return $this->problem->typology->problems->lists('name','id');
+	}
+
 	public function scopeCountTypology($query,$id)
     {
         return  $query->whereHas('problem.typology',function($q) use($id)

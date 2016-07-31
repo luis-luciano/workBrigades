@@ -20,7 +20,7 @@
                         {!! Form::label('citizen_id', trans('requests.citizen'), ['class' => 'control-label']) !!}
                         <div class="input-wrapper">
                             <input type="hidden" id="citizenSearchUri" value="">
-                            {!! Form::select('citizen_id', $citizen, null, ['class' => 'citizen-search-box form-control', 'style' => 'width: 100%']) !!}
+                            {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control', 'style' => 'width: 100%']) !!}
                         </div>
                     </div><!--.form-group-->
                 </div>
@@ -55,7 +55,7 @@
             <div class="form-group">
                 {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('problem_id',[], null, ['class' => 'form-control select','id'=>'problem']) !!}
+                    {!! Form::select('problem_id',(isset($inquiry)? $inquiry->problems_list : []), null, ['class' => 'form-control select','id'=>'problem']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -84,10 +84,10 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                {!! Form::label('supervisions', trans('requests.supervisions'), ['class' => 'control-label']) !!}
+                {!! Form::label('supervisions_name', trans('requests.supervisions'), ['class' => 'control-label']) !!}
                 <div class="inputer">
                     <div class="input-wrapper">
-                        {!! Form::textarea('supervisions', null, ['class' => 'form-control', 'rows'=>'2','disabled','id'=>'supervisions']) !!}
+                        {!! Form::textarea('supervisions_name', null, ['class' => 'form-control', 'rows'=>'2','disabled','id'=>'supervisions']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -143,10 +143,10 @@
 
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('sector', trans('requests.sector'), ['class' => 'control-label']) !!}
+                {!! Form::label('sector_id', trans('requests.sector'), ['class' => 'control-label']) !!}
                 <div class="inputer">
                     <div class="input-wrapper">
-                        {!! Form::textarea('sector', null, ['class' => 'form-control', 'rows'=>'1','disabled','id'=>'sector']) !!}
+                        {!! Form::textarea('sector_id', null, ['class' => 'form-control', 'rows'=>'1','disabled','id'=>'sector']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->

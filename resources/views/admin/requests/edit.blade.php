@@ -7,7 +7,7 @@
 @stop
 
 @section('scripts')
-
+    requestsController.edit({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}",'edit');
 @stop
 
 @section('content')
@@ -20,8 +20,8 @@
                     </div>
                 </div><!--.panel-heading-->
                <div class="panel-body">
-                    {!! Form::model(['route' => 'requests.update', 'id' => 'createRequestForm']) !!}
-                        @include('admin.requests.form', ['submitButtonText' => 'Guardar', 'type' => 'create'])
+                    {!! Form::model($inquiry,['route' => ['requests.update', $inquiry->id],'method' => 'PATCH', 'id' => 'editRequestForm']) !!}
+                        @include('admin.requests.form', ['submitButtonText' => 'Actualizar', 'type' => 'edit'])
                     {!! Form::close() !!} 
                 </div><!--.panel-body-->
             </div><!--.panel-->

@@ -22,7 +22,7 @@
                         {{ \Carbon\carbon::parse($request->created_at)->toDateString() }}
                     </td>
                     <td id="state">
-                        <div class="status text-white text-center" style="background: {{ $request->state->color }}; border-radius: 10px">
+                        <div class="status text-white text-center" style="background: {{ $request->state->color }}; border-radius: 10px;">
                             {{ $request->state->label }}
                         </div>
                     </td> 

@@ -15,6 +15,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     {
         $this->composeCitizensForm();
         $this->composeTypologiesForm();
+        $this->composeRequestsForm();
     }
 
     /**
@@ -35,5 +36,10 @@ class ViewComposerServiceProvider extends ServiceProvider
     private function composeTypologiesForm()
     {
         view()->composer('admin.typologies.form', 'App\Http\ViewComposers\TypologiesFormComposer');
+    }
+
+    private function composeRequestsForm()
+    {
+        view()->composer('admin.requests.form', 'App\Http\ViewComposers\RequestsFormComposer');
     }
 }

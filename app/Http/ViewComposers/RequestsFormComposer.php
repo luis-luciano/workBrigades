@@ -13,10 +13,10 @@ class RequestsFormComposer
 {
     public function compose(View $view)
     {
-        $view->with('colonies', Colony::get()->lists('name_with_zip', 'id'));
-        $view->with('requestTypes', RequestType::lists('name', 'id'));
+        //$view->with('colonies', Colony::get()->lists('name_with_zip', 'id'));
+        //$view->with('requestTypes', RequestType::lists('name', 'id'));
         $view->with('captureTypes', CaptureType::lists('name', 'id'));
-        $view->with('requestPriorities', RequestPriority::lists('name', 'id'));
-        $view->with('tipologies', Typology::lists('name', 'id'));
+        $view->with('priorities', RequestPriority::lists('name', 'id'));
+        $view->with('typologies', Typology::lists('name', 'id'));
     }
 }

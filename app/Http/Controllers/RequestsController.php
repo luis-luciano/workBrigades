@@ -38,13 +38,11 @@ class RequestsController extends Controller
     
     public function create()
     {
-        $priorities=RequestPriority::lists('name','id');
-        $typologies=Typology::lists('name','id');
         $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();
 
         $citizen=Citizen::first();
         $citizen=[$citizen->id=>$citizen->fullName];
-        return view('admin.requests.create', compact('priorities','tipologiesRelations','typologies','citizen'));
+        return view('admin.requests.create', compact('tipologiesRelations','citizen'));
     }
 
     /**
@@ -84,11 +82,10 @@ class RequestsController extends Controller
      */
     public function edit(Inquiry $inquiry)
     {
-        dd($inquiry);
-        $priorities=RequestPriority::lists('name','id');
-        $typologies=Typology::lists('name','id');
         $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();
-        return view('admin.requests.edit', compact('priorities','tipologiesRelations','typologies'));
+        $citizen = [$inquiry->concerned->id => $inquiry->concerned->full_name];
+
+        return view('admin.requests.edit', compact('tipologiesRelations','inquiry','citizen'));
     }
 
     /**
