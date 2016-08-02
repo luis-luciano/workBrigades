@@ -25,11 +25,6 @@ class Brigade extends Model implements HasPresenter {
 		return $this->hasMany(Petition::class);
 	}
 
-	public function defaultSector()
-	{
-		return $this->belongsTo('App\Sector');
-	}
-
 	public function typologies()
 	{
 		return $this->belongsToMany(Typology::class)->withTimestamps();

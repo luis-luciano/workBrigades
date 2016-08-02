@@ -6,7 +6,6 @@
     @parent
 @stop
 
-@include('partials.tableScripts')
 <script type="text/javascript">
 function imprSelec(dataTable)
 {var ficha=document.getElementById(dataTable);var ventimp=window.open(' ','popimpr');ventimp.document.write(ficha.innerHTML);ventimp.document.close();ventimp.print();ventimp.close();}

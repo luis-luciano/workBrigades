@@ -18,6 +18,5 @@ class TestSectorSeeder extends Seeder
 		Sector::create(['number' => 2]);
 		Sector::create(['number' => 3]);
 		Sector::create(['number' => 4]);
-		
     }
 }

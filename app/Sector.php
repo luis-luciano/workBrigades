@@ -13,19 +13,18 @@ class Sector extends Model {
 
 	protected $searchable=['number'];
 
-	public function requests() {
+	public function requests() 
+	{
 		return $this->hasMany('App\Sector');
 	}
 
-	public function brigades(){
+	public function brigades()
+	{
 		return $this->belongsToMany('App\Brigade')->withTimestamps();
 	}
 
-	public function colonies(){
+	public function colonies()
+	{
 		return $this->hasMany('App\Colony');
-	}
-
-	public function defaultBrigades(){
-		return $this->hasMany('App\Brigade');
 	}
 }

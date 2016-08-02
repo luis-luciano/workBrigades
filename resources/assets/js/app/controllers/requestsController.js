@@ -66,6 +66,63 @@ module.exports = (function ($) {
         });
     };
 
+    var _citizensInit = function() {
+        // create citizen
+        //require('../validators/citizenValidator.js')($('#createCitizenForm'));
+
+        $('#createCitizenForm').submit(function(e) {
+            e.preventDefault();
+            require('../helpers/ajaxFormCall.js')({
+                form: $(this),
+                errorsContainer: $('#errorsHtmlListCreateCitizenForm'),
+                modalContainer: $('#searchCreateCitizenModal'),
+                alertText: 'store',
+                afterCall: function(citizen) {
+                    var selectBox = $('.citizen-search-box');
+                    // set the citizen created to the citizen search box
+                    require('../helpers/selectOption.js')(citizen.id, citizen.name).appendTo(selectBox);
+                    selectBox.val(citizen.id).trigger('change');
+                }
+            });
+        });
+        // $('#createCitizenForm').submit(function(e) {
+        //     e.preventDefault();
+        //     require('../helpers/ajaxFormCall.js')({
+        //         form: $(this),
+        //         errorsContainer: $('#errorsHtmlListCreateCitizenForm'),
+        //         modalContainer: $('#searchCreateCitizenModal'),
+        //         alertText: 'store',
+        //         afterCall: function(citizen) {
+        //             var selectBox = $('.citizen-search-box');
+
+        //             // set the citizen created to the citizen search box
+        //             require('../helpers/selectOption.js')(citizen.id, citizen.name).appendTo(selectBox);
+        //             selectBox.select2('val', citizen.id);
+        //         }
+        //     });
+        // }); 
+    };
+
+    var _initCitizenSearchBox = function() {
+        // citizens search box
+        require('../helpers/select2AjaxSearchBox.js')({
+            el: $(".citizen-search-box"),
+            placeholder: "Nombre del Ciudadano...",
+            url: $('#citizenSearchUri').val(),
+            data: function(params) {
+                return {
+                    q: params.term, // search term
+                    page: params.page
+                };
+            },
+            processResults: _citizenSearchBoxSetup.processResults,
+            escapeMarkup: _citizenSearchBoxSetup.escapeMarkup,
+            minimumInputLength: 1,
+            templateResult: _citizenSearchBoxSetup.templateResult,
+            templateSelection: _citizenSearchBoxSetup.templateSelection,
+        });
+    };
+
     var index = function() {
         //
     };
@@ -74,6 +131,7 @@ module.exports = (function ($) {
        $('.select').select2();
        $('#request_priority_id').val(2).trigger('change');
        _typologiesInit(tipologiesRelations,route,type);
+       _citizensInit();
     };
 
     var edit = function(tipologiesRelations,route,type) {

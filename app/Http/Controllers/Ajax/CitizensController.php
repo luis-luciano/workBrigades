@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Ajax;
 
 use App\Http\Controllers\Controller;
+use App\Citizen;
+use App\PersonalInformation;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -37,7 +39,9 @@ class CitizensController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $citizen=PersonalInformation::create($request->all())->citizen()->create($request->all());
+
+        return response()->json(['id' => $citizen->id,'name' => $citizen->full_name]);
     }
 
     /**
