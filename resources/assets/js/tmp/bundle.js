@@ -332,6 +332,8 @@ module.exports = function ($) {
                 }
             });
         });
+
+        _initCitizenSearchBox();
     };
 
     var _editCitizenModalInit = function _editCitizenModalInit() {
@@ -372,9 +374,8 @@ module.exports = function ($) {
                 alertText: 'update',
                 afterCall: function afterCall(citizen) {
                     var selectBox = $('.citizen-search-box option:selected');
-                    // set the citizen created to the citizen search box
+                    // set the citizen updated to the citizen search box
                     selectBox.text(citizen.name);
-                    console.log(citizen.name);
                 }
             });
         });
@@ -385,6 +386,57 @@ module.exports = function ($) {
             $('#editCitizenModalButton').show();
         } else {
             $('#editCitizenModalButton').hide();
+        }
+    };
+
+    var _initCitizenSearchBox = function _initCitizenSearchBox() {
+        // citizens search box
+        require('../helpers/select2AjaxSearchBox.js')({
+            el: $(".citizen-search-box"),
+            placeholder: "Nombre del Ciudadano...",
+            url: $('#citizenSearchUri').val(),
+            data: function data(params) {
+                return {
+                    q: params.term, // search term
+                    page: params.page
+                };
+            },
+            processResults: _citizenSearchBoxSetup.processResults,
+            escapeMarkup: _citizenSearchBoxSetup.escapeMarkup,
+            minimumInputLength: 1,
+            templateResult: _citizenSearchBoxSetup.templateResult,
+            templateSelection: _citizenSearchBoxSetup.templateSelection
+        });
+    };
+
+    var _citizenSearchBoxSetup = {
+        processResults: function processResults(data, page) {
+            // parse the results into the format expected by Select2
+            // since we are using custom formatting functions we do not need to
+            // alter the remote JSON data, except to indicate that infinite
+            // scrolling can be used
+
+            page.page = page.page || 1;
+
+            return {
+                results: data.items,
+                pagination: {
+                    more: page.page * 30 < data.total_count
+                }
+            };
+        },
+        escapeMarkup: function escapeMarkup(markup) {
+            return markup;
+        },
+        templateResult: function templateResult(citizen) {
+            if (citizen.loading) return 'Buscando...';
+
+            var markup = citizen.name;
+
+            return markup;
+        },
+        templateSelection: function templateSelection(citizen) {
+            return citizen.name || citizen.text;
         }
     };
 

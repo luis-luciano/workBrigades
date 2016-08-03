@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Citizen;
 use App\PersonalInformation;
 use Illuminate\Http\Request;
-
+use App\Search;
 use App\Http\Requests;
 
 class CitizensController extends Controller
@@ -16,9 +16,15 @@ class CitizensController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if (is_null($request->q)) {
+            abort(404);
+        }
+
+        $results = Search::citizensByNames($request->q, $request->include);
+
+        return response()->json(['items' => $results]);
     }
 
     /**

@@ -85,6 +85,8 @@ module.exports = (function ($) {
                 }
             });
         }); 
+
+        _initCitizenSearchBox();
     };
 
     var _editCitizenModalInit = function() {
@@ -162,6 +164,58 @@ module.exports = (function ($) {
             templateSelection: _citizenSearchBoxSetup.templateSelection,
         });
     };
+
+    var _citizenSearchBoxSetup = {
+        processResults: function(data, page) {
+            // parse the results into the format expected by Select2
+            // since we are using custom formatting functions we do not need to
+            // alter the remote JSON data, except to indicate that infinite
+            // scrolling can be used
+            
+            page.page= page.page || 1;
+
+            return {
+                results: data.items,
+                pagination: {
+                    more: (page.page * 30)<data.total_count
+                }
+            };
+        },
+        escapeMarkup: function(markup) {
+            return markup;
+        },
+        templateResult: function(citizen) {
+            if (citizen.loading) return 'Buscando...';
+
+            var markup = citizen.name;
+
+            return markup;
+        },
+        templateSelection: function(citizen) {
+            return citizen.name || citizen.text;
+        },
+    };
+
+    var _initCitizenSearchBox = function() {
+        // citizens search box
+        require('../helpers/select2AjaxSearchBox.js')({
+            el: $(".citizen-search-box"),
+            placeholder: "Nombre del Ciudadano...",
+            url: $('#citizenSearchUri').val(),
+            data: function(params) {
+                return {
+                    q: params.term, // search term
+                    page: params.page
+                };
+            },
+            processResults: _citizenSearchBoxSetup.processResults,
+            escapeMarkup: _citizenSearchBoxSetup.escapeMarkup,
+            minimumInputLength: 1,
+            templateResult: _citizenSearchBoxSetup.templateResult,
+            templateSelection: _citizenSearchBoxSetup.templateSelection,
+        });
+    };
+
 
     var index = function() {
         //

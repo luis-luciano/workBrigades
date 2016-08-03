@@ -38,6 +38,25 @@ class Citizen extends Model implements HasPresenter {
     {
         return $this->morphMany('App\Request','creator');
     }
+
+    public function scopeSearchByNames(Builder $query, $names)
+    {
+        $names = is_array($names) ? $names : [$names];
+
+        return $query->whereHas('personalInformation', function ($query) use ($names) {
+            $query->where(function ($query) use ($names) {
+                foreach ($names as $word) {
+                    $query->where('name', 'like', "%{$word}%");
+                    $query->orWhere('paternal_surname', 'like', "%{$word}%");
+                    $query->orWhere('maternal_surname', 'like', "%{$word}%");
+                }
+            });
+        })->with(['personalInformation' => function ($query) {
+            $query->select(['id', 'name', 'paternal_surname', 'maternal_surname', 'colony_id']);
+        }, 'personalInformation.colony' => function ($query) {
+            $query->select(['id', 'name']);
+        }]);
+    }
  
  	public function scopeSearch(Builder $query, $search)
     {

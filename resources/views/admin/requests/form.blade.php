@@ -13,14 +13,14 @@
             </div>
         @endif
 
-        <div class="col-md-{{ $type == 'edit' ? '4' : '6' }}">
+        <div class="col-md-{{ $type == 'edit' ? '4' : '6' }} border--dotted">
             <div class="row">
                 <div class="col-md-9">
                     <div class="form-group">
                         {!! Form::label('citizen_id', trans('requests.citizen'), ['class' => 'control-label']) !!}
                         <div class="input-wrapper">
-                            <input type="hidden" id="citizenSearchUri" value="">
-                            {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control', 'style' => 'width: 100%']) !!}
+                            <input type="hidden" id="citizenSearchUri" value="{{ route('ajax.citizens.index') }}">
+                            {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control select', 'style' => 'width: 100%']) !!}
                         </div>
                     </div><!--.form-group-->
                 </div>
