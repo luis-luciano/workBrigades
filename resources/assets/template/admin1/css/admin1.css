@@ -12443,6 +12443,28 @@ h6 {
 /*
 4.2 - Header
 */
+
+.users-img {
+    position: relative;
+    top: -5px;
+    float: right;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.profile-image{
+  margin-right: 0px;
+}
+
+@media screen and (max-width: 480px) 
+{
+    .users-img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
 .page-header {
   display: block;
   position: relative;

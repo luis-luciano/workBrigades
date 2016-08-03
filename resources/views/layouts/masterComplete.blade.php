@@ -62,34 +62,8 @@
                     </div>
                     <div class="col-xs-12 col-md-4 no-print" >
                         
-                        {{-- <img class="img-logo zoom print-left" src="{{ asset('assets/globals/img/resources/cordoba-solo.png') }}" alt=""> --}}
                         <a href="#" class="dropdown-toggle profile-image pull-right" data-toggle="dropdown">
-						<img src="{{ asset('assets/globals/img/resources/user.jpg') }}" class="img-circle special-img"> Jorge Namitle Chimalhua </a>
-						<style type="text/css">
-							.special-img 
-								{
-								    position: relative;
-								    top: -5px;
-								    float: right;
-								    left: 5px;
-								    width: 40px;
-								    height: 40px;
-								}
-
-								.profile-image{
-									margin-right: 0px;
-								}
-
-								@media screen and (max-width: 480px) 
-								{
-									.special-img {
-										width: 20px;
-								    	height: 20px;
-									}
-								}
-
-
-						</style>
+						<img src="{{ asset('assets/globals/img/resources/user.jpg') }}" class="img-circle users-img"> Jorge Namitle Chimalhua </a>
 						
                     </div><!--.col-->
                 </div><!--.row-->
