@@ -50,9 +50,31 @@ class CitizensController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,Citizen $citizen)
     {
-        //
+        if (isset($request->include) && $request->include = 'personal_information') {
+            $citizen->load('personalInformation');
+
+            return [
+                'name' => $citizen->name,
+                'paternalSurname' => $citizen->paternal_surname,
+                'maternalSurname' => $citizen->maternal_surname,
+                'sex' => $citizen->sex,
+                'email' => $citizen->email,
+                'birthday' => $citizen->birthday,
+                'represent' => $citizen->represent,
+                'housePhone' => $citizen->house_phone,
+                'mobilePhone' => $citizen->mobile_phone,
+                'fax' => $citizen->fax,
+                'street' => $citizen->street,
+                'number' => $citizen->number,
+                'interior' => $citizen->interior,
+                'profession' => $citizen->profession,
+                'colonyId' => $citizen->colony_id,
+            ];
+        } else {
+            return $citizen;
+        }
     }
 
     /**
@@ -73,9 +95,13 @@ class CitizensController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Citizen $citizen)
     {
-        //
+        $citizen->update($request->all());
+
+        $citizen->personalInformation->fill($request->all())->save();
+
+        return response()->json(['name' => $citizen->full_name]);
     }
 
     /**

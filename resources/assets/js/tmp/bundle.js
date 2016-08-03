@@ -332,22 +332,60 @@ module.exports = function ($) {
                 }
             });
         });
-        // $('#createCitizenForm').submit(function(e) {
-        //     e.preventDefault();
-        //     require('../helpers/ajaxFormCall.js')({
-        //         form: $(this),
-        //         errorsContainer: $('#errorsHtmlListCreateCitizenForm'),
-        //         modalContainer: $('#searchCreateCitizenModal'),
-        //         alertText: 'store',
-        //         afterCall: function(citizen) {
-        //             var selectBox = $('.citizen-search-box');
+    };
 
-        //             // set the citizen created to the citizen search box
-        //             require('../helpers/selectOption.js')(citizen.id, citizen.name).appendTo(selectBox);
-        //             selectBox.select2('val', citizen.id);
-        //         }
-        //     });
-        // }); 
+    var _editCitizenModalInit = function _editCitizenModalInit() {
+        var citizenSearchBox = $('.citizen-search-box');
+        var editCitizenForm = $('#editCitizenForm');
+
+        _editCitizenModalButtonState();
+
+        citizenSearchBox.change(function () {
+            _editCitizenModalButtonState();
+        });
+
+        $('#editCitizenModal').on('shown.bs.modal', function () {
+            var citizenId = citizenSearchBox.val();
+            var uri = $(this).data('uriSourceData') + "/" + citizenId;
+
+            $.getJSON(uri, {
+                include: "personal_information"
+            }).done(function (citizen) {
+                $.each(citizen, function (attribute, value) {
+                    editCitizenForm.find("[name='" + _.snakeCase(attribute) + "']").val(value).trigger("change").trigger("keyup");
+                });
+
+                editCitizenForm.attr('action', uri);
+            }).fail(function (data) {
+                throw new Error("Error while loading.");
+            });
+        });
+
+        //falta citizen validator
+        //
+        editCitizenForm.submit(function (e) {
+            e.preventDefault();
+            require('../helpers/ajaxFormCall.js')({
+                form: $(this),
+                errorsContainer: $('#errorsHtmlListEditCitizenForm'),
+                modalContainer: $('#editCitizenModal'),
+                alertText: 'update',
+                afterCall: function afterCall(citizen) {
+                    var selectBox = $('.citizen-search-box option:selected');
+                    // set the citizen created to the citizen search box
+                    selectBox.text(citizen.name);
+                    console.log(citizen.name);
+                }
+            });
+        });
+    };
+
+    var _editCitizenModalButtonState = function _editCitizenModalButtonState() {
+        if ($('.citizen-search-box').val() !== null) {
+            $('#editCitizenModalButton').show();
+        } else {
+            $('#editCitizenModalButton').hide();
+        }
     };
 
     var _initCitizenSearchBox = function _initCitizenSearchBox() {
@@ -379,11 +417,14 @@ module.exports = function ($) {
         $('#request_priority_id').val(2).trigger('change');
         _typologiesInit(tipologiesRelations, route, type);
         _citizensInit();
+        _editCitizenModalInit();
     };
 
     var edit = function edit(tipologiesRelations, route, type) {
         $('.select').select2();
         _typologiesInit(tipologiesRelations, route, type);
+        _citizensInit();
+        _editCitizenModalInit();
     };
 
     // return the variables to be public

@@ -27,11 +27,9 @@
                 <div class="col-md-3">
                     <br>
                     <div class="form-group text-center">
-                        @if($type === 'edit')
                             <span data-toggle="tooltip" data-placement="left" title="Editar Ciudadano"> 
-                                <a class="btn btn-floating btn-light-blue"><i class="ion-edit"></i></a>
+                                <a id="editCitizenModalButton" data-toggle="modal" class="btn btn-floating btn-light-blue" data-target="#editCitizenModal" style="display: none"><i class="ion-edit"></i></a>
                             </span>
-                        @endif
                             <span data-toggle="tooltip" data-placement="right" title="Agregar Ciudadano">
                                 <a class="btn btn-floating btn-light-blue" data-toggle="modal" data-target="#searchCreateCitizenModal"><i class="ion-android-add" ></i></a>
                             </span>

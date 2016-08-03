@@ -39,7 +39,7 @@
         'title' => 'Agregar Ciudadano',
         'view' => 'admin.partials.modals.searchCreateCitizen'
     ])
-{{--
+
     @include('partials.modals.layouts.closeModal', [
         'id' => 'editCitizenModal',
         'title' => 'Editar Ciudadano',
@@ -47,5 +47,5 @@
         'attributes' => [
             'data-uri-source-data' => route('ajax.citizens.index')
         ]
-    ])--}}
+    ])
 @stop
