@@ -19,7 +19,6 @@ use Illuminate\Http\Request;
 
 class RequestsController extends Controller
 {
-    
     /**
      * Display a listing of the resource.
      *
@@ -41,8 +40,6 @@ class RequestsController extends Controller
     {
         $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();
 
-        $citizen=Citizen::first();
-        $citizen=[$citizen->id=>$citizen->fullName];
         return view('admin.requests.create', compact('tipologiesRelations','citizen'));
     }
 
@@ -60,6 +57,8 @@ class RequestsController extends Controller
         $inquiry->save();
 
         $inquiry->supervisions()->attach(Typology::findOrFail($request->typology_id)->supervisions()->pluck('id')->toArray());
+
+        alert()->success(trans('messages.success.store'));
 
         return redirect()->route('requests.index');
     }
