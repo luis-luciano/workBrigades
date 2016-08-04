@@ -49,7 +49,9 @@
 			<!-- Heavy Rain -->
 			<div class="slide" id="slide-1" data-weather="rain">
 				<!-- Form Module-->
+
 				<div class="module form-module">
+					
 				  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
 				    H
 				  </div>
@@ -58,10 +60,11 @@
 				    	{!! Form::open(['url' => '/login']) !!}
 
 				    	{!! Form::Email('email', null, ["class" => "form-control", "placeholder" =>"Usuario"]) !!}
-				    	<strong>{{ $errors->first('email') }}</strong>
+				    	
 
-				    	{!! Form::password('password', null, ["class" => "form-control"]) !!}
-				    	<strong>{{ $errors->first('password') }}</strong>
+				    	{!! Form::password('password', null, ["class" => "form-control", "placeholder" =>"*******"]) !!}
+				    	
+
 
 				    	{!! Form::submit('Iniciar Sesión') !!}
 				    	{!! Form::close() !!}
@@ -69,6 +72,31 @@
 				  </div>
 
 				  <div class="cta">Nos Mueve y Nos Une</div>
+				  @if ($errors->any())
+				  	<br>
+				  	<div class="alert alert-danger danger-templete">
+						  <strong>{{ $errors->first('password') }}</strong>
+				  	</div>
+				  @endif
+				  @if ($errors->any())
+				  
+				  	<div class="alert alert-danger danger-templete">
+						  <strong>{{ $errors->first('email') }}</strong>
+				  	</div>
+				 @endif
+				 <style type="text/css">
+				 	.danger-templete{
+						color: #777;
+					    background-color: rgba(242, 222, 222, 0.62);
+					    border-color: rgba(235, 204, 209, 0.32);
+					    padding: 15px;
+					    margin-bottom: 20px;
+					    border: 1px solid transparent;
+					    border-radius: 0;
+					    font-size:12px;
+				 	}
+				 </style>
+
 				</div>
 			</div>
 			<!-- Drizzle -->
