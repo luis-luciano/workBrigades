@@ -32,8 +32,7 @@ class CreateSupervisionsTable extends Migration
                 $table->foreign('user_id')->references('id')->on('users');
                 $table->foreign('supervision_id')->references('id')->on('supervisions');
 
-            });
-
+        });
         Schema::create('supervisionables', function (Blueprint $table) {
             $table->integer('supervision_id')->unsigned()->index();
 

@@ -72,6 +72,11 @@ class Request extends Model {
 	{
 		return $this->belongsToMany(User::class);
 	}
+
+	public function usersReplies() 
+	{
+		return $this->belongsToMany(User::class);
+	}
 	
 	public function captureType()
 	{

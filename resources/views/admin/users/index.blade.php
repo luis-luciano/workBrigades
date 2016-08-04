@@ -7,7 +7,7 @@
     
 @stop
 
-@include('partials.tableScripts')
+
 
 @section('content')
 		

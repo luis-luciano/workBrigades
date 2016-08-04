@@ -8,10 +8,13 @@ use App\Request as Petition;
 use App\Role;
 use App\Traits\HasPersonalInformation;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use McCool\LaravelAutoPresenter\HasPresenter;
+use App\Traits\SimpleSearchableTables;
+use Illuminate\Database\Eloquent\Builder;
 
 class User extends Authenticatable {
 
-	use HasPersonalInformation;
+	use HasPersonalInformation, SimpleSearchableTables;
 
 	
 	/**
@@ -33,6 +36,8 @@ class User extends Authenticatable {
 	protected $hidden = [
 		'password', 'remember_token',
 	];
+
+	protected $with = ['personalInformation'];
 
 	public function personalInformation() {
 		return $this->belongsTo(PersonalInformation::class); //correct
@@ -60,8 +65,41 @@ class User extends Authenticatable {
 		return $this->belongsToMany(Role::class);
 	}
 
+	public function replies() {
+		return $this->belongsToMany(Petition::class);
+	}
+
 	public function belongsToSupervisions()
     {
         return $this->belongsToMany(Supervision::class)->withTimestamps();
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+    public function scopeSearch(Builder $query, $search)
+    {
+        $relationsToLoad = ['personalInformation'];
+
+        $query->where(function ($query) use ($search) {
+            $query->where('email', 'like', "%{$search}%");
+
+            $query->orWhereHas('personalInformation', function ($query) use ($search) {
+                $query->where(function ($query) use ($search) {
+                    $query->where('name', 'like', "%{$search}%");
+                    $query->orWhere('paternal_surname', 'like', "%{$search}%");
+                    $query->orWhere('maternal_surname', 'like', "%{$search}%");
+                    $query->orWhere('house_phone', 'like', "%{$search}%");
+                    $query->orWhere('mobile_phone', 'like', "%{$search}%");
+                });
+            });
+
+            
+        })
+            ->with($relationsToLoad);
+
+        return $query;
     }
 }

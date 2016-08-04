@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Colony;
 use App\Http\Requests;
+use App\Http\Requests\StoreUserRequest;
 use App\PersonalInformation;
 use App\Role;
 use App\User;
@@ -13,6 +14,9 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth', ['only' => ['index','create','store','show', 'edit','update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +24,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users=User::paginate(10);
+        $users=User::SearchFromRequest()->PaginateForTable();
+        
        return view('admin.users.index',compact('users'));
     }
 
@@ -41,16 +46,19 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        // $user_data=PersonalInformation::create($request->all());
-        // $user = User::create($request->all());
-        // $user->personalInformation()->associate(PersonalInformation::find($user_data->id))->save();
+        $user_data=PersonalInformation::create($request->all());
 
-        $user = PersonalInformation::create($request->all())->user()->create($request->all());
+        $user = User::create($request->all());
+
+        //dd($user);
+        
+        $user->personalInformation()->associate(PersonalInformation::find($user_data->id))->save();
+        
         $user->syncRoles($request->roles_list);
 
-        // alert()->success(trans('messages.success.store'));
+        alert()->success(trans('messages.success.store'));
 
         return redirect()->route('users.edit', compact('user'));
     }

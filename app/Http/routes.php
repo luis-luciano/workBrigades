@@ -33,9 +33,10 @@ Route::resource('typologies', 'TypologiesController');
 Route::resource('captureTypes', 'CaptureTypesController');
 
 // Authentication routes...
-Route::get('login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
-Route::post('login', 'Auth\AuthController@postLogin');
-Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
+Route::auth();
+//Route::get('login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
+//Route::post('login', 'Auth\AuthController@postLogin');
+//Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
@@ -45,3 +46,4 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
 	Route::resource('citizens','CitizensController');
 });
+

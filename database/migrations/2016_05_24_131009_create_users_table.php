@@ -50,6 +50,17 @@ class CreateUsersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->primary(['role_id', 'user_id']);
         });
+        
+        Schema::create('request_reply', function (Blueprint $table) {
+
+            $table->integer('user_id')->unsigned()->index();
+            $table->bigInteger('request_id')->unsigned()->index();
+            $table->string('reply');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('request_id')->references('id')->on('requests');
+            $table->primary(['request_id', 'user_id']);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -58,6 +69,7 @@ class CreateUsersTable extends Migration
      * @return void
      */
     public function down() {
+        Schema::drop('request_reply');
         Schema::drop('role_user');
         Schema::drop('knows');
         Schema::drop('users');

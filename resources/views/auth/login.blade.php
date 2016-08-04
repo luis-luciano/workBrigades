@@ -55,11 +55,17 @@
 				  </div>
 				  <div class="form">
 				    <h2>Sistema de Atención</h2>
-				    <form>
-				      <input type="text" placeholder="Usuario"/>
-				      <input type="password" placeholder="contraseña"/>
-				      <button>Iniciar Sesión</button>
-				    </form>
+				    	{!! Form::open(['url' => '/login']) !!}
+
+				    	{!! Form::Email('email', null, ["class" => "form-control", "placeholder" =>"Usuario"]) !!}
+				    	<strong>{{ $errors->first('email') }}</strong>
+
+				    	{!! Form::password('password', null, ["class" => "form-control"]) !!}
+				    	<strong>{{ $errors->first('password') }}</strong>
+
+				    	{!! Form::submit('Iniciar Sesión') !!}
+				    	{!! Form::close() !!}
+				    
 				  </div>
 
 				  <div class="cta">Nos Mueve y Nos Une</div>

@@ -157,6 +157,7 @@ return [
 		App\Providers\AuthServiceProvider::class,
 		App\Providers\EventServiceProvider::class,
 		App\Providers\RouteServiceProvider::class,
+		App\Providers\EntrustCustomServiceProvider::class,
 		App\Providers\ViewComposerServiceProvider::class,
 		/*McCool\LaravelAutoPresenter\AutoPresenterServiceProvider::class,*/
 
@@ -208,6 +209,7 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
 		'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+		'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 	],
 
 ];

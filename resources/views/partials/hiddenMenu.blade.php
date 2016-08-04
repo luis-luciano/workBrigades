@@ -5,7 +5,11 @@
 			<ul>
 				<li>
 					<a href="{{ route('home') }}"><i class="fa fa-home"></i> Inicio</a>
-				</li>			
+				</li>
+			@if (auth()->check())
+				<li>
+					<a><i class="fa fa-user"></i> {{ Auth::user()->FullName }}</a>
+				</li>
 				<li>
 					<a href="{{ route('citizens.index') }}"><i class="fa fa-users"></i> Ciudadanos</a>
 				</li>
@@ -56,8 +60,14 @@
 					</ul>
 				</li>
 				<li>
-					<a href="{{ route('login') }}"><i class="fa fa-power-off"></i> Salir</a>
+					
 				</li>
+			@else
+					<li>
+					
+					</li>
+			@endif			
+				
 
 			</ul>
 		</div><!--.menu-layer-->

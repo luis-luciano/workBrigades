@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class BrigadesController extends Controller
-{
+{   
+    public function __construct() {
+        $this->middleware('auth', ['only' => ['index','create','store','show', 'edit','update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

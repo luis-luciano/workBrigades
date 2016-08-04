@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class SupervisionsController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth', ['only' => ['index','create','store','show', 'edit','update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

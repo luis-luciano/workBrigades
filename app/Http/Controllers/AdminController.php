@@ -8,6 +8,9 @@ use App\Http\Requests;
 
 class AdminController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth', ['only' => ['index','create','store','show', 'edit','update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +18,8 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $roles=auth()->user()->roles->lists('label');
+        dd(auth()->user()->RolesList);
         return view('admin.index');
     }
 
@@ -25,7 +30,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        dd('create');
     }
 
     /**
@@ -47,7 +52,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        dd('show');
     }
 
     /**
@@ -58,7 +63,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd('edit');
     }
 
     /**
@@ -81,6 +86,6 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd('destroy');
     }
 }

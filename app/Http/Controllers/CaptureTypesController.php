@@ -8,7 +8,10 @@ use App\Http\Requests\CaptureTypeRequest;
 use Illuminate\Http\Request;
 
 class CaptureTypesController extends Controller
-{
+{   
+    public function __construct() {
+        $this->middleware('auth', ['only' => ['index','create','store','show', 'edit','update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
