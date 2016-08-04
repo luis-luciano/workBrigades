@@ -62,7 +62,7 @@
 				    	{!! Form::Email('email', null, ["class" => "form-control form-control-p", "placeholder" =>"Usuario"]) !!}
 				    	
 
-				    	{!! Form::password('password', null, ["class" => "form-control form-control-p", "placeholder" =>"password"]) !!}
+				    	{!! Form::password('password', null, ["class" => "form-control form-control-p", "placeholder" =>"Password"]) !!}
 				    	
 
 
@@ -84,38 +84,6 @@
 						  <strong>*</strong>{{ $errors->first('email') }}
 				  	</div>
 				 @endif
-				 <style type="text/css">
-				 	.danger-templete{
-						color: #777;
-					    background-color: rgba(242, 222, 222, 0.62);
-					    border-color: rgba(235, 204, 209, 0.32);
-					    padding: 15px;
-					    margin-bottom: 20px;
-					    border: 1px solid transparent;
-					    border-radius: 0;
-					    font-size:12px;
-				 	}
-
-				 	.form-control-p {
-					    display: block;
-					    width: 100%;
-					    height: 34px;
-					    padding: 6px 12px;
-					    font-size: 14px;
-					    line-height: 1.42857143;
-					    color: #555;
-					    background-color: #fff;
-					    background-image: none;
-					    border: 1px solid #ccc;
-					    border-radius: 0px;
-					    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-					    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-					    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-					    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-					    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-					}
-				 </style>
-
 				</div>
 			</div>
 			<!-- Drizzle -->
