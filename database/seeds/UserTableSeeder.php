@@ -80,7 +80,7 @@ class UserTableSeeder extends Seeder
 
 
         User::create(['email'=>'ejemplo@ejemplo.com',
-                        'password'=>'jshdjhsd',
+                        'password'=>'@HIDRO-123@',
                         'sub_email'=>'jshdjshd',
                         'is_active'=>1,
                         'last_ip'=>'kjskdjsd',
