@@ -72,13 +72,13 @@
 				  </div>
 
 				  <div class="cta">Nos Mueve y Nos Une</div>
-				  @if ($errors->any())
+				  @if ($errors->first('password'))
 				  	<br>
 				  	<div class="alert alert-danger danger-templete">
 						  <strong>{{ $errors->first('password') }}</strong>
 				  	</div>
 				  @endif
-				  @if ($errors->any())
+				  @if ($errors->first('email'))
 				  
 				  	<div class="alert alert-danger danger-templete">
 						  <strong>{{ $errors->first('email') }}</strong>
