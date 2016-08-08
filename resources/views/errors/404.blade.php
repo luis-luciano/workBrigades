@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>403</title>
+        <title>404</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -26,7 +26,7 @@
                 vertical-align: middle;
                 height: 100vh;
                 width: 100vw;
-                background: url(../assets/globals/img/resources/body.png) no-repeat center top;
+                background: url(../assets/globals/img/resources/body.jpg) no-repeat center top;
                 background-size: cover;
                 overflow: hidden;      
             }
@@ -45,8 +45,8 @@
 
 
 img{
-    height: 310px;
-    width: 420px;
+    height: 420px;
+    width: 800px;
     margin: 15px 0;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
@@ -54,10 +54,9 @@ img{
 }
  
 img:hover {
-    height: 360px;
-    width: 470px;
+    height: 520px;
+    width: 930px;
     margin-left: -50px;
-    margin-right: -100px;
 }
 
         </style>
@@ -65,7 +64,7 @@ img:hover {
     <body>
         <div class="container">
             <div class="content">
-                <img  src="{{ asset('../assets/globals/img/resources/denegado.png') }}" width="300px" height="300px" style="opacity:0.7;">
+                <img  src="{{ asset('../assets/globals/img/resources/oops.png') }}" width="800px" height="420px" style="opacity:0.7;">
             </div>
         </div>
     </body>
