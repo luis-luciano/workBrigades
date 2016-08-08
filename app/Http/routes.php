@@ -47,3 +47,7 @@ Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
 	Route::resource('citizens','CitizensController');
 });
 
+Route::get("prueba", function(){
+	return view("admin.users.profile");
+});
+
