@@ -7,7 +7,7 @@
 @stop
 
 @section('scripts')
-    requestsController.edit({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}",'edit');
+    requestsController.edit({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}");
 @stop
 
 @section('content')

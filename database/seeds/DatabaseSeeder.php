@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RequestStateTableSeeder::class);
         $this->call(RequestPrioritiesTableSeeder::class);
         $this->call(RequestTypesTableSeeder::class);
-        $this->call(SectorBrigadeTableSeeder::class);
         $this->call(TestColonyScopesTableSeeder::class); 
         $this->call(TestSettlementTypesTableSeeder::class);
         $this->call(TestPermissionsTableSeeder::class);
@@ -27,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TestSupervisionTableSeeder::class);
         $this->call(TestTypologyTableSeeder::class);
         $this->call(TestProblemTypeTableSeeder::class);
-        $this->call(TypologyBrigadeTableSeeder::class);
+        $this->call(BrigadesDefaultSeeder::class);
+        $this->call(SectsBrigsTypsTableSeeder::class);
     }
 }

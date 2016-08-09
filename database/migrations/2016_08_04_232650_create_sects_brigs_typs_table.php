@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBrigadeSectorTable extends Migration
+class CreateSectsBrigsTypsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,16 @@ class CreateBrigadeSectorTable extends Migration
      */
     public function up()
     {
-        Schema::create('brigade_sector', function (Blueprint $table) {
+        Schema::create('sects_brigs_typs', function (Blueprint $table) {
             $table->integer('sector_id')->unsigned()->index();
+            $table->integer('typology_id')->unsigned()->index();
             $table->integer('brigade_id')->unsigned()->index();
-
-            $table->boolean('is_default_brigade')->default(false);
-
+        
             $table->foreign('sector_id')->references('id')->on('sectors');
+            $table->foreign('typology_id')->references('id')->on('typologies');
             $table->foreign('brigade_id')->references('id')->on('brigades');
 
-            $table->primary(['sector_id','brigade_id']);
+            $table->primary(['sector_id','typology_id','brigade_id']);
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateBrigadeSectorTable extends Migration
      */
     public function down()
     {
-        Schema::drop('brigade_sector');
+        Schema::drop('sects_brigs_typs');
     }
 }

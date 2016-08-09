@@ -1,5 +1,6 @@
 <div class="form-content">
     <div class="row">
+        <input type="hidden" id="typeRequest" value="{{ $type }}">
         @if($type === 'edit')
             <div class="col-md-2">
                     <div class="form-group">
@@ -12,7 +13,6 @@
                     </div><!--.form-group-->
             </div>
         @endif
-
         <div class="col-md-{{ $type == 'edit' ? '4' : '6' }} border--dotted">
             <div class="row">
                 <div class="col-md-9">
@@ -44,7 +44,7 @@
             <div class="form-group">
                 {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control select','id'=>'typology']) !!}
+                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control select dataAjax','id'=>'typology']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -98,7 +98,8 @@
             <div class="form-group">
                 {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select', 'style' => 'width: 100%']) !!}
+                    <input type="hidden" id="colonySearchUri" value="{{ route('ajax.colonies.index') }}">
+                    {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select dataAjax', 'style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -154,7 +155,7 @@
             <div class="form-group">
                 {!! Form::label('brigade_id', trans('requests.brigade'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('brigade_id', [], null, ['class' => 'form-control', 'id'=>'brigade','style' => 'width: 100%']) !!}
+                    {!! Form::select('brigade_id', (isset($inquiry)? $brigades : []), null, ['class' => 'form-control select','style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>

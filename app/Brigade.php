@@ -25,34 +25,14 @@ class Brigade extends Model implements HasPresenter {
 		return $this->hasMany(Petition::class);
 	}
 
-	public function typologies()
-	{
-		return $this->belongsToMany(Typology::class)->withTimestamps();
-	}
-
-	public function syncTypologies($typologies)
+    public function typologies()
     {
-        return $this->typologies()->sync($typologies ?: []);
+        return $this->belongsToMany('App\Typology','sects_brigs_typs','sector_id','brigade_id','typology_id')->withTimestamps();
     }
 
-    public function getTypologiesListAttribute()
+    public function sectors()
     {
-        return $this->typologies->pluck('id')->toArray();
-    }
-
-    public function sectors() 
-    {	
-		return $this->belongsToMany(Sector::class)->withTimestamps();
-	}
-
-	public function syncSectors($sectors)
-    {
-        return $this->sectors()->sync($sectors ?: []);
-    }
-
-	public function getSectorsListAttribute()
-    {
-        return $this->sectors->pluck('id')->toArray();
+        return $this->belongsToMany('App\Sector','sects_brigs_typs','sector_id','brigade_id','typology_id')->withTimestamps();
     }
 
     public function getPresenterClass()

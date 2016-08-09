@@ -249,10 +249,11 @@ module.exports = function ($) {
 
 module.exports = function ($) {
 
-    var _typologiesInit = function _typologiesInit(tipologiesRelations, route, type) {
+    var _typologiesInit = function _typologiesInit(tipologiesRelations, route) {
         var typologiesSelect = $("#typology");
         var coloniesSelect = $('#colony_id');
         var problems = $('#problem');
+        var typeRequest = $('#typeRequest');
 
         var showTypologyWithProblems = function () {
             var html = "";
@@ -292,7 +293,11 @@ module.exports = function ($) {
                 dataType: 'json',
                 success: function success(data) {
                     $('#sector').text(data.sector);
-                    $('#brigade').html(data.brigades);
+                    $('#brigade_id').html(data.brigades);
+
+                    if (typeRequest.val() != "edit") {
+                        $('#brigade_id').val(data.defaultId).trigger('change');
+                    }
                 },
                 error: function error(xhr, status) {
                     alert("Error de comunicacion " + status + " con el servidor!!");
@@ -300,7 +305,21 @@ module.exports = function ($) {
             });
         }.bind(route);
 
-        if (type != 'edit') {
+        var showColonies = function showColonies() {
+            var uri = $('#colonySearchUri').val();
+            var typologyId = $('#typology').val();
+            var colonyId = $('#colony_id').val();
+
+            $.getJSON(uri, {
+                colony: colonyId,
+                typology: typologyId
+            }).done(function (msg) {
+                alert(msg);
+            }).fail(function (data) {
+                throw new Error("Error while loading.");
+            });
+        };
+        if (typeRequest.val() != "edit") {
             showTypologyWithProblems();
         }
 
@@ -311,6 +330,7 @@ module.exports = function ($) {
         coloniesSelect.change(function () {
             showColoniesAndSector($(this).val(), typologiesSelect.val());
         });
+        showColonies();
     };
 
     var _citizensInit = function _citizensInit() {
@@ -467,14 +487,14 @@ module.exports = function ($) {
     var create = function create(tipologiesRelations, route, type) {
         $('.select').select2();
         $('#request_priority_id').val(2).trigger('change');
-        _typologiesInit(tipologiesRelations, route, type);
+        _typologiesInit(tipologiesRelations, route);
         _citizensInit();
         _editCitizenModalInit();
     };
 
     var edit = function edit(tipologiesRelations, route, type) {
         $('.select').select2();
-        _typologiesInit(tipologiesRelations, route, type);
+        _typologiesInit(tipologiesRelations, route);
         _citizensInit();
         _editCitizenModalInit();
     };

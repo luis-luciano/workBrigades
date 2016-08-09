@@ -15,46 +15,6 @@ class SectorBrigadeTableSeeder extends Seeder
         $relations=[
         	[
         		'sector_id' => 1,
-        		'brigade_id' => 3,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 2,
-        		'brigade_id' => 6,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 3,
-        		'brigade_id' => 5,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 4,
-        		'brigade_id' => 4,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 1,
-        		'brigade_id' => 7,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 2,
-        		'brigade_id' => 7,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 3,
-        		'brigade_id' => 7,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 4,
-        		'brigade_id' => 7,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 1,
         		'brigade_id' => 8,
                 'is_default_brigade' => false
         	],
@@ -72,26 +32,6 @@ class SectorBrigadeTableSeeder extends Seeder
         		'sector_id' => 4,
         		'brigade_id' => 8,
                 'is_default_brigade' => false
-        	],
-        	[
-        		'sector_id' => 1,
-        		'brigade_id' => 1,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 2,
-        		'brigade_id' => 1,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 3,
-        		'brigade_id' => 1,
-                'is_default_brigade' => true
-        	],
-        	[
-        		'sector_id' => 4,
-        		'brigade_id' => 1,
-                'is_default_brigade' => true
         	],
         	[
         		'sector_id' => 1,
@@ -115,9 +55,10 @@ class SectorBrigadeTableSeeder extends Seeder
         	],
         ];
 
+        
+
         foreach($relations as $relation){
         	Sector::find($relation['sector_id'])->brigades()->attach($relation['brigade_id'],['is_default_brigade'=>$relation['is_default_brigade']]);
         }
-
     }
 }

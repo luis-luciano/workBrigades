@@ -50,7 +50,7 @@ class Request extends Model {
 
 	public function brigade() 
 	{
-		return $this->belongsTo(Brigade::class);
+		return $this->belongsTo(Brigade::class,'brigade_id');
 	}
 
 	public function colony() 
@@ -122,6 +122,7 @@ class Request extends Model {
 	{
 		return $this->problem->typology->problems->lists('name','id');
 	}
+	
 
 	public function scopeCountTypology($query,$id)
     {

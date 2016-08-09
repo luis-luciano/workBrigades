@@ -60,7 +60,7 @@ class RequestsController extends Controller
 
         alert()->success(trans('messages.success.store'));
 
-        return redirect()->route('requests.index');
+        return redirect()->route('requests.edit',$inquiry);
     }
 
     /**
@@ -85,7 +85,11 @@ class RequestsController extends Controller
         $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();
         $citizen = [$inquiry->concerned->id => $inquiry->concerned->full_name];
 
-        return view('admin.requests.edit', compact('tipologiesRelations','inquiry','citizen'));
+        $defaultBrigade=$inquiry->sector->brigadesByTypology()->where('typology_id',$inquiry->typology_id)->get();
+        $optionalBrigades=$inquiry->sector->brigades()->where('typology_id',$inquiry->typology_id)->get();
+
+        $brigades=$defaultBrigade->merge($optionalBrigades)->lists('name', 'id');
+        return view('admin.requests.edit', compact('tipologiesRelations','inquiry','citizen','brigades'));
     }
 
     /**
@@ -95,9 +99,17 @@ class RequestsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Inquiry $inquiry)
     {
-        //
+        $inquiry->update($request->all());
+        $inquiry->concerned()->associate(Citizen::findOrFail($request->citizen_id));
+        $inquiry->save();
+
+        $inquiry->supervisions()->sync(Typology::findOrFail($request->typology_id)->supervisions->lists('id')->toArray());
+
+        alert()->success(trans('messages.success.update'));
+
+        return redirect()->route('requests.edit',$inquiry);
     }
 
     /**
@@ -113,29 +125,33 @@ class RequestsController extends Controller
 
     public function findSectorBrigade(Request $request){
 
-        if(!$request->ajax()){
-            abort(403);
-        }
+        // if(!$request->ajax()){
+        //     abort(403);
+        // }
         
         $colony=Colony::findOrFail($request->get('colony'));
         $sectorNumber=$colony->sector->number;
         $sector=$colony->sector;
-        $brigades=$sector->brigades()
-                         ->join('brigade_typology','brigades.id','=','brigade_typology.brigade_id')
-                         ->join('typologies','typologies.id','=','brigade_typology.typology_id')
-                         //->where('brigade_sector.is_default_brigade','=',true)
-                         ->where('typologies.id','=',$request->get('typology'))
-                         ->orderBy('brigade_sector.is_default_brigade','desc')
-                         ->lists('brigades.name','brigades.id');
 
         $html="";
-        foreach ($brigades as $key => $value) {
-            $html.="<option value=".$key." > ".$value." </option>\n";
+
+        $default=$sector->brigadesByTypology()->where('typology_id',$request->get('typology'))->get();
+        $others=$sector->brigades()->where('typology_id',$request->get('typology'))->get();
+        if(!$default->isEmpty() and !$others->isEmpty()){
+            $default=$default->first();
+            
+            $html.="<option value=".$default->id." selected> ".$default->name." </option>\n";
+            foreach ($others as $brigade) {
+                 $html.="<option value=".$brigade->id."> ".$brigade->name." </option>\n";
+            }
         }
 
+
+        
         $data=[
                 'sector' => $sectorNumber,
-                'brigades' => $html
+                'brigades' => $html,
+                'defaultId' => $default->id
             ];
         return response()->Json($data);
     }

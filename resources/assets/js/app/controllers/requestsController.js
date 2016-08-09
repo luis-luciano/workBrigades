@@ -1,9 +1,10 @@
 module.exports = (function ($) {
 
-    var _typologiesInit=function(tipologiesRelations,route,type){
+    var _typologiesInit=function(tipologiesRelations,route){
         var typologiesSelect=$("#typology");
         var coloniesSelect=$('#colony_id');
         var problems=$('#problem');
+        var typeRequest=$('#typeRequest');
 
         var showTypologyWithProblems= function(){
             var html="";   
@@ -44,7 +45,11 @@ module.exports = (function ($) {
                 dataType : 'json',
                 success: function(data){ 
                                             $('#sector').text(data.sector);
-                                            $('#brigade').html(data.brigades);
+                                            $('#brigade_id').html(data.brigades);
+
+                                            if(typeRequest.val() != "edit"){
+                                                $('#brigade_id').val(data.defaultId).trigger('change');
+                                            }
                                         },
                 error: function(xhr,status){
                     alert("Error de comunicacion "+status+" con el servidor!!");
@@ -52,7 +57,24 @@ module.exports = (function ($) {
             });
         }.bind(route);
 
-        if(type != 'edit')
+        var showColonies=function(){
+            var uri=$('#colonySearchUri').val();
+            var typologyId=$('#typology').val();
+            var colonyId=$('#colony_id').val();
+
+            $.getJSON(uri, {
+                colony: colonyId,
+                typology: typologyId
+            })
+            .done(function(msg) {
+                alert(msg);
+
+            })
+            .fail(function(data) {
+                throw new Error("Error while loading.");
+            });
+        }
+        if(typeRequest.val() != "edit")
         {
             showTypologyWithProblems();
         }
@@ -224,14 +246,14 @@ module.exports = (function ($) {
     var create = function(tipologiesRelations,route,type) {
        $('.select').select2();
        $('#request_priority_id').val(2).trigger('change');
-       _typologiesInit(tipologiesRelations,route,type);
+       _typologiesInit(tipologiesRelations,route);
        _citizensInit();
        _editCitizenModalInit();
     };
 
     var edit = function(tipologiesRelations,route,type) {
        $('.select').select2();
-       _typologiesInit(tipologiesRelations,route,type);
+       _typologiesInit(tipologiesRelations,route);
        _citizensInit();
        _editCitizenModalInit();
     };

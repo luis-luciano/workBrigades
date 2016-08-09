@@ -17,16 +17,17 @@ class Typology extends Model implements HasPresenter
 
 	protected $fillable=['name'];
 
-    public function problems() {
-    	
+    public function problems() 
+    {	
 		return $this->hasMany(Problem::class);
 	}
 
-	public function supervisions(){
+	public function supervisions()
+    {
 		return $this->belongsToMany(Supervision::class)->withTimestamps();
 	}
 
-	 public function getSupervisionsListAttribute()
+	public function getSupervisionsListAttribute()
     {
         return $this->supervisions->pluck('id')->toArray();
     }
@@ -36,9 +37,15 @@ class Typology extends Model implements HasPresenter
         return $this->supervisions()->sync($supervisions ?: []);
     }
 
-	public function brigades(){
-		return $this->belongsToMany('App\Brigade');
-	}
+    public function sectors()
+    {
+        return $this->belongsToMany('App\Sector','sects_brigs_typs','sector_id','brigade_id','typology_id')->withTimestamps();
+    }
+
+    public function brigades()
+    {
+        return $this->belongsToMany('App\Brigade','sects_brigs_typs','sector_id','brigade_id','typology_id')->withTimestamps();
+    }
 
 	public function scopeSearch(Builder $query, $search)
     {

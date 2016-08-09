@@ -7,7 +7,7 @@
 @stop
 
 @section('scripts')       
-    requestsController.create({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}",'create');
+    requestsController.create({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}");
 @stop
 
 @section('content')

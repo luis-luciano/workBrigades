@@ -47,6 +47,12 @@ Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
 	Route::resource('citizens','CitizensController');
 });
 
+//Routes for ajax call
+Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
+	Route::resource('citizens','CitizensController');
+	Route::resource('colonies','ColoniesController');
+});
+
 Route::get("prueba", function(){
 	return view("admin.users.profile");
 });
