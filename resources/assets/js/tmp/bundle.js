@@ -484,17 +484,25 @@ module.exports = function ($) {
         //
     };
 
-    var create = function create(tipologiesRelations, route, type) {
+    var create = function create(tipologiesRelations, route) {
         $('#request_priority_id').val(2).trigger('change');
         _typologiesInit(tipologiesRelations, route);
         _citizensInit();
         _editCitizenModalInit();
     };
 
-    var edit = function edit(tipologiesRelations, route, type) {
+    var edit = function edit(tipologiesRelations, route) {
         _typologiesInit(tipologiesRelations, route);
         _citizensInit();
         _editCitizenModalInit();
+
+        FileInput.init({
+            el: $("#fileinput"),
+            form: $("#fileinput").closest('form'),
+            maxFileSize: 25600,
+            maxFileCount: 10,
+            allowedFileExtensions: ['png', 'jpg', 'jpeg', 'pdf']
+        });
     };
 
     // return the variables to be public
@@ -830,8 +838,9 @@ require('../../config/parsley.js');
 require('../../config/select2.js');
 require('../../config/sweetAlert.js');
 require('../../config/moment.js');
+require('../../config/fileInput.js');
 
-},{"../../config/jquery.js":42,"../../config/moment.js":43,"../../config/parsley.js":44,"../../config/select2.js":45,"../../config/sweetAlert.js":46}],24:[function(require,module,exports){
+},{"../../config/fileInput.js":42,"../../config/jquery.js":43,"../../config/moment.js":44,"../../config/parsley.js":45,"../../config/select2.js":46,"../../config/sweetAlert.js":47}],24:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -1215,7 +1224,7 @@ require('./autoload.js');
 
 require('../vendor/autoload.js');
 
-},{"../vendor/autoload.js":47}],41:[function(require,module,exports){
+},{"../vendor/autoload.js":48}],41:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1232,6 +1241,88 @@ require('../app/providers/pluginProvider.js');
 require('../app/providers/eventProvider.js');
 
 },{"../app/providers/eventProvider.js":22,"../app/providers/pluginProvider.js":23}],42:[function(require,module,exports){
+"use strict";
+
+/*
+|--------------------------------------------------------------------------
+| FileInput Configuration
+|--------------------------------------------------------------------------
+|
+| fileInput settings.
+|
+*/
+var FileInput = function ($) {
+
+    var _settings = {};
+
+    var init = function init(settings) {
+        _settings = typeof settings !== 'undefined' ? settings : {
+            el: $("#fileinput"),
+            form: $("#fileinput").closest('form'),
+            maxFileSize: 500,
+            maxFileCount: 1,
+            allowedFileExtensions: ['png', 'jpg', 'jpeg', 'pdf']
+        };
+        _setup();
+    };
+
+    var _setup = function _setup() {
+        _settings.el.fileinput({
+            language: "es",
+            layoutTemplates: {
+                actions: '<div class="file-actions">\n' + '    <div class="file-footer-buttons">\n' + '        {delete}' + '    </div>\n' + '    <div class="file-upload-indicator" tabindex="-1" title="{indicatorTitle}">{indicator}</div>\n' + '    <div class="clearfix"></div>\n' + '</div>',
+                removeTitle: 'Quitar archivo',
+                indicatorNewTitle: 'Archivo por subir',
+                indicatorSuccessTitle: 'Subido',
+                indicatorErrorTitle: 'Error al subir',
+                indicatorLoadingTitle: 'Subiendo ...'
+            },
+            fileActionSettings: {
+                removeTitle: 'Quitar archivo',
+                indicatorNewTitle: 'Archivo por subir'
+            },
+            msgFilesTooMany: 'Máximo {m} archivo(s)',
+            uploadExtraData: function uploadExtraData() {
+                //return method spoofing
+                var method = _settings.form.find('input[name="_method"]');
+                if (method.length === 0) {
+                    return {};
+                }
+
+                return {
+                    _method: method.val()
+                };
+            }, //{requestId: $('#requestId').val()},
+            showCancel: false,
+            uploadUrl: _settings.form.attr('action'),
+            previewFileType: "image",
+            browseClass: "btn btn-success",
+            browseLabel: " Buscar Archivo",
+            browseIcon: '<i class="glyphicon glyphicon-file"></i>',
+            removeClass: "btn btn-danger",
+            removeLabel: " Eliminar",
+            removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+            uploadClass: "btn btn-info",
+            uploadLabel: " Subir",
+            uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
+            'elErrorContainer': '#errorBlock',
+            maxFileSize: _settings.maxFileSize,
+            maxFileCount: _settings.maxFileCount,
+            uploadAsync: true,
+            allowedFileExtensions: _settings.allowedFileExtensions
+        });
+    };
+
+    return {
+        init: init
+    };
+}(window.jQuery);
+require('../app/globalize.js')({
+    FileInput: FileInput
+});
+//
+
+},{"../app/globalize.js":16}],43:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1249,7 +1340,7 @@ $.ajaxSetup({
 	}
 });
 
-},{}],43:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1289,7 +1380,7 @@ $('.format-date-from-now').each(function (index, dateElem) {
     $dateElem.text(date);
 });
 
-},{}],44:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1316,7 +1407,7 @@ window.Parsley.parsleyOptions = {
     }
 };
 
-},{}],45:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1339,7 +1430,7 @@ $("span.select2-selection--single").on("focus", function () {
     $(this).parent().parent().prev('select').select2('open');
 });
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1382,7 +1473,7 @@ require('../app/globalize.js')({
     sweetAlertLayouts: sweetAlertLayouts
 });
 
-},{"../app/globalize.js":16}],47:[function(require,module,exports){
+},{"../app/globalize.js":16}],48:[function(require,module,exports){
 'use strict';
 
 /*

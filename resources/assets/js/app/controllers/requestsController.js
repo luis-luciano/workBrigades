@@ -255,6 +255,14 @@ module.exports = (function ($) {
        _typologiesInit(tipologiesRelations,route);
        _citizensInit();
        _editCitizenModalInit();
+
+       FileInput.init({
+            el: $("#fileinput"),
+            form: $("#fileinput").closest('form'),
+            maxFileSize: 25600,
+            maxFileCount: 10,
+            allowedFileExtensions: ['png', 'jpg', 'jpeg', 'pdf'],
+        });
     };
 
     // return the variables to be public

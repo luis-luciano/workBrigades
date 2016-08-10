@@ -42,10 +42,10 @@ Route::auth();
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-//Routes for ajax call
-Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
-	Route::resource('citizens','CitizensController');
-});
+// Request Files
+Route::get('requests/{requests}/files/{files}', ['as' => 'requests.files.show', 'uses' => 'RequestFileController@show']);
+Route::post('requests/{requests}/files', ['as' => 'requests.files.store', 'uses' => 'RequestFileController@store']);
+Route::delete('requests/{requests}/files/{files}', ['as' => 'requests.files.destroy', 'uses' => 'RequestFileController@destroy']);
 
 //Routes for ajax call
 Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){

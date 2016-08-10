@@ -134,12 +134,10 @@
                     </div>
                 </div>
             </div><!--.form-group-->
-        </div>
-        
+        </div>     
     </div>
 
     <div class="row">
-
         <div class="col-md-4">
             <div class="form-group">
                 {!! Form::label('sector_id', trans('requests.sector'), ['class' => 'control-label']) !!}
@@ -170,8 +168,8 @@
                 </div>
             </div><!--.form-group-->
         </div>
- 
-    </div><!--.form-content-->
+    </div>
+</div><!--.form-content-->
 
 <div class="form-buttons form-group clearfix">
     <div class="row">
