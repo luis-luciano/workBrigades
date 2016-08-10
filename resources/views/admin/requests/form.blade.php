@@ -20,7 +20,7 @@
                         {!! Form::label('citizen_id', trans('requests.citizen'), ['class' => 'control-label']) !!}
                         <div class="input-wrapper">
                             <input type="hidden" id="citizenSearchUri" value="{{ route('ajax.citizens.index') }}">
-                            {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control select', 'style' => 'width: 100%']) !!}
+                            {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control', 'style' => 'width: 100%']) !!}
                         </div>
                     </div><!--.form-group-->
                 </div>
@@ -44,7 +44,7 @@
             <div class="form-group">
                 {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control select dataAjax','id'=>'typology']) !!}
+                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control','id'=>'typology']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -53,7 +53,7 @@
             <div class="form-group">
                 {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('problem_id',(isset($inquiry)? $inquiry->problems_list : []), null, ['class' => 'form-control select','id'=>'problem']) !!}
+                    {!! Form::select('problem_id',(isset($inquiry)? $inquiry->problems_list : []), null, ['class' => 'form-control','id'=>'problem']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -62,7 +62,7 @@
             <div class="form-group">
                 {!! Form::label('request_priority_id', trans('requests.request_priority_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('request_priority_id', $priorities, null, ['class' => 'form-control select']) !!}
+                    {!! Form::select('request_priority_id', $priorities, null, ['class' => 'form-control']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -99,7 +99,7 @@
                 {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
                     <input type="hidden" id="colonySearchUri" value="{{ route('ajax.colonies.index') }}">
-                    {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select dataAjax', 'style' => 'width: 100%']) !!}
+                    {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control', 'style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -155,7 +155,7 @@
             <div class="form-group">
                 {!! Form::label('brigade_id', trans('requests.brigade'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('brigade_id', (isset($inquiry)? $brigades : []), null, ['class' => 'form-control select','style' => 'width: 100%']) !!}
+                    {!! Form::select('brigade_id', (isset($inquiry)? $brigades : []), null, ['class' => 'form-control','style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>

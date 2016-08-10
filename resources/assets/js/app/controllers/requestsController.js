@@ -151,8 +151,9 @@ module.exports = (function ($) {
                 alertText: 'update',
                 afterCall: function(citizen) {
                     var selectBox = $('.citizen-search-box option:selected');
-                    // set the citizen updated to the citizen search box
+                    // update text the citizen selected to the citizen search box
                     selectBox.text(citizen.name);
+                    $('.citizen-search-box').select2();
                 }
             });
         });
@@ -243,16 +244,14 @@ module.exports = (function ($) {
         //
     };
 
-    var create = function(tipologiesRelations,route,type) {
-       $('.select').select2();
+    var create = function(tipologiesRelations,route) {
        $('#request_priority_id').val(2).trigger('change');
        _typologiesInit(tipologiesRelations,route);
        _citizensInit();
        _editCitizenModalInit();
     };
 
-    var edit = function(tipologiesRelations,route,type) {
-       $('.select').select2();
+    var edit = function(tipologiesRelations,route) {
        _typologiesInit(tipologiesRelations,route);
        _citizensInit();
        _editCitizenModalInit();

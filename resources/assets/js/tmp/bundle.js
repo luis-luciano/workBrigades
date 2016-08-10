@@ -330,7 +330,6 @@ module.exports = function ($) {
         coloniesSelect.change(function () {
             showColoniesAndSector($(this).val(), typologiesSelect.val());
         });
-        showColonies();
     };
 
     var _citizensInit = function _citizensInit() {
@@ -394,8 +393,9 @@ module.exports = function ($) {
                 alertText: 'update',
                 afterCall: function afterCall(citizen) {
                     var selectBox = $('.citizen-search-box option:selected');
-                    // set the citizen updated to the citizen search box
+                    // update text the citizen selected to the citizen search box
                     selectBox.text(citizen.name);
+                    $('.citizen-search-box').select2();
                 }
             });
         });
@@ -485,7 +485,6 @@ module.exports = function ($) {
     };
 
     var create = function create(tipologiesRelations, route, type) {
-        $('.select').select2();
         $('#request_priority_id').val(2).trigger('change');
         _typologiesInit(tipologiesRelations, route);
         _citizensInit();
@@ -493,7 +492,6 @@ module.exports = function ($) {
     };
 
     var edit = function edit(tipologiesRelations, route, type) {
-        $('.select').select2();
         _typologiesInit(tipologiesRelations, route);
         _citizensInit();
         _editCitizenModalInit();
@@ -1334,11 +1332,11 @@ $.fn.select2.defaults.set("theme", "bootstrap");
 $.fn.select2.defaults.set("language", "es");
 $.fn.select2.defaults.set("minimumResultsForSearch", 3);
 
-$(".select2").select2();
+$("select").select2();
 
 //on focus open select2
 $("span.select2-selection--single").on("focus", function () {
-    $(this).parent().parent().prev('select.select2').select2('open');
+    $(this).parent().parent().prev('select').select2('open');
 });
 
 },{}],46:[function(require,module,exports){
