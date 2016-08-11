@@ -17,9 +17,12 @@ class ColonyScopesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 29
     {
+        auth()->user()->authorized(30) ?  : abort(403);
+
         $scopes=ColonyScope::SearchFromRequest()->PaginateForTable();
+
         return view('admin.colonyScopes.index', compact('scopes'));
     }
 
@@ -28,8 +31,10 @@ class ColonyScopesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() // 30
     {
+        auth()->user()->authorized(30) ?  : abort(403);
+
         return view('admin.colonyScopes.create');
     }
 
@@ -39,10 +44,12 @@ class ColonyScopesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ColonyScopeRequest $request)
+    public function store(ColonyScopeRequest $request) // 31
     {
-       
+        auth()->user()->authorized(31) ?  : abort(403);
+
         $scope=ColonyScope::create($request->all());
+
         return redirect('colonies/scopes');
     }
 
@@ -52,9 +59,9 @@ class ColonyScopesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) // 32
     {
-        //
+        auth()->user()->authorized(32) ?  : abort(404);
     }
 
     /**
@@ -63,9 +70,12 @@ class ColonyScopesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) // 33
     {
+        auth()->user()->authorized(33) ?  : abort(403);
+
         $scope=ColonyScope::find($id);
+
         return view('admin.colonyScopes.edit',compact('scope'));
     }
 
@@ -76,10 +86,14 @@ class ColonyScopesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ColonyScopeRequest $request, $id)
+    public function update(ColonyScopeRequest $request, $id) // 34
     {
+        auth()->user()->authorized(34) ?  : abort(403);
+
         $scope=ColonyScope::find($id);
+
         $scope->update($request->all());
+
          return redirect('colonies/scopes/' . $scope->id .'/edit');
     }
 
@@ -89,9 +103,12 @@ class ColonyScopesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) // 35
     {
+        auth()->user()->authorized(35) ?  : abort(403);
+
         $scope=ColonyScope::find($id);
+
         $scope->delete();
 
         return redirect('colonies/scopes');

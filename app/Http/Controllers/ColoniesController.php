@@ -21,8 +21,10 @@ class ColoniesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //22
     {
+        auth()->user()->authorized(22) ?  : abort(403);
+
         $colonies=Colony::SearchFromRequest()->PaginateForTable();
         
         return  view('admin.colonies.index',compact('colonies'));
@@ -33,8 +35,10 @@ class ColoniesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {   
+    public function create() // 23
+    {
+            auth()->user()->authorized(23) ?  : abort(403);
+
             $scopes=ColonyScope::lists('name','id');
             
             $settlements=SettlementType::lists('name', 'id');
@@ -50,8 +54,10 @@ class ColoniesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ColonyRequest $request)
+    public function store(ColonyRequest $request) //24
     {
+        auth()->user()->authorized(24) ?  : abort(403);
+
         $colony=Colony::create($request->all());
         
         $colony->colonyScope()->associate(ColonyScope::find($request->colony_scope_id))->save();
@@ -71,8 +77,10 @@ class ColoniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) // 25
     {
+        auth()->user()->authorized(25) ?  : abort(403);
+
         $colony=Colony::find($id);
         
         $scopes=ColonyScope::lists('name','id');
@@ -90,8 +98,10 @@ class ColoniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) // 26
+    { 
+        auth()->user()->authorized(26) ?  : abort(403);
+
         $colony=Colony::find($id);
         
         $scopes=ColonyScope::lists('name','id');
@@ -110,9 +120,10 @@ class ColoniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ColonyRequest $request, $id)
+    public function update(ColonyRequest $request, $id) // 27
     {
-        
+        auth()->user()->authorized(27) ?  : abort(403);
+
         $colony=Colony::find($id);
 
         $colony->update($request->all());
@@ -136,8 +147,10 @@ class ColoniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) // 28
     {
+        auth()->user()->authorized(28) ?  : abort(403);
+
         $colony=Colony::find($id);
         
         $colony->delete();

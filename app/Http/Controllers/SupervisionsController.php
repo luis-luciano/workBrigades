@@ -17,8 +17,9 @@ class SupervisionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 99
     {
+        
         $supervisions=Supervision::SearchFromRequest()->PaginateForTable();
         return view('admin.supervisions.index', compact('supervisions'));
     }

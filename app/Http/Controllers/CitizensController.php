@@ -18,8 +18,9 @@ class CitizensController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 15
     {
+        auth()->user()->authorized(15) ?  : abort(403); 
         $citizens=Citizen::SearchFromRequest()->PaginateForTable();
 
         return view('admin.citizens.index',compact('citizens'));
@@ -30,8 +31,10 @@ class CitizensController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //16
     {
+        auth()->user()->authorized(16) ?  : abort(403);
+
         return view('admin.citizens.create');
     }
 
@@ -41,13 +44,11 @@ class CitizensController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCitizenRequest $request)
+    public function store(StoreCitizenRequest $request) // 17
     {
+        auth()->user()->authorized(17) ?  : abort(403);
+
         $citizen = PersonalInformation::create($request->all())->citizen()->create($request->all());
-
-        //$citizen->personalInformation->colony()->associate(Colony::find($request->get('colony_id')));
-
-        //$citizen->save();
 
         alert()->success(trans('messages.success.store'));
 
@@ -60,9 +61,9 @@ class CitizensController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //18
     {
-        
+        auth()->user()->authorized(1) ?  : abort(404);
     }
 
     /**
@@ -71,8 +72,10 @@ class CitizensController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Citizen $citizen)
+    public function edit(Citizen $citizen) // 19
     {
+        auth()->user()->authorized(19) ?  : abort(403);
+
         return view('admin.citizens.edit', compact('citizen'));
     }
 
@@ -83,8 +86,10 @@ class CitizensController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Citizen $citizen)
+    public function update(Request $request, Citizen $citizen) // 20
     {
+        auth()->user()->authorized(20) ?  : abort(403);
+
         $citizen->update($request->all());
         
         $citizen->personalInformation()->update($request->all());
@@ -100,8 +105,10 @@ class CitizensController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) // 21 
     {
+        auth()->user()->authorized(21) ?  : abort(403);
+
         /*alert()->success(trans('messages.success.destroy'));*/
     }
 }

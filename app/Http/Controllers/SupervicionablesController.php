@@ -16,9 +16,9 @@ class SupervicionablesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //99
     {
-        //
+        auth()->user()->authorized(99) ?  : abort(403);
     }
 
     /**
@@ -26,9 +26,9 @@ class SupervicionablesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //100
     {
-        //
+        auth()->user()->authorized(100) ?  : abort(403);
     }
 
     /**
@@ -37,9 +37,9 @@ class SupervicionablesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request)// 101
     {
-        //
+        auth()->user()->authorized(101) ?  : abort(403);
     }
 
     /**
@@ -48,9 +48,9 @@ class SupervicionablesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //102
     {
-        //
+        auth()->user()->authorized(102) ?  : abort(403);
     }
 
     /**
@@ -59,9 +59,9 @@ class SupervicionablesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //103
     {
-        //
+        auth()->user()->authorized(103) ?  : abort(403);
     }
 
     /**
@@ -71,9 +71,9 @@ class SupervicionablesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) //104
     {
-        //
+        auth()->user()->authorized(104) ?  : abort(403);
     }
 
     /**
@@ -82,8 +82,8 @@ class SupervicionablesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) //105
     {
-        //
+        auth()->user()->authorized(105) ?  : abort(403);
     }
 }

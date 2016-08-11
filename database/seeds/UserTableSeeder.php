@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
 
         $user=PersonalInformation::create(['name'=>'Administrador',
  									 'paternal_surname'=>'Hidrosistema',
- 									 'maternal_surname'=>'Cordoba',
+ 									 'maternal_surname'=>'De Cordoba',
  									 'sex'=>'H',
  									 'birthday'=>'2016-06-30',
  									 'represent'=>'workbrigades',
@@ -31,7 +31,7 @@ class UserTableSeeder extends Seeder
                                      'colony_id' => '19'
  									 ]);
         
-        User::create(['email'=>'root@root.com',
+        $user=User::create(['email'=>'root@root.com',
                         'password'=>'123',//'@HIDRO-123@',
                         'sub_email'=>'admin@root.com',
                         'is_active'=>1,
@@ -39,6 +39,7 @@ class UserTableSeeder extends Seeder
                         'last_login'=>'2016-06-07 15:47:12',
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>1]);
+        $user->syncRoles([1]);
         Citizen::create(['email'=>'usuario@example.com'])->personalInformation()->associate($user)->save();
     }
 }

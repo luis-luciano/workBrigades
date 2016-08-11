@@ -39,6 +39,7 @@ class TestPermissionsTableSeeder extends Seeder
 			'supervisions',
 			'typologies',
 			'users',
+            'request_types'
         ]);
 
         foreach ($entitiesTables as $entity) {

@@ -22,8 +22,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 113
     {
+        auth()->user()->authorized(113) ?  : abort(403);
+
         $users=User::SearchFromRequest()->PaginateForTable();
         
        return view('admin.users.index',compact('users'));
@@ -34,9 +36,12 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //114
     {
+        auth()->user()->authorized(114) ?  : abort(403);
+
         $roles = Role::lists('label', 'id');
+
         return view('admin.users.create', compact('roles'));
     }
 
@@ -46,8 +51,10 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserRequest $request)
+    public function store(StoreUserRequest $request) //115
     {
+        auth()->user()->authorized(115) ?  : abort(403);
+
         $user_data=PersonalInformation::create($request->all());
 
         $user = User::create($request->all());
@@ -69,9 +76,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //116
     {
-        //
+        auth()->user()->authorized(116) ?  : abort(404);
     }
 
     /**
@@ -80,12 +87,16 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //117
     {
+        auth()->user()->authorized(117) ?  : abort(403);
+
         $user=User::find($id);
+
         $user->load('personalInformation');
 
         $roles = Role::lists('label', 'id');
+
         $colonies = Colony::lists('name', 'id');
 
         return view('admin.users.edit', compact('user', 'roles', 'colonies'));
@@ -98,12 +109,16 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) // 118
     {
+        auth()->user()->authorized(118) ?  : abort(403);
+
         if (empty($request['password'])) {
             unset($request['password']);
         }
+
         $user=User::find($id);
+
         $user->update($request->all());
 
         $user->personalInformation()->update($request->all());
@@ -121,9 +136,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) //119
     {
-        
+        auth()->user()->authorized(119) ?  : abort(403);
 
         return redirect()->route('users.index');
     }

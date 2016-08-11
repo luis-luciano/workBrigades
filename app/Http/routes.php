@@ -1,6 +1,8 @@
 <?php
 
 Route::get('/',['as'=>'home','uses'=>'PagesController@index']);
+Route::get('Peticion-publica', ['as' => 'Peticion-publica', 'uses' => 'PagesController@create']);
+Route::post('Peticion-publica/create', ['as' => 'Peticion-publica.create', 'uses' => 'PagesController@store']);
 
 Route::resource('admin', 'AdminController');
 

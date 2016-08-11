@@ -25,7 +25,7 @@ class AuthController extends Controller {
 	protected $redirectPach = 'admin';
 
 	//path after login
-	protected $redirectTo = '/admin';
+	protected $redirectTo = '/';
 
 	//login form path
 	protected $loginPath = '/login';

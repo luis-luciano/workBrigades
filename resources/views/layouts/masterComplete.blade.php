@@ -62,9 +62,11 @@
                     </div>
                     <div class="col-xs-12 col-md-4 no-print" >
                         
-                        <a href="#" class="dropdown-toggle profile-image pull-right" data-toggle="dropdown">
-						<img src="{{ asset('assets/globals/img/resources/user.jpg') }}" class="img-circle users-img"> Jorge Namitle Chimalhua </a>
-						
+                        @if (auth()->check())  
+	                        <a href="#" class="dropdown-toggle profile-image pull-right" data-toggle="dropdown">
+							<img src="{{ asset('assets/globals/img/resources/user.jpg') }}" class="img-circle users-img"> 
+							{{ Auth::user()->FullName }} </a>
+					  	@endif
                     </div><!--.col-->
                 </div><!--.row-->
             </div><!--.page-header-->

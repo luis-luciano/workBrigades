@@ -17,9 +17,12 @@ class SectorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 85
     {
+        auth()->user()->authorized(85) ?  : abort(403);
+
         $sectors=Sector::SearchFromRequest()->PaginateForTable();
+
         return view('admin.sectors.index', compact('sectors'));
     }
 
@@ -28,8 +31,10 @@ class SectorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //86
     {
+        auth()->user()->authorized(86) ?  : abort(403);
+
         return view('admin.sectors.create');
     }
 
@@ -39,9 +44,12 @@ class SectorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SectorRequest $request)
+    public function store(SectorRequest $request) //87
     {
+        auth()->user()->authorized(87) ?  : abort(403);
+
         $sector=Sector::create($request->all());
+
         return redirect('sectors');
     }
 
@@ -51,9 +59,9 @@ class SectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //88
     {
-        //
+        auth()->user()->authorized(88) ?  : abort(404);
     }
 
     /**
@@ -62,9 +70,12 @@ class SectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //89
     {   
+        auth()->user()->authorized(89) ?  : abort(403);
+
         $sector=Sector::find($id);
+
         return view('admin.sectors.edit',compact('sector'));
     }
 
@@ -75,10 +86,14 @@ class SectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SectorRequest $request, $id)
+    public function update(SectorRequest $request, $id) //90
     {
+        auth()->user()->authorized(91) ?  : abort(403);
+
         $sector=Sector::find($id);
+
         $sector->update($request->all());
+
         return redirect('sectors/' . $sector->id .'/edit'); 
     }
 
@@ -88,10 +103,14 @@ class SectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) //91
     {
+        auth()->user()->authorized(91) ?  : abort(403);
+
         $sector=Sector::find($id);
+
         $sector->delete();
+
         return redirect('sectors');
     }
 }

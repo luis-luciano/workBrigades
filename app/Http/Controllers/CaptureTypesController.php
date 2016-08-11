@@ -17,8 +17,10 @@ class CaptureTypesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 8
     {
+        auth()->user()->authorized(8) ?  : abort(403);
+
         $captureTypes=CaptureType::SearchFromRequest()->PaginateForTable();
         
         return view('admin.captureTypes.index', compact('captureTypes'));
@@ -29,8 +31,10 @@ class CaptureTypesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() // 9 
     {
+        auth()->user()->authorized(9) ?  : abort(403);
+
         return view('admin.captureTypes.create');
     }
 
@@ -40,8 +44,10 @@ class CaptureTypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CaptureTypeRequest $request)
+    public function store(CaptureTypeRequest $request) // 10
     {
+        auth()->user()->authorized(10) ?  : abort(403);
+
         $captureType=CaptureType::create($request->all());
         
         alert()->success(trans('messages.success.store'));
@@ -55,9 +61,9 @@ class CaptureTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) // 11
     {
-        //
+        auth()->user()->authorized(1) ?  : abort(404);
     }
 
     /**
@@ -66,8 +72,10 @@ class CaptureTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) // 12
     {
+        auth()->user()->authorized(12) ?  : abort(403);
+
         $captureType=CaptureType::find($id);
         
         return view('admin.captureTypes.edit',compact('captureType'));
@@ -80,8 +88,10 @@ class CaptureTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CaptureTypeRequest $request, $id)
+    public function update(CaptureTypeRequest $request, $id) // 13
     {
+        auth()->user()->authorized(13) ?  : abort(403);
+
         $captureType=CaptureType::find($id);
         
         $captureType->update($request->all());
@@ -97,8 +107,10 @@ class CaptureTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) // 14
     {
+        auth()->user()->authorized(14) ?  : abort(403);
+
         $captureType=CaptureType::find($id);
 
         $captureType->delete();

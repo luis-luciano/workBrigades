@@ -18,8 +18,10 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //78
     {
+        auth()->user()->authorized(78) ?  : abort(403);
+
         $roles=Role::SearchFromRequest()->PaginateForTable();
         
         //return $permissions;
@@ -31,9 +33,12 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() // 79
     {
+        auth()->user()->authorized(79) ?  : abort(403);
+
         $permissions=Permission::lists('label','id');
+
         return view('admin.roles.create',compact('permissions'));
     }
 
@@ -43,10 +48,14 @@ class RolesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RoleRequest $request)
+    public function store(RoleRequest $request) //80
     {
+        auth()->user()->authorized(80) ?  : abort(403); 
+
         $role=Role::create($request->all());
+
         $role->syncPermissions($request->permissions_list);
+
         alert()->success(trans('messages.success.store'));
 
         return redirect('roles');
@@ -58,9 +67,9 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //81
     {
-        //
+        auth()->user()->authorized(81) ?  : abort(404);
     }
 
     /**
@@ -69,10 +78,14 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //82
     {
+        auth()->user()->authorized(82) ?  : abort(403);
+
         $role=Role::find($id);
+
         $permissions=Permission::lists('label','id');
+
         return view('admin.roles.edit',compact('role','permissions'));
     }
 
@@ -83,13 +96,18 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RoleRequest $request, $id)
+    public function update(RoleRequest $request, $id) //83
     {
+        auth()->user()->authorized(83) ?  : abort(403);
+
         $role=Role::find($id);
+
         $role->update($request->all());
+
         $role->syncPermissions($request->permissions_list);
 
         alert()->success(trans('messages.success.update'));
+
         return redirect('roles/' . $role->id .'/edit');
     }
 
@@ -99,12 +117,18 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) //84
     {
+        auth()->user()->authorized(84) ?  : abort(403);
+
         $role=Role::find($id);
+
         $role->permissions()->detach();
+
         $role->delete();
+
         alert()->success(trans('messages.success.destroy'));
+
         return redirect('roles');
     }
 }

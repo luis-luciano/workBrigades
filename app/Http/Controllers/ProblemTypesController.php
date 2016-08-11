@@ -18,9 +18,12 @@ class ProblemTypesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 43
     {
+        auth()->user()->authorized(43) ?  : abort(403);
+
         $problemTypes = Problem::SearchFromRequest()->PaginateForTable();
+
         return view('admin.problemTypes.index', compact('problemTypes'));
     }
 
@@ -29,9 +32,12 @@ class ProblemTypesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() // 44
     {
+        auth()->user()->authorized(44) ?  : abort(403);
+
         $typologies=Typology::lists('name','id');
+
         return view('admin.problemTypes.create', compact('typologies'));
     }
 
@@ -41,10 +47,14 @@ class ProblemTypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProblemRequest $request)
+    public function store(ProblemRequest $request) //45
     {   
+        auth()->user()->authorized(45) ?  : abort(403);
+
         $problemType=Problem::create($request->all());
+
         $problemType->typologies()->associate(Typology::find($request->typology_id))->save();
+
         return redirect('problemTypes');
     }
 
@@ -54,9 +64,9 @@ class ProblemTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //46
     {
-        //
+        auth()->user()->authorized(46) ?  : abort(404);
     }
 
     /**
@@ -65,10 +75,14 @@ class ProblemTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) // 47
     {
+        auth()->user()->authorized(47) ?  : abort(403);
+
         $problemType=Problem::find($id);
+
         $typologies=Typology::lists('name','id');
+
         return view('admin.problemTypes.edit',compact('problemType','typologies'));
     }
     
@@ -80,11 +94,16 @@ class ProblemTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProblemRequest $request, $id)
+    public function update(ProblemRequest $request, $id) // 48
     {
+        auth()->user()->authorized(48) ?  : abort(403);
+
         $problemType=Problem::find($id);
+
         $problemType->update($request->all());
+
         $problemType->typologies()->associate(Typology::find($request->typology_id))->save();
+
         return redirect('problemTypes/'.$problemType->id.'/edit');
     }
 
@@ -94,10 +113,14 @@ class ProblemTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) // 49
     {
+        auth()->user()->authorized(49) ?  : abort(403);
+
         $problemType=Problem::find($id);
+
         $problemType->delete();
+
         return redirect('problemTypes');
     }
 }

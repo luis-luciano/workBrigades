@@ -17,9 +17,12 @@ class RequestStatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 64
     {
+        auth()->user()->authorized(64) ?  : abort(403);
+
         $states=RequestState::SearchFromRequest()->PaginateForTable();
+
         return view('admin.states.index', compact('states'));
     }
 
@@ -28,8 +31,10 @@ class RequestStatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() // 65
     {
+        auth()->user()->authorized(65) ?  : abort(403);
+
         return view('admin.states.create');
     }
 
@@ -39,8 +44,10 @@ class RequestStatesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestStateRequest $request)
+    public function store(RequestStateRequest $request) //66
     {
+        auth()->user()->authorized(67) ?  : abort(403);
+
         $state=RequestState::create($request->all());
 
         alert()->success(trans('messages.success.store'));
@@ -54,9 +61,9 @@ class RequestStatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //67
     {
-        //
+        auth()->user()->authorized(67) ?  : abort(404);
     }
 
     /**
@@ -65,8 +72,10 @@ class RequestStatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //68
     {
+        auth()->user()->authorized(68) ?  : abort(403);
+
         $state=RequestState::find($id);
         
         return view('admin.states.edit',compact('state'));
@@ -79,8 +88,10 @@ class RequestStatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestStateRequest $request, $id)
+    public function update(RequestStateRequest $request, $id) //69
     {
+        auth()->user()->authorized(69) ?  : abort(403);
+
         $state=RequestState::find($id);
         
         $state->update($request->all());
@@ -96,8 +107,10 @@ class RequestStatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) //70
     {
+        auth()->user()->authorized(70) ?  : abort(403);
+
         $state=RequestState::find($id);
         
         $state->delete();

@@ -18,8 +18,10 @@ class TypologiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //106
     {
+        auth()->user()->authorized(106) ?  : abort(403);
+
         $typologies=Typology::SearchFromRequest()->PaginateForTable();
 
         return view('admin.typologies.index', compact('typologies'));
@@ -30,8 +32,10 @@ class TypologiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //107
     {
+        auth()->user()->authorized(107) ?  : abort(403);
+
         return view('admin.typologies.create');
     }
 
@@ -41,12 +45,16 @@ class TypologiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TypologyRequest $request)
+    public function store(TypologyRequest $request) //108
     {
+        auth()->user()->authorized(108) ?  : abort(403);
+
         $typology=Typology::create($request->all());
+
         $typology->syncSupervisions($request->supervisions_list);
 
         alert()->success(trans('messages.success.store'));
+
         return redirect('typologies');
     }
 
@@ -56,9 +64,9 @@ class TypologiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) // 109
     {
-        //
+        auth()->user()->authorized(109) ?  : abort(403);
     }
 
     /**
@@ -67,9 +75,12 @@ class TypologiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //110
     {
+        auth()->user()->authorized(110) ?  : abort(403);
+
         $typology=Typology::find($id);
+
         return view('admin.typologies.edit', compact('typology','supervisions'));
     }
 
@@ -80,11 +91,16 @@ class TypologiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TypologyRequest $request, $id)
+    public function update(TypologyRequest $request, $id) //111
     {
+        auth()->user()->authorized(111) ?  : abort(403);
+
         $typology=Typology::find($id);
+
         $typology->update($request->all());
+
         $typology->syncSupervisions($request->supervisions_list);
+
         return redirect('typologies/'.$typology->id.'/edit');
     }
 
@@ -94,10 +110,14 @@ class TypologiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) //112
     {
+        auth()->user()->authorized(112) ?  : abort(403);
+
         $typology=Typology::find($id);
+        
         $typology->delete();
+        
         return redirect('typologies');
     }
 }

@@ -19,8 +19,10 @@ class BrigadesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //1
     {
+        auth()->user()->authorized(1) ?  : abort(403);
+
         $brigades=Brigade::SearchFromRequest()->PaginateForTable();
         
         return view('admin.brigades.index', compact('brigades'));
@@ -31,8 +33,10 @@ class BrigadesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() // 2
     {
+        auth()->user()->authorized(2) ?  : abort(403);
+
         $typologies=Typology::lists('name','id');
         
         $sectors=Sector::lists('number','id');
@@ -46,9 +50,10 @@ class BrigadesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BrigadesRequest $request)
+    public function store(BrigadesRequest $request) // 3
     {   
-        //dd($request->typologies_list);
+        auth()->user()->authorized(1) ?  : abort(403);
+        
         $brigade=Brigade::create($request->all());
         
         $brigade->syncTypologies($request->typologies_list);
@@ -66,9 +71,9 @@ class BrigadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) // 4
     {
-        //
+        auth()->user()->authorized(4) ?  : abort(404);
     }
 
     /**
@@ -77,8 +82,10 @@ class BrigadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) // 5
     {
+        auth()->user()->authorized(5) ?  : abort(403);
+
         $brigade=Brigade::find($id);
         
         $typologies=Typology::lists('name','id');
@@ -96,8 +103,10 @@ class BrigadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BrigadesRequest $request, $id)
+    public function update(BrigadesRequest $request, $id) // 6 
     {
+        auth()->user()->authorized(6) ?  : abort(403);
+
         $brigade=Brigade::find($id);
         
         $brigade->update($request->all());
@@ -117,8 +126,10 @@ class BrigadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) // 7 
     {
+        auth()->user()->authorized(7) ?  : abort(403);
+
         $brigade=Brigade::find($id);
 
         $brigade->typologies()->detach();

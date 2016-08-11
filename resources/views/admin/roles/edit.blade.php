@@ -21,7 +21,7 @@
                 <div class="panel-body">
                     
 
-                    {!! Form::model($role, [ 'route'=> ['roles.update', $role->id], 'method' => 'PATCH', 'id' => 'deleteRolButton']) !!}
+                    {!! Form::model($role, [ 'route'=> ['roles.update', $role->id], 'method' => 'PATCH']) !!}
 
                         @include('admin.roles.form', ['submitButtonText' => 'Actualizar'])
 

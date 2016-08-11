@@ -33,12 +33,17 @@
 	                                    <tbody>
 	                                        <tr class="highlight">
 	                                            <td class="text-grey"><b>Nombre:</b></td>
-	                                            <td>Jorge Namitle Chimalhua</td>
+	                                            <td>{{ $user->fullname }}</td>
 	                                        </tr>
 	                                        <tr class="highlight">
 	                                            <td class="text-grey"><b>Email:<b></td>
-	                                            <td>George@nami.gob.mx</td>
+	                                            <td>{{ $user->email }}</td>
 	                                        </tr>
+	                                        <tr class="highlight">
+	                                            <td class="text-grey"><b>Movil:<b></td>
+	                                            <td>{{ $user->mobile_phone }}</td>
+	                                        </tr>
+
 	                                    </tbody>
 	                                </table>
                             	</div>{{-- end table resposive --}}

@@ -17,9 +17,12 @@ class RequestTypesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 120
     {   
+        auth()->user()->authorized(120) ?  : abort(403);
+
         $requestTypes=RequestType::SearchFromRequest()->PaginateForTable();
+
         return view('admin.requestTypes.index',compact('requestTypes'));
     }
 
@@ -27,9 +30,11 @@ class RequestTypesController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */
-    public function create()
+     */ 
+    public function create() // 121
     {
+        auth()->user()->authorized(121) ?  : abort(403);
+
         return view('admin.requestTypes.create');
     }
 
@@ -39,8 +44,10 @@ class RequestTypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestTypeRequest $request)
+    public function store(RequestTypeRequest $request) // 122
     {
+        auth()->user()->authorized(122) ?  : abort(403);
+
          $Type=RequestType::create($request->all());
 
         alert()->success(trans('messages.success.store'));
@@ -55,9 +62,9 @@ class RequestTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) // 123
     {
-        //
+        auth()->user()->authorized(70) ?  : abort(404);
     }
 
     /**
@@ -66,9 +73,10 @@ class RequestTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) // 124
     {
-        
+        auth()->user()->authorized(124) ?  : abort(403);
+
         $requestType=RequestType::find($id);
 
        return view('admin.requestTypes.edit',compact('requestType'));
@@ -82,12 +90,16 @@ class RequestTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestTypeRequest $request, $id)
+    public function update(RequestTypeRequest $request, $id) // 125 
     {
+        auth()->user()->authorized(125) ?  : abort(403);
+
         $requestType=RequestType::find($id);
+
         $requestType->update($request->all());
 
         alert()->success(trans('messages.success.update'));
+
         return redirect('requestTypes/' . $requestType->id .'/edit');
    
     }
@@ -98,10 +110,14 @@ class RequestTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) // 126
+    { 
+        auth()->user()->authorized(126) ?  : abort(403);
+
         $requestType=RequestType::find($id);
+
         $requestType->delete();
+        
         alert()->success(trans('messages.success.destroy'));
         
         return redirect('requestTypes/');

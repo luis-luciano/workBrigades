@@ -6,7 +6,6 @@
     @parent
 @stop
 
-@include('partials.tableScripts')
 
 @section('content')
 	<div class="row">

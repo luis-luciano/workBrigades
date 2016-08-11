@@ -17,9 +17,12 @@ class RequestPrioritiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 50
     {
+        auth()->user()->authorized(50) ?  : abort(403);
+
         $priorities=RequestPriority::SearchFromRequest()->PaginateForTable();
+
         return view('admin.priorities.index', compact('priorities'));
     }
 
@@ -28,8 +31,10 @@ class RequestPrioritiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //51
     {
+        auth()->user()->authorized(51) ?  : abort(403);
+
         return view('admin.priorities.create');
     }
 
@@ -39,9 +44,12 @@ class RequestPrioritiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestPriorityRequest $request)
+    public function store(RequestPriorityRequest $request) //52
     {
+        auth()->user()->authorized(52) ?  : abort(403);
+
         $priority=RequestPriority::create($request->all());
+
         return redirect('requestsPriorities');
     }
 
@@ -51,9 +59,9 @@ class RequestPrioritiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //53
     {
-        //
+        auth()->user()->authorized(53) ?  : abort(404);
     }
 
     /**
@@ -62,9 +70,12 @@ class RequestPrioritiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) // 54
     {
+        auth()->user()->authorized(54) ?  : abort(403);
+
         $priority=RequestPriority::find($id);
+
         return view('admin.priorities.edit',compact('priority'));
     }
 
@@ -75,10 +86,14 @@ class RequestPrioritiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestPriorityRequest $request, $id)
+    public function update(RequestPriorityRequest $request, $id) // 55
     {
+        auth()->user()->authorized(55) ?  : abort(403);
+
         $priority=RequestPriority::find($id);
+
         $priority->update($request->all());
+
         return redirect('requestsPriorities/' . $priority->id .'/edit');
     }
 
@@ -88,10 +103,14 @@ class RequestPrioritiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) // 56
     {
+        auth()->user()->authorized(56) ?  : abort(403);
+
         $priority=RequestPriority::find($id);
+
         $priority->delete();
+
         return redirect('requestsPriorities');
     }
 }

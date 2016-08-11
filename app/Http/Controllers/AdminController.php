@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Role;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,10 +16,8 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // 
     {
-        $roles=auth()->user()->roles->lists('label');
-        dd(auth()->user()->RolesList);
         return view('admin.index');
     }
 
@@ -28,7 +26,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() // 
     {
         dd('create');
     }
@@ -39,9 +37,9 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store() // 3
     {
-        //
+        dd('store');
     }
 
     /**
@@ -50,18 +48,19 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show() //
     {
         dd('show');
     }
 
     /**
      * Show the form for editing the specified resource.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit() // 
     {
         dd('edit');
     }
@@ -73,9 +72,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update() // 
     {
-        //
+        dd('update');
     }
 
     /**
@@ -84,7 +83,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy() // 
     {
         dd('destroy');
     }
