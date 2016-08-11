@@ -9,6 +9,7 @@ use App\RequestPriority;
 use App\RequestType;
 use App\Sector;
 use App\User;
+use App\RequestState;
 use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model {
@@ -142,6 +143,12 @@ class Request extends Model {
 		return $this->problem->typology->problems->lists('name','id');
 	}
 	
+	public function changeStateTo($state)
+    {
+        return $this->state()->associate(
+            RequestState::whereName($state)->firstOrFail()
+        )->save();
+    }
 
 	public function scopeCountTypology($query,$id)
     {

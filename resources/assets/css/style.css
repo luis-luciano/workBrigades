@@ -6,6 +6,7 @@ TABLE OF CONTENTS:
 2 - Google Map
 3 - Files List
 4 - Data Tables
+5 - Button Circle
 ---------------------------
 */
 
@@ -14,7 +15,7 @@ TABLE OF CONTENTS:
 */
 .img-logo {
     height: auto;
-    max-width: 100%;
+    max-width: 75%;
 }
 
 /* Custom, iPhone Retina */
@@ -71,7 +72,7 @@ TABLE OF CONTENTS:
 }
 
 /*
-2 - Files List
+3 - Files List
 */
 
 .Button--Naked {
@@ -121,13 +122,114 @@ TABLE OF CONTENTS:
 }
 
 /*
-2 - Data Tables
+4 - Data Tables
 */
 
-.link-rows {
+.clickable-rows {
     cursor: pointer;
 }
 
-.link-rows > tbody > tr:active {
+.clickable-rows > tbody > tr:active {
     background-color: #EAEAEA;
+}
+
+.inputer .input-wrapper:before {
+    height: 1px;
+    background: #cccccc;
+}
+
+.inputer .input-wrapper.disabled:before {
+    background: transparent !important;
+    border-bottom: 2px dotted #cccccc !important;
+}
+
+/*---------------------------*/
+
+.nav-tabs > li a:before, .nav-tabs > li a:hover:before {
+        position: absolute;
+        content: '';
+        border-bottom: 2px solid #cccccc !important;
+        left: 1%;
+        top: 2px;
+        width: 99%;
+        height: 97%;
+    }
+
+    .nav-tabs > li:hover {
+        background: rgba(204, 204, 204, 0.38);
+    }
+
+    .vertical--align__middle {
+        display: table;
+        height: 83px;
+    }
+
+    .vertical--align__middle > div{
+        display: table-cell !important;
+        width: 1000px;
+        vertical-align: middle;
+    }
+
+    .border--dotted {
+        border: 1px dotted #ccc;
+    }
+
+    .panel > .panel-heading .nav.nav-tabs {
+        margin-top: 0px !important;
+    }
+
+    .panel-body {
+        padding-bottom: 0px !important;
+    }
+
+    form {
+        margin: 0 !important;
+    }
+
+    .form-buttons {
+        padding: 5px 20px !important;
+        border-top: 1px !important;
+    }
+
+    .modal .modal-content .modal-body {
+        padding: 20px 24px !important;
+    }
+
+    .file-drop-zone {
+        height: auto !important;
+    }
+
+    .icon-circle {
+        width: 90px;
+        height: 90px;
+        border-radius: 100%;
+        margin: auto !important;
+        display: table;
+        text-align: center;
+    }
+
+    .icon-circle > i {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .inputer label {
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    .inputer.floating-label .form-control:focus ~ label, .inputer.floating-label .form-control.valid ~ label {
+        font-size: inherit !important;
+    }
+
+/*
+5 - Button Circle
+ */
+
+.btn-circle {
+    border-radius: 50%;
+    padding: 12px;
+}
+
+.bg-dark {
+    background: #e3e5e6;
 }

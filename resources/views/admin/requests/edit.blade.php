@@ -64,7 +64,20 @@
                 </div><!--.tab-pane-->
                 
                 <div class="tab-pane" id="more">
-                    more
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="icon-circle bg-green text-white"><i class="fa fa-check fa-3x" aria-hidden="true"></i></div>
+                            {!! Form::open(['route' => ['requests.conclude', $inquiry->id], 'method' => 'POST', 'id' => 'requestConcludeForm']) !!}
+                                {!! Form::submit('Concluir Petición', [ 'id' => 'requestConcludeButton', 'class' => 'btn btn-flat btn-green btn-lg btn-block btn-ripple']) !!}
+                            {!! Form::close() !!}
+                        </div>
+                        <div class="col-md-6">
+                            <div class="icon-circle bg-red text-white"><i class="fa fa-close fa-3x" aria-hidden="true"></i></div>
+                            {!! Form::open(['route' => ['requests.unapproved', $inquiry->id], 'method' => 'POST', 'id' => 'requestUnapprovedForm']) !!}
+                                {!! Form::submit('No Aprobar Petición', [ 'id' => 'requestUnapprovedButton', 'class' => 'btn btn-flat btn-red btn-lg btn-block btn-ripple']) !!}
+                            {!! Form::close() !!}
+                        </div>
+                    </div><!--.row.client-list-->
                 </div><!--.tab-pane-->
             </div><!--.tab-content-->
         </div>

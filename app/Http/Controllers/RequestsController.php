@@ -104,6 +104,7 @@ class RequestsController extends Controller
             $image['title'] = $inquiryImage->display_name.'<br>por '.$inquiryImage->owner->full_name;
             $images->push($image);
         }
+        
         return view('admin.requests.edit', compact('tipologiesRelations','inquiry','citizen','brigades','images'));
     }
 
@@ -136,6 +137,24 @@ class RequestsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function conclude(Inquiry $inquiry)
+    {
+        $inquiry->changeStateTo('concluded');
+
+        alert()->success(trans('messages.success.update'));
+
+        return redirect(route('requests.edit', compact('inquiry')).'#tab_more');
+    }
+
+    public function unapproved(Inquiry $inquiry)
+    {
+        $inquiry->changeStateTo('unapproved');
+
+        alert()->success(trans('messages.success.update'));
+
+        return redirect(route('requests.edit', compact('inquiry')).'#tab_more');
     }
 
     public function findSectorBrigade(Request $request){

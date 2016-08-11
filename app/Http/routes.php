@@ -26,6 +26,10 @@ Route::get('request/sector-brigade', ['as' => 'request.sector-brigade', 'uses' =
 // Requests Files
 Route::get('requests/{requests}/files/{files}', ['as' => 'requests.files.show', 'uses' => 'RequestFileController@show']);
 Route::post('requests/{requests}/files', ['as' => 'requests.files.store', 'uses' => 'RequestFileController@store']);
+// Requests Conclude
+Route::post('requests/{requests}/conclude', ['as' => 'requests.conclude', 'uses' => 'RequestsController@conclude']);
+// Request Not Approved
+Route::post('requests/{requests}/unapproved', ['as' => 'requests.unapproved', 'uses' => 'RequestsController@unapproved']);
 Route::resource('requests', 'RequestsController');
 Route::resource('requestsPriorities', 'RequestPrioritiesController');
 Route::resource('requestRejections', 'RequestRejectionsController');
