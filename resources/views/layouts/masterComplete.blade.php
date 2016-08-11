@@ -95,17 +95,13 @@
 		Layout.init();
 		TablesDataTables.init();
 		FormsPickers.init();// COLOR SELECTOR
+		@yield('scripts')
 
 	});
 	</script>
 	<!-- END INITIALIZATION-->
 
 	@include('sweet::alert')
-	
-	<script type="text/javascript">
-		
-		@yield('scripts')
-	</script>
 
 </body>
 </html>

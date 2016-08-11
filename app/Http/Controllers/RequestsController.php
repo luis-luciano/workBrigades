@@ -89,7 +89,22 @@ class RequestsController extends Controller
         $optionalBrigades=$inquiry->sector->brigades()->where('typology_id',$inquiry->typology_id)->get();
 
         $brigades=$defaultBrigade->merge($optionalBrigades)->lists('name', 'id');
-        return view('admin.requests.edit', compact('tipologiesRelations','inquiry','citizen','brigades'));
+
+        $inquiry->load(['files' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }]);
+
+        $inquiryImages = $inquiry->files->where('type', 'image');
+        $images = collect([]);
+
+        foreach ($inquiryImages as $inquiryImage) {
+            $image['src'] = route('requests.files.show', [$inquiry->id, $inquiryImage->id]);
+            $image['w'] = 964;
+            $image['h'] = 1024;
+            $image['title'] = $inquiryImage->display_name.'<br>por '.$inquiryImage->owner->full_name;
+            $images->push($image);
+        }
+        return view('admin.requests.edit', compact('tipologiesRelations','inquiry','citizen','brigades','images'));
     }
 
     /**

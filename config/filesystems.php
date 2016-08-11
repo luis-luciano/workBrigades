@@ -1,5 +1,7 @@
 <?php
 
+use App\Request as Inquiry;
+
 return [
 
     /*
@@ -47,6 +49,16 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+        
+        Inquiry::$diskName => [
+            'driver' => 'local',
+            'root' => storage_path(Inquiry::$uploadsPath),
+        ],
+
+        'seeds' => [
+            'driver' => 'local',
+            'root' => database_path('seeds'),
+        ],
 
         'public' => [
             'driver' => 'local',
@@ -61,12 +73,6 @@ return [
             'region' => 'your-region',
             'bucket' => 'your-bucket',
         ],
-
-        'seeds' => [
-            'driver' => 'local',
-            'root' => database_path('seeds'),
-        ],
-
     ],
 
 ];

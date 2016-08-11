@@ -11,22 +11,6 @@
 @stop
 
 @section('content')
-    {{--<div class="row">
-        <div class="col-md-12">
-            <div class="panel">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <h4>Petición</h4>
-                    </div>
-                </div><!--.panel-heading-->
-               <div class="panel-body">
-                    {!! Form::model($inquiry,['route' => ['requests.update', $inquiry->id],'method' => 'PATCH', 'id' => 'editRequestForm']) !!}
-                        @include('admin.requests.form', ['submitButtonText' => 'Actualizar', 'type' => 'edit'])
-                    {!! Form::close() !!} 
-                </div><!--.panel-body-->
-            </div><!--.panel-->
-        </div><!--.col-md-12-->
-    </div><!--.row--> --}}
     <div class="panel">
         <div class="panel-heading">
             <div class="panel-title"> {{ singular('requests') }} </div>
@@ -99,5 +83,12 @@
         'attributes' => [
             'data-uri-source-data' => route('ajax.citizens.index')
         ]
+    ])
+
+    @include('partials.modals.layouts.closeModal', [
+        'id' => 'requestFilesModal',
+        'title' => 'Archivos Adjuntos',
+        'view' => 'admin.partials.modals.files',
+        'files' => $inquiry->files
     ])
 @stop

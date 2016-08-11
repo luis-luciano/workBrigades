@@ -1,0 +1,1 @@
+<a class="fancybox" data-fancybox-type="iframe" href="{{ route('requests.files.show', [$inquiry->id, $file->id]) }}.pdf"><img src="{{ asset('assets/img/pdf.jpg') }}" class="img-thumbnail"></a>

@@ -12,7 +12,11 @@ use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model {
-	//
+
+	public static $diskName= 'requests_files';
+
+	public static $uploadsPath= 'uploads/requests_files';
+	
 	protected $fillable=[
 						'subject',
 						'start_date',
@@ -37,6 +41,16 @@ class Request extends Model {
 	{
 		return $this->morphTo();
 	}
+
+	public function files()
+    {
+        return $this->morphMany('App\File', 'filable');
+    }
+
+    public function addFile($file)
+    {
+        return $this->files()->save($file);
+    }
 
 	public function state() 
 	{
@@ -112,6 +126,11 @@ class Request extends Model {
 	{
 		return $this->problem->typology->id;
 	}
+	
+	public function getHasFilesAttribute()
+    {
+        return $this->files->count() > 0;
+    }
 
 	public function getSupervisionsNameAttribute()
 	{

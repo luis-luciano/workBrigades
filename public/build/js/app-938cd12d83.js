@@ -6291,6 +6291,10 @@ module.exports = function ($) {
             maxFileCount: 10,
             allowedFileExtensions: ['png', 'jpg', 'jpeg', 'pdf']
         });
+
+        $('#fileinput').on('fileuploaded', function (event, data, previewId, index) {
+            location.reload();
+        });
     };
 
     // return the variables to be public

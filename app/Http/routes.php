@@ -17,7 +17,15 @@ Route::resource('notifications', 'NotificationsController');
 Route::resource('permissions', 'PermissionsController');
 Route::resource('personalInformations', 'PersonalInformationsController');
 Route::resource('problemTypes', 'ProblemTypesController');
+// Request Files
+//Route::get('requests/{requests}/files/{files}', ['as' => 'requests.files.show', 'uses' => 'RequestFileController@show']);
+//Route::post('requests/{requests}/files', ['as' => 'requests.files.store', 'uses' => 'RequestFileController@store']);
+//Route::delete('requests/{requests}/files/{files}', ['as' => 'requests.files.destroy', 'uses' => 'RequestFileController@destroy']);
+
 Route::get('request/sector-brigade', ['as' => 'request.sector-brigade', 'uses' => 'RequestsController@findSectorBrigade']);
+// Requests Files
+Route::get('requests/{requests}/files/{files}', ['as' => 'requests.files.show', 'uses' => 'RequestFileController@show']);
+Route::post('requests/{requests}/files', ['as' => 'requests.files.store', 'uses' => 'RequestFileController@store']);
 Route::resource('requests', 'RequestsController');
 Route::resource('requestsPriorities', 'RequestPrioritiesController');
 Route::resource('requestRejections', 'RequestRejectionsController');
@@ -42,10 +50,7 @@ Route::auth();
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-// Request Files
-Route::get('requests/{requests}/files/{files}', ['as' => 'requests.files.show', 'uses' => 'RequestFileController@show']);
-Route::post('requests/{requests}/files', ['as' => 'requests.files.store', 'uses' => 'RequestFileController@store']);
-Route::delete('requests/{requests}/files/{files}', ['as' => 'requests.files.destroy', 'uses' => 'RequestFileController@destroy']);
+
 
 //Routes for ajax call
 Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
