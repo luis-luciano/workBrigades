@@ -251,7 +251,7 @@ module.exports = (function ($) {
        _editCitizenModalInit();
     };
 
-    var edit = function(tipologiesRelations,route) {
+    var edit = function(tipologiesRelations,route,images) {
        _typologiesInit(tipologiesRelations,route);
        _citizensInit();
        _editCitizenModalInit();
@@ -267,6 +267,12 @@ module.exports = (function ($) {
        $('#fileinput').on('fileuploaded', function(event, data, previewId, index) {
             location.reload();
         });
+
+       $('#imageGalleryButton').on('click', function(e) {
+            PhotoSwiper.init({
+                "photos": images
+            });
+        }.bind(images));
     };
 
     // return the variables to be public

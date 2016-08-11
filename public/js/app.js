@@ -6279,7 +6279,7 @@ module.exports = function ($) {
         _editCitizenModalInit();
     };
 
-    var edit = function edit(tipologiesRelations, route) {
+    var edit = function edit(tipologiesRelations, route, images) {
         _typologiesInit(tipologiesRelations, route);
         _citizensInit();
         _editCitizenModalInit();
@@ -6295,6 +6295,12 @@ module.exports = function ($) {
         $('#fileinput').on('fileuploaded', function (event, data, previewId, index) {
             location.reload();
         });
+
+        $('#imageGalleryButton').on('click', function (e) {
+            PhotoSwiper.init({
+                "photos": images
+            });
+        }.bind(images));
     };
 
     // return the variables to be public
@@ -6631,8 +6637,9 @@ require('../../config/select2.js');
 require('../../config/sweetAlert.js');
 require('../../config/moment.js');
 require('../../config/fileInput.js');
+require('../../config/photoSwipe.js');
 
-},{"../../config/fileInput.js":42,"../../config/jquery.js":43,"../../config/moment.js":44,"../../config/parsley.js":45,"../../config/select2.js":46,"../../config/sweetAlert.js":47}],24:[function(require,module,exports){
+},{"../../config/fileInput.js":42,"../../config/jquery.js":43,"../../config/moment.js":44,"../../config/parsley.js":45,"../../config/photoSwipe.js":46,"../../config/select2.js":47,"../../config/sweetAlert.js":48}],24:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -7016,7 +7023,7 @@ require('./autoload.js');
 
 require('../vendor/autoload.js');
 
-},{"../vendor/autoload.js":48}],41:[function(require,module,exports){
+},{"../vendor/autoload.js":49}],41:[function(require,module,exports){
 'use strict';
 
 /*
@@ -7200,6 +7207,70 @@ window.Parsley.parsleyOptions = {
 };
 
 },{}],46:[function(require,module,exports){
+'use strict';
+
+/*
+|--------------------------------------------------------------------------
+| PhotoSwipe Configuration
+|--------------------------------------------------------------------------
+|
+| photoSwipe settings.
+|
+*/
+var PhotoSwiper = function ($) {
+
+    var _settings = {};
+
+    var init = function init(settings) {
+        _settings = typeof settings !== 'undefined' ? settings : {};
+        _setup();
+    };
+
+    var _setup = function _setup() {
+        var pswpElement = $('.pswp')[0];
+
+        // build items array
+        var items = _settings.photos;
+
+        // define options (if needed)
+        var options = {
+            history: true,
+            focus: true,
+
+            showAnimationDuration: 0,
+            hideAnimationDuration: 0,
+
+            shareButtons: [{
+                id: 'download',
+                label: 'Descargar',
+                url: '{{raw_image_url}}',
+                download: true
+            }]
+        };
+
+        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.listen('gettingData', function (index, item) {
+            // index - index of a slide that was loaded
+            // item - slide object
+            // set the correct width
+            item.w = 500;
+            item.h = 500;
+        });
+
+        gallery.init();
+    };
+
+    return {
+        init: init
+    };
+}(window.jQuery);
+
+require('../app/globalize.js')({
+    PhotoSwiper: PhotoSwiper
+});
+//
+
+},{"../app/globalize.js":16}],47:[function(require,module,exports){
 "use strict";
 
 /*
@@ -7222,7 +7293,7 @@ $("span.select2-selection--single").on("focus", function () {
     $(this).parent().parent().prev('select').select2('open');
 });
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 "use strict";
 
 /*
@@ -7265,7 +7336,7 @@ require('../app/globalize.js')({
     sweetAlertLayouts: sweetAlertLayouts
 });
 
-},{"../app/globalize.js":16}],48:[function(require,module,exports){
+},{"../app/globalize.js":16}],49:[function(require,module,exports){
 'use strict';
 
 /*

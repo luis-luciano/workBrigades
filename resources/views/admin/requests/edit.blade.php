@@ -7,7 +7,7 @@
 @stop
 
 @section('scripts')
-    requestsController.edit({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}");
+    requestsController.edit({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}", {!! $images !!});
 @stop
 
 @section('content')
@@ -19,7 +19,7 @@
                 <li class="active"><a href="#request" data-toggle="tab"><i class="fa fa-pencil-square"></i> Petición</a></li>
                 <li><a href="#files" data-toggle="tab"><i class="fa fa-files-o"></i> Archivos</a></li>
                 <li><a href="#reply" data-toggle="tab"><i class="fa fa-commenting-o"></i> Respuesta</a></li>
-                <li><a href="#more" data-toggle="tab"><i class="fa fa fa-reorder"></i> Más</a></li>
+                <li><a href="#more" data-toggle="tab"><i class="fa fa-reorder"></i> Más</a></li>
             </ul><!--.panel-nav-tabs-->
         </div><!--.panel-heading-->
         
@@ -69,6 +69,7 @@
             </div><!--.tab-content-->
         </div>
     </div><!--.panel-->
+    @include('partials.modals.gallery')
 
     @include('partials.modals.layouts.closeModal', [
         'id' => 'searchCreateCitizenModal',
