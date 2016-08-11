@@ -493,7 +493,7 @@ module.exports = function ($) {
 
     var edit = function edit(tipologiesRelations, route, images) {
         var buttonsRequest = $('#buttonsRequest');
-        var footer = $('.panel-footer');
+        var panelFooter = $('.panel-footer');
 
         _typologiesInit(tipologiesRelations, route);
         _citizensInit();
@@ -517,13 +517,18 @@ module.exports = function ($) {
             });
         }.bind(images));
 
+        if (window.location.hash != "#request" && window.location.hash != "") {
+            buttonsRequest.hide();
+            panelFooter.show();
+        }
+
         $('#tabs').on('shown.bs.tab', function (e) {
             if (e.target.hash == "#request") {
                 buttonsRequest.show();
                 footer.hide();
             } else {
                 buttonsRequest.hide();
-                footer.show();
+                panelFooter.show();
             }
         });
     };
