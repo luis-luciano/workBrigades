@@ -15,7 +15,7 @@
         <div class="panel-heading">
             <div class="panel-title"> {{ singular('requests') }} </div>
             
-            <ul class="nav nav-tabs with-panel nav-justified">
+            <ul class="nav nav-tabs with-panel nav-justified" id="tabs">
                 <li class="active"><a href="#request" data-toggle="tab"><i class="fa fa-pencil-square"></i> Petición</a></li>
                 <li><a href="#files" data-toggle="tab"><i class="fa fa-files-o"></i> Archivos</a></li>
                 <li><a href="#reply" data-toggle="tab"><i class="fa fa-commenting-o"></i> Respuesta</a></li>
@@ -80,6 +80,15 @@
                     </div><!--.row.client-list-->
                 </div><!--.tab-pane-->
             </div><!--.tab-content-->
+        </div>
+
+        <div class="panel-footer footer-transparent text-dark" style="display: none">
+            <div class="form-buttons clearfix">
+                <div class="pull-left">
+                     <a href="{{ route('requests.create') }}" class="btn btn-primary">Nuevo</a>
+                     <a href="{{ route('requests.index') }}" class="btn btn-warning">Regresar</a>
+                </div>
+            </div>      
         </div>
     </div><!--.panel-->
     @include('partials.modals.gallery')

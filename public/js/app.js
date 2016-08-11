@@ -6280,6 +6280,9 @@ module.exports = function ($) {
     };
 
     var edit = function edit(tipologiesRelations, route, images) {
+        var buttonsRequest = $('#buttonsRequest');
+        var footer = $('.panel-footer');
+
         _typologiesInit(tipologiesRelations, route);
         _citizensInit();
         _editCitizenModalInit();
@@ -6301,6 +6304,16 @@ module.exports = function ($) {
                 "photos": images
             });
         }.bind(images));
+
+        $('#tabs').on('shown.bs.tab', function (e) {
+            if (e.target.hash == "#request") {
+                buttonsRequest.show();
+                footer.hide();
+            } else {
+                buttonsRequest.hide();
+                footer.show();
+            }
+        });
     };
 
     // return the variables to be public

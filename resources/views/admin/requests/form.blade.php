@@ -175,8 +175,10 @@
     <div class="row">
         <div class="col-md-12">
             {!! Form::submit($submitButtonText, ['class' => 'btn btn-success']) !!}
-            <a href="{{ route('requests.create') }}" class="btn btn-primary">Nuevo</a>
-            <a href="{{ route('requests.index') }}" class="btn btn-warning">Regresar</a>
+            <div id="buttonsRequest" style="display: inline-block">
+                <a href="{{ route('requests.create') }}" class="btn btn-primary">Nuevo</a>
+                <a href="{{ route('requests.index') }}" class="btn btn-warning">Regresar</a>
+            </div>
         </div>
     </div>
 </div>
