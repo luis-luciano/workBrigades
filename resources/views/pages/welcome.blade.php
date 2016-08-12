@@ -86,35 +86,9 @@
 							</div>
 						</div>
 					</li>
-					{{-- <li>
-						<div class="ch-item ch-img-3">
-							<div class="ch-info">
-								<h3>Pink Lightning</h3>
-								<p>by Charlie Wagers <a href="http://drbl.in/ekhp">View on Dribbble</a></p>
-							</div>
-						</div>
-					</li> --}}
+
 				</ul>
 
-				
-					
-{{-- 				  
-				   		 
-						<a href="Peticion-publica">
-						 	<img style="width:150px; height="150px" src="{{ asset('assets/globals/img/resources/requests.png') }}" />
-						 	
-				  		</a>
-				  		<a href="" class="item btn" id="open-petition-modal">
-						 	
-				  		</a>
-				  		<a href="">
-						 	
-				  		</a>					    
-					
-				 
-
-				  <div class="cta">Nos Mueve y Nos Une</div> 
-				  --}}
 				
 			</div>
 			
