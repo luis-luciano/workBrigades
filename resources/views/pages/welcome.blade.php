@@ -20,6 +20,21 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<script src="{{ asset('assets/globals/js/global-vendors.js') }}"></script>
+	<style type="text/css">
+		.ch-img-1 { 
+			background-image: url({{ asset('assets/globals/img/resources/requ.png') }});
+			opacity: 0.7;
+		}
+
+		.ch-img-2 { 
+			background-image: url({{ asset('assets/globals/img/resources/buscar.png') }});
+			opacity: 0.7;
+		}
+
+		.ch-img-3 { 
+			background-image: url({{ asset('assets/globals/img/resources/requ.png') }});
+		}
+	</style>
 </head>
 
 <body class="demo-1">
@@ -36,11 +51,16 @@
 
 	</div>
 	<div class="">
-
+	
 		<header class="codrops-header">
 			
 			<img class="img-logo" src="{{ asset('assets/globals/img/logo_h.png') }}" />
-
+			<a href="">
+			 	<button type="button" class="btn btn-personality-b">Ver video
+			 		{{-- <span class="" style=""></span>
+			 		<span class="ripple _7 animate" style=""></span> --}}
+			 	</button>
+	  		</a>
 		</header>
 
 		<div class="slideshow">
@@ -49,42 +69,27 @@
 			</canvas>
 			<!-- Heavy Rain -->
 			<div class="slide" id="slide-1" data-weather="rain">
-				<!-- Form Module-->
+				<ul class="ch-grid">
+					<li>
+						<div class="ch-item ch-img-1">
+							<div class="ch-info">
+								<h3>N U E V A</h3>
+								<p>P E T I C I Ó N<a href="Peticion-publica">Crear Petición</a></p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ch-item ch-img-2">
+							<div class="ch-info">
+								<h3>S I S T E M A</h3>
+								<p>C O N S U L T A<a href="Peticion-publica">Cómo Vamos?</a></p>
+							</div>
+						</div>
+					</li>
 
-				<div class="module form-module">
-					
-				  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
-				    H
-				  </div>
-				  <div class="form">
-				    <h2>Sistema de Atención</h2>
-				    <div class="btn-group">
-				   		 <a href="">
-						 	<button type="button" class="btn btn-orange btn-ripple">Ver video
-						 		<span class="ripple _2 animate" style="height: 322px; width: 322px; top: -138.087px; left: -74.7848px;"></span>
-						 		<span class="ripple _7 animate" style="height: 322px; width: 322px; top: -137.087px; left: 38.2152px;"></span></button>
-				  		</a>
-						 <a href="Peticion-publica">
-						 	<button type="button" class="btn btn-orange btn-ripple">Crear Peticion
-						 		<span class="ripple _2 animate" style="height: 322px; width: 322px; top: -138.087px; left: -74.7848px;"></span>
-						 		<span class="ripple _7 animate" style="height: 322px; width: 322px; top: -137.087px; left: 38.2152px;"></span></button>
-				  		</a>
-				  		<a href="" class="item btn" id="open-petition-modal">
-						 	<button type="button" class="btn btn-orange btn-ripple">Estado de Peticion!
-						 		<span class="ripple _2 animate" style="height: 322px; width: 322px; top: -138.087px; left: -74.7848px;"></span>
-						 		<span class="ripple _7 animate" style="height: 322px; width: 322px; top: -137.087px; left: 38.2152px;"></span></button>
-				  		</a>
-				  		<a href="">
-						 	<button type="button" class="btn btn-orange btn-ripple">ingresar
-						 		<span class="ripple _2 animate" style="height: 322px; width: 322px; top: -138.087px; left: -74.7848px;"></span>
-						 		<span class="ripple _7 animate" style="height: 322px; width: 322px; top: -137.087px; left: 38.2152px;"></span></button>
-				  		</a>					    
-					</div>
-				  </div>
+				</ul>
 
-				  <div class="cta">Nos Mueve y Nos Une</div>
-				 
-				</div>
+				
 			</div>
 			
 
