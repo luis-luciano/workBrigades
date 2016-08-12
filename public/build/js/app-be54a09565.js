@@ -5815,7 +5815,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../helpers/deleteConfirmationAlert.js":18,"../validators/brigadeValidator.js":24}],2:[function(require,module,exports){
+},{"../helpers/deleteConfirmationAlert.js":18,"../validators/brigadeValidator.js":25}],2:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -5844,7 +5844,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../helpers/deleteConfirmationAlert.js":18,"../validators/captureTypeValidator.js":25}],3:[function(require,module,exports){
+},{"../helpers/deleteConfirmationAlert.js":18,"../validators/captureTypeValidator.js":26}],3:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -5874,7 +5874,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../validators/citizenValidator.js":26}],4:[function(require,module,exports){
+},{"../validators/citizenValidator.js":27}],4:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -5903,7 +5903,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../helpers/deleteConfirmationAlert.js":18,"../validators/colonyValidator.js":28}],5:[function(require,module,exports){
+},{"../helpers/deleteConfirmationAlert.js":18,"../validators/colonyValidator.js":29}],5:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -5928,7 +5928,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../validators/colonyScopeValidator.js":27}],6:[function(require,module,exports){
+},{"../validators/colonyScopeValidator.js":28}],6:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -5953,7 +5953,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../validators/problemTypeValidator.js":29}],7:[function(require,module,exports){
+},{"../validators/problemTypeValidator.js":30}],7:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -5978,7 +5978,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../validators/requestPriorityValidator.js":30}],8:[function(require,module,exports){
+},{"../validators/requestPriorityValidator.js":31}],8:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -6007,7 +6007,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../helpers/deleteConfirmationAlert.js":18,"../validators/requestStateValidator.js":31}],9:[function(require,module,exports){
+},{"../helpers/deleteConfirmationAlert.js":18,"../validators/requestStateValidator.js":32}],9:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -6032,7 +6032,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../validators/requestTypeValidator.js":32}],10:[function(require,module,exports){
+},{"../validators/requestTypeValidator.js":33}],10:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -6305,6 +6305,11 @@ module.exports = function ($) {
             });
         }.bind(images));
 
+        $('#requestConcludeButton').click(function (e) {
+            e.preventDefault();
+            require('../helpers/requestConcludeConfirmationAlert.js')(this);
+        });
+
         if (window.location.hash != "#request" && window.location.hash != "") {
             buttonsRequest.hide();
             panelFooter.show();
@@ -6313,7 +6318,7 @@ module.exports = function ($) {
         $('#tabs').on('shown.bs.tab', function (e) {
             if (e.target.hash == "#request") {
                 buttonsRequest.show();
-                footer.hide();
+                panelFooter.hide();
             } else {
                 buttonsRequest.hide();
                 panelFooter.show();
@@ -6329,7 +6334,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../helpers/ajaxFormCall.js":17,"../helpers/select2AjaxSearchBox.js":19,"../helpers/selectOption.js":20}],11:[function(require,module,exports){
+},{"../helpers/ajaxFormCall.js":17,"../helpers/requestConcludeConfirmationAlert.js":19,"../helpers/select2AjaxSearchBox.js":20,"../helpers/selectOption.js":21}],11:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -6358,7 +6363,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../helpers/deleteConfirmationAlert.js":18,"../validators/rolValidator.js":33}],12:[function(require,module,exports){
+},{"../helpers/deleteConfirmationAlert.js":18,"../validators/rolValidator.js":34}],12:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -6383,7 +6388,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../validators/sectorValidator.js":34}],13:[function(require,module,exports){
+},{"../validators/sectorValidator.js":35}],13:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -6408,7 +6413,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../validators/settlementTypeValidator.js":35}],14:[function(require,module,exports){
+},{"../validators/settlementTypeValidator.js":36}],14:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -6433,7 +6438,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../validators/supervisionValidator.js":36}],15:[function(require,module,exports){
+},{"../validators/supervisionValidator.js":37}],15:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -6458,7 +6463,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../validators/typologyValidator.js":37}],16:[function(require,module,exports){
+},{"../validators/typologyValidator.js":38}],16:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -6580,6 +6585,29 @@ module.exports = function (deleteButton, closure) {
 };
 
 },{}],19:[function(require,module,exports){
+"use strict";
+
+module.exports = function (deleteButton, closure) {
+    swal({
+        title: "Concluir Petición",
+        text: "Desea marcar esta petición como concluida de manera satisfactoria?",
+        type: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Cancelar",
+        confirmButtonColor: "#3e50b4",
+        confirmButtonText: "Sí, concluir!",
+        closeOnConfirm: true,
+        allowOutsideClick: true
+    }, function () {
+        if (typeof closure === 'undefined') {
+            $(deleteButton).parent().submit();
+            return;
+        }
+        closure(deleteButton);
+    }.bind(deleteButton, closure));
+};
+
+},{}],20:[function(require,module,exports){
 'use strict';
 
 module.exports = function (settings) {
@@ -6600,14 +6628,14 @@ module.exports = function (settings) {
     });
 };
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 module.exports = function (value, text) {
   return $('<option value="' + value + '">' + text + '</option>');
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 "use strict";
 
 module.exports = function (e) {
@@ -6622,7 +6650,7 @@ module.exports = function (e) {
 	window.location.href = url;
 };
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 "use strict";
 
 /*
@@ -6637,7 +6665,7 @@ module.exports = function (e) {
 //$(".click").click(require('../listeners/alert.js'));
 $(".clickable-rows>tbody>tr").click(require('../listeners/clickableRows.js'));
 
-},{"../listeners/clickableRows.js":21}],23:[function(require,module,exports){
+},{"../listeners/clickableRows.js":22}],24:[function(require,module,exports){
 'use strict';
 
 /*
@@ -6657,7 +6685,7 @@ require('../../config/moment.js');
 require('../../config/fileInput.js');
 require('../../config/photoSwipe.js');
 
-},{"../../config/fileInput.js":42,"../../config/jquery.js":43,"../../config/moment.js":44,"../../config/parsley.js":45,"../../config/photoSwipe.js":46,"../../config/select2.js":47,"../../config/sweetAlert.js":48}],24:[function(require,module,exports){
+},{"../../config/fileInput.js":43,"../../config/jquery.js":44,"../../config/moment.js":45,"../../config/parsley.js":46,"../../config/photoSwipe.js":47,"../../config/select2.js":48,"../../config/sweetAlert.js":49}],25:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6675,7 +6703,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],25:[function(require,module,exports){
+},{"./validator.js":39}],26:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6693,7 +6721,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],26:[function(require,module,exports){
+},{"./validator.js":39}],27:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6749,7 +6777,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],27:[function(require,module,exports){
+},{"./validator.js":39}],28:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6762,7 +6790,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],28:[function(require,module,exports){
+},{"./validator.js":39}],29:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6787,7 +6815,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],29:[function(require,module,exports){
+},{"./validator.js":39}],30:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6800,25 +6828,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],30:[function(require,module,exports){
-"use strict";
-
-module.exports = function (form) {
-				require('./validator.js').init(form, {
-								name: {
-												required: "true",
-												minlength: 3,
-												maxlength: 50
-								},
-								color: {
-												required: "true",
-												minlength: 7,
-												maxlength: 7
-								}
-				});
-};
-
-},{"./validator.js":38}],31:[function(require,module,exports){
+},{"./validator.js":39}],31:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6836,7 +6846,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],32:[function(require,module,exports){
+},{"./validator.js":39}],32:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6854,7 +6864,25 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],33:[function(require,module,exports){
+},{"./validator.js":39}],33:[function(require,module,exports){
+"use strict";
+
+module.exports = function (form) {
+				require('./validator.js').init(form, {
+								name: {
+												required: "true",
+												minlength: 3,
+												maxlength: 50
+								},
+								color: {
+												required: "true",
+												minlength: 7,
+												maxlength: 7
+								}
+				});
+};
+
+},{"./validator.js":39}],34:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6874,7 +6902,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],34:[function(require,module,exports){
+},{"./validator.js":39}],35:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6888,7 +6916,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],35:[function(require,module,exports){
+},{"./validator.js":39}],36:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6901,7 +6929,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],36:[function(require,module,exports){
+},{"./validator.js":39}],37:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6922,7 +6950,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],37:[function(require,module,exports){
+},{"./validator.js":39}],38:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -6935,7 +6963,7 @@ module.exports = function (form) {
 				});
 };
 
-},{"./validator.js":38}],38:[function(require,module,exports){
+},{"./validator.js":39}],39:[function(require,module,exports){
 'use strict';
 
 /*
@@ -7002,7 +7030,7 @@ module.exports = function () {
     };
 }();
 
-},{}],39:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 'use strict';
 
 /*
@@ -7027,7 +7055,7 @@ require('../config/app.js');
 
 require('./autoload.js');
 
-},{"../config/app.js":41,"./autoload.js":40}],40:[function(require,module,exports){
+},{"../config/app.js":42,"./autoload.js":41}],41:[function(require,module,exports){
 'use strict';
 
 /*
@@ -7041,7 +7069,7 @@ require('./autoload.js');
 
 require('../vendor/autoload.js');
 
-},{"../vendor/autoload.js":49}],41:[function(require,module,exports){
+},{"../vendor/autoload.js":50}],42:[function(require,module,exports){
 'use strict';
 
 /*
@@ -7057,7 +7085,7 @@ require('../vendor/autoload.js');
 require('../app/providers/pluginProvider.js');
 require('../app/providers/eventProvider.js');
 
-},{"../app/providers/eventProvider.js":22,"../app/providers/pluginProvider.js":23}],42:[function(require,module,exports){
+},{"../app/providers/eventProvider.js":23,"../app/providers/pluginProvider.js":24}],43:[function(require,module,exports){
 "use strict";
 
 /*
@@ -7139,7 +7167,7 @@ require('../app/globalize.js')({
 });
 //
 
-},{"../app/globalize.js":16}],43:[function(require,module,exports){
+},{"../app/globalize.js":16}],44:[function(require,module,exports){
 'use strict';
 
 /*
@@ -7157,7 +7185,7 @@ $.ajaxSetup({
 	}
 });
 
-},{}],44:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 'use strict';
 
 /*
@@ -7197,7 +7225,7 @@ $('.format-date-from-now').each(function (index, dateElem) {
     $dateElem.text(date);
 });
 
-},{}],45:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 'use strict';
 
 /*
@@ -7224,7 +7252,7 @@ window.Parsley.parsleyOptions = {
     }
 };
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 'use strict';
 
 /*
@@ -7288,7 +7316,7 @@ require('../app/globalize.js')({
 });
 //
 
-},{"../app/globalize.js":16}],47:[function(require,module,exports){
+},{"../app/globalize.js":16}],48:[function(require,module,exports){
 "use strict";
 
 /*
@@ -7311,7 +7339,7 @@ $("span.select2-selection--single").on("focus", function () {
     $(this).parent().parent().prev('select').select2('open');
 });
 
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 "use strict";
 
 /*
@@ -7354,7 +7382,7 @@ require('../app/globalize.js')({
     sweetAlertLayouts: sweetAlertLayouts
 });
 
-},{"../app/globalize.js":16}],49:[function(require,module,exports){
+},{"../app/globalize.js":16}],50:[function(require,module,exports){
 'use strict';
 
 /*
@@ -7401,7 +7429,7 @@ require('../app/globalize.js')({
     typologiesController: typologiesController
 });
 
-},{"../app/controllers/brigadesController.js":1,"../app/controllers/captureTypesController.js":2,"../app/controllers/citizensController.js":3,"../app/controllers/coloniesController.js":4,"../app/controllers/colonyScopesController.js":5,"../app/controllers/problemTypesController.js":6,"../app/controllers/requestPrioritiesController.js":7,"../app/controllers/requestStatesController.js":8,"../app/controllers/requestTypesController.js":9,"../app/controllers/requestsController.js":10,"../app/controllers/rolesController.js":11,"../app/controllers/sectorsController.js":12,"../app/controllers/settlementTypesController.js":13,"../app/controllers/supervisionsController.js":14,"../app/controllers/typologiesController.js":15,"../app/globalize.js":16}]},{},[39]);
+},{"../app/controllers/brigadesController.js":1,"../app/controllers/captureTypesController.js":2,"../app/controllers/citizensController.js":3,"../app/controllers/coloniesController.js":4,"../app/controllers/colonyScopesController.js":5,"../app/controllers/problemTypesController.js":6,"../app/controllers/requestPrioritiesController.js":7,"../app/controllers/requestStatesController.js":8,"../app/controllers/requestTypesController.js":9,"../app/controllers/requestsController.js":10,"../app/controllers/rolesController.js":11,"../app/controllers/sectorsController.js":12,"../app/controllers/settlementTypesController.js":13,"../app/controllers/supervisionsController.js":14,"../app/controllers/typologiesController.js":15,"../app/globalize.js":16}]},{},[40]);
 
 //# sourceMappingURL=bundle.js.map
 

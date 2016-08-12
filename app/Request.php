@@ -30,7 +30,8 @@ class Request extends Model {
 						'request_priority_id',
 						'problem_id',
 						'brigade_id',
-						'request_state_id'
+						'request_state_id',
+						'request_rejection_id'
 					   ];
 
 	public function concerned()
@@ -106,6 +107,11 @@ class Request extends Model {
 	public function supervisions()
 	{
 		return $this->belongsToMany('App\Supervision')->withTimestamps();
+	}
+
+	public function rejection()
+	{
+		return $this->belongsTo('App\RequestRejection','request_rejection_id');
 	}
 
 	public function getSectorAttribute()

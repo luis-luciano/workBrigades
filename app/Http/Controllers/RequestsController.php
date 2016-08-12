@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use App\Sector;
 use App\Problem;
 use App\Citizen;
+use App\RequestRejection;
 use App\Request as Inquiry;
 use Illuminate\Http\Request;
 
@@ -141,6 +142,12 @@ class RequestsController extends Controller
 
     public function conclude(Inquiry $inquiry)
     {
+        if($inquiry->state->id == 5){
+            $rejectionId=$inquiry->rejection->id;
+            $inquiry->request_rejection_id=null;
+            $inquiry->save();
+            RequestRejection::destroy($rejectionId);
+        }
         $inquiry->changeStateTo('concluded');
 
         alert()->success(trans('messages.success.update'));

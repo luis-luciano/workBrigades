@@ -31,7 +31,7 @@ Route::post('requests/{requests}/files', ['as' => 'requests.files.store', 'uses'
 // Requests Conclude
 Route::post('requests/{requests}/conclude', ['as' => 'requests.conclude', 'uses' => 'RequestsController@conclude']);
 // Request Not Approved
-Route::post('requests/{requests}/unapproved', ['as' => 'requests.unapproved', 'uses' => 'RequestsController@unapproved']);
+Route::post('requests/{requests}/unapproved', ['as' => 'requests.unapproved', 'uses' => 'RequestRejectionsController@updateOrStore']);
 Route::resource('requests', 'RequestsController');
 Route::resource('requestsPriorities', 'RequestPrioritiesController');
 Route::resource('requestRejections', 'RequestRejectionsController');

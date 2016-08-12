@@ -277,6 +277,11 @@ module.exports = (function ($) {
             });
         }.bind(images));
 
+       $('#requestConcludeButton').click(function(e) {
+            e.preventDefault();
+            require('../helpers/requestConcludeConfirmationAlert.js')(this);
+        });
+
        if(window.location.hash!="#request" && window.location.hash!=""){
             buttonsRequest.hide();
             panelFooter.show();
@@ -285,7 +290,7 @@ module.exports = (function ($) {
        $('#tabs').on('shown.bs.tab', function (e) {
             if(e.target.hash == "#request"){
                 buttonsRequest.show();
-                footer.hide();
+                panelFooter.hide();
             }else{      
                 buttonsRequest.hide();
                 panelFooter.show();

@@ -73,9 +73,10 @@
                         </div>
                         <div class="col-md-6">
                             <div class="icon-circle bg-red text-white"><i class="fa fa-close fa-3x" aria-hidden="true"></i></div>
-                            {!! Form::open(['route' => ['requests.unapproved', $inquiry->id], 'method' => 'POST', 'id' => 'requestUnapprovedForm']) !!}
+                            <button type="button" class="btn btn-flat btn-red btn-lg btn-block btn-ripple" data-toggle="modal" data-target="#requestUnapprovedModal">{{ is_null($inquiry->rejection) ? 'No Aprobar Petición' : 'Actualizar No Aprobación' }}</button>
+                            {{-- Form::open(['route' => ['requests.unapproved', $inquiry->id], 'method' => 'POST', 'id' => 'requestUnapprovedForm']) !!}
                                 {!! Form::submit('No Aprobar Petición', [ 'id' => 'requestUnapprovedButton', 'class' => 'btn btn-flat btn-red btn-lg btn-block btn-ripple']) !!}
-                            {!! Form::close() !!}
+                            {!! Form::close() --}}
                         </div>
                     </div><!--.row.client-list-->
                 </div><!--.tab-pane-->
@@ -114,4 +115,11 @@
         'view' => 'admin.partials.modals.files',
         'files' => $inquiry->files
     ])
+    
+    @include('partials.modals.layouts.closeModal', [
+        'id' => 'requestUnapprovedModal',
+        'title' => 'No Aprobar Petición',
+        'view' => 'admin.partials.modals.rejectionRequest',
+    ])
+    
 @stop

@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Request as Inquiry;
+use App\RequestRejection;
 use App\Http\Requests;
 
 class RequestRejectionsController extends Controller
 {
-    public function __construct() {
-        $this->middleware('auth', ['only' => ['index','create','store','show', 'edit','update', 'destroy']]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -85,5 +83,21 @@ class RequestRejectionsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function updateOrStore(Request $request,Inquiry $inquiry)
+    {
+        if (is_null($inquiry->rejection)) {
+            
+            RequestRejection::create($request->all())->requests()->save($inquiry);
+
+            $inquiry->changeStateTo('unapproved');
+        } else {
+            $inquiry->rejection()->update($request->all());
+        }
+
+        alert()->success(trans('messages.success.update'));
+
+        return redirect(route('requests.edit', compact('inquiry')).'#tab_more');
     }
 }
