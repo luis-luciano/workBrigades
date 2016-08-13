@@ -12,7 +12,7 @@
                                 </div>
                             </div><!--.panel-heading-->
                             <div class="panel-body">
-                                {!! Form::open(['route' => 'Peticion-publica.create', 'id' => 'createRequestForm']) !!}
+                                {!! Form::open(['route' => 'Peticion-publica.store', 'id' => 'createRequestForm']) !!}
                                		@include('pages.public.requests.form', ['submitButtonText' => 'Guardar'])
                                 <div class="form-buttons form-group clearfix">
                                     <div class="row">

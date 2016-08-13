@@ -72,12 +72,13 @@
         Layout.init();
         TablesDataTables.init();
 
+     
+
+
     });
     </script>
     <!-- END INITIALIZATION--> 
-    <script type="text/javascript">
-          requestsController.create({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}");
-    </script>  
+    @yield('scripts')
 </body>
 </html>
 

@@ -68,6 +68,8 @@ php artisan make:controller SupervicionablesController --resource
 php artisan make:controller SupervitionsController --resource
 php artisan make:controller TypologiesController --resource
 
+php artisan make:controller PagesController --resource
+
 php artisan make:controller AdminController
 
 

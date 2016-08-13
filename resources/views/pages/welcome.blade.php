@@ -71,12 +71,12 @@
 			<div class="slide" id="slide-1" data-weather="rain">
 				<ul class="ch-grid">
 					<li>
-						<div class="ch-item ch-img-1">
+						<a href="Peticion-publica/create"><div class="ch-item ch-img-1">
 							<div class="ch-info">
 								<h3>N U E V A</h3>
 								<p>P E T I C I Ó N<a href="Peticion-publica">Crear Petición</a></p>
 							</div>
-						</div>
+						</div></a>
 					</li>
 					<li>
 						<div class="ch-item ch-img-2">

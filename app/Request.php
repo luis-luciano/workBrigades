@@ -163,4 +163,9 @@ class Request extends Model {
 	    			$q->where('id','=',$id); 
 	    		});
     }
+
+    public function getStateLabelAttribute()
+	{
+		return RequestState::findOrFail($this->request_state_id)->label;
+	}
 }
