@@ -13,7 +13,12 @@
 @section('content')
     <div class="panel">
         <div class="panel-heading">
-            <div class="panel-title"> {{ singular('requests') }} </div>
+            <div class="panel-title"> 
+                {{ singular('requests') }} 
+                <div class="status pull-right" data-color-status="{{ $inquiry->state->color }}">
+                    {{ $inquiry->state->label }}
+                </div>
+            </div>
             
             <ul class="nav nav-tabs with-panel nav-justified" id="tabs">
                 <li class="active"><a href="#request" data-toggle="tab"><i class="fa fa-pencil-square"></i> Petición</a></li>

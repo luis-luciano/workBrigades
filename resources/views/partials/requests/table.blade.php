@@ -1,6 +1,6 @@
 <div class="table-responsive">
-    <table id="dataTable" class="table table-striped table-bordered table-hover table-condensed clickable-rows">
-        <thead>
+    <table class="table table-striped table-bordered table-hover table-condensed clickable-rows">
+        <thead id="headTable">
             <tr>
                <th class="col-md-1">Folio</th>
                <th class="col-md-1">Fecha</th>
@@ -13,7 +13,7 @@
         </thead>
         <tbody>
             @foreach ($requests as $request)
-                <tr class='clickable-row' data-href='{{ route($baseRequestRoute, $request) }}'>
+                <tr>
                     <td>
                         <input type="hidden" id="_url" value="{{ action('RequestsController@edit',$request->id)}}">
                         {{ $request->id }}
@@ -21,8 +21,8 @@
                     <td>
                         {{ \Carbon\carbon::parse($request->created_at)->toDateString() }}
                     </td>
-                    <td id="state">
-                        <div class="status text-white text-center" style="background: {{ $request->state->color }}; border-radius: 10px;">
+                    <td>
+                        <div class="status" data-color-status="{{ $request->state->color }}">
                             {{ $request->state->label }}
                         </div>
                     </td> 
@@ -30,12 +30,13 @@
                         {{ $request->problem->name }}
                     </td>    
                     <td>
-                        <div class="status text-white text-center" style="background: {{ $request->priority->color }}; border-radius: 10px">
+                        <div class="status" data-color-status="{{ $request->priority->color }}">
                             {{ $request->priority->name }}
                         </div>
                     </td>              
                     <td>
-                        {{ $request->concerned->full_name}}          
+                        {{ $request->concerned->full_name }}
+                        {{  (!empty($request->concerned->personalInformation->represent)) ? "Representa a: " . $request->concerned->personalInformation->represent : "" }}          
                     </td>  
                     <td>
                         {{ $request->colony->settlementType->name }}: {{ $request->colony->name }} <br>

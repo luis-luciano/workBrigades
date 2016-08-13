@@ -63,6 +63,7 @@ elixir(function(mix) {
 	    // template plugins
 	    './public/assets/globals/plugins/bxslider/jquery.bxslider.css',
 	    './resources/assets/template/globals/css/plugins.css',
+	    './public/assets/globals/css/user.css',
 
 	], 'public/css/style.css');
 
@@ -101,6 +102,8 @@ elixir(function(mix) {
 	    // template core
 	    'template/globals/js/pleasure.js',
 	    'template/admin1/js/layout.js',
+	    //USER JS (table to list, color status...)
+  		'../../public/assets/globals/js/user.js',
 
 	], tmpJavascript+'vendor.js', 'resources/assets/');
 	
