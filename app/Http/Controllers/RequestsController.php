@@ -135,9 +135,13 @@ class RequestsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Inquiry $inquiry)
     {
-        //
+        $inquiry->delete();
+
+        alert()->success(trans('messages.success.destroy'));
+
+        return redirect()->route('requests.index');
     }
 
     public function conclude(Inquiry $inquiry)

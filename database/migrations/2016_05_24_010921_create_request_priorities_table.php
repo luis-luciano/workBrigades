@@ -14,9 +14,12 @@ class CreateRequestPrioritiesTable extends Migration
     {
         Schema::create('request_priorities', function (Blueprint $table) {
             $table->increments('id');
+            
             $table->string('name', 80);
             $table->string('color', 50);
+            
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

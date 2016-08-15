@@ -282,6 +282,11 @@ module.exports = (function ($) {
             require('../helpers/requestConcludeConfirmationAlert.js')(this);
         });
 
+       $('#deleteRequestButton').click(function(e) {
+            e.preventDefault();
+            require('../helpers/deleteConfirmationAlert.js')(this);
+        });
+
        if(window.location.hash!="#request" && window.location.hash!=""){
             buttonsRequest.hide();
             panelFooter.show();

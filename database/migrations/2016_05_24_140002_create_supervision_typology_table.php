@@ -26,7 +26,7 @@ class CreateSupervisionTypologyTable extends Migration
                 $table->bigInteger('request_id')->unsigned();
                 $table->integer('supervision_id')->unsigned();
 
-                $table->foreign('request_id')->references('id')->on('requests');
+                $table->foreign('request_id')->references('id')->on('requests')->onDelete('cascade');
                 $table->foreign('supervision_id')->references('id')->on('supervisions');
                 $table->timestamps();
             });

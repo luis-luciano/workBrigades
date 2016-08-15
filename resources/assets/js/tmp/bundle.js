@@ -522,6 +522,11 @@ module.exports = function ($) {
             require('../helpers/requestConcludeConfirmationAlert.js')(this);
         });
 
+        $('#deleteRequestButton').click(function (e) {
+            e.preventDefault();
+            require('../helpers/deleteConfirmationAlert.js')(this);
+        });
+
         if (window.location.hash != "#request" && window.location.hash != "") {
             buttonsRequest.hide();
             panelFooter.show();
@@ -546,7 +551,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../helpers/ajaxFormCall.js":17,"../helpers/requestConcludeConfirmationAlert.js":19,"../helpers/select2AjaxSearchBox.js":20,"../helpers/selectOption.js":21}],11:[function(require,module,exports){
+},{"../helpers/ajaxFormCall.js":17,"../helpers/deleteConfirmationAlert.js":18,"../helpers/requestConcludeConfirmationAlert.js":19,"../helpers/select2AjaxSearchBox.js":20,"../helpers/selectOption.js":21}],11:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {

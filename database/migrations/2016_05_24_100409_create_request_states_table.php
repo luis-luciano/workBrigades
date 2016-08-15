@@ -14,10 +14,13 @@ class CreateRequestStatesTable extends Migration
     {
         Schema::create('request_states', function (Blueprint $table) {
             $table->increments('id');
+            
             $table->string('name', 80);
             $table->string('label',50);
             $table->string('color', 50);
+            
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

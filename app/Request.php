@@ -10,13 +10,19 @@ use App\RequestType;
 use App\Sector;
 use App\User;
 use App\RequestState;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model {
 
-	public static $diskName= 'requests_files';
+	use SoftDeletes;
 
-	public static $uploadsPath= 'uploads/requests_files';
+	/**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 	
 	protected $fillable=[
 						'subject',
@@ -33,6 +39,10 @@ class Request extends Model {
 						'request_state_id',
 						'request_rejection_id'
 					   ];
+
+	public static $diskName= 'requests_files';
+
+	public static $uploadsPath= 'uploads/requests_files';
 
 	public function concerned()
 	{

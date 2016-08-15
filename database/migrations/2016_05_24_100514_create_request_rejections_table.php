@@ -14,8 +14,11 @@ class CreateRequestRejectionsTable extends Migration
     {
         Schema::create('request_rejections', function (Blueprint $table) {
             $table->bigIncrements('id');
+            
             $table->string('justification');
+            
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

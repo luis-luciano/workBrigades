@@ -31,6 +31,17 @@
         <div class="panel-body">
             <div class="tab-content">
                 <div class="tab-pane active" id="request">
+                    <div class="form-buttons buttons-on-top clearfix">
+                        <div class="pull-left">
+                            <a href="" class="btn btn-primary" target="_blank">Imprimir</a>
+                        </div>
+                        <div class="pull-right">
+                            {!! Form::open(['route' => ['requests.destroy', $inquiry->id], 'method' => 'DELETE', 'id' => 'deleteRequestForm']) !!}
+                                {!! Form::submit('Eliminar', ['class' => 'btn btn-danger', 'id' => 'deleteRequestButton']) !!}
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+
                    {!! Form::model($inquiry,['route' => ['requests.update', $inquiry->id],'method' => 'PATCH', 'id' => 'editRequestForm']) !!}
                         @include('admin.requests.form', ['submitButtonText' => 'Actualizar', 'type' => 'edit'])
                     {!! Form::close() !!} 
