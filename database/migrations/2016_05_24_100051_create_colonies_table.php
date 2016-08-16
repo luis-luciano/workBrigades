@@ -26,6 +26,7 @@ class CreateColoniesTable extends Migration
             $table->foreign('sector_id')->references('id')->on('sectors');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

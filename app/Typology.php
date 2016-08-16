@@ -7,14 +7,25 @@ use App\Supervision;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\SimpleSearchableTables;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes; 
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\TypologyPresenter;
 
 class Typology extends Model implements HasPresenter
 {
-	use SimpleSearchableTables;
+	use SimpleSearchableTables, SoftDeletes;
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
 	protected $fillable=['name'];
 
     public function problems() 

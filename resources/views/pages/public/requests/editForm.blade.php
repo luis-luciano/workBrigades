@@ -13,9 +13,9 @@
                     </div><!--.form-group-->
             </div>
         @endif
-        <div class="col-md-{{ $type == 'edit' ? '4' : '6' }} border--dotted">
+        <div class="col-md-3 border--dotted">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <div class="form-group">
                         {!! Form::label('citizen_id', trans('requests.citizen'), ['class' => 'control-label']) !!}
                         <div class="input-wrapper">
@@ -45,7 +45,7 @@
             </div><!--.form-group-->
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-1">
             <div class="form-group">
                 {!! Form::label('request_priority_id', trans('requests.request_priority_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
@@ -60,7 +60,7 @@
             <div class="form-group">
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
-                        {!! Form::textarea('subject', null, ['class' => 'form-control', 'disabled','rows' => '3']) !!}
+                        {!! Form::textarea('subject', null, ['class' => 'form-control', 'disabled','rows' => '2']) !!}
                         {!! Form::label('subject', trans('requests.subject'), ['class' => 'control-label','disabled']) !!}
                     </div>
                 </div>

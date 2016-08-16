@@ -20,6 +20,7 @@ class CreateSupervisionTypologyTable extends Migration
 
                 $table->foreign('typology_id')->references('id')->on('typologies');
                 $table->timestamps();
+                $table->softDeletes();
         });
 
         Schema::create('request_supervision', function (Blueprint $table) {

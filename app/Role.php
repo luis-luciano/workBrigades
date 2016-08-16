@@ -7,10 +7,19 @@ use App\User;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\SimpleSearchableTables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Role extends Model {
 
-	use SimpleSearchableTables;
+	use SimpleSearchableTables, SoftDeletes;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
 	protected $fillable=['name','label','home'];
 

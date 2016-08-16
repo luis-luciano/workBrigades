@@ -10,11 +10,21 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\BrigadePresenter;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 
 class Brigade extends Model implements HasPresenter {
 
-	use SimpleSearchableTables;
+	use SimpleSearchableTables, SoftDeletes;
+    
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
 
 	protected $fillable=['name','description'];
 

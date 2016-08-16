@@ -24,6 +24,7 @@ class CreateBrigadesDefaultTable extends Migration
 
             $table->primary(['sector_id','typology_id']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

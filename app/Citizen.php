@@ -8,10 +8,20 @@ use App\Traits\SimpleSearchableTables;
 use Illuminate\Database\Eloquent\Builder;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Citizen extends Model implements HasPresenter {
 
-	use HasPersonalInformation, SimpleSearchableTables;
+	use HasPersonalInformation, SimpleSearchableTables, SoftDeletes;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at']; 
+    
 
 	 /**
      * The attributes that are mass assignable.

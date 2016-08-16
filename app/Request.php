@@ -10,19 +10,19 @@ use App\RequestType;
 use App\Sector;
 use App\User;
 use App\RequestState;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes; 
 use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model {
 
-	use SoftDeletes;
+	use SoftDeletes; 
 
 	/**
      * The attributes that should be mutated to dates.
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at']; 
 	
 	protected $fillable=[
 						'subject',

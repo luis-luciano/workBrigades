@@ -117,3 +117,22 @@ public function up()
         Schema::drop('request_supervisions');
         Schema::drop('supervisions');
     }
+
+    Root -> Unidad de informatica
+
+    Ing parga, carranza
+        Supervisor Sub direccion de proyectos hidraulicos
+        --
+
+    Areli * tipologia(Agua)     tania(subsitute) * tipologiaS(drenaje)
+        --crud peticiones
+        --crud colonias
+        --crud brigadas
+        --cerrar reportes
+
+
+    Usuarios leo,  denis, tania 
+        --crear peticiones
+        --actualizar
+        --imprimir reportes
+

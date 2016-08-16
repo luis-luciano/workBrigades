@@ -23,7 +23,8 @@ class CreateThumbnailsTable extends Migration
             $table->primary(['size', 'file_id']);
 
             $table->timestamps();
-            $table->softDeletes();
+            
+            $table->softDeletes(); 
         });
     }
 

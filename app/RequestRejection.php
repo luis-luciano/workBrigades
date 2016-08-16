@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes; 
+
 
 class RequestRejection extends Model
 {
@@ -14,7 +15,7 @@ class RequestRejection extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at']; 
 
 	protected $fillable=['justification'];
 

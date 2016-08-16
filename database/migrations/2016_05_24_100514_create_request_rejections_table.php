@@ -18,7 +18,7 @@ class CreateRequestRejectionsTable extends Migration
             $table->string('justification');
             
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes(); 
         });
     }
 
