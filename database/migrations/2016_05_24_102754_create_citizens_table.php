@@ -20,6 +20,7 @@ class CreateCitizensTable extends Migration
             $table->foreign('personal_information_id')->references('id')->on('personal_informations');
 
             $table->timestamps();
+            $table->softDeletes(); 
         });
     }
 

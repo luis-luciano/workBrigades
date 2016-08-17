@@ -24,6 +24,7 @@ class CreateSupervisionsTable extends Migration
                 $table->integer('supervisions_id')->unsigned()->nullable();
                 $table->foreign('supervisions_id')->references('id')->on('supervisions');
                 $table->timestamps();
+                $table->softDeletes();
         });
         Schema::create('supervision_user', function (Blueprint $table) {
                 $table->integer('user_id')->unsigned();

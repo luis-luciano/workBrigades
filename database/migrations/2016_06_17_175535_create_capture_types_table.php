@@ -19,6 +19,7 @@ class CreateCaptureTypesTable extends Migration
             $table->string('color',7);
             
             $table->timestamps();
+            
             $table->softDeletes();
         });
     }

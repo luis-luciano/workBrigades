@@ -31,7 +31,7 @@ class CreatePersonalInformationsTable extends Migration
             $table->foreign('colony_id')->references('id')->on('colonies');
 
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes(); 
         });
     }
 

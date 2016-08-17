@@ -17,6 +17,7 @@ class CreateRequestTypesTable extends Migration
                 $table->string('name');
                 $table->string('color');
             $table->timestamps();
+            $table->softDeletes();
         });
         Schema::table('requests', function (Blueprint $table) {
             $table->integer('request_type_id')->unsigned()->default(2)->index();

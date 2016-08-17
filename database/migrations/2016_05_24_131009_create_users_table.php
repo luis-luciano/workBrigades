@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
 
             $table->string('remember_token', 100);
             $table->timestamps();
+            $table->softDeletes();
         });
         
         

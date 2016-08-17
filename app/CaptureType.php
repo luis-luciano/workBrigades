@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\SimpleSearchableTables;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes; 
 
 class CaptureType extends Model
 {
-	use SimpleSearchableTables, SoftDeletes;
+	use SimpleSearchableTables, SoftDeletes; 
 
 	 /**
      * The attributes that should be mutated to dates.
@@ -17,6 +17,7 @@ class CaptureType extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+    
 
     protected $fillable=['name','color'];
 

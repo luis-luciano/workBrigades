@@ -19,6 +19,7 @@ class CreateProblemTypesTable extends Migration
             $table->foreign('typology_id')->references('id')->on('typologies');
 
             $table->timestamps();
+            $table->softDeletes(); 
         });
     }
 

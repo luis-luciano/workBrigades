@@ -20,7 +20,7 @@ class CreateRequestStatesTable extends Migration
             $table->string('color', 50);
             
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes(); 
         });
     }
 

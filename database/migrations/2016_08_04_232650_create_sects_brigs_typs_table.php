@@ -23,6 +23,7 @@ class CreateSectsBrigsTypsTable extends Migration
 
             $table->primary(['sector_id','typology_id','brigade_id']);
             $table->timestamps();
+            $table->softDeletes(); 
         });
     }
 

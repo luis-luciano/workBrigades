@@ -50,7 +50,7 @@ class CreateRequestsTable extends Migration
             $table->foreign('problem_id')->references('id')->on('problems');
 
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes(); 
         });
     }
 

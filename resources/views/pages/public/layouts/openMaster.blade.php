@@ -20,6 +20,14 @@
     <!-- BEGIN CORE CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset(elixir('css/style-open.css')) }}">
         <link rel="stylesheet" type="text/css" href="{{ asset(elixir('css/style.css')) }}">
+        <link rel="stylesheet" href="../../assets/admin1/css/admin1.css">
+        <link rel="stylesheet" href="../../assets/globals/css/elements.css">
+    <!-- END CORE CSS -->
+
+    <!-- BEGIN PLUGINS CSS -->
+    <link rel="stylesheet" href="../../assets/globals/plugins/jasny-bootstrap/dist/css/jasny-bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/globals/css/plugins.css">
+    <!-- END PLUGINS CSS -->
     <!-- END CORE CSS -->
         <link rel="stylesheet" type="text/css" media="print" href="{{ asset('assets/globals/css/print.css') }}" />
 
@@ -56,25 +64,20 @@
 
     <!-- BEGIN CORE JAVASCRIPT -->
     <script type="text/javascript" src="{{ asset(elixir('js/app.js')) }}"></script>
+    <script src="../../assets/globals/js/global-vendors.js"></script>
+    <script src="../../assets/globals/plugins/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
     <!-- END CORE JAVASCRIPT -->
-
-    <!--COLOR SELECTOR -->
-    <script src="{{ asset('assets/globals/plugins/pnikolov-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
-    <script src="{{ asset('assets/globals/plugins/minicolors/jquery.minicolors.min.js') }}"></script>
-    <script src="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="../../assets/globals/js/pleasure.js"></script>
+    <!-- ADMIN 1 -->
+    <script src="../../assets/admin1/js/layout.js"></script>    
+   
     <script src="{{ asset('assets/globals/plugins/clockface/js/clockface.js') }}"></script>
 
-    <script src="{{ asset('assets/globals/scripts/forms-pickers.js') }}"></script>
      
     <script>
     $(document).ready(function () {
         Pleasure.init();
         Layout.init();
-        TablesDataTables.init();
-
-     
-
-
     });
     </script>
     <!-- END INITIALIZATION--> 

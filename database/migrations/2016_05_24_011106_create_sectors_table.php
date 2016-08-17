@@ -16,6 +16,7 @@ class CreateSectorsTable extends Migration
             $table->increments('id');
             $table->integer('number');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
