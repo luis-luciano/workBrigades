@@ -40,6 +40,8 @@ class CreateRequestsTable extends Migration
 
             $table->bigInteger('request_rejection_id')->unsigned()->nullable()->index();
             $table->foreign('request_rejection_id')->references('id')->on('request_rejections')->onDelete('cascade');
+
+            $table->bigInteger('request_location_id')->unsigned()->nullable()->index();
             
             $table->integer('brigade_id')->unsigned()->index();
             $table->foreign('brigade_id')->references('id')->on('brigades');

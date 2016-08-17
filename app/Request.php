@@ -59,6 +59,11 @@ class Request extends Model {
         return $this->morphMany('App\File', 'filable');
     }
 
+    public function location()
+    {
+        return $this->belongsTo('App\RequestLocation', 'request_location_id');
+    }
+
     public function addFile($file)
     {
         return $this->files()->save($file);
@@ -147,6 +152,11 @@ class Request extends Model {
 	public function getHasFilesAttribute()
     {
         return $this->files->count() > 0;
+    }
+
+    public function getHasLocationAttribute()
+    {
+        return !is_null($this->location);
     }
 
 	public function getSupervisionsNameAttribute()

@@ -159,9 +159,9 @@ class RequestsController extends Controller
         return redirect(route('requests.edit', compact('inquiry')).'#tab_more');
     }
 
-    public function unapproved(Inquiry $inquiry)
+    public function inProcess(Inquiry $inquiry)
     {
-        $inquiry->changeStateTo('unapproved');
+        $inquiry->changeStateTo('in_process');
 
         alert()->success(trans('messages.success.update'));
 
@@ -185,14 +185,12 @@ class RequestsController extends Controller
         if(!$default->isEmpty() and !$others->isEmpty()){
             $default=$default->first();
             
-            $html.="<option value=".$default->id." selected> ".$default->name." </option>\n";
+            $html.="<option value=".$default->id."> ".$default->name." </option>\n";
             foreach ($others as $brigade) {
                  $html.="<option value=".$brigade->id."> ".$brigade->name." </option>\n";
             }
         }
-
-
-        
+    
         $data=[
                 'sector' => $sectorNumber,
                 'brigades' => $html,

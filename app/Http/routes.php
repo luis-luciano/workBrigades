@@ -18,19 +18,25 @@ Route::resource('notifications', 'NotificationsController');
 Route::resource('permissions', 'PermissionsController');
 Route::resource('personalInformations', 'PersonalInformationsController');
 Route::resource('problemTypes', 'ProblemTypesController');
-// Request Files
-//Route::get('requests/{requests}/files/{files}', ['as' => 'requests.files.show', 'uses' => 'RequestFileController@show']);
-//Route::post('requests/{requests}/files', ['as' => 'requests.files.store', 'uses' => 'RequestFileController@store']);
-//Route::delete('requests/{requests}/files/{files}', ['as' => 'requests.files.destroy', 'uses' => 'RequestFileController@destroy']);
 
 Route::get('request/sector-brigade', ['as' => 'request.sector-brigade', 'uses' => 'RequestsController@findSectorBrigade']);
+
+// Requests Locations
+Route::put('requests/{requests}/locations', ['as' => 'requests.locations.update', 'uses' => 'RequestLocationController@updateOrStore']);
+Route::delete('requests/{requests}/locations', ['as' => 'requests.locations.destroy', 'uses' => 'RequestLocationController@destroy']);
+
 // Requests Files
 Route::get('requests/{requests}/files/{files}', ['as' => 'requests.files.show', 'uses' => 'RequestFileController@show']);
 Route::post('requests/{requests}/files', ['as' => 'requests.files.store', 'uses' => 'RequestFileController@store']);
+
 // Requests Conclude
 Route::post('requests/{requests}/conclude', ['as' => 'requests.conclude', 'uses' => 'RequestsController@conclude']);
-// Request Not Approved
+
+// Request Rejection and unapproved
 Route::post('requests/{requests}/unapproved', ['as' => 'requests.unapproved', 'uses' => 'RequestRejectionsController@updateOrStore']);
+
+// Request In Process
+Route::post('requests/{requests}/in-process', ['as' => 'requests.in-process', 'uses' => 'RequestsController@inProcess']);
 Route::resource('requests', 'RequestsController');
 Route::resource('requestsPriorities', 'RequestPrioritiesController');
 Route::resource('requestRejections', 'RequestRejectionsController');
@@ -67,3 +73,6 @@ Route::get("prueba", function(){
 	return view("admin.users.profile");
 });
 
+
+
+//Latitud: 18.892679 | Longitud: -96.947475

@@ -252,6 +252,7 @@ module.exports = (function ($) {
     };
 
     var edit = function(tipologiesRelations,route,images) {
+       require('../helpers/googleMap.js')();
        var buttonsRequest=$('#buttonsRequest');
        var panelFooter=$('.panel-footer');
 

@@ -17,7 +17,7 @@
 		<div class="form-buttons form-group clearfix">
 		    <div class="row">
 		        <div class="col-md-12">
-		            {!! Form::submit(is_null($inquiry->rejection) ? 'No Aprobar Petición' : 'Actualizar No Aprobación', ['class' => 'btn btn-success']) !!}
+		            {!! Form::submit(is_null($inquiry->rejection) ? 'Rechazar petición' : 'Actualizar rechazo', ['class' => 'btn btn-success']) !!}
 		        </div>
 		    </div>
 		</div>

@@ -76,6 +76,8 @@
 
 	@include('partials.hiddenMenu')
 
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCboicx4wx9FUw2-I7uNgfk3701y2U4Ujw"></script>
+	
 	<!-- BEGIN CORE JAVASCRIPT -->
     <script type="text/javascript" src="{{ asset(elixir('js/app.js')) }}"></script>
     <!-- END CORE JAVASCRIPT -->
@@ -92,14 +94,14 @@
 
 
 	<script>
-	$(document).ready(function () {
-		Pleasure.init();
-		Layout.init();
-		TablesDataTables.init();
-		FormsPickers.init();// COLOR SELECTOR
-		@yield('scripts')
+		$(document).ready(function () {
+			Pleasure.init();
+			Layout.init();
+			TablesDataTables.init();
+			FormsPickers.init();// COLOR SELECTOR
+			@yield('scripts')
 
-	});
+		});
 	</script>
 	<!-- END INITIALIZATION-->
 
