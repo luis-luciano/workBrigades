@@ -29,16 +29,28 @@
             </div>
     </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="form-group">
                     <div class="inputer floating-label">
                         <div class="input-wrapper">
-                            {!! Form::textarea('subject', null, ['class' => 'form-control', 'rows' => '1']) !!}
+                            {!! Form::textarea('subject', null, ['class' => 'form-control', 'rows' => '2']) !!}
                             {!! Form::label('subject', trans('requests.subject'), ['class' => 'control-label']) !!}
                         </div>
                     </div>
                 </div><!--.form-group-->
-            </div>
+            </div>                      
+            <div class="col-md-4">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 260px; height: 100px;"></div>
+                    <div>
+                        <span class="btn btn-default btn-file">
+                            <span class="fileinput-new">Subir Imagen</span>
+                            <span class="fileinput-exists">Cambiar</span>
+                            <input id="fileinput" accept=".jpg, .jpeg, .png" type="file" name="file"></span>
+                            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Quitar</a>
+                    </div>
+                </div>
+            </div>                            
         </div>
         <div class="row">
             <div class="col-md-2">
@@ -139,7 +151,10 @@
                     </div>
                 </div><!--.form-group-->
             </div>
-        </div>     
+        </div>
+
+
+
     
 </div>
 <br>

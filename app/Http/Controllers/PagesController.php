@@ -53,7 +53,8 @@ class PagesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+       
         $colonies=Colony::lists('name','id');
         $problems=Problem::lists('name','id');
         return view('pages.public.requests.create', compact('colonies','problems'));
@@ -67,20 +68,11 @@ class PagesController extends Controller
      */
     public function store(Request $request)
     {   
-       
-        $colony=Colony::findOrFail($request->get('colony_id'));
-        $sectorNumber=$colony->sector->number;
-        $sector=$colony->sector; 
+        dd($request->all());
+        $sector=Colony::findOrFail($request->get('colony_id'))->sector; 
 
-        $citizen_data= new PersonalInformation;
-            $citizen_data->name=$request->name;
-            $citizen_data->paternal_surname=$request->paternal_surname;
-            $citizen_data->maternal_surname=$request->maternal_surname;
-            $citizen_data->house_phone=$request->house_phone;
-            $citizen_data->colony_id=$request->citizen_colony_id;
-            $citizen_data->street=$request->citizen_street;
-        $citizen_data->save();
-       // dd('error');
+        $citizen_data= PersonalInformation::create($request->all());
+        
         $citizen = Citizen::create($request->all());
 
         $citizen->personalInformation()->associate(PersonalInformation::find($citizen_data->id))->save();
@@ -93,7 +85,17 @@ class PagesController extends Controller
         $inquiry->creator()->associate(Citizen::findOrFail($citizen->id));
         $inquiry->save();
 
+        $inquiry->supervisions()->attach(Typology::findOrFail(Problem::findOrFail($request->problem_id)->typology->id)->supervisions()->pluck('id')->toArray());
+        $this->uploadFile($request,$inquiry);
         return redirect('Peticion-publica/'.$inquiry->id.'/edit');
+    }
+
+    private function uploadFile(Request $request, Inquiry $inquiry)
+    {
+        $file = File::fromForm($request->file('file'), $inquiry->id, Inquiry::$uploadsPath);
+        return File::checkUpload($file, function () use ($inquiry, $file) {
+            $inquiry->addFile($file);
+        });
     }
 
     /**
