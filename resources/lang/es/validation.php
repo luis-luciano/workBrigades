@@ -146,5 +146,15 @@ return array(
         'paternal_surname' => trans('personalInformations.paternal_surname'),
         'maternal_surname' => trans('personalInformations.maternal_surname'),
         'colony_id' => trans('personalInformations.colony_id'),
+        'subject' => trans('requests.subject'),
+        'brigade_id' => trans('requests.brigade'),
+        'citizen_id' => trans('requests.citizen'),
+        'typology_id' => trans('requests.typology_id'),
+        'problem_id' => trans('requests.problem'),
+        'request_priority_id' => trans('requests.request_priority_id'),
+        'number' => trans('requests.number'),
+        'street' => trans('requests.street'),
+        'latitude' => 'Latitud',
+        'longitude' => 'Longitud'
     ),
 );

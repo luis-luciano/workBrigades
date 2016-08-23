@@ -66,6 +66,7 @@
                     </div>
                     
                     <div class="row">
+                        @include('errors.list')
                         <div id="map"></div>
                     </div>
 
@@ -131,9 +132,6 @@
                         <div class="col-md-4">
                             <div class="icon-circle bg-red text-white"><i class="fa fa-close fa-3x" aria-hidden="true"></i></div>
                             <button type="button" class="btn btn-flat btn-red btn-lg btn-block btn-ripple" data-toggle="modal" data-target="#requestUnapprovedModal">{{ is_null($inquiry->rejection) ? 'Rechazar Petición' : 'Actualizar rechazo' }}</button>
-                            {{-- Form::open(['route' => ['requests.unapproved', $inquiry->id], 'method' => 'POST', 'id' => 'requestUnapprovedForm']) !!}
-                                {!! Form::submit('No Aprobar Petición', [ 'id' => 'requestUnapprovedButton', 'class' => 'btn btn-flat btn-red btn-lg btn-block btn-ripple']) !!}
-                            {!! Form::close() --}}
                         </div>
                     </div><!--.row.client-list-->
                 </div><!--.tab-pane-->

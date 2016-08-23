@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Request as Inquiry;
 use App\RequestLocation;
 use App\Http\Requests;
+use App\Http\Requests\LocationRequest;
 
 class RequestLocationController extends Controller
 {
@@ -74,7 +75,7 @@ class RequestLocationController extends Controller
         //
     }
 
-    public function updateOrStore(Request $request, Inquiry $inquiry)
+    public function updateOrStore(LocationRequest $request, Inquiry $inquiry)
     {
         if (is_null($inquiry->location)) {
             RequestLocation::create($request->all())->request()->save($inquiry);

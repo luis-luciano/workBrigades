@@ -300,7 +300,7 @@ module.exports = function ($) {
                     }
                 },
                 error: function error(xhr, status) {
-                    alert("Error de comunicacion " + status + " con el servidor!!");
+                    sweetAlertNotTimer('error', "Error de comunicacion " + status + " con el servidor!!");
                 }
             });
         }.bind(route);
@@ -524,6 +524,11 @@ module.exports = function ($) {
         });
 
         $('#deleteRequestButton').click(function (e) {
+            e.preventDefault();
+            require('../helpers/deleteConfirmationAlert.js')(this);
+        });
+
+        $('#deleteRequestLocationRequestButton').click(function (e) {
             e.preventDefault();
             require('../helpers/deleteConfirmationAlert.js')(this);
         });
@@ -842,7 +847,7 @@ module.exports = function () {
                 });
             } else {
                 //No geolocation fallback: Defaults mapCenter
-                setLocation(mapCenter);
+                sweetAlertNotTimer('error', 'Su navegador no soporta geolocalización');
             }
         });
 

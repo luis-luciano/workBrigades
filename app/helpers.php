@@ -20,6 +20,11 @@ function singular($name = null)
     return trans_choice($name.'.'.str_singular($name), 1);
 }
 
+function getChoice($elements = null)
+{
+    return ($$elements->total()>1)? plural($elements) :singular($elements);
+}
+
 function optionalCollection($collection)
 {
     return ['' => 'No tiene'] + $collection->all();

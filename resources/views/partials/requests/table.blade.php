@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-striped table-bordered table-hover table-condensed clickable-rows">
+    <table class="table table-striped table-bordered table-hover table-condensed">
         <thead id="headTable">
             <tr>
                <th class="col-md-1">Folio</th>
@@ -13,9 +13,8 @@
         </thead>
         <tbody>
             @foreach ($requests as $request)
-                <tr>
+                <tr class='clickable-row' data-href='{{ route($baseRequestRoute, $request) }}'>
                     <td>
-                        <input type="hidden" id="_url" value="{{ action('RequestsController@edit',$request->id)}}">
                         {{ $request->id }}
                     </td>
                     <td>

@@ -1,3 +1,4 @@
+@include('errors.list')
 <div class="form-content">
     <div class="row">
         <input type="hidden" id="typeRequest" value="{{ $type }}">

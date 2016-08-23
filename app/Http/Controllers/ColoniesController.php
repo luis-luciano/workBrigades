@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 class ColoniesController extends Controller
 {   
     public function __construct() {
-        $this->middleware('auth', ['only' => ['index','create','store','show', 'edit','update', 'destroy']]);
+        $this->middleware('auth', ['only' => ['create','store','show', 'edit','update', 'destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class ColoniesController extends Controller
      */
     public function index() //22
     {
-        auth()->user()->authorized(22) ?  : abort(403);
+        //auth()->user()->authorized(22) ?  : abort(403);
 
         $colonies=Colony::SearchFromRequest()->PaginateForTable();
         

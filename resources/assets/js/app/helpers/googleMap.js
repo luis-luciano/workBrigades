@@ -33,7 +33,7 @@ var initialize = function() {
              },function(){ sweetAlertNotTimer('error', 'No se tienen permisos para obtener su ubicación, recargue la página para permitir o active la geolocalización'); });
          } else {
              //No geolocation fallback: Defaults mapCenter
-            sweetAlertNotTimer('error', 'Su navegador no soporta geolocalización'); });
+            sweetAlertNotTimer('error', 'Su navegador no soporta geolocalización');
         }
     });
 

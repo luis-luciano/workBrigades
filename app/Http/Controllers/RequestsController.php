@@ -16,6 +16,7 @@ use App\Problem;
 use App\Citizen;
 use App\RequestRejection;
 use App\Request as Inquiry;
+use App\Http\Requests\StoreRequestRequest;
 use Illuminate\Http\Request;
 
 class RequestsController extends Controller
@@ -50,7 +51,7 @@ class RequestsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequestRequest $request)
     {
         $inquiry = new Inquiry($request->all());
         //$inquiry->creator()->associate($this->currentUser);
@@ -153,6 +154,10 @@ class RequestsController extends Controller
             RequestRejection::destroy($rejectionId);
         }
         $inquiry->changeStateTo('concluded');
+
+        $inquiry->finish_date=Carbon::now();
+        
+        $inquiry->save();
 
         alert()->success(trans('messages.success.update'));
 
