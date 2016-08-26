@@ -19,19 +19,23 @@ class CreateSupervisionsTable extends Migration
                 $table->string('extension', 40);
 
                 $table->integer('user_id')->unsigned();
-                $table->foreign('user_id')->references('id')->on('users');
+                $table->integer('supervision_id')->unsigned()->nullable();
 
-                $table->integer('supervisions_id')->unsigned()->nullable();
-                $table->foreign('supervisions_id')->references('id')->on('supervisions');
+                $table->foreign('user_id')->references('id')->on('users');                
+                $table->foreign('supervision_id')->references('id')->on('supervisions');
                 $table->timestamps();
                 $table->softDeletes();
         });
         Schema::create('supervision_user', function (Blueprint $table) {
-                $table->integer('user_id')->unsigned();
                 $table->integer('supervision_id')->unsigned();
+                $table->integer('user_id')->unsigned();
+                
 
                 $table->foreign('user_id')->references('id')->on('users');
                 $table->foreign('supervision_id')->references('id')->on('supervisions');
+                
+                $table->timestamps();
+                $table->softDeletes();
 
         });
         Schema::create('supervisionables', function (Blueprint $table) {

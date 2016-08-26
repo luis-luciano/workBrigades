@@ -71,7 +71,6 @@
     <!-- ADMIN 1 -->
     <script src="../../assets/admin1/js/layout.js"></script>    
    
-    <script src="{{ asset('assets/globals/plugins/clockface/js/clockface.js') }}"></script>
 
      
     <script>

@@ -19,7 +19,7 @@ class ColonyScopesController extends Controller
      */
     public function index() // 29
     {
-        auth()->user()->authorized(30) ?  : abort(403);
+        auth()->user()->authorized(29) ?  : abort(403);
 
         $scopes=ColonyScope::SearchFromRequest()->PaginateForTable();
 

@@ -50,5 +50,14 @@ class TestPermissionsTableSeeder extends Seeder
                 ]);
             }
         }
+
+        Permission::create([
+                    'label' => 'Configurar Colonies',
+                    'name' => 'config.colonies'
+                ]);
+        Permission::create([
+                    'label' => 'Configurar Requests',
+                    'name' => 'config.requests',
+                ]);
     }
 }

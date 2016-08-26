@@ -79,17 +79,63 @@
 						</div></a>
 					</li>
 					<li>
-						<div class="ch-item ch-img-2">
+						<div class="ch-item ch-img-2" data-toggle="modal" data-target=".bs-example-modal-sm">
 							<div class="ch-info">
 								<h3>S I S T E M A</h3>
-								<p>C O N S U L T A<a href="Peticion-publica">Cómo Vamos?</a></p>
+								<p>C O N S U L T A<a href="Peticion-publica" >Cómo Vamos?</a></p>
 							</div>
 						</div>
 					</li>
 
 				</ul>
 
+				<!-- Small modal -->
 				
+
+				<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+				  <div class="modal-dialog modal-sm" role="document">
+				    <div class="modal-content">
+				       {!! Form::open(['route' => 'findRequest', 'id' => 'FindRequestForm']) !!}
+                        	<div class="row">
+				                    <div class="col-md-6">
+				                        <div class="form-group">
+				                            <div class="inputer floating-label">
+				                                <div class="input-wrapper">
+				                                    {!! Form::text('folio', null, ['class' => 'form-control']) !!}
+				                                    {!! Form::label('folio', 'Folio', ['class' => 'control-label']) !!}
+				                                </div>
+				                            </div>
+				                        </div><!--.form-group-->
+				                    </div>				                    
+				            </div>
+				            <div class="row">
+				            	<div class="col-md-6">
+				                        <div class="form-group">
+				                            <div class="inputer floating-label">
+				                                <div class="input-wrapper">
+				                                    {!! Form::text('pin', null, ['class' => 'form-control']) !!}
+				                                    {!! Form::label('pin','Pin', ['class' => 'control-label']) !!}
+				                                </div>
+				                            </div>
+				                        </div><!--.form-group-->
+				                    </div>
+				            </div>
+				            <div class="row">
+				            	<div class="form-buttons form-group clearfix">
+								    <div class="row">
+								        <div class="col-md-12">
+								        <button type="submit" 'class'='btn btn-success button-striped button-full-striped btn-ripple' >
+								        	CONSULTAR
+								        </button>
+								            
+								        </div>
+								    </div>
+								</div>
+				            </div>
+                    	{!! Form::close() !!} 
+				    </div>
+				  </div>
+				</div>
 			</div>
 			
 

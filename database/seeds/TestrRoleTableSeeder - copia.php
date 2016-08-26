@@ -24,8 +24,8 @@ class TestRoleTableSeeder extends Seeder
             ],
             [
                 'role' => [
-                    'name' => 'Administrator',
-                    'label' => 'Administrator',
+                    'name' => 'administrator',
+                    'label' => 'Administrador',
                     'home' => '/',
                 ],
                 'permissions' => [
@@ -134,6 +134,8 @@ class TestRoleTableSeeder extends Seeder
                     'edit.request_types',
                     'update.request_types',
                     'destroy.request_types',
+                    'config.colonies',
+                    'config.requests',
                 ],
             ],
             [
@@ -147,16 +149,56 @@ class TestRoleTableSeeder extends Seeder
                     'create.requests',
                     'edit.requests',
                     'update.requests',
+                    'index.brigades',
+                    'index.capture_types',
+                    'index.citizens',
+                    'index.colonies',
+                    'index.colony_scopes',
+                    'index.problem_types',
+                    'index.request_priorities',
+                    'index.request_states',
+                    'index.sectors',
+                    'index.settlement_types',
+                    'index.typologies',
+                    'index.request_types',
+                    'config.colonies',
+                    'config.requests',
                 ],
+            ],
+            [
                 'role' => [
-                    'name' => 'usuario',
-                    'label' => 'usuario',
+                    'name' => 'substitute',
+                    'label' => 'Suplente',
                     'home' => '/',
                 ],
                 'permissions' => [
+                    'index.requests',
                     'create.requests',
+                    'store.requests',
+                    'show.requests',
+                    'edit.requests',
+                    'update.requests',
+                    'index.brigades',
+                    'create.brigades',
+                    'store.brigades',
+                    'show.brigades',
+                    'edit.brigades',
+                    'update.brigades',
+                    'config.requests',
                 ],
             ],
+            [
+                'role' => [
+                    'name' => 'citizen',
+                    'label' => 'Ciudadano',
+                    'home' => '/',
+                ],
+                'permissions' => [
+                    'index.requests',
+                    'create.requests',
+                    'store.requests',
+                ],
+            ]
         ];
 
         foreach ($roles as $role) {

@@ -96,6 +96,16 @@ class User extends Authenticatable {
         return $this->belongsToMany(Supervision::class)->withTimestamps();
     }
 
+	public function supervision()
+    {
+        return $this->hasMany(Supervision::class);
+    }
+
+    public function supervisions()
+    {
+        return $this->belongsToMany(Supervision::class)->withTimestamps();
+    }
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);

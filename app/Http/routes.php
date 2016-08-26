@@ -2,6 +2,7 @@
 
 Route::get('/',['as'=>'home','uses'=>'PagesController@index']);
 Route::resource('Peticion-publica','PagesController');
+Route::post('findRequest', ['as'=>'findRequest','uses'=>'PagesController@findRequest']);
 
 Route::resource('admin', 'AdminController');
 
@@ -69,9 +70,7 @@ Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
 	Route::resource('colonies','ColoniesController');
 });
 
-Route::get("prueba", function(){
-	return view("admin.users.profile");
-});
+Route::get('graficas', 'PagesController@showGraphics');
 
 
 

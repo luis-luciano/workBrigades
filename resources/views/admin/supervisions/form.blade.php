@@ -1,7 +1,7 @@
 <div class="form-content">
  @include('errors.list')
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="form-group">
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
@@ -11,7 +11,7 @@
                 </div>
             </div><!--.form-group-->
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <div class="form-group">
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
@@ -30,7 +30,33 @@
                     </div>
                 </div>
             </div><!--.form-group-->
-        </div> 
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                {!! Form::label('supervision_id', trans('supervisions.supervision_id'), ['class' => 'control-label']) !!}
+                <div class="input-wrapper">
+                    {!! Form::select('supervision_id', $supervisions, null, ['class' => 'select2 form-control', 'style' => 'width: 100%']) !!}
+                </div>
+            </div><!--.form-group-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                {!! Form::label('user_id', 'Director', ['class' => 'control-label']) !!}
+                <div class="input-wrapper">
+                    {!! Form::select('user_id', $users, null, ['class' => 'select2 form-control', 'style' => 'width: 100%']) !!}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="form-group">
+                {!! Form::label('members_list[]', trans('supervisions.members_list'), ['class' => 'control-label']) !!}
+                <div class="input-wrapper">
+                    {!! Form::select('members_list[]', $users, null, ['class' => 'select2 form-control', 'style' => 'width: 100%', 'multiple']) !!}
+                </div>
+            </div>
+        </div>
     </div>
 </div><!--.form-content-->
 

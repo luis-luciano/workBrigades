@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Citizen;
 use App\Colony;
+use App\File;
 use App\Http\Requests;
 use App\Http\Requests\PetitionPublicRequest;
+use App\Http\Requests\RequestPublicRequest;
 use App\PersonalInformation;
 use App\Problem;
-use App\Request as Petition;
+use App\Request as Inquiry;
 use App\RequestPriority;
 use App\Typology;
 use App\User;
@@ -29,7 +31,7 @@ class PagesController extends Controller
             $typologies=Typology::all();
             $counters=array();
             foreach ($typologies as $typology) { 
-                $counters[$typology->id]=Petition::countTypology($typology->id)->count();
+                $counters[$typology->id]=Inquiry::countTypology($typology->id)->count();
             }
             $counters=json_encode($counters);
         if (in_array( 'Root' , $role_user)) {
@@ -38,10 +40,8 @@ class PagesController extends Controller
                 if (in_array( 'Administrador' , $role_user)) {
                     return view('pages.index',compact('typologies','counters'));
                 } else {
-                        if (in_array( 'usuario' , $role_user)) 
-                            {return view("admin.users.profile",compact('user'));} 
-                        else { abort(404); }   
-                        }
+                        return view("admin.users.profile",compact('user'));
+                    } 
                 }
         } 
         else { return view('pages.welcome');}
@@ -66,9 +66,9 @@ class PagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestPublicRequest $request)
     {   
-        dd($request->all());
+        //dd($request->all());
         $sector=Colony::findOrFail($request->get('colony_id'))->sector; 
 
         $citizen_data= PersonalInformation::create($request->all());
@@ -77,7 +77,7 @@ class PagesController extends Controller
 
         $citizen->personalInformation()->associate(PersonalInformation::find($citizen_data->id))->save();
 
-        $inquiry = new Petition($request->all());
+        $inquiry = new Inquiry($request->all());
         $inquiry->request_priority_id=2;
         $inquiry->brigade_id=$sector->brigadesByTypology()->where('typology_id',Problem::findOrFail($request->problem_id)->typology->id)->first()->id;
         $inquiry->request_state_id=1;
@@ -86,17 +86,25 @@ class PagesController extends Controller
         $inquiry->save();
 
         $inquiry->supervisions()->attach(Typology::findOrFail(Problem::findOrFail($request->problem_id)->typology->id)->supervisions()->pluck('id')->toArray());
-        $this->uploadFile($request,$inquiry);
+        
+        if ($request->file) {
+             $this->uploadFile($request,$inquiry);
+         } 
         return redirect('Peticion-publica/'.$inquiry->id.'/edit');
     }
 
     private function uploadFile(Request $request, Inquiry $inquiry)
     {
         $file = File::fromForm($request->file('file'), $inquiry->id, Inquiry::$uploadsPath);
+
+        //alert()->success(trans('messages.success.store'));
+
         return File::checkUpload($file, function () use ($inquiry, $file) {
             $inquiry->addFile($file);
         });
     }
+
+    
 
     /**
      * Display the specified resource.
@@ -104,9 +112,20 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function FindRequest(Request $request)
     {
-        //
+        
+        $inquiry=Inquiry::findOrFail($request->folio);
+
+        if ($inquiry) {
+            dd();
+            return redirect('Peticion-publica/'.$inquiry->id.'/edit');
+        } else {
+            dd('no se encontro');
+            abort(404);
+        }
+        
+        return $inquiry;
     }
 
     /**
@@ -117,7 +136,7 @@ class PagesController extends Controller
      */
     public function edit($id)
     {   
-        $inquiry=Petition::findOrFail($id);
+        $inquiry=Inquiry::findOrFail($id);
         $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();
         $citizen = [$inquiry->concerned->id => $inquiry->concerned->full_name];
 
@@ -175,5 +194,24 @@ class PagesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showGraphics()
+    {
+        $typologies=Typology::all();
+            $counters=array();
+            foreach ($typologies as $typology) { 
+                $counters[$typology->id]=Inquiry::countTypology($typology->id)->count();
+            }
+            $counters=json_encode($counters);
+
+        return view('pages.index',compact('typologies','counters'));
+
     }
 }

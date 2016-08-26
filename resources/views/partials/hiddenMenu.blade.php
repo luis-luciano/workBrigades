@@ -16,7 +16,7 @@
 				</li>@endif
 				<li>
 					<a href="javascript:;"><i class="fa fa-cogs"></i> Sistema</a>
-					<ul class="child-menu">
+					@if(auth()->user()->authorized(127))<ul class="child-menu">
 						<li>
 							<a href="javascript:;"><i class="fa fa-map"></i> Colonias</a>
 							<ul class="child-menu">
@@ -26,8 +26,8 @@
 								@if(auth()->user()->authorized(85)) <li><a href="{{ route('sectors.index') }}"><i class="fa fa-houzz"></i> Sectores</a></li> @endif
 							</ul>
 						</li>
-					</ul>
-					<ul class="child-menu">
+					</ul>@endif
+					@if(auth()->user()->authorized(128))<ul class="child-menu">
 						<li>
 							<a href="javascript:;"><i class="fa fa-file"></i>  Peticiones</a>
 							<ul class="child-menu">
@@ -40,7 +40,8 @@
 								 @if(auth()->user()->authorized(1)) <li><a href="{{ route('brigades.index') }}"><i class="fa fa-users"></i> Brigadas</a></li> @endif
 							</ul>
 						</li>
-					</ul>
+					</ul>@endif
+
 					@if(auth()->user()->authorized(99))<ul class="child-menu">
 						<li><a href="{{ route('supervisions.index') }}"><i class="fa fa-stumbleupon"></i> Superviciones</a></li></ul>
 					@endif
