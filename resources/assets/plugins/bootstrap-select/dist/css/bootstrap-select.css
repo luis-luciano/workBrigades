@@ -28,6 +28,11 @@
   outline: 5px auto -webkit-focus-ring-color !important;
   outline-offset: -2px;
 }
+.bootstrap-select.btn-group .dropdown-menu li.selected a {
+  background: transparent;
+  color: #5677fc;
+}
+
 .bootstrap-select.form-control {
   margin-bottom: 0;
   padding: 0;

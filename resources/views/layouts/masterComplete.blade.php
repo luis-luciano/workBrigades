@@ -38,6 +38,8 @@
 
     	<script type="text/javascript" src="{{ asset('assets/globals/plugins/modernizr/modernizr.min.js') }}"></script>
 
+    
+
 	
 
 	@yield('styles')
@@ -89,9 +91,6 @@
 	<script src="{{ asset('assets/globals/plugins/clockface/js/clockface.js') }}"></script>
 
 	<script src="{{ asset('assets/globals/scripts/forms-pickers.js') }}"></script>
-
-
-
 
 	<script>
 		$(document).ready(function () {

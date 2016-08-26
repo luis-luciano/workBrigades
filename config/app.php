@@ -157,6 +157,7 @@ return [
 		App\Providers\AuthServiceProvider::class,
 		App\Providers\EventServiceProvider::class,
 		App\Providers\RouteServiceProvider::class,
+		App\Providers\FormServiceProvider::class,
 		//App\Providers\EntrustCustomServiceProvider::class,
 		App\Providers\ViewComposerServiceProvider::class,
 		/*McCool\LaravelAutoPresenter\AutoPresenterServiceProvider::class,*/

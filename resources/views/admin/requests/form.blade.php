@@ -45,7 +45,7 @@
             <div class="form-group">
                 {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control','id'=>'typology']) !!}
+                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control select2','id'=>'typology']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -63,7 +63,7 @@
             <div class="form-group">
                 {!! Form::label('request_priority_id', trans('requests.request_priority_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('request_priority_id', $priorities, null, ['class' => 'form-control']) !!}
+                    {!! Form::select('request_priority_id', $priorities, null, ['class' => 'form-control select2']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -100,7 +100,7 @@
                 {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
                     <input type="hidden" id="colonySearchUri" value="{{ route('ajax.colonies.index') }}">
-                    {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control', 'style' => 'width: 100%']) !!}
+                    {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select2', 'style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
@@ -154,7 +154,7 @@
             <div class="form-group">
                 {!! Form::label('brigade_id', trans('requests.brigade'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('brigade_id', (isset($inquiry)? $brigades : []), null, ['class' => 'form-control','style' => 'width: 100%']) !!}
+                    {!! Form::select('brigade_id', (isset($inquiry)? $brigades : []), null, ['class' => 'form-control select2','style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>

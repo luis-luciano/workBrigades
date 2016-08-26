@@ -4,6 +4,8 @@
 
 @section('scripts')
     //requestsController.index();
+    
+
 @stop
 
 @section('content')
@@ -33,28 +35,86 @@
                                     {!! Form::select('limit', ['10' => '10', '15' => '15', '20' => '20', $requests->total() => 'Todos'], $requests->perPage(), ['class' => 'selecter', 'onchange' => 'this.form.submit()', 'data-width' => '100%']) !!}
                                 </div>
                             </div>
-                        </div>
+                        {{--
+                            <div class="col-md-8">  
+                            </div>
 
-                        <div class="row">
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <div class="inputer">
-                                        <div class="input-wrapper">
-                                            {!! Form::text('folio', Request::get('folio'), ['class' => 'form-control', 'placeholder' => 'Folio']) !!}
+                            <div class="col-md-3">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
+                                                <div class="inputer">
+                                                    <div class="input-wrapper">
+                                                        {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control bootstrap-daterangepicker-specific']) !!}
+                                                    </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div><!--.form-group-->
+                                </div> 
                             </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <div class="input-wrapper">
-                                        {!! Form::text('citizen', Request::get('citizen'), ['class' => 'form-control', 'placeholder' => 'Nombre del Ciudadano']) !!}
-                                     </div>
-                                </div><!--.form-group-->
-                            </div>
+                        --}}
                         </div>
+                            
+                         
+                            <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <div class="inputer">
+                                                <div class="input-wrapper">
+                                                    {!! Form::text('folio', Request::get('folio'), ['class' => 'form-control', 'placeholder' => 'Folio']) !!}
+                                                </div>
+                                            </div>
+                                        </div><!--.form-group-->
+                                    </div>
 
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="inputer">
+                                                <div class="input-wrapper">
+                                                    {!! Form::text('citizen', Request::get('citizen'), ['class' => 'form-control', 'placeholder' => 'Nombre del Ciudadano']) !!}
+                                                </div>
+                                            </div>
+                                        </div><!--.form-group-->
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                                {!! Form::multipleSelectPicker('request_states[]', $requestStates, Request::get('request_states'), ['title' => 'Estado']) !!}  
+                                        </div><!--.form-group-->
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
+                                                        <div class="inputer">
+                                                            <div class="input-wrapper">
+                                                                {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control bootstrap-daterangepicker-specific']) !!}
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="pull-right">
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-primary "><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+                                        </div>
+                               
+                                        <div class="btn-group">   
+                                            <a href="{{ route('requests.index') }}" class="btn btn-purple"><i class="fa fa-eye" aria-hidden="true"></i> Ver todos</a>
+                                        </div>
+                                    </div>
+                                </div>          
+                            </div>
+                    
+                        <br>
                         <!--Table Request--> 
                         <div class="row">
                             <div class="col-md-12">

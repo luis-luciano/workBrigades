@@ -13,7 +13,9 @@ class CreateRequestsTable extends Migration
     public function up() {
         Schema::create('requests', function (Blueprint $table) {
             $table->bigIncrements('id');
+            
             $table->text('subject');
+            $table->string('pin', 5)->default('');
             $table->date('start_date')->nullable();
             $table->date('finish_date')->nullable();
             $table->boolean('is_public')->default(false);

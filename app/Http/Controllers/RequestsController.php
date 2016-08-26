@@ -17,6 +17,7 @@ use App\Citizen;
 use App\RequestRejection;
 use App\Request as Inquiry;
 use App\Http\Requests\StoreRequestRequest;
+use App\RequestState;
 use Illuminate\Http\Request;
 
 class RequestsController extends Controller
@@ -28,8 +29,10 @@ class RequestsController extends Controller
      */
     public function index()
     {
+        $requestStates=RequestState::lists('label','id');
+        $supervisions=Supervision::lists('name','id');
         $requests=Inquiry::orderBy('created_at', 'desc')->paginate(10);
-        return view('admin.requests.index',compact('requests'));
+        return view('admin.requests.index',compact('requests','requestStates','supervisions'));
     }
 
     /**

@@ -10,10 +10,13 @@ use App\RequestType;
 use App\Sector;
 use App\User;
 use App\RequestState;
+use McCool\LaravelAutoPresenter\HasPresenter;
+use App\Presenters\RequestPresenter;
 use Illuminate\Database\Eloquent\SoftDeletes; 
 use Illuminate\Database\Eloquent\Model;
 
-class Request extends Model {
+class Request extends Model implements HasPresenter
+{
 
 	use SoftDeletes; 
 
@@ -43,6 +46,15 @@ class Request extends Model {
 	public static $diskName= 'requests_files';
 
 	public static $uploadsPath= 'uploads/requests_files';
+
+	public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($request) {
+            $request->pin = (string) mt_rand(10000, 99999);
+        });
+    }
 
 	public function concerned()
 	{
@@ -188,4 +200,9 @@ class Request extends Model {
 	{
 		return RequestState::findOrFail($this->request_state_id)->label;
 	}
+
+	public function getPresenterClass()
+    {
+        return RequestPresenter::class;
+    }
 }

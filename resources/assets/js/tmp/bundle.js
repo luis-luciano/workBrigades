@@ -983,11 +983,13 @@ require('../../config/jquery.js');
 require('../../config/parsley.js');
 require('../../config/select2.js');
 require('../../config/sweetAlert.js');
-require('../../config/moment.js');
 require('../../config/fileInput.js');
 require('../../config/photoSwipe.js');
+require('../../config/moment.js');
+require('../../config/bootstrap-select.js');
+//require('../../config/daterangepicker.js');
 
-},{"../../config/fileInput.js":44,"../../config/jquery.js":45,"../../config/moment.js":46,"../../config/parsley.js":47,"../../config/photoSwipe.js":48,"../../config/select2.js":49,"../../config/sweetAlert.js":50}],26:[function(require,module,exports){
+},{"../../config/bootstrap-select.js":44,"../../config/fileInput.js":45,"../../config/jquery.js":46,"../../config/moment.js":47,"../../config/parsley.js":48,"../../config/photoSwipe.js":49,"../../config/select2.js":50,"../../config/sweetAlert.js":51}],26:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -1371,7 +1373,7 @@ require('./autoload.js');
 
 require('../vendor/autoload.js');
 
-},{"../vendor/autoload.js":51}],43:[function(require,module,exports){
+},{"../vendor/autoload.js":52}],43:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1388,6 +1390,30 @@ require('../app/providers/pluginProvider.js');
 require('../app/providers/eventProvider.js');
 
 },{"../app/providers/eventProvider.js":24,"../app/providers/pluginProvider.js":25}],44:[function(require,module,exports){
+'use strict';
+
+/*
+|--------------------------------------------------------------------------
+| BootstrapSelect Configuration
+|--------------------------------------------------------------------------
+|
+| bootstrapSelect settings.
+|
+*/
+(function ($) {
+  $.fn.selectpicker.defaults = {
+    noneSelectedText: 'No hay selección',
+    noneResultsText: 'No hay resultados {0}',
+    countSelectedText: 'Seleccionados {0} de {1}',
+    maxOptionsText: ['Límite alcanzado ({n} {var} max)', 'Límite del grupo alcanzado({n} {var} max)', ['elementos', 'element']],
+    multipleSeparator: ', ',
+    selectAllText: 'Todos',
+    deselectAllText: 'Ninguno'
+  };
+})(jQuery);
+//
+
+},{}],45:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1469,7 +1495,7 @@ require('../app/globalize.js')({
 });
 //
 
-},{"../app/globalize.js":16}],45:[function(require,module,exports){
+},{"../app/globalize.js":16}],46:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1487,7 +1513,7 @@ $.ajaxSetup({
 	}
 });
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1527,7 +1553,7 @@ $('.format-date-from-now').each(function (index, dateElem) {
     $dateElem.text(date);
 });
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1554,7 +1580,7 @@ window.Parsley.parsleyOptions = {
     }
 };
 
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1618,7 +1644,7 @@ require('../app/globalize.js')({
 });
 //
 
-},{"../app/globalize.js":16}],49:[function(require,module,exports){
+},{"../app/globalize.js":16}],50:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1634,14 +1660,14 @@ $.fn.select2.defaults.set("theme", "bootstrap");
 $.fn.select2.defaults.set("language", "es");
 $.fn.select2.defaults.set("minimumResultsForSearch", 3);
 
-$("select").select2();
+$(".select2").select2();
 
 //on focus open select2
 $("span.select2-selection--single").on("focus", function () {
-    $(this).parent().parent().prev('select').select2('open');
+    $(this).parent().parent().prev('select.select2').select2('open');
 });
 
-},{}],50:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1696,7 +1722,7 @@ require('../app/globalize.js')({
     sweetAlertLayouts: sweetAlertLayouts
 });
 
-},{"../app/globalize.js":16}],51:[function(require,module,exports){
+},{"../app/globalize.js":16}],52:[function(require,module,exports){
 'use strict';
 
 /*

@@ -30,13 +30,6 @@ elixir(function(mix) {
 	    './resources/assets/template/globals/css/elements.css',
 	    // styles
 	    './resources/assets/css/style.css',
-	    //color selector
-		/*'./resources/assets/plugins/pnikolov-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css',
-		'./resources/assets/plugins/minicolors/jquery.minicolors.css',
-		'./resources/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css',
-		'./resources/assets/plugins/clockface/css/clockface.css',
-		'./resources/assets/plugins/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
-		'./resources/assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css',*/
 	    //table responsive 
 	    './public/assets/globals/plugins/rickshaw/rickshaw.min.css',
 	    './public/assets/globals/plugins/bxslider/jquery.bxslider.css',
@@ -45,14 +38,12 @@ elixir(function(mix) {
 
 		'./public/assets/globals/plugins/pnikolov-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css',
 		'./public/assets/globals/plugins/minicolors/jquery.minicolors.css',
-		'./public/assets/globals/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css',
-		'./public/assets/globals/plugins/clockface/css/clockface.css',
-		'./public/assets/globals/plugins/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
-		'./public/assets/globals/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css',
+		
 
 	    // plugins select2
 	    './resources/assets/plugins/select2/css/select2.min.css',
 	    './resources/assets/plugins/select2-bootstrap/select2-bootstrap.min.css',
+
 	    //chart
 	    './resources/assets/plugins/c3js-chart/c3.min.css',
 	    //sweetAlert
@@ -61,9 +52,11 @@ elixir(function(mix) {
 	    './public/assets/globals/plugins/photoswipe/photoswipe.css',
 	    './public/assets/globals/plugins/photoswipe/default-skin/default-skin.css',
 	    // template plugins
+	    './resources/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css',
 	    './public/assets/globals/plugins/bxslider/jquery.bxslider.css',
 	    './resources/assets/template/globals/css/plugins.css',
 	    './public/assets/globals/css/user.css',
+	    './resources/assets/plugins/bootstrap-select/dist/css/bootstrap-select.css',
 
 	], 'public/css/style.css');
 
@@ -82,11 +75,13 @@ elixir(function(mix) {
 	    'plugins/bootstrap-select/dist/js/bootstrap-select.min.js',
 	    'plugins/fastclick/lib/fastclick.js',
 	    '../../public/assets/globals/plugins/bxslider/jquery.bxslider.min.js',
+	    'plugins/bootstrap-daterangepicker/daterangepicker.js',
 	     //Tables
 	    'plugins/datatables/media/js/jquery.dataTables.min.js',
 	    'plugins/datatables/themes/bootstrap/dataTables.bootstrap.js',
 	    '../../public/assets/globals/scripts/tables-datatables.js',
 	    // plugins
+	    'plugins/bootstrap-select/dist/js/bootstrap-select.min.js',
 	    'plugins/select2/js/select2.full.min.js',
 	    'plugins/select2/js/i18n/es.js',
 		'plugins/sweetAlert/sweetalert.min.js',

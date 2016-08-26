@@ -73,5 +73,10 @@ Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
 Route::get('graficas', 'PagesController@showGraphics');
 
 
+Route::get("select", function(){
+	return view("select");
+});
+
+
 
 //Latitud: 18.892679 | Longitud: -96.947475

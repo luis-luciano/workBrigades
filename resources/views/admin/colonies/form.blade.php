@@ -32,7 +32,7 @@
             <div class="form-group">
                 {!! Form::label('colony_scope_id', trans('colonies.colony_scope_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                  {!! Form::select('colony_scope_id', $scopes, null, ['class' => 'select2 form-control', 'style' => 'width: 100%']) !!}
+                  {!! Form::select('colony_scope_id', $scopes, null, ['class' => 'form-control select2', 'style' => 'width: 100%']) !!}
                 </div>
             </div><!--.form-group-->
         </div>
