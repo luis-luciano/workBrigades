@@ -69,7 +69,7 @@
 			</canvas>
 			<!-- Heavy Rain -->
 			<div class="slide" id="slide-1" data-weather="rain">
-				<ul class="ch-grid">
+				<ul class="ch-grid list-group">
 					<li>
 						<a href="Peticion-publica/create"><div class="ch-item ch-img-1">
 							<div class="ch-info">
@@ -88,6 +88,34 @@
 					</li>
 
 				</ul>
+				<style type="text/css">
+					
+					/* Large desktop */
+					@media (min-width: 1200px) {}
+
+					/* Portrait tablet to landscape and desktop */
+					@media (min-width: 768px) and (max-width: 979px) {}
+
+					/* Landscape phone to portrait tablet */
+					@media (max-width: 767px) {  }
+
+					/* Landscape phones and down */
+					@media (max-width: 480px) {
+						#slide-1{
+							top:-140px;
+						}
+
+					}
+
+					@media (min-device-width : 320px) { 
+						#slide-1{
+							top:-150px;
+						}
+
+							
+
+					}
+				</style>
 
 				<!-- Small modal -->
 				
