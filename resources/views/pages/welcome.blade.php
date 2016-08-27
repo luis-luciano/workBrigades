@@ -68,6 +68,7 @@
 				
 			</canvas>
 			<!-- Heavy Rain -->
+
 			<div class="slide" id="slide-1" data-weather="rain">
 				<ul class="ch-grid list-group">
 					<li>
@@ -88,6 +89,9 @@
 					</li>
 
 				</ul>
+				<div class="row">
+	  			@include('errors.list')
+	  		</div>
 				<style type="text/css">
 					
 					/* Large desktop */

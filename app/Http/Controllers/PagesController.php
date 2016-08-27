@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use App\Citizen;
 use App\Colony;
 use App\File;
@@ -90,6 +91,8 @@ class PagesController extends Controller
         if ($request->file) {
              $this->uploadFile($request,$inquiry);
          } 
+
+         
         return redirect('Peticion-publica/'.$inquiry->id.'/edit');
     }
 
@@ -114,15 +117,27 @@ class PagesController extends Controller
      */
     public function FindRequest(Request $request)
     {
-        
+        $validator = Validator::make($request->all(), [
+            'folio' => 'required|numeric',
+            'pin' => 'required|digits_between:10000,99999',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('Peticion-publica')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+
+
+
+
         $inquiry=Inquiry::findOrFail($request->folio);
 
-        if ($inquiry) {
-            dd();
+        if ($inquiry->pin == $request->pin ) {
             return redirect('Peticion-publica/'.$inquiry->id.'/edit');
         } else {
-            dd('no se encontro');
-            abort(404);
+            return view('pages.public.requests.RequestNotFound');
         }
         
         return $inquiry;

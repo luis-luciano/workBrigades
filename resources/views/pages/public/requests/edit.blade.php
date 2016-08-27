@@ -10,7 +10,19 @@
 <div class="col-md-9 col-md-offset-1">
     <div class="panel">
         <div class="panel-heading">
-            <div class="panel-title"> Resumen de mi Peticion </div>
+            <div class="panel-title"> Resumen de mi Peticion 
+                <div class="row">
+                    <div class="text-right">
+                        <div class="btn btn-success button-striped button-full-striped btn-ripple">
+                            Folio:  {{ $inquiry->id }} 
+                        </div>
+                        <div class="btn btn-info button-striped button-full-striped btn-ripple">
+                            Pin:  {{ $inquiry->pin }}
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            
 
             <ul class="nav nav-tabs with-panel nav-justified" id="tabs">
                 <li class="active"><a href="#status" data-toggle="tab"> Estado de la Peticion</a></li>
