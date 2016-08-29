@@ -91,6 +91,15 @@
 				</ul>
 				<div class="row">
 	  			@include('errors.list')
+	  			@if(isset($mensaje))
+					<div id="errorsList" class="alert alert-danger-transparent" role="alert">
+						<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<ul>
+					        <li><small>* {{ $mensaje }}</small></li>
+				        </ul>
+				       
+					</div>
+				@endif
 	  		</div>
 				<style type="text/css">
 					

@@ -118,8 +118,8 @@ class PagesController extends Controller
     public function FindRequest(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'folio' => 'required|numeric',
-            'pin' => 'required|digits_between:10000,99999',
+            'folio' => 'required|numeric|exists:requests,id',
+            'pin' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -128,16 +128,14 @@ class PagesController extends Controller
                         ->withInput();
         }
 
-
-
-
-
         $inquiry=Inquiry::findOrFail($request->folio);
 
         if ($inquiry->pin == $request->pin ) {
             return redirect('Peticion-publica/'.$inquiry->id.'/edit');
         } else {
-            return view('pages.public.requests.RequestNotFound');
+            $mensaje='Verifica tus Datos, el PIN es incorrecto';
+
+            return view('pages.welcome',compact('mensaje'));
         }
         
         return $inquiry;
