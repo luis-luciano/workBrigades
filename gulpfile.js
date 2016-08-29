@@ -52,7 +52,7 @@ elixir(function(mix) {
 	    './public/assets/globals/plugins/photoswipe/photoswipe.css',
 	    './public/assets/globals/plugins/photoswipe/default-skin/default-skin.css',
 	    // template plugins
-	    './resources/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css',
+	    './resources/assets/plugins/bootstrap-daterangepicker/daterangepicker.css',
 	    './public/assets/globals/plugins/bxslider/jquery.bxslider.css',
 	    './resources/assets/template/globals/css/plugins.css',
 	    './public/assets/globals/css/user.css',

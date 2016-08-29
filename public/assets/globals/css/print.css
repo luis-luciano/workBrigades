@@ -1,4 +1,7 @@
-@page  {size: landscape;}
+@page  {size: landscape;
+height: 80%;
+margin: 5% 5%;
+}
 
 .btn{
 	display:none;

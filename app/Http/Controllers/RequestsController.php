@@ -148,6 +148,15 @@ class RequestsController extends Controller
         return redirect()->route('requests.index');
     }
 
+    public function impress()
+    {
+        $requests=Inquiry::with('colony.sector')->get();
+        $requests=$requests->sortBy('brigade_name');
+        $requests=$requests->sortBy('sector_number')->groupBy('brigade_id');
+        
+       return view('admin.requests.print',compact('requests'));
+    }
+
     public function conclude(Inquiry $inquiry)
     {
         if($inquiry->state->id == 5){

@@ -156,6 +156,16 @@ class Request extends Model implements HasPresenter
 		return $this->colony->sector->id;
 	}
 
+	public function getSectorNumberAttribute()
+	{
+		return $this->colony->sector->number;
+	}
+
+	public function getBrigadeNameAttribute()
+	{
+		return $this->brigade->name;
+	}
+
 	public function getTypologyIdAttribute()
 	{
 		return $this->problem->typology->id;

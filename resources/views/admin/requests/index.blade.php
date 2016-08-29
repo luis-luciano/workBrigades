@@ -24,7 +24,7 @@
                                     <button type="button" class="btn btn-success btn-ripple"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nuevo</button>
                                     </a>
 
-                                    <button type="button" class="btn btn-light-blue btn-ripple" onclick="window.print()"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</button>
+                                     <a target="_blank" href="{{ route('requests.print') }}"><button type="button" class="btn btn-light-blue btn-ripple" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</button></a>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                                                     <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
                                                         <div class="inputer">
                                                             <div class="input-wrapper">
-                                                                {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control bootstrap-daterangepicker-specific']) !!}
+                                                                {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control daterange-picker']) !!}
                                                             </div>
                                                     </div>
                                                 </div>

@@ -18,16 +18,16 @@ for (var i = 0; i < 7; i++) days[i] = m.day(i).format('dd');
 
 $('.daterange-picker').daterangepicker({
     locale: {
-        "format": "DD/MM/YYYY",
-        "separator": " - ",
-        "applyLabel": "Aplicar",
-        "cancelLabel": "Cancelar",
-        "fromLabel": "Desde",
-        "toLabel": "Hasta",
-        "customRangeLabel": "Personalizado",
-        "daysOfWeek": days,
-        "monthNames": months,
-        "firstDay": 1
+        format: "DD/MM/YYYY",
+        separato: " - ",
+        applyLabel: "Aplicar",
+        cancelLabel: "Cancelar",
+        fromLabel: "Desde",
+        toLabe: "Hasta",
+        customRangeLabel: "Personalizado",
+        daysOfWeek: days,
+        monthNames: months,
+        firstDay: 1
     },
     "ranges": {
         "Hoy": [
@@ -55,9 +55,9 @@ $('.daterange-picker').daterangepicker({
             '01/01/2014',
             today]
     },
-    //"startDate": '01/01/2014',
+    startDate: today,
+    showDropdowns: true,
     //"endDate": today,
     "maxDate": today,
-    "autoApply": true,
     "opens": "right",
 });

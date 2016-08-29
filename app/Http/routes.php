@@ -22,6 +22,9 @@ Route::resource('problemTypes', 'ProblemTypesController');
 
 Route::get('request/sector-brigade', ['as' => 'request.sector-brigade', 'uses' => 'RequestsController@findSectorBrigade']);
 
+//Request Print
+Route::get('requests/print', ['as' => 'requests.print', 'uses' => 'RequestsController@impress']);
+
 // Requests Locations
 Route::put('requests/{requests}/locations', ['as' => 'requests.locations.update', 'uses' => 'RequestLocationController@updateOrStore']);
 Route::delete('requests/{requests}/locations', ['as' => 'requests.locations.destroy', 'uses' => 'RequestLocationController@destroy']);

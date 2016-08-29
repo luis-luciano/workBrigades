@@ -985,11 +985,11 @@ require('../../config/select2.js');
 require('../../config/sweetAlert.js');
 require('../../config/fileInput.js');
 require('../../config/photoSwipe.js');
-require('../../config/moment.js');
 require('../../config/bootstrap-select.js');
-//require('../../config/daterangepicker.js');
+require('../../config/moment.js');
+require('../../config/daterangepicker.js');
 
-},{"../../config/bootstrap-select.js":44,"../../config/fileInput.js":45,"../../config/jquery.js":46,"../../config/moment.js":47,"../../config/parsley.js":48,"../../config/photoSwipe.js":49,"../../config/select2.js":50,"../../config/sweetAlert.js":51}],26:[function(require,module,exports){
+},{"../../config/bootstrap-select.js":44,"../../config/daterangepicker.js":45,"../../config/fileInput.js":46,"../../config/jquery.js":47,"../../config/moment.js":48,"../../config/parsley.js":49,"../../config/photoSwipe.js":50,"../../config/select2.js":51,"../../config/sweetAlert.js":52}],26:[function(require,module,exports){
 "use strict";
 
 module.exports = function (form) {
@@ -1373,7 +1373,7 @@ require('./autoload.js');
 
 require('../vendor/autoload.js');
 
-},{"../vendor/autoload.js":52}],43:[function(require,module,exports){
+},{"../vendor/autoload.js":53}],43:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1414,6 +1414,58 @@ require('../app/providers/eventProvider.js');
 //
 
 },{}],45:[function(require,module,exports){
+'use strict';
+
+/*
+|--------------------------------------------------------------------------
+| Daterangepicker Configuration
+|--------------------------------------------------------------------------
+|
+| daterangepicker settings.
+|
+*/
+
+var m = moment();
+var today = moment().format('DD/MM/YYYY');
+
+var months = new Array();
+var days = new Array();
+
+for (var i = 0; i < 12; i++) {
+    months[i] = m.month(i).format('MMMM');
+}for (var i = 0; i < 7; i++) {
+    days[i] = m.day(i).format('dd');
+}$('.daterange-picker').daterangepicker({
+    locale: {
+        format: "DD/MM/YYYY",
+        separato: " - ",
+        applyLabel: "Aplicar",
+        cancelLabel: "Cancelar",
+        fromLabel: "Desde",
+        toLabe: "Hasta",
+        customRangeLabel: "Personalizado",
+        daysOfWeek: days,
+        monthNames: months,
+        firstDay: 1
+    },
+    "ranges": {
+        "Hoy": [today, today],
+        "Ayer": [moment().subtract(1, 'day'), moment().subtract(1, 'day')],
+        "Esta semana": [moment().subtract(7, 'day'), today],
+        "Los últimos 30 días": [moment().subtract(30, 'day'), today],
+        "Este mes": [moment().startOf('month'), today],
+        "El mes pasado": [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+        "Este año": [moment().startOf('year'), today],
+        "En general": ['01/01/2014', today]
+    },
+    startDate: today,
+    showDropdowns: true,
+    //"endDate": today,
+    "maxDate": today,
+    "opens": "right"
+});
+
+},{}],46:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1495,7 +1547,7 @@ require('../app/globalize.js')({
 });
 //
 
-},{"../app/globalize.js":16}],46:[function(require,module,exports){
+},{"../app/globalize.js":16}],47:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1513,7 +1565,7 @@ $.ajaxSetup({
 	}
 });
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1553,7 +1605,7 @@ $('.format-date-from-now').each(function (index, dateElem) {
     $dateElem.text(date);
 });
 
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1580,7 +1632,7 @@ window.Parsley.parsleyOptions = {
     }
 };
 
-},{}],49:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1644,7 +1696,7 @@ require('../app/globalize.js')({
 });
 //
 
-},{"../app/globalize.js":16}],50:[function(require,module,exports){
+},{"../app/globalize.js":16}],51:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1667,7 +1719,7 @@ $("span.select2-selection--single").on("focus", function () {
     $(this).parent().parent().prev('select.select2').select2('open');
 });
 
-},{}],51:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1722,7 +1774,7 @@ require('../app/globalize.js')({
     sweetAlertLayouts: sweetAlertLayouts
 });
 
-},{"../app/globalize.js":16}],52:[function(require,module,exports){
+},{"../app/globalize.js":16}],53:[function(require,module,exports){
 'use strict';
 
 /*

@@ -26,7 +26,6 @@
     <!--COLOR SELECTOR -->
 		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/pnikolov-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/minicolors/jquery.minicolors.css') }}">
-		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/clockface/css/clockface.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
@@ -87,7 +86,7 @@
     <!--COLOR SELECTOR -->
 	<script src="{{ asset('assets/globals/plugins/pnikolov-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
 	<script src="{{ asset('assets/globals/plugins/minicolors/jquery.minicolors.min.js') }}"></script>
-	<script src="{{ asset('assets/globals/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+	
 	<script src="{{ asset('assets/globals/plugins/clockface/js/clockface.js') }}"></script>
 
 	<script src="{{ asset('assets/globals/scripts/forms-pickers.js') }}"></script>
