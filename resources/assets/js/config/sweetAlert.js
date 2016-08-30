@@ -31,6 +31,21 @@ var sweetAlertNotTimer = function(type, title, text) {
     });
 };
 
+var sweetAlertInput = function(title, text, inputPlaceholder){
+    text = typeof text !== 'undefined' ? text : null;
+
+    swal({
+        title: title,
+        text: text,
+        allowOutsideClick: true,
+        type: "input",
+        showCancelButton: true,   
+        closeOnConfirm: false,   
+        animation: "slide-from-top",   
+        inputPlaceholder: inputPlaceholder,
+    });
+};
+
 var sweetAlertLayouts = {};
 sweetAlertLayouts.delete = {
     title: "Estás seguro?",
@@ -47,5 +62,8 @@ sweetAlertLayouts.delete = {
 require('../app/globalize.js')({
     sweetAlerter,
     sweetAlertNotTimer,
+    sweetAlertInput,
     sweetAlertLayouts
 });
+
+

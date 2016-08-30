@@ -496,3 +496,40 @@
 .ch-item:hover .ch-info p {
 	opacity: 1;
 }
+
+.ch-img-1 { 
+	background-image: url('../img/resources/requ.png');
+	opacity: 0.7;
+}
+
+.ch-img-2 { 
+	background-image: url('../img/resources/buscar.png');
+	opacity: 0.7;
+}
+
+.ch-img-3 { 
+	background-image: url('../img/resources/requ.png');
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {  }
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	#slide-1{
+		top:-140px;
+	}
+
+}
+
+@media (min-device-width : 320px) { 
+	#slide-1{
+		top:-150px;
+	}
+}
