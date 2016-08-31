@@ -1,33 +1,20 @@
 <div class="form-content">
     <div class="row">
-        <input type="hidden" id="typeRequest" value="{{ $type }}">
-        @if($type === 'edit')
-            <div class="col-md-2">
-                    <div class="form-group">
-                        {!! Form::label('id', trans('requests.id'), ['class' => 'control-label']) !!}
-                        <div class="inputer">
-                            <div class="input-wrapper">
-                                {!! Form::text('id', null, ['class' => 'form-control', 'disabled']) !!}
-                            </div>
-                        </div>
-                    </div><!--.form-group-->
-            </div>
-        @endif
         <div class="col-md-3 border--dotted">
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
+                        
                         {!! Form::label('citizen_id', trans('requests.citizen'), ['class' => 'control-label']) !!}
-                        <div class="input-wrapper">
-                            {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control', 'disabled','style' => 'width: 100%']) !!}
-                        </div>
+                        {!! Form::label('citizen_id', $inquiry->concerned->full_name , ['class' => 'control-label']) !!}
+                        
                     </div><!--.form-group-->
                 </div>                
             </div>
         </div>
         
 
-        <div class="col-md-2">
+        <div class="col-md-3">
             <div class="form-group">
                 {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
@@ -36,7 +23,7 @@
             </div><!--.form-group-->
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-3">
             <div class="form-group">
                 {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
@@ -45,7 +32,7 @@
             </div><!--.form-group-->
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-3">
             <div class="form-group">
                 {!! Form::label('request_priority_id', trans('requests.request_priority_id'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">

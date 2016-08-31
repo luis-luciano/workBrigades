@@ -19,27 +19,51 @@ class TestTypologyTableSeeder extends Seeder
 		Typology::create(['name' => 'BACHEO']);
 		Typology::create(['name' => 'CULTURA DEL AGUA']);
 		Typology::create(['name' => 'AREA COMERCIAL']);
+        Typology::create(['name' => 'REZAGO']);
 
         $relations=[
-            [
+            [    //     Agua
                 'supervision_id' => 2,
                 'typology_id' => 1,
             ],
             [
-                'supervision_id' => 2,
-                'typology_id' => 2,
+                'supervision_id' => 3,
+                'typology_id' => 1,
             ],
+            
+
+            //  Drenaje
+            [
+                'supervision_id' => 2,
+                'typology_id' => 2, 
+            ],
+            [
+                'supervision_id' => 4,
+                'typology_id' => 2, 
+            ],
+            
+
+            //  Bacheo
             [
                 'supervision_id' => 2,
                 'typology_id' => 3,
             ],
             [
                 'supervision_id' => 3,
-                'typology_id' => 1,
+                'typology_id' => 3,
             ],
+            
+            
+            //  Area Comercial
             [
-                'supervision_id' => 4,
-                'typology_id' => 2,
+                'supervision_id' => 6,
+                'typology_id' => 5,
+            ],
+
+            //  Rezago
+            [
+                'supervision_id' => 7,
+                'typology_id' => 6,
             ]
         ];
 

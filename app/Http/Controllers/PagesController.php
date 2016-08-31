@@ -36,9 +36,9 @@ class PagesController extends Controller
             }
             $counters=json_encode($counters);
         if (in_array( 'Root' , $role_user)) {
-           return view("admin.users.profile",compact('user'));
+           return view('pages.index',compact('typologies','counters'));
         } else {
-                if (in_array( 'Administrador' , $role_user)) {
+                if (in_array( 'administrator' , $role_user)) {
                     return view('pages.index',compact('typologies','counters'));
                 } else {
                         return view("admin.users.profile",compact('user'));
