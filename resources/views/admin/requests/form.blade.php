@@ -21,7 +21,7 @@
                         {!! Form::label('citizen_id', trans('requests.citizen'), ['class' => 'control-label']) !!}
                         <div class="input-wrapper">
                             <input type="hidden" id="citizenSearchUri" value="{{ route('ajax.citizens.index') }}">
-                            {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control', 'style' => 'width: 100%']) !!}
+                            {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control select2', 'style' => 'width: 100%']) !!}
                         </div>
                     </div><!--.form-group-->
                 </div>
@@ -54,7 +54,7 @@
             <div class="form-group">
                 {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
-                    {!! Form::select('problem_id',(isset($inquiry)? $inquiry->problems_list : []), null, ['class' => 'form-control','id'=>'problem']) !!}
+                    {!! Form::select('problem_id',(isset($inquiry)? $inquiry->problems_list : []), null, ['class' => 'form-control select2','id'=>'problem']) !!}
                 </div>
             </div><!--.form-group-->
         </div>

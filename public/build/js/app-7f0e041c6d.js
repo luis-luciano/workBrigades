@@ -7960,7 +7960,7 @@ module.exports = function ($) {
 
     var _citizensInit = function _citizensInit() {
         // create citizen
-        //require('../validators/citizenValidator.js')($('#createCitizenForm'));
+        require('../validators/citizenValidator.js')($('#createCitizenForm'));
 
         $('#createCitizenForm').submit(function (e) {
             e.preventDefault();
@@ -8183,7 +8183,7 @@ module.exports = function ($) {
     };
 }(window.jQuery);
 
-},{"../helpers/ajaxFormCall.js":17,"../helpers/deleteConfirmationAlert.js":18,"../helpers/googleMap.js":19,"../helpers/requestConcludeConfirmationAlert.js":20,"../helpers/select2AjaxSearchBox.js":21,"../helpers/selectOption.js":22}],11:[function(require,module,exports){
+},{"../helpers/ajaxFormCall.js":17,"../helpers/deleteConfirmationAlert.js":18,"../helpers/googleMap.js":19,"../helpers/requestConcludeConfirmationAlert.js":20,"../helpers/select2AjaxSearchBox.js":21,"../helpers/selectOption.js":22,"../validators/citizenValidator.js":28}],11:[function(require,module,exports){
 'use strict';
 
 module.exports = function ($) {
@@ -8408,7 +8408,7 @@ module.exports = function (settings) {
 
 												// fill the errors list
 												$.each(response, function (index, value) {
-																errorsList.append('<li><strong>* ' + value + '</strong></li>');
+																errorsList.append('<li><small>* ' + value + '</small></li>');
 												});
 
 												// show the errors list

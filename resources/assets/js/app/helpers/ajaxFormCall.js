@@ -61,7 +61,7 @@ module.exports = function(settings) {
 
             // fill the errors list
             $.each(response, function(index, value) {
-                errorsList.append('<li><strong>* ' + value + '</strong></li>');
+                errorsList.append('<li><small>* ' + value + '</small></li>');
             });
 
             // show the errors list

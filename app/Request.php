@@ -12,13 +12,16 @@ use App\User;
 use App\RequestState;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\RequestPresenter;
+use App\Traits\SimpleSearchableTables;
 use Illuminate\Database\Eloquent\SoftDeletes; 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+
 
 class Request extends Model implements HasPresenter
 {
 
-	use SoftDeletes; 
+	use SoftDeletes, SimpleSearchableTables; 
 
 	/**
      * The attributes that should be mutated to dates.
@@ -189,6 +192,11 @@ class Request extends Model implements HasPresenter
 	public function getProblemsListAttribute()
 	{
 		return $this->problem->typology->problems->lists('name','id');
+	}
+
+	public function getDateCreatedShortAttribute()
+	{
+		return Carbon::parse($this->created_at)->toDateString();
 	}
 	
 	public function changeStateTo($state)

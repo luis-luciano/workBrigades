@@ -29,7 +29,7 @@ class StoreCitizenRequest extends Request
                 'maternal_surname' => 'max:80',
                 'sex' => 'required|size:1',
                 'email' => 'email|min:3|max:255',
-                'birthday' => 'max:80',
+                'birthday' => 'date',
                 'represent' => 'max:80',
                 'house_phone' => 'max:50',
                 'mobile_phone' => 'max:50',

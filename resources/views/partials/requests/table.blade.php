@@ -18,7 +18,7 @@
                         {{ $request->id }}
                     </td>
                     <td>
-                        {{ \Carbon\carbon::parse($request->created_at)->toDateString() }}
+                        {{ $request->date_created_short }}
                     </td>
                     <td>
                         <div class="status" data-color-status="{{ $request->state->color }}">
@@ -39,9 +39,10 @@
                     </td>  
                     <td>
                         {{ $request->colony->settlementType->name }}: {{ $request->colony->name }} <br>
-                        Calle: {{ $request->street }} 
-                        {{  (!empty($request->number)) ? "Número: " . $request->number : "" }}
-                        {{  (!empty($request->reference)) ? "Referencia: " . $request->reference : "" }}
+                        {{ (!empty($request->street)) ? "Dirección: " . $request->street. " ": "" }}
+                        {{ (!empty($request->number)) ? "Número: " . $request->number." ": "" }}
+                        {{ (!empty($request->between_streets)) ? "Entre: " . $request->between_streets." ": "" }}
+                        {{ (!empty($request->reference)) ? "Referencia: " . $request->reference." ": "" }}
                     </td>  
                 </tr>
             @endforeach

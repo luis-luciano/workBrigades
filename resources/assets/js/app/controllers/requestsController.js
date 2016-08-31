@@ -90,7 +90,7 @@ module.exports = (function ($) {
 
     var _citizensInit = function() {
         // create citizen
-        //require('../validators/citizenValidator.js')($('#createCitizenForm'));
+        require('../validators/citizenValidator.js')($('#createCitizenForm'));
 
         $('#createCitizenForm').submit(function(e) {
             e.preventDefault();

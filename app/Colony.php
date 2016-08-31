@@ -48,13 +48,19 @@ class Colony extends Model implements hasPresenter{
 		return $this->hasOne(PersonalInformation::class);
 	}
 
-	public function sector(){
+	public function sector()
+	{
 		return $this->belongsTo('App\Sector');
 	}
 	
 	public function getNameWithZipAttribute()
     {
         return $this->name.' ('.$this->zip.')';
+    }
+
+    public function getNameWithSettlementTypeAttribute()
+    {
+    	return $this->name.' | '.$this->settlementType->name;
     }
 
     public function scopeSearch(Builder $query,$search){

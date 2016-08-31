@@ -7,6 +7,7 @@ use App\Citizen;
 use App\PersonalInformation;
 use Illuminate\Http\Request;
 use App\Search;
+use App\Http\Requests\StoreCitizenRequest;
 use App\Http\Requests;
 
 class CitizensController extends Controller
@@ -43,7 +44,7 @@ class CitizensController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCitizenRequest $request)
     {
         $citizen=PersonalInformation::create($request->all())->citizen()->create($request->all());
 
