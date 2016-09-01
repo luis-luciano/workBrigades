@@ -15,13 +15,26 @@
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/normalize.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/demo.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/style1.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/sweetAlert/sweetalert.css') }}">
 
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<script src="{{ asset('assets/globals/js/global-vendors.js') }}"></script>
+	<style type="text/css">
+		.ch-img-1 { 
+			background-image: url({{ asset('assets/globals/img/resources/requ.png') }});
+			opacity: 0.7;
+		}
 
+		.ch-img-2 { 
+			background-image: url({{ asset('assets/globals/img/resources/buscar.png') }});
+			opacity: 0.7;
+		}
+
+		.ch-img-3 { 
+			background-image: url({{ asset('assets/globals/img/resources/requ.png') }});
+		}
+	</style>
 </head>
 
 <body class="demo-1">
@@ -59,94 +72,131 @@
 			<div class="slide" id="slide-1" data-weather="rain">
 				<ul class="ch-grid list-group">
 					<li>
-						<a href="Peticion-publica/create" style="text-decoration:none;">
-							<div class="ch-item ch-img-1">
-								<div class="ch-info">
-									<h3>N U E V A</h3>
-									<p>P E T I C I Ó N<a href="Peticion-publica">Crear Petición</a></p>
-								</div>
+						<a href="Peticion-publica/create"><div class="ch-item ch-img-1">
+							<div class="ch-info">
+								<h3>N U E V A</h3>
+								<p>P E T I C I Ó N<a href="Peticion-publica">Crear Petición</a></p>
 							</div>
-						</a>
+						</div></a>
 					</li>
 					<li>
-						<div class="ch-item ch-img-2  bd-example" data-toggle="modal" data-target="#exampleModal">
+						<div class="ch-item ch-img-2" data-toggle="modal" data-target=".bs-example-modal-sm">
 							<div class="ch-info">
 								<h3>S I S T E M A</h3>
 								<p>C O N S U L T A<a href="Peticion-publica" >Cómo Vamos?</a></p>
 							</div>
 						</div>
 					</li>
+
 				</ul>
 				<div class="row">
-		  			@include('errors.list')
-		  			@if(isset($mensaje))
-						<div id="errorsList" class="alert alert-danger-transparent" role="alert">
-							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-							<ul>
-						        <li><small>* {{ $mensaje }}</small></li>
-					        </ul>
-					       
-						</div>
-					@endif
-	  			</div>
-			</div>
+	  			@include('errors.list')
+	  			@if(isset($mensaje))
+					<div id="errorsList" class="alert alert-danger-transparent" role="alert">
+						<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<ul>
+					        <li><small>* {{ $mensaje }}</small></li>
+				        </ul>
+				       
+					</div>
+				@endif
+	  		</div>
+				<style type="text/css">
+					
+					/* Large desktop */
+					@media (min-width: 1200px) {}
 
-<div class="bd-example">
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title" id="exampleModalLabel">Ingrese Los Datos Para Buscar</h4>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="form-control-label">Folio:</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="form-control-label">Ping:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Buscar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+					/* Portrait tablet to landscape and desktop */
+					@media (min-width: 768px) and (max-width: 979px) {}
 
+					/* Landscape phone to portrait tablet */
+					@media (max-width: 767px) {  }
 
+					/* Landscape phones and down */
+					@media (max-width: 480px) {
+						#slide-1{
+							top:-140px;
+						}
+
+					}
+
+					@media (min-device-width : 320px) { 
+						#slide-1{
+							top:-150px;
+						}
+
+							
+
+					}
+				</style>
+
+				<!-- Small modal -->
 				
 
-	<div>
+				<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+				  <div class="modal-dialog modal-sm" role="document">
+				    <div class="modal-content">
+				       {!! Form::open(['route' => 'findRequest', 'id' => 'FindRequestForm']) !!}
+                        	<div class="row">
+				                    <div class="col-md-6">
+				                        <div class="form-group">
+				                            <div class="inputer floating-label">
+				                                <div class="input-wrapper">
+				                                    {!! Form::text('folio', null, ['class' => 'form-control']) !!}
+				                                    {!! Form::label('folio', 'Folio', ['class' => 'control-label']) !!}
+				                                </div>
+				                            </div>
+				                        </div><!--.form-group-->
+				                    </div>				                    
+				            </div>
+				            <div class="row">
+				            	<div class="col-md-6">
+				                        <div class="form-group">
+				                            <div class="inputer floating-label">
+				                                <div class="input-wrapper">
+				                                    {!! Form::text('pin', null, ['class' => 'form-control']) !!}
+				                                    {!! Form::label('pin','Pin', ['class' => 'control-label']) !!}
+				                                </div>
+				                            </div>
+				                        </div><!--.form-group-->
+				                    </div>
+				            </div>
+				            <div class="row">
+				            	<div class="form-buttons form-group clearfix">
+								    <div class="row">
+								        <div class="col-md-12">
+								        <button type="submit" 'class'='btn btn-success button-striped button-full-striped btn-ripple' >
+								        	CONSULTAR
+								        </button>
+								            
+								        </div>
+								    </div>
+								</div>
+				            </div>
+                    	{!! Form::close() !!} 
+				    </div>
+				  </div>
+				</div>
+			</div>
+			
+
+		</div>
 		<p class="nosupport">Sorry, but your browser does not support WebGL!</p>
 	</div>
 	
 	<script src= "{{ asset('assets/globals/plugins/jquery/dist/jquery.min.js') }}"></script>
 	<script src= "{{ asset('assets/globals/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-	<script src= "{{ asset('assets/globals/plugins/sweetAlert/sweetalert.min.js') }}"></script>
 	<script src= "{{ asset('assets/globals/js/index.js') }}"></script>
 	<script type="text/javascript">
-
-
-		$('#exampleModal').on('show.bs.modal', function (event) {
-		  var button = $(event.relatedTarget); // Button that triggered the modal
-		  //var recipient = button.data('whatever') // Extract info from data-* attributes
-		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-		  var modal = $(this)
-		  modal.find('.modal-title').text('Ingrese Los Datos Para Buscar ');
-		  modal.find('.modal-body input').val(recipient);
-		})
-	</script>
-
+            $(document).ready(function(){
+                Pleasure.init();
+                Layout.init();
+                                $("#errorsList").slideDown(800);
+                $('a#open-petitions-modal').click(function(e){
+                    e.preventDefault();
+                    $('#petitionsModal').modal({keyboard: true}); 
+                });
+     </script>
 
 
 </body>

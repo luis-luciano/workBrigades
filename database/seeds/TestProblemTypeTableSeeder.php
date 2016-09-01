@@ -37,11 +37,17 @@ class TestProblemTypeTableSeeder extends Seeder
 		Problem::create(['name' => 'Escombro'])->typology()->associate(Typology::find(3))->save();
 
 		// :::::::::::::::CULTURA deL Agua::::::::::::::::::::::::::
-		Problem::create(['name' => 'Cultura del Agua'])->typology()->associate(Typology::find(4))->save();
+		//Problem::create(['name' => 'Cultura del Agua'])->typology()->associate(Typology::find(4))->save();
 
 		// :::::::::::::::AREA COMERCIAL::::::::::::::::::::::::::
 		Problem::create(['name' => 'Fuga Medidor'])->typology()->associate(Typology::find(5))->save();
 		Problem::create(['name' => 'Inspeccion'])->typology()->associate(Typology::find(5))->save();
-		Problem::create(['name' => 'Inspeccion de Toma Nueva'])->typology()->associate(Typology::find(5))->save();				
+		Problem::create(['name' => 'Inspeccion de Toma Nueva'])->typology()->associate(Typology::find(5))->save();	
+
+		// ::::::::::::::: CONTROL DE REZAGO ::::::::::::::::::::::::::
+		Problem::create(['name' => 'Inspeccion Por Falta de Lectura'])->typology()->associate(Typology::find(6))->save();
+		Problem::create(['name' => 'Inspeccion Por Medidor Trabado'])->typology()->associate(Typology::find(6))->save();
+		Problem::create(['name' => 'Inspeccion Por Alto Consumo'])->typology()->associate(Typology::find(6))->save();		
+		Problem::create(['name' => 'Inspeccion Por Fuga en el Medidor'])->typology()->associate(Typology::find(6))->save();			
     }
 }
