@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Brigade;
+use App\User;
 use App\Colony;
 use App\Http\Requests;
 use App\SettlementType;
@@ -22,6 +23,10 @@ use Illuminate\Http\Request;
 
 class RequestsController extends Controller
 {
+    public function __construct() 
+    {
+       $this->middleware('auth', ['only' => ['index','create']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +36,16 @@ class RequestsController extends Controller
     {
         $requestStates=RequestState::lists('label','id');
         $supervisions=Supervision::lists('name','id');
-        $requests=Inquiry::orderBy('created_at', 'desc')->paginate(10);
+
+        if(in_array("Root",auth()->user()->roles->lists('name','id')->toArray()))
+            $supervision=auth()->user()->supervision->first();
+        else
+            if(in_array("supervisor",auth()->user()->roles->lists('name','id')->toArray()))
+                $supervision=auth()->user()->supervisions->first();
+
+
+        $requests=$supervision->requests()->paginate(10);
+       
         return view('admin.requests.index',compact('requests','requestStates','supervisions'));
     }
 
@@ -57,7 +71,7 @@ class RequestsController extends Controller
     public function store(StoreRequestRequest $request)
     {
         $inquiry = new Inquiry($request->all());
-        //$inquiry->creator()->associate($this->currentUser);
+        $inquiry->creator()->associate(auth()->user());
         $inquiry->concerned()->associate(Citizen::findOrFail($request->citizen_id));
         $inquiry->save();
 
@@ -186,10 +200,6 @@ class RequestsController extends Controller
     }
 
     public function findSectorBrigade(Request $request){
-
-        // if(!$request->ajax()){
-        //     abort(403);
-        // }
         
         $colony=Colony::findOrFail($request->get('colony'));
         $sectorNumber=$colony->sector->number;
@@ -206,13 +216,22 @@ class RequestsController extends Controller
             foreach ($others as $brigade) {
                  $html.="<option value=".$brigade->id."> ".$brigade->name." </option>\n";
             }
-        }
-    
-        $data=[
+
+            $data=[
                 'sector' => $sectorNumber,
                 'brigades' => $html,
                 'defaultId' => $default->id
             ];
+        }
+        else{
+            $data=[
+                'sector' => "",
+                'brigades' => "",
+                'defaultId' => ""
+            ];
+        }
+    
+        
         return response()->Json($data);
     }
 }

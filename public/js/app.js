@@ -7414,6 +7414,8 @@ backgroundColorStatus($('.status')); //Add background color status to state fiel
 
 clickableRow() // Add event clickable on row when it's a table
 
+$('.require-asterisk').append(' <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>');
+
 //If device is tablet or celphone convert initial table to list and initial backgroundColorStatus to textColorStatus
 if ($(window).width() < 992) {
   convertTableIntoList();
@@ -9381,6 +9383,21 @@ var sweetAlertNotTimer = function sweetAlertNotTimer(type, title, text) {
     });
 };
 
+var sweetAlertInput = function sweetAlertInput(title, text, inputPlaceholder) {
+    text = typeof text !== 'undefined' ? text : null;
+
+    swal({
+        title: title,
+        text: text,
+        allowOutsideClick: true,
+        type: "input",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        animation: "slide-from-top",
+        inputPlaceholder: inputPlaceholder
+    });
+};
+
 var sweetAlertLayouts = {};
 sweetAlertLayouts.delete = {
     title: "Estás seguro?",
@@ -9397,6 +9414,7 @@ sweetAlertLayouts.delete = {
 require('../app/globalize.js')({
     sweetAlerter: sweetAlerter,
     sweetAlertNotTimer: sweetAlertNotTimer,
+    sweetAlertInput: sweetAlertInput,
     sweetAlertLayouts: sweetAlertLayouts
 });
 

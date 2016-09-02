@@ -1,4 +1,5 @@
 @include('errors.list')
+<small>Todos los campos marcados con <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i> son requeridos.</small>
 <div class="form-content">
     <div class="row">
         <input type="hidden" id="typeRequest" value="{{ $type }}">
@@ -19,6 +20,7 @@
                 <div class="col-md-9">
                     <div class="form-group">
                         {!! Form::label('citizen_id', trans('requests.citizen'), ['class' => 'control-label']) !!}
+                        <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
                         <div class="input-wrapper">
                             <input type="hidden" id="citizenSearchUri" value="{{ route('ajax.citizens.index') }}">
                             {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control select2', 'style' => 'width: 100%']) !!}
@@ -43,7 +45,8 @@
 
         <div class="col-md-2">
             <div class="form-group">
-                {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label']) !!}
+                {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label']) !!} 
+                <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
                 <div class="input-wrapper">
                     {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control select2','id'=>'typology']) !!}
                 </div>
@@ -53,6 +56,7 @@
         <div class="col-md-2">
             <div class="form-group">
                 {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label']) !!}
+                <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
                 <div class="input-wrapper">
                     {!! Form::select('problem_id',(isset($inquiry)? $inquiry->problems_list : []), null, ['class' => 'form-control select2','id'=>'problem']) !!}
                 </div>
@@ -62,6 +66,7 @@
         <div class="col-md-2">
             <div class="form-group">
                 {!! Form::label('request_priority_id', trans('requests.request_priority_id'), ['class' => 'control-label']) !!}
+                <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
                 <div class="input-wrapper">
                     {!! Form::select('request_priority_id', $priorities, null, ['class' => 'form-control select2']) !!}
                 </div>
@@ -75,7 +80,7 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::textarea('subject', null, ['class' => 'form-control', 'rows' => '3']) !!}
-                        {!! Form::label('subject', trans('requests.subject'), ['class' => 'control-label']) !!}
+                        {!! Form::label('subject', trans('requests.subject'), ['class' => 'control-label require-asterisk']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -98,6 +103,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label']) !!}
+                <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
                 <div class="input-wrapper">
                     <input type="hidden" id="colonySearchUri" value="{{ route('ajax.colonies.index') }}">
                     {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select2', 'style' => 'width: 100%']) !!}
@@ -110,7 +116,7 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::textarea('street', null, ['class' => 'form-control', 'rows' => '2']) !!}
-                        {!! Form::label('street', trans('requests.street'), ['class' => 'control-label']) !!}
+                        {!! Form::label('street', trans('requests.street'), ['class' => 'control-label require-asterisk']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -153,6 +159,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 {!! Form::label('brigade_id', trans('requests.brigade'), ['class' => 'control-label']) !!}
+                <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
                 <div class="input-wrapper">
                     {!! Form::select('brigade_id', (isset($inquiry)? $brigades : []), null, ['class' => 'form-control select2','style' => 'width: 100%']) !!}
                 </div>

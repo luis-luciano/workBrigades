@@ -15,6 +15,9 @@
         <div class="panel-heading">
             <div class="panel-title"> 
                 {{ singular('requests') }} 
+                @if(!empty($inquiry->creator))
+                        <small>Creado por : {{ $inquiry->creator->full_name }}</small>
+                @endif
                 <div class="status pull-right" data-color-status="{{ $inquiry->state->color }}">
                     {{ $inquiry->state->label }}
                 </div>

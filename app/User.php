@@ -47,6 +47,11 @@ class User extends Authenticatable {
 
 	protected $with = ['personalInformation'];
 
+	public function requestsCreated()
+    {
+        return $this->morphMany('App\Request','creator');
+    }
+
 	public function personalInformation() {
 		return $this->belongsTo(PersonalInformation::class); //correct
 	}
@@ -134,4 +139,9 @@ class User extends Authenticatable {
 
         return $query;
     }
+
+    public function getHasRoleAttribute($value)
+	{
+		return in_array($value,$this->roles->lists('name','id')->toArray());
+	}
 }
