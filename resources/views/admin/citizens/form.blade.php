@@ -1,4 +1,5 @@
 @include('errors.list')
+<small>Todos los campos marcados con <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i> son requeridos.</small>
 <div class="form-content"> 
     <div class="row">
         <div class="col-md-3">
@@ -6,7 +7,7 @@
                 <div class="inputer floating-label">
                      <div class="input-wrapper">
                          {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('name', trans('personalInformations.name'), ['class' => 'control-label']) !!}
+                        {!! Form::label('name', trans('personalInformations.name'), ['class' => 'control-label require-asterisk']) !!}
                     </div> 
                 </div>
             </div><!--.form-group-->
@@ -16,7 +17,7 @@
                 <div class="inputer floating-label">
                      <div class="input-wrapper">
                         {!! Form::text('paternal_surname', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('paternal_surname', trans('personalInformations.paternal_surname'), ['class' => 'control-label']) !!}
+                        {!! Form::label('paternal_surname', trans('personalInformations.paternal_surname'), ['class' => 'control-label require-asterisk']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -33,7 +34,7 @@
         </div>
         <div class="col-md-2">
             <div class="form-group">
-                {!! Form::label('sex', trans('personalInformations.sex'), ['class' => 'control-label']) !!}
+                {!! Form::label('sex', trans('personalInformations.sex'), ['class' => 'control-label require-asterisk']) !!}
                 <div class="input-wrapper">
                     {!! Form::select('sex', ["F" => 'Femenino', "M" => 'Masculino'], null, ['class' => 'select2 form-control', 'style' => 'width: 100%']) !!}
                 </div>
@@ -96,7 +97,7 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::text('mobile_phone', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('mobile_phone', trans('personalInformations.mobile_phone'), ['class' => 'control-label']) !!}
+                        {!! Form::label('mobile_phone', trans('personalInformations.mobile_phone'), ['class' => 'control-label require-asterisk']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -145,7 +146,7 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('colony_id', trans('personalInformations.colony_id'), ['class' => 'control-label']) !!}
+                {!! Form::label('colony_id', trans('personalInformations.colony_id'), ['class' => 'control-label require-asterisk']) !!}
                 <div class="input-wrapper">
                     {!! Form::select('colony_id', $colonies, null, ['class'=>'select2','colony_citizen','style' => 'width: 100%']) !!}
                 </div>

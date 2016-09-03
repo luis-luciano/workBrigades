@@ -80,7 +80,7 @@
 
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                                {!! Form::multipleSelectPicker('request_states[]', $requestStates, Request::get('request_states'), ['title' => 'Estado']) !!}  
+                                                {!! Form::multipleSelectPicker('request_states[]', $requestStates, Request::get('request_states'), ['title' => 'Estado','data-width' => '100%']) !!}  
                                         </div><!--.form-group-->
                                     </div>
 

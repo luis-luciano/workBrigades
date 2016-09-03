@@ -19,12 +19,9 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="form-group">
-                        {!! Form::label('citizen_id', trans('requests.citizen'), ['class' => 'control-label']) !!}
-                        <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
-                        <div class="input-wrapper">
-                            <input type="hidden" id="citizenSearchUri" value="{{ route('ajax.citizens.index') }}">
-                            {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control select2', 'style' => 'width: 100%']) !!}
-                        </div>
+                        {!! Form::label('citizen_id', trans('requests.citizen'), ['class' => 'control-label require-asterisk']) !!}
+                        <input type="hidden" id="citizenSearchUri" value="{{ route('ajax.citizens.index') }}">
+                        {!! Form::select('citizen_id', (isset($citizen))? $citizen :[], null, ['class' => 'citizen-search-box form-control select2', 'style' => 'width: 100%']) !!}
                     </div><!--.form-group-->
                 </div>
                 <div class="col-md-3">
@@ -45,31 +42,22 @@
 
         <div class="col-md-2">
             <div class="form-group">
-                {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label']) !!} 
-                <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
-                <div class="input-wrapper">
-                    {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control select2','id'=>'typology']) !!}
-                </div>
+                {!! Form::label('typology_id', trans('requests.typology_id'), ['class' => 'control-label require-asterisk']) !!} 
+                {!! Form::select('typology_id', $typologies, null, ['class' => 'form-control select2','id'=>'typology','style' => 'width: 100%']) !!}
             </div><!--.form-group-->
         </div>
 
         <div class="col-md-2">
             <div class="form-group">
-                {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label']) !!}
-                <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
-                <div class="input-wrapper">
-                    {!! Form::select('problem_id',(isset($inquiry)? $inquiry->problems_list : []), null, ['class' => 'form-control select2','id'=>'problem']) !!}
-                </div>
+                {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label require-asterisk']) !!}
+                {!! Form::select('problem_id',(isset($inquiry)? $inquiry->problems_list : []), null, ['class' => 'form-control select2','id'=>'problem','style' => 'width: 100%']) !!}
             </div><!--.form-group-->
         </div>
 
         <div class="col-md-2">
             <div class="form-group">
-                {!! Form::label('request_priority_id', trans('requests.request_priority_id'), ['class' => 'control-label']) !!}
-                <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
-                <div class="input-wrapper">
-                    {!! Form::select('request_priority_id', $priorities, null, ['class' => 'form-control select2']) !!}
-                </div>
+                {!! Form::label('request_priority_id', trans('requests.request_priority_id'), ['class' => 'control-label require-asterisk']) !!}
+                {!! Form::select('request_priority_id', $priorities, null, ['class' => 'form-control select2','style' => 'width: 100%']) !!}
             </div><!--.form-group-->
         </div>
     </div>
@@ -102,12 +90,9 @@
 
         <div class="col-md-3">
             <div class="form-group">
-                {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label']) !!}
-                <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
-                <div class="input-wrapper">
-                    <input type="hidden" id="colonySearchUri" value="{{ route('ajax.colonies.index') }}">
-                    {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select2', 'style' => 'width: 100%']) !!}
-                </div>
+                {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label require-asterisk']) !!}
+                <input type="hidden" id="colonySearchUri" value="{{ route('ajax.colonies.index') }}">
+                {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select2', 'style' => 'width: 100%']) !!}
             </div><!--.form-group-->
         </div>
         
@@ -147,7 +132,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('sector_id', trans('requests.sector'), ['class' => 'control-label']) !!}
+                {!! Form::label('sector_id', trans('requests.sector'), ['class' => 'control-label require-asterisk']) !!}
                 <div class="inputer">
                     <div class="input-wrapper">
                         {!! Form::textarea('sector_id', null, ['class' => 'form-control', 'rows'=>'1','disabled','id'=>'sector']) !!}
@@ -158,11 +143,8 @@
 
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('brigade_id', trans('requests.brigade'), ['class' => 'control-label']) !!}
-                <i class="fa fa-asterisk" aria-hidden="true" style="color:blue"></i>
-                <div class="input-wrapper">
-                    {!! Form::select('brigade_id', (isset($inquiry)? $brigades : []), null, ['class' => 'form-control select2','style' => 'width: 100%']) !!}
-                </div>
+                {!! Form::label('brigade_id', trans('requests.brigade'), ['class' => 'control-label require-asterisk']) !!}
+                {!! Form::select('brigade_id', (isset($inquiry)? $brigades : []), null, ['class' => 'form-control select2','style' => 'width: 100%']) !!}
             </div><!--.form-group-->
         </div>
 
