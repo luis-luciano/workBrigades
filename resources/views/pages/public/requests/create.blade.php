@@ -11,7 +11,11 @@
                     <div class="panel-title">
                     
                         <h4>Nueva Petición</h4>
-                        
+                        <div class="row">
+                            <div class="pull-right">
+                                <small> Los Campos marcados con <i class="fa fa-asterisk" aria-hidden="true" style="color:blue;"></i> deben ser completados </small>
+                            </div>
+                        </div>
                     </div>
                     
                 </div><!--.panel-heading-->

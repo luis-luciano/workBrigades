@@ -78,45 +78,64 @@
 					</li>
 				</ul>
 				<div class="row">
-		  			@include('errors.list')
-		  			@if(isset($mensaje))
-						<div id="errorsList" class="alert alert-danger-transparent" role="alert">
-							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-							<ul>
-						        <li><small>* {{ $mensaje }}</small></li>
-					        </ul>
-					       
+					<div class="col-xs-4 col-md-offset-4">
+						@if($errors->any())
+						
+						<div id="errorsList" class="alert alert-danger-transparent" role="alert">							
+							<div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								  <strong>Warning!</strong><br>
+								  @foreach ($errors->all() as $error)
+								  <h6>* {{ $error }}</h6> <br>	
+								  @endforeach
+								  
+							</div>
 						</div>
 					@endif
+					</div>
+				</div>
+				<div class="row">
+		  			<div class="col-xs-4 col-md-offset-4">
+						@if(isset($message))
+						<div id="errorsList" class="alert alert-danger-transparent" role="alert">							
+							<div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Warning!</strong><br> <small>* {{ $message }}</small>
+								  
+							</div>
+						</div>
+						@endif
+					</div>
 	  			</div>
 			</div>
 
 <div class="bd-example">
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title" id="exampleModalLabel">Ingrese Los Datos Para Buscar</h4>
+          <h4 class="modal-title" id="exampleModalLabel">Conoce el estado actual de tu petición</h4>
         </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="form-control-label">Folio:</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="form-control-label">Ping:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-          </form>
-        </div>
+        {!! Form::open(['route' => 'findRequest', 'id' => 'findRequestForm', 'files'=> true ]) !!}
+        	<div class="modal-body">
+	               	<div class="form-group">
+	               	    {!! Form::label('folio', 'Folio:', ['class' => 'control-label require-asterisk']) !!}
+                        {!! Form::text('folio', null, ['class' => 'form-control']) !!}
+                        
+                    </div><!--.form-group-->
+		            <div class="form-group">
+		              {!! Form::label('pin', 'Pin:', ['class' => 'control-label require-asterisk']) !!}
+                        {!! Form::text('pin', null, ['class' => 'form-control']) !!}
+		            </div>         
+	        <h6>* Ingresa el número de folio y pin de Seguridad de tu petición para realizar la busqueda.</h6>   
+        	</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Buscar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-ban" aria-hidden="true"></i>Cancelar</button>
+          {!! Form::submit('Buscar',['class' => 'btn btn-success button-striped button-full-striped btn-ripple','id' => 'editForm']) !!}
         </div>
+        {!! Form::close() !!} 
       </div>
     </div>
   </div>
@@ -142,7 +161,7 @@
 		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 		  var modal = $(this)
-		  modal.find('.modal-title').text('Ingrese Los Datos Para Buscar ');
+		  modal.find('.modal-title');
 		  modal.find('.modal-body input').val(recipient);
 		})
 	</script>
