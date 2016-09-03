@@ -117,6 +117,7 @@ class PagesController extends Controller
      */
     public function FindRequest(Request $request)
     {
+        //return $request->all();
         $validator = Validator::make($request->all(), [
             'folio' => 'required|numeric|exists:requests,id',
             'pin' => 'required',
@@ -133,9 +134,9 @@ class PagesController extends Controller
         if ($inquiry->pin == $request->pin ) {
             return redirect('Peticion-publica/'.$inquiry->id.'/edit');
         } else {
-            $mensaje='Verifica tus Datos, el PIN es incorrecto';
+            $message='Verifica tus Datos, el PIN es incorrecto';
 
-            return view('pages.welcome',compact('mensaje'));
+            return view('pages.welcome',compact('message'));
         }
         
         return $inquiry;

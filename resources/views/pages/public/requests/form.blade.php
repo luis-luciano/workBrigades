@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            {!! Form::label('problem_id', '* '.trans('requests.problem'), ['class' => 'control-label glyphicon']) !!}
+                            {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label require-asterisk']) !!}
                             <div class="input-wrapper">
                                 {!! Form::select('problem_id',$problems, null, ['class' => 'form-control','id'=>'problem']) !!}
                             </div>
@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            {!! Form::label('colony_id', '* '.trans('requests.colony_id'), ['class' => 'control-label glyphicon ']) !!}
+                            {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label require-asterisk']) !!}
                             <div class="input-wrapper">
                                 {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control', 'style' => 'width: 100%']) !!}
                             </div>
@@ -26,7 +26,7 @@
                             <div class="inputer floating-label">
                                 <div class="input-wrapper">
                                     {!! Form::textarea('subject', null, ['class' => 'form-control', 'rows' => '1']) !!}
-                                    {!! Form::label('subject', '* '.trans('requests.subject'), ['class' => 'control-label glyphicon']) !!}
+                                    {!! Form::label('subject', trans('requests.subject'), ['class' => 'control-label require-asterisk']) !!}
                                 </div>
                             </div>
                         </div><!--.form-group-->
@@ -37,7 +37,7 @@
                             <div class="inputer floating-label">
                                 <div class="input-wrapper">
                                     {!! Form::textarea('street', null, ['class' => 'form-control', 'rows' => '1']) !!}
-                                    {!! Form::label('street', '* Avenida', ['class' => 'control-label glyphicon']) !!}
+                                    {!! Form::label('street', 'Avenida', ['class' => 'control-label require-asterisk']) !!}
                                 </div>
                             </div>
                         </div><!--.form-group-->
@@ -59,7 +59,7 @@
                             <div class="inputer floating-label">
                                 <div class="input-wrapper">
                                     {!! Form::textarea('between_streets', null, ['class' => 'form-control', 'rows' => '1']) !!}
-                                    {!! Form::label('between_streets', '* Entre Calles', ['class' => 'control-label glyphicon']) !!}
+                                    {!! Form::label('between_streets', 'Entre Calles', ['class' => 'control-label require-asterisk']) !!}
                                 </div>
                             </div>
                         </div><!--.form-group-->
@@ -69,7 +69,7 @@
                             <div class="inputer floating-label">
                                 <div class="input-wrapper">
                                     {!! Form::textarea('reference', null, ['class' => 'form-control', 'rows' => '1']) !!}
-                                    {!! Form::label('reference', '* '.trans('requests.reference'), ['class' => 'control-label glyphicon ']) !!}
+                                    {!! Form::label('reference', trans('requests.reference'), ['class' => 'control-label require-asterisk ']) !!}
                                 </div>
                             </div>
                         </div><!--.form-group-->
@@ -101,7 +101,7 @@
                     <div class="inputer floating-label">
                         <div class="input-wrapper">
                             {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                            {!! Form::label('name', '* '.trans('personalInformations.name'), ['class' => 'control-label glyphicon']) !!}
+                            {!! Form::label('name', trans('personalInformations.name'), ['class' => 'control-label require-asterisk']) !!}
                         </div> 
                     </div>
                 </div><!--.form-group-->
@@ -111,7 +111,7 @@
                     <div class="inputer floating-label">
                          <div class="input-wrapper">
                             {!! Form::text('paternal_surname', null, ['class' => 'form-control']) !!}
-                            {!! Form::label('paternal_surname', '* '.trans('personalInformations.paternal_surname'), ['class' => 'control-label glyphicon']) !!}
+                            {!! Form::label('paternal_surname', trans('personalInformations.paternal_surname'), ['class' => 'control-label require-asterisk']) !!}
                         </div>
                     </div>
                 </div><!--.form-group-->
@@ -141,17 +141,13 @@
                     <div class="inputer floating-label">
                         <div class="input-wrapper">
                             {!! Form::text('house_phone', null, ['class' => 'form-control']) !!}
-                            {!! Form::label('house_phone', '* Telefono', ['class' => 'control-label glyphicon']) !!}
+                            {!! Form::label('house_phone', 'Telefono', ['class' => 'control-label require-asterisk']) !!}
                         </div>
                     </div>
                 </div><!--.form-group-->
             </div>
     </div>
-    <div class="row ">
-        <span> Los Campos mascados con * deben ser completados </span>
-    </div>    
-</div>
-<br>
+    <br>
 <div class="form-buttons form-group clearfix">
     <div class="row">
         <div class="col-md-12">
