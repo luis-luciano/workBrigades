@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use App\Request as Inquiry;
 use App\File;
 use Illuminate\Http\Request;
-use App\Http\Requests\DeleteFileRequest;
 
 use App\Http\Requests;
 
@@ -96,7 +95,7 @@ class RequestFileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeleteFileRequest $request,Inquiry $inquiry, File $file)
+    public function destroy(Inquiry $inquiry, File $file)
     {
         $this->authorize($file);
 

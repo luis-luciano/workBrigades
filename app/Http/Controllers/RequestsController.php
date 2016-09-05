@@ -25,7 +25,7 @@ class RequestsController extends Controller
 {
     public function __construct() 
     {
-       $this->middleware('auth', ['only' => ['index','create']]);
+       $this->middleware('auth', ['only' => ['index','create','store']]);
     }
     /**
      * Display a listing of the resource.
