@@ -77,6 +77,8 @@ class RequestLocationController extends Controller
 
     public function updateOrStore(LocationRequest $request, Inquiry $inquiry)
     {
+        $this->authorize('creator', $inquiry);
+        
         if (is_null($inquiry->location)) {
             RequestLocation::create($request->all())->request()->save($inquiry);
         } else {
@@ -96,6 +98,8 @@ class RequestLocationController extends Controller
      */
     public function destroy(Inquiry $inquiry)
     {
+        $this->authorize('creator', $inquiry);
+
         $inquiry->location->delete();
 
         alert()->success(trans('messages.success.destroy'));

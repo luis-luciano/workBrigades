@@ -18,7 +18,7 @@
 
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-md-offset-0">
                                 <div class="form-group">
                                     <a href="{{ route('requests.create') }}">
                                     <button type="button" class="btn btn-success btn-ripple"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nuevo</button>
@@ -101,13 +101,11 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-3 col-md-pull-9">
                                     <div class="pull-right">
-                                        <div class="btn-group">
+                                        <div class="form-group">
                                             <button type="submit" class="btn btn-primary "><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
-                                        </div>
-                               
-                                        <div class="btn-group">   
+                                
                                             <a href="{{ route('requests.index') }}" class="btn btn-purple"><i class="fa fa-eye" aria-hidden="true"></i> Ver todos</a>
                                         </div>
                                     </div>

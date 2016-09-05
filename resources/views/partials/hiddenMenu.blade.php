@@ -57,16 +57,15 @@
 						<li><a href="{{ route('permissions.index') }}"><i class="fa fa-joomla"></i> Permisos</a><li></ul>
 					@endif
 				</li>
-				<li>
-					
-				</li>
-			@else
-					<li>
-					
-					</li>
-			@endif			
 				
-
+			@else
+					
+			@endif
+				@if(Auth::check())			
+					<li>
+						<a href="{{ Auth::logout() }}"><i class="fa fa-power-off"></i> Salir</a>
+					</li>
+				@endif
 			</ul>
 		</div><!--.menu-layer-->
 		<!-- END OF MENU LAYER -->

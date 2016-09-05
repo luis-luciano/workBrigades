@@ -16,7 +16,7 @@
             <div class="panel-title"> 
                 {{ singular('requests') }} 
                 @if(!empty($inquiry->creator))
-                        <small>Creado por : {{ $inquiry->creator->full_name }}</small>
+                        <small>Creado por : {{ $inquiry->creator->full_name }},  <time class="format-date-from-now"></time> <input hidden class="format-date-origin-from-now" value="{{ $inquiry->created_at }}"></small>
                 @endif
                 <div class="status pull-right" data-color-status="{{ $inquiry->state->color }}">
                     {{ $inquiry->state->label }}
@@ -39,50 +39,57 @@
                         <div class="pull-left">
                             <a href="" class="btn btn-primary" target="_blank">Imprimir</a>
                         </div>
-                        <div class="pull-right">
-                            {!! Form::open(['route' => ['requests.destroy', $inquiry->id], 'method' => 'DELETE', 'id' => 'deleteRequestForm']) !!}
-                                {!! Form::submit('Eliminar', ['class' => 'btn btn-danger', 'id' => 'deleteRequestButton']) !!}
-                            {!! Form::close() !!}
-                        </div>
-                    </div>
 
-                   {!! Form::model($inquiry,['route' => ['requests.update', $inquiry->id],'method' => 'PATCH', 'id' => 'editRequestForm']) !!}
+                        @can('creator',$inquiry)
+                            <div class="pull-right"> 
+                                {!! Form::open(['route' => ['requests.destroy', $inquiry->id], 'method' => 'DELETE', 'id' => 'deleteRequestForm']) !!}
+                                    {!! Form::submit('Eliminar', ['class' => 'btn btn-danger', 'id' => 'deleteRequestButton']) !!}
+                                {!! Form::close() !!}     
+                            </div>
+                        @endcan
+                    </div>
+                    
+                    {!! Form::model($inquiry,['route' => ['requests.update', $inquiry->id],'method' => 'PATCH', 'id' => 'editRequestForm']) !!}
                         @include('admin.requests.form', ['submitButtonText' => 'Actualizar', 'type' => 'edit'])
                     {!! Form::close() !!} 
                 </div><!--.tab-pane-->
 
                 <div class="tab-pane" id="geolocation">
-                    <div class="form-buttons buttons-on-top clearfix">
-                        <div class="pull-left">
-                            <button class="btn btn-primary" id="buttonGetGeolocation">Obtener mi ubicación</button>
-                        </div>
-
-                        @if($inquiry->has_location)
-                            <div class="pull-right">
-                                {!! Form::open(['route' => ['requests.locations.destroy', $inquiry->id], 'method' => 'DELETE', 'id' => 'deleteRequestLocationRequestForm']) !!}
-                                    <button class="btn btn-danger" id="deleteRequestLocationRequestButton" type="submit">
-                                        <i class="fa fa-trash-o"></i> Reestablecer
-                                    </button>
-                                {!! Form::close() !!}
+                    @can('creator',$inquiry)
+                        <div class="form-buttons buttons-on-top clearfix">
+                            <div class="pull-left">
+                                <button class="btn btn-primary" id="buttonGetGeolocation">Obtener mi ubicación</button>
                             </div>
-                        @endif
-                    </div>
+
+                            @if($inquiry->has_location)
+                                <div class="pull-right">
+                                    {!! Form::open(['route' => ['requests.locations.destroy', $inquiry->id], 'method' => 'DELETE', 'id' => 'deleteRequestLocationRequestForm']) !!}
+                                        <button class="btn btn-danger" id="deleteRequestLocationRequestButton" type="submit">
+                                            <i class="fa fa-trash-o"></i> Reestablecer
+                                        </button>
+                                    {!! Form::close() !!}
+                                </div>
+                            @endif
+                        </div>
+                    @endcan
                     
                     <div class="row">
                         @include('errors.list')
                         <div id="map"></div>
                     </div>
-
-                   {!! Form::model($inquiry->location, ['route' => ['requests.locations.update', $inquiry->id], 'method' => 'PUT']) !!}
+                    
+                    {!! Form::model($inquiry->location, ['route' => ['requests.locations.update', $inquiry->id], 'method' => 'PUT']) !!}
                         {!! Form::text('latitude', null, ['id' => 'latitude', 'hidden']) !!}
                         {!! Form::text('longitude', null, ['id' => 'longitude', 'hidden']) !!}
-                        <div class="form-buttons form-group clearfix">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    {!! Form::submit($inquiry->has_location ? 'Actualizar' : 'Guardar', ['class' => 'btn btn-success']) !!}
+                        @can('creator',$inquiry)
+                            <div class="form-buttons form-group clearfix">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {!! Form::submit($inquiry->has_location ? 'Actualizar' : 'Guardar', ['class' => 'btn btn-success']) !!}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endcan
                     {!! Form::close() !!}
                 </div><!--.tab-pane-->
 

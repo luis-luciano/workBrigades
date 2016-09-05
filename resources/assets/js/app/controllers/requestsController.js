@@ -278,6 +278,20 @@ module.exports = (function ($) {
             });
         }.bind(images));
 
+       $('.delete-request-file-form').submit(function(e) {
+            e.preventDefault();
+            var form = this;
+            require('../helpers/deleteConfirmationAlert.js')(this, function(deleteButton) {
+                require('../helpers/ajaxFormCall.js')({
+                    'form': $(form),
+                    alertText: 'destroy',
+                    afterCall: function(data) {
+                        $(deleteButton).closest('li').slideUp(800);
+                    }.bind(deleteButton)
+                });
+            }.bind(form));
+        });
+
        $('#requestConcludeButton').click(function(e) {
             e.preventDefault();
             require('../helpers/requestConcludeConfirmationAlert.js')(this);

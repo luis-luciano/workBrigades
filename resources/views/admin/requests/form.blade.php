@@ -164,7 +164,14 @@
 <div class="form-buttons form-group clearfix">
     <div class="row">
         <div class="col-md-12">
-            {!! Form::submit($submitButtonText, ['class' => 'btn btn-success']) !!}
+            @if(isset($inquiry))
+                @can('creator',$inquiry)
+                    {!! Form::submit($submitButtonText, ['class' => 'btn btn-success']) !!}
+                @endcan
+            @else
+                {!! Form::submit($submitButtonText, ['class' => 'btn btn-success']) !!}
+            @endif
+
             <div id="buttonsRequest" style="display: inline-block">
                 <a href="{{ route('requests.create') }}" class="btn btn-primary">Nuevo</a>
                 <a href="{{ route('requests.index') }}" class="btn btn-warning">Regresar</a>

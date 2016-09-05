@@ -101,6 +101,7 @@ class RequestsController extends Controller
      */
     public function edit(Inquiry $inquiry)
     {
+
         $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();
         $citizen = [$inquiry->concerned->id => $inquiry->concerned->full_name];
 
@@ -136,6 +137,8 @@ class RequestsController extends Controller
      */
     public function update(Request $request,Inquiry $inquiry)
     {
+        $this->authorize('creator', $inquiry);
+        
         $inquiry->update($request->all());
         $inquiry->concerned()->associate(Citizen::findOrFail($request->citizen_id));
         $inquiry->save();
@@ -155,6 +158,8 @@ class RequestsController extends Controller
      */
     public function destroy(Inquiry $inquiry)
     {
+        $this->authorize('creator', $inquiry);
+
         $inquiry->delete();
 
         alert()->success(trans('messages.success.destroy'));
