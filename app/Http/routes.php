@@ -77,8 +77,8 @@ Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
 Route::get('graficas', 'PagesController@showGraphics');
 
 
-Route::get("select", function(){
-	return view("select");
+Route::get("requests-print", function(){
+	return view("admin.requests.printRequ");
 });
 
 
