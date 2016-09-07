@@ -36,15 +36,12 @@ class RequestsController extends Controller
     {
         $requestStates=RequestState::lists('label','id');
         $supervisions=Supervision::lists('name','id');
+      
+        $search = [
+            'supervisions' => auth()->user()->supervisions_id
+        ];
 
-        if(in_array("Root",auth()->user()->roles->lists('name','id')->toArray()))
-            $supervision=auth()->user()->supervision->first();
-        else
-            if(in_array("supervisor",auth()->user()->roles->lists('name','id')->toArray()))
-                $supervision=auth()->user()->supervisions->first();
-
-
-        $requests=$supervision->requests()->paginate(10);
+        $requests = Inquiry::search($search)->paginateForTable();
        
         return view('admin.requests.index',compact('requests','requestStates','supervisions'));
     }

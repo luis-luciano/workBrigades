@@ -12,11 +12,13 @@ use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Traits\SimpleSearchableTables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\HasRoles;
 
 
-class User extends Authenticatable {
+class User extends Authenticatable 
+{
 
-	use HasPersonalInformation, SimpleSearchableTables, SoftDeletes;
+	use HasPersonalInformation, SimpleSearchableTables, HasRoles, SoftDeletes;
 
 	/**
      * The attributes that should be mutated to dates.
@@ -52,7 +54,8 @@ class User extends Authenticatable {
         return $this->morphMany('App\Request','creator');
     }
 
-	public function personalInformation() {
+	public function personalInformation() 
+	{
 		return $this->belongsTo(PersonalInformation::class); //correct
 	}
 
@@ -66,33 +69,41 @@ class User extends Authenticatable {
         return $this->roles->lists('id')->toArray();
     }
 
-	public function activities() {
+	public function activities() 
+	{
 		return $this->hasMany(Activity::class); //correct
 	}
 
-	public function requests() {
+	public function requests() 
+	{
 		return $this->belongsToMany(Petition::class);
 	}
 
-	public function roles() {
-		return $this->belongsToMany(Role::class);
-	}
+	// public function roles() {
+	// 	return $this->belongsToMany(Role::class);
+	// }
 
-	public function permissions()
+	// public function permissions()
+	// {
+	// 	$permissions= array();
+ //        foreach (auth()->user()->rolesList as $role) {
+ //            $permissions= array_merge( Role::find($role)->permissionslistId, $permissions);
+ //        }
+	// 	return $permissions;
+	// }
+
+	// public function authorized($key)
+	// {
+	// 	return in_array ( $key , auth()->user()->permissions());
+	// }
+
+	public function getSupervisionsIdAttribute()
 	{
-		$permissions= array();
-        foreach (auth()->user()->rolesList as $role) {
-            $permissions= array_merge( Role::find($role)->permissionslistId, $permissions);
-        }
-		return $permissions;
+		 return $this->supervisionsInCharge->merge($this->belongsToSupervisions)->unique()->pluck('id')->toArray();
 	}
 
-	public function authorized($key)
+	public function replies() 
 	{
-		return in_array ( $key , auth()->user()->permissions());
-	}
-
-	public function replies() {
 		return $this->belongsToMany(Petition::class);
 	}
 
@@ -101,15 +112,20 @@ class User extends Authenticatable {
         return $this->belongsToMany(Supervision::class)->withTimestamps();
     }
 
-	public function supervision()
+	// public function supervision()
+ //    {
+ //        return $this->hasMany(Supervision::class);
+ //    }
+
+    public function supervisionsInCharge()
     {
         return $this->hasMany(Supervision::class);
     }
 
-    public function supervisions()
-    {
-        return $this->belongsToMany(Supervision::class)->withTimestamps();
-    }
+    // public function supervisions()
+    // {
+    //     return $this->belongsToMany(Supervision::class)->withTimestamps();
+    // }
 
     public function setPasswordAttribute($value)
     {
@@ -140,8 +156,8 @@ class User extends Authenticatable {
         return $query;
     }
 
-    public function getHasRoleAttribute($value)
-	{
-		return in_array($value,$this->roles->lists('name','id')->toArray());
-	}
+ //    public function getHasRoleAttribute($value)
+	// {
+	// 	return in_array($value,$this->roles->lists('name','id')->toArray());
+	// }
 }

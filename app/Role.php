@@ -58,8 +58,4 @@ class Role extends Model {
     {
         return $this->permissions()->lists('id')->toArray();
     }
-    public function getPermissionsListIdAttribute()
-    {
-        return $this->permissions()->lists('id')->toArray();
-    }
 }

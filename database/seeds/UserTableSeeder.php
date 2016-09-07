@@ -62,7 +62,7 @@ class UserTableSeeder extends Seeder
                         'last_login'=>'2016-06-07 15:47:12',
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>2]);
-        $user->syncRoles([1]);
+        $user->syncRoles([2]);
 
         $user=PersonalInformation::create(['name'=>'José Luis',
                                      'paternal_surname'=>'Benitez',
@@ -85,7 +85,7 @@ class UserTableSeeder extends Seeder
                         'last_login'=>'2016-06-07 15:47:12',
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>3]);
-        $user->syncRoles([1]);
+        $user->syncRoles([2]);
 
         $user=PersonalInformation::create(['name'=>'Carlos Nicasio',
                                      'paternal_surname'=>'Corona',
@@ -108,7 +108,7 @@ class UserTableSeeder extends Seeder
                         'last_login'=>'2016-06-07 15:47:12',
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>4]);
-        $user->syncRoles([1]);
+        $user->syncRoles([2]);
 
         $user=PersonalInformation::create(['name'=>'Areli',
                                      'paternal_surname'=>'Pérez',
@@ -132,5 +132,28 @@ class UserTableSeeder extends Seeder
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>5]);
         $user->syncRoles([3]);
+
+        $user=PersonalInformation::create(['name'=>'Luis',
+                                     'paternal_surname'=>'Pérez',
+                                     'maternal_surname'=>'Perez',
+                                     'sex'=>'F',
+                                     'birthday'=>'2016-06-30',
+                                     'house_phone'=>'2727125535',
+                                     'mobile_phone'=>'2727123394',
+                                     'street'=>'Calle 18 ',
+                                     'number'=>'1907',
+                                     'interior'=>'0',
+                                     'profession'=>'Hidrosistema',
+                                     'colony_id' => '19'
+                                     ]);
+        
+        $user=User::create(['email'=>'luis@hidrosistema.gob.mx',
+                        'password'=>'123',//'@HIDRO-123@',
+                        'is_active'=>1,
+                        'last_ip'=>'192.168.2.0',
+                        'last_login'=>'2016-06-07 15:47:12',
+                        'callback_type'=>'jsjdhsjd',
+                        'personal_information_id'=>6]);
+        $user->syncRoles([2]);
     }   
 }   

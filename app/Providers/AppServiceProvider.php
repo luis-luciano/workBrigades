@@ -26,5 +26,7 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment() == 'local') {
             $this->app->register(\Slc\Js\JsServiceProvider::class);
         }
+
+        $this->app->bind('search', \App\Search::class);
     }
 }

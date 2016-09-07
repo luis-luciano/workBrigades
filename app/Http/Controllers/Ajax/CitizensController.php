@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Citizen;
 use App\PersonalInformation;
 use Illuminate\Http\Request;
-use App\Search;
 use App\Http\Requests\StoreCitizenRequest;
 use App\Http\Requests;
+use App\Search;
 
 class CitizensController extends Controller
 {

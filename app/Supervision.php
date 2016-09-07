@@ -34,9 +34,19 @@ class Supervision extends Model
     	return $this->belongsToMany('App\Request')->withTimestamps();
     }
 
-    public function manager()
+    public function director()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(self::class);
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(self::class, 'supervision_id');
     }
 
     /**

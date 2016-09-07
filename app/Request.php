@@ -13,10 +13,11 @@ use App\RequestState;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\RequestPresenter;
 use App\Traits\SimpleSearchableTables;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes; 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
-
+use Search;
 
 class Request extends Model implements HasPresenter
 {
@@ -57,6 +58,26 @@ class Request extends Model implements HasPresenter
         static::creating(function ($request) {
             $request->pin = (string) mt_rand(10000, 99999);
         });
+    }
+
+    public function scopeSearch(Builder $query, $search)
+    {
+        $relationsToLoad = ['supervisions'];
+        $query->with($relationsToLoad);
+        //$search['date_range'] = $search['date_range'] ? getDateRange($search['date_range']) : "";
+
+        $query->where(function ($query) use ($search) {
+            // look for requests that has supervisions and match the constraint
+            if (!empty($search['supervisions'])) {
+                $query->whereHas('supervisions', function ($query) use ($search) {
+                    $query->whereIn('id', $search['supervisions']);
+                });
+            }
+        })
+            ->with($relationsToLoad)
+            ->orderBy('created_at', 'desc');
+
+        return $query;
     }
 
 	public function concerned()

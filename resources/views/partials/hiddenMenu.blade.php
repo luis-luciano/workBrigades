@@ -8,130 +8,128 @@
 				</li>
 				@if(auth()->check())
 					
-					@if(auth()->user()->authorized(17))
+					@can('index.citizen')
 						<li>
 							<a href="{{ route('citizens.index') }}"><i class="fa fa-users"></i> Ciudadanos</a>
 						</li>
-					@endif
+					@endcan
 
-					@if(auth()->user()->authorized(71))
+					@can('index.requests')
 						<li>
 							<a href="{{ route('requests.index') }}"><i class="fa fa-file"></i> Peticiones</a>
 						</li>
-					@endif
+					@endcan
 
 					<li>
 						<a href="javascript:;"><i class="fa fa-cogs"></i> Sistema</a>
-						@if(auth()->user()->authorized(127))
+						@can('config.colonies')
 							<ul class="child-menu">
 								<li>
 									<a href="javascript:;"><i class="fa fa-map"></i> Colonias</a>
 									<ul class="child-menu">
-										@if(auth()->user()->authorized(22)) 
+										@can('index.colonies') 
 											<li>
 												<a href="{{ route('colonies.index') }}"><i class="fa fa-puzzle-piece"> </i> Gestionar</a>
 											</li> 
-										@endif
+										@endcan
 
-										@if(auth()->user()->authorized(29)) 
+										@can('index.colony_scopes') 
 											<li>
 												<a href="{{ route('colonies.scopes.index') }}"><i class="fa fa-crosshairs"></i> Ambito</a>
 											</li> 
-										@endif
+										@endcan
 
-										@if(auth()->user()->authorized(92)) 
+										@can('index.settlement_types') 
 											<li>
 												<a href="{{ route('colonies.settlement-types.index') }}"><i class="fa fa-building"></i> Tipo de Asentamiento</a>
 											</li> 
-										@endif
+										@endcan
 										
-										@if(auth()->user()->authorized(85)) 
+										@can('index.sectors') 
 											<li>
 												<a href="{{ route('sectors.index') }}"><i class="fa fa-houzz"></i> Sectores</a>
 											</li> 
-										@endif
+										@endcan
 									</ul>
 								</li>
 							</ul>
-						@endif
+						@endcan
 
-						@if(auth()->user()->authorized(128))
+						@can('config.requests')
 							<ul class="child-menu">
 								<li>
 									<a href="javascript:;"><i class="fa fa-file"></i>  Peticiones</a>
 									<ul class="child-menu">
-										 @if(auth()->user()->authorized(64)) 
+										 @can('index.request_states') 
 										 	<li>
 										 		<a href="{{ route('requestsStates.index') }}"><i class="fa fa-yelp"></i> Estados</a>
 										 	</li> 
-										 @endif
+										 @endcan
 
-										 @if(auth()->user()->authorized(50)) 
+										 @can('index.request_priorities') 
 										 	<li>
 										 		<a href="{{ route('requestsPriorities.index') }}"><i class="fa fa-chain-broken"></i> Prioridades</a>
 										 	</li> 
-										 @endif
+										 @endcan
 
-										 @if(auth()->user()->authorized(106)) 
+										 @can('index.typologies') 
 										 	<li>
 										 		<a href="{{ route('typologies.index') }}"><i class="fa fa-asterisk"></i> Tipologías</a>
 										 	</li> 
-										 @endif
+										 @endcan
 										 
-										 @if(auth()->user()->authorized(8)) 
+										 @can('index.capture_types') 
 										 	<li>
 										 		<a href="{{ route('captureTypes.index') }}"><i class="fa fa-pencil-square"></i> Tipo de captura</a>
 										 	</li> 
-										 @endif
+										 @endcan
 
-										 @if(auth()->user()->authorized(120)) 
+										 @can('index.request_types') 
 										 	<li>
 										 		<a href="{{ route('requestTypes.index') }}"><i class="fa fa-pencil-square"></i> Tipo de Peticion</a>
 										 	</li> 
-										 @endif
+										 @endcan
 
-										 @if(auth()->user()->authorized(43)) 
+										 @can('index.problem_types') 
 										 	<li>
 										 		<a href="{{ route('problemTypes.index') }}"><i class="fa fa-clipboard"></i> Tipo de Problema</a>
 										 	</li> 
-										 @endif
+										 @endcan
 
-										 @if(auth()->user()->authorized(1)) 
+										 @can('index.brigades') 
 										 	<li>
 										 		<a href="{{ route('brigades.index') }}"><i class="fa fa-users"></i> Brigadas</a>
 										 	</li> 
-										 @endif
+										 @endcan
 									</ul>
 								</li>
 							</ul>
-						@endif
+						@endcan
 
-						@if(auth()->user()->authorized(99))
+						@can('index.supervisions')
 							<ul class="child-menu">
 								<li><a href="{{ route('supervisions.index') }}"><i class="fa fa-stumbleupon"></i> Superviciones</a></li>
 							</ul>
-						@endif
+						@endcan
 
-						@if(auth()->user()->authorized(113))
+						@can('index.users')
 							<ul class="child-menu">
 								<li><a href="{{ route('users.index') }}"><i class="fa fa-stumbleupon"></i> Usuarios</a></li>
 							</ul>
-						@endif
+						@endcan
 						
-						@if(auth()->user()->authorized(78))
+						@can('index.roles')
 							<ul class="child-menu">
 								<li><a href="{{ route('roles.index') }}"><i class="fa fa-joomla"></i> Roles</a></li>
 							</ul>
-						@endif
+						@endcan
 
-						@if(auth()->user()->authorized(36))
+						@can('index.permissions')
 							<ul class="child-menu">
 								<li><a href="{{ route('permissions.index') }}"><i class="fa fa-joomla"></i> Permisos</a><li>
 							</ul>
-						@endif
-						
+						@endcan
 					</li>
-
 					<li>
 						<a href="logout"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Cerrar la sesión</a>
 					</li>		
