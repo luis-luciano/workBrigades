@@ -34,6 +34,7 @@ class RequestsController extends Controller
      */
     public function index()
     {
+        $this->authorize('index.requests');
         $requestStates=RequestState::lists('label','id');
         $supervisions=Supervision::lists('name','id');
       

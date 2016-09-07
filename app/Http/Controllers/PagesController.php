@@ -39,7 +39,7 @@ class PagesController extends Controller
            return view('pages.index',compact('typologies','counters'));
         } else {
                 if (in_array( 'operator' , $role_user)) {
-                    return redirect()->route('requests');
+                    return redirect()->route('requests.index');
                 } else {
                         return view("admin.users.profile",compact('user'));
                     } 
