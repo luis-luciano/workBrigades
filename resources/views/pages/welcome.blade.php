@@ -11,8 +11,12 @@
 	<meta name="author" content="Lucas Bebber for Codrops" />
 	<link rel="shortcut icon" href="{{ asset('assets/globals/img/icon.ico') }}">
 
-  	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap/dist/css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/globals/css/normalize.css') }}">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  	<link rel="stylesheet" href="{{ asset('assets/globals/css/normalize.css') }}">
+  	
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/demo.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/style1.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/sweetAlert/sweetalert.css') }}">
@@ -42,12 +46,29 @@
 		<header class="codrops-header">
 			
 			<img class="img-logo" src="{{ asset('assets/globals/img/logo_h.png') }}" />
-			<a href="">
-			 	<button type="button" class="btn btn-personality-b">Ver video
-			 		{{-- <span class="" style=""></span>
-			 		<span class="ripple _7 animate" style=""></span> --}}
-			 	</button>
-	  		</a>
+			
+	  		<div class="row">
+	  			<div class="pull-right">
+	  				<a href="login">
+					 	<button type="button" class="btn btn-personality-b pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> Ingresar
+					 		{{-- <span class="" style=""></span>
+					 		<span class="ripple _7 animate" style=""></span> --}}
+					 	</button>
+			  		</a>
+	  			</div>
+
+	  			<div class="pull-right">
+	  				<a href="">
+					 	<button type="button" class="btn btn-personality-b pull-right"><i class="fa fa-play" aria-hidden="true"></i>
+Ver video
+					 		{{-- <span class="" style=""></span>
+					 		<span class="ripple _7 animate" style=""></span> --}}
+					 	</button>
+			  		</a>
+	  			</div>
+	  			
+	  		</div>
+
 		</header>
 
 		<div class="slideshow">
@@ -149,7 +170,7 @@
 	</div>
 	
 	<script src= "{{ asset('assets/globals/plugins/jquery/dist/jquery.min.js') }}"></script>
-	<script src= "{{ asset('assets/globals/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src= "{{ asset('assets/globals/plugins/sweetAlert/sweetalert.min.js') }}"></script>
 	<script src= "{{ asset('assets/globals/js/index.js') }}"></script>
 	<script type="text/javascript">
