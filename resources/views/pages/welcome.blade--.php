@@ -11,12 +11,8 @@
 	<meta name="author" content="Lucas Bebber for Codrops" />
 	<link rel="shortcut icon" href="{{ asset('assets/globals/img/icon.ico') }}">
 
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-  	<link rel="stylesheet" href="{{ asset('assets/globals/css/normalize.css') }}">
-  	
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+  	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/bootstrap/dist/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/globals/css/normalize.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/demo.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/css/style1.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/globals/plugins/sweetAlert/sweetalert.css') }}">
@@ -32,7 +28,6 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<script src="{{ asset('assets/globals/js/global-vendors.js') }}"></script>
-
 
 </head>
 
@@ -54,29 +49,12 @@
 		<header class="codrops-header">
 			
 			<img class="img-logo" src="{{ asset('assets/globals/img/logo_h.png') }}" />
-			
-	  		<div class="row">
-	  			<div class="pull-right">
-	  				<a href="login">
-					 	<button type="button" class="btn btn-personality-b pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> Ingresar
-					 		{{-- <span class="" style=""></span>
-					 		<span class="ripple _7 animate" style=""></span> --}}
-					 	</button>
-			  		</a>
-	  			</div>
-
-	  			<div class="pull-right">
-	  				<a href="">
-					 	<button type="button" class="btn btn-personality-b pull-right"><i class="fa fa-play" aria-hidden="true"></i>
-Ver video
-					 		{{-- <span class="" style=""></span>
-					 		<span class="ripple _7 animate" style=""></span> --}}
-					 	</button>
-			  		</a>
-	  			</div>
-	  			
-	  		</div>
-
+			<a href="">
+			 	<button type="button" class="btn btn-personality-b">Ver video
+			 		{{-- <span class="" style=""></span>
+			 		<span class="ripple _7 animate" style=""></span> --}}
+			 	</button>
+	  		</a>
 		</header>
 
 		<div class="slideshow">
@@ -110,8 +88,8 @@ Ver video
 					<div class="col-xs-4 col-md-offset-4">
 						@if($errors->any())
 						
-						<div id="errorsList" class="alert alert-danger-transparent" role="alert">							
-							<div class="alert alert-danger-p alert-dismissible" role="alert">
+						<div id="errorsList" class="alert alert-danger-transparent " role="alert">							
+							<div class="alert alert-danger-p alert-dismissible alert-personaly-m" role="alert">
 								  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 								  <strong>Warning!</strong><br>
 								  @foreach ($errors->all() as $error)
@@ -127,7 +105,7 @@ Ver video
 		  			<div class="col-xs-4 col-md-offset-4">
 						@if(isset($message))
 						<div id="errorsList" class="alert alert-danger-transparent" role="alert">							
-							<div class="alert alert-dange-p alert-dismissible" role="alert">
+							<div class="alert alert-danger-p alert-dismissible" role="alert">
 								  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Warning!</strong><br> <small>* {{ $message }}</small>
 								  
 							</div>
@@ -178,7 +156,7 @@ Ver video
 	</div>
 	
 	<script src= "{{ asset('assets/globals/plugins/jquery/dist/jquery.min.js') }}"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src= "{{ asset('assets/globals/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 	<script src= "{{ asset('assets/globals/plugins/sweetAlert/sweetalert.min.js') }}"></script>
 	<script src= "{{ asset('assets/globals/js/index.js') }}"></script>
 	<script type="text/javascript">
