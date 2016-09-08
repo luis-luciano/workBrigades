@@ -1,3 +1,4 @@
+
 @extends('layouts.masterComplete')
 
 @section('title', 'Peticiones')
@@ -28,60 +29,18 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-1">
-                                <div class="form-group">
-                                    {!! Form::select('limit', ['10' => '10', '15' => '15', '20' => '20', $requests->total() => 'Todos'], $requests->perPage(), ['class' => 'selecter', 'onchange' => 'this.form.submit()', 'data-width' => '100%']) !!}
-                                </div>
-                            </div>
-                        {{--
-                            <div class="col-md-8">  
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
-                                                <div class="inputer">
-                                                    <div class="input-wrapper">
-                                                        {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control bootstrap-daterangepicker-specific']) !!}
-                                                    </div>
-                                            </div>
+                        @if($requests->isEmpty())
+                            <p>No se encontraron {{ plural('requests') }}. Vuelva a intentarlo <a class="btn btn-floating-sm btn-indigo" href="{{ route('requests.index') }}" ><i class="fa fa-refresh" aria-hidden="true"></i></a></p>
+                        @else
+                            {!! Form::open(['method' => 'GET' , 'id' => 'supervisionsSearchForm']) !!}
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            {!! Form::select('limit', ['10' => '10', '15' => '15', '20' => '20', $requests->total() => 'Todos'], $requests->perPage(), ['class' => 'selecter', 'onchange' => 'this.form.submit()', 'data-width' => '100%']) !!}
                                         </div>
                                     </div>
-                                </div> 
-                            </div>
-                        --}}
-                        </div>
-                            
-                         
-                            <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <div class="inputer">
-                                                <div class="input-wrapper">
-                                                    {!! Form::text('folio', Request::get('folio'), ['class' => 'form-control', 'placeholder' => 'Folio']) !!}
-                                                </div>
-                                            </div>
-                                        </div><!--.form-group-->
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="inputer">
-                                                <div class="input-wrapper">
-                                                    {!! Form::text('citizen', Request::get('citizen'), ['class' => 'form-control', 'placeholder' => 'Nombre del Ciudadano']) !!}
-                                                </div>
-                                            </div>
-                                        </div><!--.form-group-->
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                                {!! Form::multipleSelectPicker('request_states[]', $requestStates, Request::get('request_states'), ['title' => 'Estado','data-width' => '100%']) !!}  
-                                        </div><!--.form-group-->
+                                {{--
+                                    <div class="col-md-8">  
                                     </div>
 
                                     <div class="col-md-3">
@@ -91,36 +50,81 @@
                                                     <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
                                                         <div class="inputer">
                                                             <div class="input-wrapper">
-                                                                {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control daterange-picker']) !!}
+                                                                {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control bootstrap-daterangepicker-specific']) !!}
                                                             </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div> 
                                     </div>
-                            </div>
+                                --}}
+                                </div>
+                                    
+                                 
+                                    <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <div class="inputer">
+                                                        <div class="input-wrapper">
+                                                            {!! Form::text('folio', Request::get('folio'), ['class' => 'form-control', 'placeholder' => 'Folio']) !!}
+                                                        </div>
+                                                    </div>
+                                                </div><!--.form-group-->
+                                            </div>
 
-                            <div class="row">
-                                <div class="col-md-3 col-md-pull-9">
-                                    <div class="pull-right">
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary "><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
-                                
-                                            <a href="{{ route('requests.index') }}" class="btn btn-purple"><i class="fa fa-eye" aria-hidden="true"></i> Ver todos</a>
-                                        </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="inputer">
+                                                        <div class="input-wrapper">
+                                                            {!! Form::text('citizen', Request::get('citizen'), ['class' => 'form-control', 'placeholder' => 'Nombre del Ciudadano']) !!}
+                                                        </div>
+                                                    </div>
+                                                </div><!--.form-group-->
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                        {!! Form::multipleSelectPicker('request_states[]', $requestStates, Request::get('request_states'), ['title' => 'Estado','data-width' => '100%']) !!}  
+                                                </div><!--.form-group-->
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
+                                                                <div class="inputer">
+                                                                    <div class="input-wrapper">
+                                                                        {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control daterange-picker']) !!}
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </div>
                                     </div>
-                                </div>          
-                            </div>
-                    
-                        <br>
-                        <!--Table Request--> 
-                        <div class="row">
-                            <div class="col-md-12">
-                                @include('partials.requests.table', ['baseRequestRoute' => 'requests.edit', 'citizenName' => true, 'captureType' => true,'requests' => $requests])
-                            </div>
-                        </div>
-                        <!--Table Request-->
 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="pull-right">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-primary "><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+                                        
+                                                    <a href="{{ route('requests.index') }}" class="btn btn-purple"><i class="fa fa-eye" aria-hidden="true"></i> Ver todos</a>
+                                                </div>
+                                            </div>
+                                        </div>          
+                                    </div>
+                            {!! Form::close() !!}    
+                                <br>
+                            <!--Table Request--> 
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @include('partials.requests.table', ['baseRequestRoute' => 'requests.edit', 'citizenName' => true, 'captureType' => true,'requests' => $requests])
+                                </div>
+                            </div>
+                            <!--Table Request-->
+                        @endif
                     </div><!--.panel-body-->
                 </div><!--.panel-->
             </div><!--.col-md-12-->

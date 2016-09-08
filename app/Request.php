@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes; 
 use Carbon\Carbon;
-use Search;
 
 class Request extends Model implements HasPresenter
 {
@@ -62,11 +61,29 @@ class Request extends Model implements HasPresenter
 
     public function scopeSearch(Builder $query, $search)
     {
-        $relationsToLoad = ['supervisions'];
+        $relationsToLoad = ['supervisions', 'state', 'concerned'];
         $query->with($relationsToLoad);
         //$search['date_range'] = $search['date_range'] ? getDateRange($search['date_range']) : "";
+        //
+        $citizenIdsCandidates = function () use ($search) {
+            return array_map(function ($citizen) {
+                return $citizen['id'];
+            }, Search::citizensByNames($search['citizen']));
+        };
 
-        $query->where(function ($query) use ($search) {
+        $query->where(function ($query) use ($search, $citizenIdsCandidates) {
+        	if (!empty($search['id'])) {
+                $query->where('id', $search['id']);
+            }
+
+            if (!empty($search['citizen'])) {
+                $query->whereIn('concerned_id', $citizenIdsCandidates($search));
+            }
+
+            if (!empty($search['states'])) {
+                $query->whereIn('request_state_id', $search['states']);
+            }
+
             // look for requests that has supervisions and match the constraint
             if (!empty($search['supervisions'])) {
                 $query->whereHas('supervisions', function ($query) use ($search) {
@@ -225,6 +242,11 @@ class Request extends Model implements HasPresenter
         return $this->state()->associate(
             RequestState::whereName($state)->firstOrFail()
         )->save();
+    }
+
+    public function getSupervisionsListAttribute()
+    {
+        return $this->supervisions->implode('name', ',');
     }
 
 	public function scopeCountTypology($query,$id)

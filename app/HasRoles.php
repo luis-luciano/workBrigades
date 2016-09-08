@@ -35,8 +35,11 @@ trait HasRoles
      */
     public function hasRole($role)
     {
-        if (is_string($role)) {
-            return $this->roles->contains('name', $role);
+        if (is_string($role)) 
+        {
+            $roles=explode("|",$role);
+
+            return !!count(array_intersect($roles,$this->roles->pluck("name")->toArray()));
         }
 
         return !!$role->intersect($this->roles)->count();

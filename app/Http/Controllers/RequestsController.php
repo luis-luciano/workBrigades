@@ -32,14 +32,17 @@ class RequestsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $this->authorize('index.requests');
         $requestStates=RequestState::lists('label','id');
         $supervisions=Supervision::lists('name','id');
       
         $search = [
-            'supervisions' => auth()->user()->supervisions_id
+            'id' => $request->get('folio', ""),
+            'citizen' => $request->get('citizen', ""),
+            'supervisions' => auth()->user()->supervisions_id,
+            'states' => $request->get('request_states', []),
         ];
 
         $requests = Inquiry::search($search)->paginateForTable();

@@ -5,7 +5,12 @@
                <th class="col-md-1">Folio</th>
                <th class="col-md-1">Fecha</th>
                <th class="col-md-1">Estado</th>
-               <th class="col-md-2">Problema</th>
+               
+               @if(auth()->user()->hasRole("administrator|supervisor"))
+                    <th class="col-md-1">Supervision</th>
+               @endif
+
+               <th class="col-md-{{ auth()->user()->hasRole('administrator|supervisor') ? '1' : '2' }}">Problema</th>
                <th class="col-md-1">Prioridad</th>
                <th class="col-md-2">Ciudadano</th>
                <th class="col-md-4">Domicilio</th>
@@ -24,7 +29,12 @@
                         <div class="status" data-color-status="{{ $request->state->color }}">
                             {{ $request->state->label }}
                         </div>
-                    </td> 
+                    </td>
+                    @if(auth()->user()->hasRole("administrator|supervisor"))
+                        <td>
+                            {{ $request->supervisions->last()->name }} 
+                        </td> 
+                    @endif
                     <td>
                         {{ $request->problem->name }}
                     </td>    
