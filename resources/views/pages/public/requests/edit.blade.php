@@ -34,18 +34,14 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="status">
                     
-                    <div class="col-md-4 col-md-offset-4">
-                        <div class="row">
-                            <a class="btn btn-floating {{ $state }} btn-ripple" style="width: 150px; height: 150px; padding: 10px;border-radius: 50%; border: 0; font-size: 80px;">
-                                <i class="ion-android-star"></i>
-                                
-                            </a>
-                        </div>
+                
                         
                         <div class="row" >
-                            <h1>  {{ $inquiry->StateLabel }} </h1>
+                            <div class="col-md-6 center-block">
+                                <h1>  {{ $inquiry->StateLabel }} </h1>
+                            </div>
                         </div>
-                    </div>  
+                    
                 
                 </div><!--.tab-pane-->
 
