@@ -24,7 +24,7 @@ class RequestPolicy
     {
         $userSupervisions=$user->supervisions_id;
         $inquirySupervisions=$inquiry->supervisions->pluck('id')->toArray();
-        return !!(array_intersect($userSupervisions, $inquirySupervisions)||$user->hasRole('administrator|supervisor'));
+        return !!(array_intersect($userSupervisions, $inquirySupervisions)||$user->hasRole('administrator'));
     }
 
     public function creator(User $user,Inquiry $inquiry)

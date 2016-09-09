@@ -39,25 +39,25 @@
                                             {!! Form::select('limit', ['10' => '10', '15' => '15', '20' => '20', $requests->total() => 'Todos'], $requests->perPage(), ['class' => 'selecter', 'onchange' => 'this.form.submit()', 'data-width' => '100%']) !!}
                                         </div>
                                     </div>
-                                {{--
-                                    <div class="col-md-8">  
-                                    </div>
+                                    @role("administrator|supervisor")
+                                        <div class="col-md-8">  
+                                        </div>
 
-                                    <div class="col-md-3">
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
-                                                        <div class="inputer">
-                                                            <div class="input-wrapper">
-                                                                {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control bootstrap-daterangepicker-specific']) !!}
+                                        <div class="col-md-3">
+                                                    <div class="control-group">
+                                                        <div class="controls">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
+                                                                    <div class="inputer">
+                                                                        <div class="input-wrapper">
+                                                                            {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control daterange-picker']) !!}
+                                                                        </div>
+                                                                </div>
                                                             </div>
-                                                    </div>
+                                                        </div>
+                                                    </div> 
                                                 </div>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                --}}
+                                    @endrole
                                 </div>
                                     
                                  
@@ -81,27 +81,37 @@
                                                     </div>
                                                 </div><!--.form-group-->
                                             </div>
-
+                                            
+                                            @role("administrator|supervisor")
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                            {!! Form::multipleSelectPicker('supervisions[]', $supervisions, Request::get('supervisions'), ['title' => plural('supervisions'),'data-width' => '100%']) !!} 
+                                                    </div><!--.form-group-->
+                                                </div>
+                                            @endrole
+                                            
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                         {!! Form::multipleSelectPicker('request_states[]', $requestStates, Request::get('request_states'), ['title' => 'Estado','data-width' => '100%']) !!}  
                                                 </div><!--.form-group-->
                                             </div>
 
-                                            <div class="col-md-3">
-                                                <div class="control-group">
-                                                    <div class="controls">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
-                                                                <div class="inputer">
-                                                                    <div class="input-wrapper">
-                                                                        {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control daterange-picker']) !!}
-                                                                    </div>
+                                            @if(auth()->check() && !auth()->user()->hasRole("administrator|supervisor"))
+                                                <div class="col-md-3">
+                                                    <div class="control-group">
+                                                        <div class="controls">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
+                                                                    <div class="inputer">
+                                                                        <div class="input-wrapper">
+                                                                            {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control daterange-picker']) !!}
+                                                                        </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div> 
-                                            </div>
+                                                    </div> 
+                                                </div>
+                                            @endif
                                     </div>
 
                                     <div class="row">
