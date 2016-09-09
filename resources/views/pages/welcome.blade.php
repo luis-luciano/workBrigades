@@ -57,18 +57,9 @@
 			
 	  		<div class="row">
 	  			<div class="pull-right">
-	  				<a href="login">
-					 	<button type="button" class="btn btn-personality-b pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> Ingresar
-					 		{{-- <span class="" style=""></span>
-					 		<span class="ripple _7 animate" style=""></span> --}}
-					 	</button>
-			  		</a>
-	  			</div>
-
-	  			<div class="pull-right">
 	  				<a href="">
 					 	<button type="button" class="btn btn-personality-b pull-right"><i class="fa fa-play" aria-hidden="true"></i>
-Ver video
+							Ver video
 					 		{{-- <span class="" style=""></span>
 					 		<span class="ripple _7 animate" style=""></span> --}}
 					 	</button>
