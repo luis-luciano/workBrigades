@@ -19,7 +19,7 @@ class SectorsController extends Controller
      */
     public function index() // 85
     {
-        auth()->user()->authorized(85) ?  : abort(403);
+        $this->authorize('index.sectors');
 
         $sectors=Sector::SearchFromRequest()->PaginateForTable();
 
@@ -33,7 +33,7 @@ class SectorsController extends Controller
      */
     public function create() //86
     {
-        auth()->user()->authorized(86) ?  : abort(403);
+        $this->authorize('create.sectors');
 
         return view('admin.sectors.create');
     }
@@ -46,7 +46,7 @@ class SectorsController extends Controller
      */
     public function store(SectorRequest $request) //87
     {
-        auth()->user()->authorized(87) ?  : abort(403);
+        $this->authorize('store.sectors');
 
         $sector=Sector::create($request->all());
 
@@ -61,7 +61,7 @@ class SectorsController extends Controller
      */
     public function show($id) //88
     {
-        auth()->user()->authorized(88) ?  : abort(404);
+        $this->authorize('show.sectors');
     }
 
     /**
@@ -72,7 +72,7 @@ class SectorsController extends Controller
      */
     public function edit($id) //89
     {   
-        auth()->user()->authorized(89) ?  : abort(403);
+        $this->authorize('edit.sectors');
 
         $sector=Sector::find($id);
 
@@ -88,7 +88,7 @@ class SectorsController extends Controller
      */
     public function update(SectorRequest $request, $id) //90
     {
-        auth()->user()->authorized(91) ?  : abort(403);
+        $this->authorize('update.sectors');
 
         $sector=Sector::find($id);
 
@@ -105,7 +105,7 @@ class SectorsController extends Controller
      */
     public function destroy($id) //91
     {
-        auth()->user()->authorized(91) ?  : abort(403);
+        $this->authorize('destroy.sectors');
 
         $sector=Sector::find($id);
 

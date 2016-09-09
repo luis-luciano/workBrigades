@@ -19,7 +19,7 @@ class RequestTypesController extends Controller
      */
     public function index() // 120
     {   
-        auth()->user()->authorized(120) ?  : abort(403);
+        $this->authorize('index.request_types');
 
         $requestTypes=RequestType::SearchFromRequest()->PaginateForTable();
 
@@ -33,7 +33,7 @@ class RequestTypesController extends Controller
      */ 
     public function create() // 121
     {
-        auth()->user()->authorized(121) ?  : abort(403);
+        $this->authorize('create.request_types');
 
         return view('admin.requestTypes.create');
     }
@@ -46,7 +46,7 @@ class RequestTypesController extends Controller
      */
     public function store(RequestTypeRequest $request) // 122
     {
-        auth()->user()->authorized(122) ?  : abort(403);
+        $this->authorize('store.request_types');
 
          $Type=RequestType::create($request->all());
 
@@ -64,7 +64,7 @@ class RequestTypesController extends Controller
      */
     public function show($id) // 123
     {
-        auth()->user()->authorized(70) ?  : abort(404);
+        $this->authorize('show.request_types');
     }
 
     /**
@@ -75,7 +75,7 @@ class RequestTypesController extends Controller
      */
     public function edit($id) // 124
     {
-        auth()->user()->authorized(124) ?  : abort(403);
+        $this->authorize('edit.request_types');
 
         $requestType=RequestType::find($id);
 
@@ -92,7 +92,7 @@ class RequestTypesController extends Controller
      */
     public function update(RequestTypeRequest $request, $id) // 125 
     {
-        auth()->user()->authorized(125) ?  : abort(403);
+        $this->authorize('update.request_types');
 
         $requestType=RequestType::find($id);
 
@@ -112,7 +112,7 @@ class RequestTypesController extends Controller
      */
     public function destroy($id) // 126
     { 
-        auth()->user()->authorized(126) ?  : abort(403);
+        $this->authorize('destroy.request_types');
 
         $requestType=RequestType::find($id);
 

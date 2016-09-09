@@ -19,8 +19,8 @@ class RequestStatesController extends Controller
      */
     public function index() // 64
     {
-        auth()->user()->authorized(64) ?  : abort(403);
-
+        $this->authorize('index.request_states');
+        
         $states=RequestState::SearchFromRequest()->PaginateForTable();
 
         return view('admin.states.index', compact('states'));
@@ -33,7 +33,7 @@ class RequestStatesController extends Controller
      */
     public function create() // 65
     {
-        auth()->user()->authorized(65) ?  : abort(403);
+        $this->authorize('create.request_states');
 
         return view('admin.states.create');
     }
@@ -46,7 +46,7 @@ class RequestStatesController extends Controller
      */
     public function store(RequestStateRequest $request) //66
     {
-        auth()->user()->authorized(67) ?  : abort(403);
+        $this->authorize('store.request_states');
 
         $state=RequestState::create($request->all());
 
@@ -63,7 +63,7 @@ class RequestStatesController extends Controller
      */
     public function show($id) //67
     {
-        auth()->user()->authorized(67) ?  : abort(404);
+        $this->authorize('show.request_states');
     }
 
     /**
@@ -74,7 +74,7 @@ class RequestStatesController extends Controller
      */
     public function edit($id) //68
     {
-        auth()->user()->authorized(68) ?  : abort(403);
+        $this->authorize('edit.request_states');
 
         $state=RequestState::find($id);
         
@@ -90,7 +90,7 @@ class RequestStatesController extends Controller
      */
     public function update(RequestStateRequest $request, $id) //69
     {
-        auth()->user()->authorized(69) ?  : abort(403);
+        $this->authorize('update.request_states');
 
         $state=RequestState::find($id);
         
@@ -109,7 +109,7 @@ class RequestStatesController extends Controller
      */
     public function destroy($id) //70
     {
-        auth()->user()->authorized(70) ?  : abort(403);
+        $this->authorize('destroy.request_states');
 
         $state=RequestState::find($id);
         

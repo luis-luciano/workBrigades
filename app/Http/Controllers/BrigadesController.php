@@ -21,7 +21,7 @@ class BrigadesController extends Controller
      */
     public function index() //1
     {
-        auth()->user()->authorized(1) ?  : abort(403);
+        $this->authorize('index.brigades');
 
         $brigades=Brigade::SearchFromRequest()->PaginateForTable();
         
@@ -35,7 +35,7 @@ class BrigadesController extends Controller
      */
     public function create() // 2
     {
-        auth()->user()->authorized(2) ?  : abort(403);
+        $this->authorize('create.brigades');
 
         $typologies=Typology::lists('name','id');
         
@@ -52,13 +52,16 @@ class BrigadesController extends Controller
      */
     public function store(BrigadesRequest $request) // 3
     {   
-        auth()->user()->authorized(1) ?  : abort(403);
+        $this->authorize('store.brigades');
         
+        dd($request->all());
+
         $brigade=Brigade::create($request->all());
         
-        $brigade->syncTypologies($request->typologies_list);
 
-        $brigade->syncSectors($request->sectors_list);
+            $brigade->syncTypologies($request->typologies_list);
+
+            $brigade->syncSectors($request->sectors_list);
 
         alert()->success(trans('messages.success.store'));
 
@@ -73,7 +76,7 @@ class BrigadesController extends Controller
      */
     public function show($id) // 4
     {
-        auth()->user()->authorized(4) ?  : abort(404);
+        $this->authorize('show.brigades');
     }
 
     /**
@@ -84,7 +87,7 @@ class BrigadesController extends Controller
      */
     public function edit($id) // 5
     {
-        auth()->user()->authorized(5) ?  : abort(403);
+        $this->authorize('edit.brigades');
 
         $brigade=Brigade::find($id);
         
@@ -105,7 +108,7 @@ class BrigadesController extends Controller
      */
     public function update(BrigadesRequest $request, $id) // 6 
     {
-        auth()->user()->authorized(6) ?  : abort(403);
+        $this->authorize('update.brigades');
 
         $brigade=Brigade::find($id);
         
@@ -128,7 +131,7 @@ class BrigadesController extends Controller
      */
     public function destroy($id) // 7 
     {
-        auth()->user()->authorized(7) ?  : abort(403);
+        $this->authorize('destroy.brigades');
 
         $brigade=Brigade::find($id);
 

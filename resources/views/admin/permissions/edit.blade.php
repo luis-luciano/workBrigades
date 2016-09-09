@@ -1,6 +1,6 @@
 @extends('layouts.masterComplete')
 
-@section('title', 'Editar Estado')
+@section('title', 'Editar Permiso')
 
 @section('styles')
     @parent

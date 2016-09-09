@@ -19,9 +19,11 @@ class SupervisionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() // 99
-    {
+    {   
+        $this->authorize('index.supervisions');
         
         $supervisions=Supervision::SearchFromRequest()->PaginateForTable();
+        
         return view('admin.supervisions.index', compact('supervisions'));
     }
 
@@ -31,12 +33,16 @@ class SupervisionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $this->authorize('create.supervisions');
+        
         $users = User::with('personalInformation')
             ->get()
             ->lists('full_name', 'id')->toArray();
+        
         $supervisions = optionalCollection(Supervision::lists('name', 'id'));
 
+        
         return view('admin.supervisions.create', compact('users','supervisions'));
     }
 
@@ -47,7 +53,8 @@ class SupervisionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(SupervisionRequest $request)
-    {
+    {   
+        $this->authorize('store.supervisions');
 
             $supervision = Supervision::create($request->all());
 
@@ -63,7 +70,8 @@ class SupervisionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+        $this->authorize('show.supervisions');
         //
     }
 
@@ -75,7 +83,10 @@ class SupervisionsController extends Controller
      */
     public function edit($id)
     {   
+        $this->authorize('edit.supervisions');   
+        
         $supervision=Supervision::find($id);
+        
         $users = User::with('personalInformation')
             ->get()
             ->lists('full_name', 'id');
@@ -93,7 +104,9 @@ class SupervisionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(SupervisionRequest $request, $id)
-    {
+    {   
+        $this->authorize('update.supervisions');
+        
         $supervision=Supervision::find($id);
 
         $supervision->update($request->all());
@@ -110,9 +123,13 @@ class SupervisionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {   
+        $this->authorize('destroy.supervisions');
+        
         $supervision=Supervision::find($id);
+        
         $supervision->delete();
+        
         return redirect('supervisions');
     }
 }

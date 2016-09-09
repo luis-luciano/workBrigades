@@ -3,7 +3,7 @@ module.exports = function(form) {
         number: {
 	        required: "true",
 	        type: "digits",
-	        minlength: 3,
+	        minlength: 1,
 	        maxlength: 10,
 	    },
     });

@@ -20,7 +20,7 @@ class RolesController extends Controller
      */
     public function index() //78
     {
-        auth()->user()->authorized(78) ?  : abort(403);
+        $this->authorize('index.roles');
 
         $roles=Role::SearchFromRequest()->PaginateForTable();
         
@@ -35,7 +35,7 @@ class RolesController extends Controller
      */
     public function create() // 79
     {
-        auth()->user()->authorized(79) ?  : abort(403);
+        $this->authorize('create.roles');
 
         $permissions=Permission::lists('label','id');
 
@@ -50,7 +50,7 @@ class RolesController extends Controller
      */
     public function store(RoleRequest $request) //80
     {
-        auth()->user()->authorized(80) ?  : abort(403); 
+        $this->authorize('store.roles');
 
         $role=Role::create($request->all());
 
@@ -69,7 +69,7 @@ class RolesController extends Controller
      */
     public function show($id) //81
     {
-        auth()->user()->authorized(81) ?  : abort(404);
+        $this->authorize('show.roles');
     }
 
     /**
@@ -80,7 +80,7 @@ class RolesController extends Controller
      */
     public function edit($id) //82
     {
-        auth()->user()->authorized(82) ?  : abort(403);
+        $this->authorize('edit.roles');
 
         $role=Role::find($id);
 
@@ -98,7 +98,7 @@ class RolesController extends Controller
      */
     public function update(RoleRequest $request, $id) //83
     {
-        auth()->user()->authorized(83) ?  : abort(403);
+        $this->authorize('update.roles');
 
         $role=Role::find($id);
 
@@ -119,7 +119,7 @@ class RolesController extends Controller
      */
     public function destroy($id) //84
     {
-        auth()->user()->authorized(84) ?  : abort(403);
+        $this->authorize('destroy.roles');
 
         $role=Role::find($id);
 
