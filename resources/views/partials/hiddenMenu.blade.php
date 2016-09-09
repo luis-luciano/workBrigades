@@ -130,7 +130,7 @@
 						@endcan
 					</li>
 					<li>
-						<a href="logout"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Cerrar la sesión</a>
+						<a href="{{ url('logout') }}"><i class="fa fa-sign-out fa-lg"></i> Cerrar la sesión</a>
 					</li>		
 				@endif			
 			</ul>

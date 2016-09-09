@@ -6,9 +6,9 @@
                <th class="col-md-1">Fecha</th>
                <th class="col-md-1">Estado</th>
                
-               @if(auth()->user()->hasRole("administrator|supervisor"))
+               @role("administrator|supervisor")
                     <th class="col-md-1">Supervision</th>
-               @endif
+               @endrole
 
                <th class="col-md-{{ auth()->user()->hasRole('administrator|supervisor') ? '1' : '2' }}">Problema</th>
                <th class="col-md-1">Prioridad</th>
@@ -30,11 +30,11 @@
                             {{ $request->state->label }}
                         </div>
                     </td>
-                    @if(auth()->user()->hasRole("administrator|supervisor"))
+                    @role("administrator|supervisor")
                         <td>
                             {{ $request->supervisions->last()->name }} 
                         </td> 
-                    @endif
+                    @endrole
                     <td>
                         {{ $request->problem->name }}
                     </td>    

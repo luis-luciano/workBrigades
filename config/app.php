@@ -158,8 +158,8 @@ return [
 		App\Providers\EventServiceProvider::class,
 		App\Providers\RouteServiceProvider::class,
 		App\Providers\FormServiceProvider::class,
-		//App\Providers\EntrustCustomServiceProvider::class,
 		App\Providers\ViewComposerServiceProvider::class,
+		App\Providers\CustomDirectivesBladeServiceProvider::class,
 		/*McCool\LaravelAutoPresenter\AutoPresenterServiceProvider::class,*/
 
 	],

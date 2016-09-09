@@ -43,6 +43,7 @@ class RequestsController extends Controller
             'citizen' => $request->get('citizen', ""),
             'supervisions' => auth()->user()->supervisions_id,
             'states' => $request->get('request_states', []),
+            'date_range' => $request->get('date_range', ""),
         ];
 
         $requests = Inquiry::search($search)->paginateForTable();
@@ -102,6 +103,7 @@ class RequestsController extends Controller
      */
     public function edit(Inquiry $inquiry)
     {
+        $this->authorize('displayRequest',$inquiry);
 
         $tipologiesRelations=Typology::with('problems','supervisions')->get(['id','name'])->toJson();
         $citizen = [$inquiry->concerned->id => $inquiry->concerned->full_name];

@@ -63,8 +63,8 @@ class Request extends Model implements HasPresenter
     {
         $relationsToLoad = ['supervisions', 'state', 'concerned'];
         $query->with($relationsToLoad);
-        //$search['date_range'] = $search['date_range'] ? getDateRange($search['date_range']) : "";
-        //
+        $search['date_range'] = $search['date_range'] ? getDateRange($search['date_range']) : "";
+       
         $citizenIdsCandidates = function () use ($search) {
             return array_map(function ($citizen) {
                 return $citizen['id'];
@@ -89,6 +89,10 @@ class Request extends Model implements HasPresenter
                 $query->whereHas('supervisions', function ($query) use ($search) {
                     $query->whereIn('id', $search['supervisions']);
                 });
+            }
+
+            if (!empty($search['date_range'])) {
+                $query->whereBetween('created_at', [$search['date_range']['start'], $search['date_range']['end']]);
             }
         })
             ->with($relationsToLoad)

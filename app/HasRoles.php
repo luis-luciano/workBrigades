@@ -39,7 +39,7 @@ trait HasRoles
         {
             $roles=explode("|",$role);
 
-            return !!count(array_intersect($roles,$this->roles->pluck("name")->toArray()));
+            return !!array_intersect($roles,$this->roles->pluck("name")->toArray());
         }
 
         return !!$role->intersect($this->roles)->count();
