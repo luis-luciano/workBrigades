@@ -20,7 +20,7 @@ class ProblemTypesController extends Controller
      */
     public function index() // 43
     {
-        auth()->user()->authorized(43) ?  : abort(403);
+        $this->authorize('index.problem_types');
 
         $problemTypes = Problem::SearchFromRequest()->PaginateForTable();
 
@@ -34,7 +34,7 @@ class ProblemTypesController extends Controller
      */
     public function create() // 44
     {
-        auth()->user()->authorized(44) ?  : abort(403);
+        $this->authorize('create.problem_types');
 
         $typologies=Typology::lists('name','id');
 
@@ -49,7 +49,7 @@ class ProblemTypesController extends Controller
      */
     public function store(ProblemRequest $request) //45
     {   
-        auth()->user()->authorized(45) ?  : abort(403);
+        $this->authorize('store.problem_types');
 
         $problemType=Problem::create($request->all());
 
@@ -66,7 +66,7 @@ class ProblemTypesController extends Controller
      */
     public function show($id) //46
     {
-        auth()->user()->authorized(46) ?  : abort(404);
+        $this->authorize('show.problem_types');
     }
 
     /**
@@ -77,7 +77,7 @@ class ProblemTypesController extends Controller
      */
     public function edit($id) // 47
     {
-        auth()->user()->authorized(47) ?  : abort(403);
+        $this->authorize('edit.problem_types');
 
         $problemType=Problem::find($id);
 
@@ -96,13 +96,14 @@ class ProblemTypesController extends Controller
      */
     public function update(ProblemRequest $request, $id) // 48
     {
-        auth()->user()->authorized(48) ?  : abort(403);
+        $this->authorize('update.problem_types');
 
         $problemType=Problem::find($id);
+        
 
         $problemType->update($request->all());
 
-        $problemType->typologies()->associate(Typology::find($request->typology_id))->save();
+        $problemType->typology()->associate(Typology::find($request->typology_id))->save();
 
         return redirect('problemTypes/'.$problemType->id.'/edit');
     }
@@ -115,7 +116,7 @@ class ProblemTypesController extends Controller
      */
     public function destroy($id) // 49
     {
-        auth()->user()->authorized(49) ?  : abort(403);
+        $this->authorize('destroy.problem_types');
 
         $problemType=Problem::find($id);
 

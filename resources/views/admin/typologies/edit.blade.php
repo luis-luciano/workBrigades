@@ -27,14 +27,18 @@
                     {!! Form::close() !!}
                     <br>
 
-                    
-                        <!-- 
+                    @if($typology->problems()->count() == 0)
+                         {!! Form::open(['route'=> ['typologies.destroy', $typology->id ], 'method' => 'DELETE']) !!}
+                                        <button id="deleteRequesttypologyButton" type="submit" class="btn btn-danger pull-right">Eliminar
+                                        </button>
+                        {!! Form::close() !!}
+                    @else
                         {!! Form::open(['route'=> ['typologies.destroy', $typology->id ], 'method' => 'DELETE']) !!}
-                                        <button type="submit" class="btn btn-danger pull-right" >Eliminar
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        <button id="deleteRequesttypologyButton" type="submit" class="btn btn-danger pull-right" disabled>Eliminar
                                         </button>
                                        
-                        {!! Form::close() !!} -->
+                    {!! Form::close() !!}
+                    @endif
                     
                     
                 </div><!--.panel-body-->

@@ -19,7 +19,7 @@ class CaptureTypesController extends Controller
      */
     public function index() // 8
     {
-        auth()->user()->authorized(8) ?  : abort(403);
+        $this->authorize('index.capture_types');
 
         $captureTypes=CaptureType::SearchFromRequest()->PaginateForTable();
         
@@ -33,7 +33,7 @@ class CaptureTypesController extends Controller
      */
     public function create() // 9 
     {
-        auth()->user()->authorized(9) ?  : abort(403);
+        $this->authorize('create.capture_types');
 
         return view('admin.captureTypes.create');
     }
@@ -46,7 +46,7 @@ class CaptureTypesController extends Controller
      */
     public function store(CaptureTypeRequest $request) // 10
     {
-        auth()->user()->authorized(10) ?  : abort(403);
+        $this->authorize('store.capture_types');
 
         $captureType=CaptureType::create($request->all());
         
@@ -63,7 +63,7 @@ class CaptureTypesController extends Controller
      */
     public function show($id) // 11
     {
-        auth()->user()->authorized(1) ?  : abort(404);
+        $this->authorize('show.capture_types');
     }
 
     /**
@@ -74,7 +74,7 @@ class CaptureTypesController extends Controller
      */
     public function edit($id) // 12
     {
-        auth()->user()->authorized(12) ?  : abort(403);
+        $this->authorize('edit.capture_types');
 
         $captureType=CaptureType::find($id);
         
@@ -90,7 +90,7 @@ class CaptureTypesController extends Controller
      */
     public function update(CaptureTypeRequest $request, $id) // 13
     {
-        auth()->user()->authorized(13) ?  : abort(403);
+        $this->authorize('update.capture_types');
 
         $captureType=CaptureType::find($id);
         
@@ -109,7 +109,7 @@ class CaptureTypesController extends Controller
      */
     public function destroy($id) // 14
     {
-        auth()->user()->authorized(14) ?  : abort(403);
+        $this->authorize('destroy.capture_types');
 
         $captureType=CaptureType::find($id);
 

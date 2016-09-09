@@ -24,7 +24,7 @@ class UsersController extends Controller
      */
     public function index() // 113
     {
-        auth()->user()->authorized(113) ?  : abort(403);
+        $this->authorize('index.users');
 
         $users=User::SearchFromRequest()->PaginateForTable();
         
@@ -38,7 +38,7 @@ class UsersController extends Controller
      */
     public function create() //114
     {
-        auth()->user()->authorized(114) ?  : abort(403);
+        $this->authorize('create.users');
 
         $roles = Role::lists('label', 'id');
 
@@ -53,7 +53,7 @@ class UsersController extends Controller
      */
     public function store(StoreUserRequest $request) //115
     {
-        auth()->user()->authorized(115) ?  : abort(403);
+        $this->authorize('store.users');
 
         $user_data=PersonalInformation::create($request->all());
 
@@ -78,7 +78,7 @@ class UsersController extends Controller
      */
     public function show($id) //116
     {
-        auth()->user()->authorized(116) ?  : abort(404);
+        $this->authorize('show.users');
     }
 
     /**
@@ -89,7 +89,7 @@ class UsersController extends Controller
      */
     public function edit($id) //117
     {
-        auth()->user()->authorized(117) ?  : abort(403);
+        $this->authorize('edit.users');
 
         $user=User::find($id);
 
@@ -111,7 +111,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id) // 118
     {
-        auth()->user()->authorized(118) ?  : abort(403);
+        $this->authorize('update.users');
 
         if (empty($request['password'])) {
             unset($request['password']);
@@ -138,7 +138,7 @@ class UsersController extends Controller
      */
     public function destroy($id) //119
     {
-        auth()->user()->authorized(119) ?  : abort(403);
+        $this->authorize('destroy.users');
 
         return redirect()->route('users.index');
     }

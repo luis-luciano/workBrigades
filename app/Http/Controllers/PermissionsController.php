@@ -18,7 +18,7 @@ class PermissionsController extends Controller
      */
     public function index() // 36
     {
-        auth()->user()->authorized(36) ?  : abort(403);
+        $this->authorize('index.permissions');
 
         $permissions = Permission::SearchFromRequest()->PaginateForTable();
 
@@ -32,7 +32,7 @@ class PermissionsController extends Controller
      */
     public function create() //37
     {
-        auth()->user()->authorized(37) ?  : abort(403);
+        $this->authorize('create.permissions');
 
         return view('admin.permissions.create');
     }
@@ -45,7 +45,7 @@ class PermissionsController extends Controller
      */
     public function store(Request $request) // 38
     {
-        auth()->user()->authorized(38) ?  : abort(403);
+        $this->authorize('store.permissions');
 
          $permission = Permission::create($request->all());
 
@@ -60,7 +60,7 @@ class PermissionsController extends Controller
      */
     public function show($id) // 39
     {
-        auth()->user()->authorized(39) ?  : abort(404);
+        $this->authorize('show.permissions');
     }
 
     /**
@@ -71,7 +71,7 @@ class PermissionsController extends Controller
      */
     public function edit($id) // 40
     {
-        auth()->user()->authorized(40) ?  : abort(403);
+        $this->authorize('edit.permissions');
 
         $permission=Permission::find($id);
 
@@ -87,7 +87,7 @@ class PermissionsController extends Controller
      */
     public function update(Request $request, $id) // 41
     {
-        auth()->user()->authorized(41) ?  : abort(403);
+        $this->authorize('update.permissions');
 
         $permission=Permission::find($id); 
 
@@ -104,7 +104,9 @@ class PermissionsController extends Controller
      */
     public function destroy($id) // 42
     {
-        auth()->user()->authorized(42) ?  : abort(403);
+        $this->authorize('destroy.permissions');
+
+        $permission=Permission::find($id);
 
         $permission->delete();
         

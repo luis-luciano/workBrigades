@@ -19,7 +19,7 @@ class SettlementTypesController extends Controller
      */
     public function index() //92
     {   
-        auth()->user()->authorized(92) ?  : abort(403);
+        $this->authorize('index.settlement_types');
         $settlements=SettlementType::SearchFromRequest()->PaginateForTable();;
         return view('admin.settlementTypes.index', compact('settlements'));
     }
@@ -31,7 +31,7 @@ class SettlementTypesController extends Controller
      */
     public function create() //93
     {
-        auth()->user()->authorized(93) ?  : abort(403);
+        $this->authorize('create.settlement_types');
 
         return view('admin.settlementTypes.create');
     }
@@ -44,7 +44,7 @@ class SettlementTypesController extends Controller
      */
     public function store(SettlementTypeRequest $request) //94
     {
-        auth()->user()->authorized(94) ?  : abort(403);
+        $this->authorize('store.settlement_types');
 
         $settlement=SettlementType::create($request->all());
 
@@ -59,7 +59,7 @@ class SettlementTypesController extends Controller
      */
     public function show($id) //95
     {
-        auth()->user()->authorized(95) ?  : abort(403);
+        $this->authorize('show.settlement_types');
     }
 
     /**
@@ -70,7 +70,7 @@ class SettlementTypesController extends Controller
      */
     public function edit($id) //96 
     {
-        auth()->user()->authorized(96) ?  : abort(403);
+        $this->authorize('edit.settlement_types');
 
         $settlement=SettlementType::find($id);
 
@@ -86,7 +86,7 @@ class SettlementTypesController extends Controller
      */
     public function update(SettlementTypeRequest $request, $id) //97
     {
-        auth()->user()->authorized(97) ?  : abort(403);
+        $this->authorize('update.settlement_types');
 
         $settlement=SettlementType::find($id);
 
@@ -103,7 +103,7 @@ class SettlementTypesController extends Controller
      */
     public function destroy($id) //98
     {
-        auth()->user()->authorized(98) ?  : abort(403);
+        $this->authorize('destroy.settlement_types');
 
         $settlement=SettlementType::find($id);
 

@@ -19,7 +19,7 @@ class ColonyScopesController extends Controller
      */
     public function index() // 29
     {
-        auth()->user()->authorized(29) ?  : abort(403);
+        $this->authorize('index.colony_scopes');
 
         $scopes=ColonyScope::SearchFromRequest()->PaginateForTable();
 
@@ -33,7 +33,7 @@ class ColonyScopesController extends Controller
      */
     public function create() // 30
     {
-        auth()->user()->authorized(30) ?  : abort(403);
+        $this->authorize('create.colony_scopes');
 
         return view('admin.colonyScopes.create');
     }
@@ -46,7 +46,7 @@ class ColonyScopesController extends Controller
      */
     public function store(ColonyScopeRequest $request) // 31
     {
-        auth()->user()->authorized(31) ?  : abort(403);
+        $this->authorize('store.colony_scopes');
 
         $scope=ColonyScope::create($request->all());
 
@@ -61,7 +61,7 @@ class ColonyScopesController extends Controller
      */
     public function show($id) // 32
     {
-        auth()->user()->authorized(32) ?  : abort(404);
+        $this->authorize('show.colony_scopes');
     }
 
     /**
@@ -72,7 +72,7 @@ class ColonyScopesController extends Controller
      */
     public function edit($id) // 33
     {
-        auth()->user()->authorized(33) ?  : abort(403);
+        $this->authorize('edit.colony_scopes');
 
         $scope=ColonyScope::find($id);
 
@@ -88,7 +88,7 @@ class ColonyScopesController extends Controller
      */
     public function update(ColonyScopeRequest $request, $id) // 34
     {
-        auth()->user()->authorized(34) ?  : abort(403);
+        $this->authorize('update.colony_scopes');
 
         $scope=ColonyScope::find($id);
 
@@ -105,7 +105,7 @@ class ColonyScopesController extends Controller
      */
     public function destroy($id) // 35
     {
-        auth()->user()->authorized(35) ?  : abort(403);
+        $this->authorize('destroy.colony_scopes');
 
         $scope=ColonyScope::find($id);
 

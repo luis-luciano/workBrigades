@@ -19,7 +19,7 @@ class RequestPrioritiesController extends Controller
      */
     public function index() // 50
     {
-        auth()->user()->authorized(50) ?  : abort(403);
+        $this->authorize('index.request_priorities');
 
         $priorities=RequestPriority::SearchFromRequest()->PaginateForTable();
 
@@ -33,7 +33,7 @@ class RequestPrioritiesController extends Controller
      */
     public function create() //51
     {
-        auth()->user()->authorized(51) ?  : abort(403);
+        $this->authorize('create.request_priorities');
 
         return view('admin.priorities.create');
     }
@@ -46,7 +46,7 @@ class RequestPrioritiesController extends Controller
      */
     public function store(RequestPriorityRequest $request) //52
     {
-        auth()->user()->authorized(52) ?  : abort(403);
+        $this->authorize('store.request_priorities');
 
         $priority=RequestPriority::create($request->all());
 
@@ -61,7 +61,7 @@ class RequestPrioritiesController extends Controller
      */
     public function show($id) //53
     {
-        auth()->user()->authorized(53) ?  : abort(404);
+        $this->authorize('show.request_priorities');
     }
 
     /**
@@ -72,7 +72,7 @@ class RequestPrioritiesController extends Controller
      */
     public function edit($id) // 54
     {
-        auth()->user()->authorized(54) ?  : abort(403);
+        $this->authorize('edit.request_priorities');
 
         $priority=RequestPriority::find($id);
 
@@ -88,7 +88,7 @@ class RequestPrioritiesController extends Controller
      */
     public function update(RequestPriorityRequest $request, $id) // 55
     {
-        auth()->user()->authorized(55) ?  : abort(403);
+        $this->authorize('update.request_priorities');
 
         $priority=RequestPriority::find($id);
 
@@ -105,7 +105,7 @@ class RequestPrioritiesController extends Controller
      */
     public function destroy($id) // 56
     {
-        auth()->user()->authorized(56) ?  : abort(403);
+        $this->authorize('destroy.request_priorities');
 
         $priority=RequestPriority::find($id);
 

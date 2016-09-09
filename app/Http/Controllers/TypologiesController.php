@@ -20,7 +20,7 @@ class TypologiesController extends Controller
      */
     public function index() //106
     {
-        auth()->user()->authorized(106) ?  : abort(403);
+        $this->authorize('index.typologies');
 
         $typologies=Typology::SearchFromRequest()->PaginateForTable();
 
@@ -34,7 +34,7 @@ class TypologiesController extends Controller
      */
     public function create() //107
     {
-        auth()->user()->authorized(107) ?  : abort(403);
+        $this->authorize('create.typologies');
 
         return view('admin.typologies.create');
     }
@@ -47,7 +47,7 @@ class TypologiesController extends Controller
      */
     public function store(TypologyRequest $request) //108
     {
-        auth()->user()->authorized(108) ?  : abort(403);
+        $this->authorize('store.typologies');
 
         $typology=Typology::create($request->all());
 
@@ -66,7 +66,7 @@ class TypologiesController extends Controller
      */
     public function show($id) // 109
     {
-        auth()->user()->authorized(109) ?  : abort(403);
+        $this->authorize('show.typologies');
     }
 
     /**
@@ -77,7 +77,7 @@ class TypologiesController extends Controller
      */
     public function edit($id) //110
     {
-        auth()->user()->authorized(110) ?  : abort(403);
+        $this->authorize('edit.typologies');
 
         $typology=Typology::find($id);
 
@@ -93,7 +93,7 @@ class TypologiesController extends Controller
      */
     public function update(TypologyRequest $request, $id) //111
     {
-        auth()->user()->authorized(111) ?  : abort(403);
+        $this->authorize('update.typologies');
 
         $typology=Typology::find($id);
 
@@ -112,7 +112,7 @@ class TypologiesController extends Controller
      */
     public function destroy($id) //112
     {
-        auth()->user()->authorized(112) ?  : abort(403);
+        $this->authorize('destroy.typologies');
 
         $typology=Typology::find($id);
         
