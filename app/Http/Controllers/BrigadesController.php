@@ -54,15 +54,17 @@ class BrigadesController extends Controller
     {   
         $this->authorize('store.brigades');
         
-        dd($request->all());
+        //dd($request->all());
 
         $brigade=Brigade::create($request->all());
-        
 
-            $brigade->syncTypologies($request->typologies_list);
-
-            $brigade->syncSectors($request->sectors_list);
-
+        foreach ($request->typologies_list as $typology) {
+            foreach ($request->sectors_list as $sector) {
+                //Sector::find($sector)->brigadesByTypology()->attach($brigade->id,['typology_id' => $typology]);
+                Sector::find($sector)->brigades()->attach($brigade->id,['typology_id' => $typology]);
+            }
+        }
+        dd($brigade);
         alert()->success(trans('messages.success.store'));
 
         return redirect()->route('brigades.index');

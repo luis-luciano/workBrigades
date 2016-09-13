@@ -17,7 +17,7 @@ class CreateFilesTable extends Migration
 
             $table->string('name');
             $table->string('display_name');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->morphs('filable');
 
             $table->foreign('user_id')->references('id')->on('users');

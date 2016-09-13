@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Sector;
+use App\Brigade;
 
 class SectsBrigsTypsTableSeeder extends Seeder
 {
@@ -73,9 +74,12 @@ class SectsBrigsTypsTableSeeder extends Seeder
                 'brigade_id' => 2,
                 'typology_id' => 2
             ]
+
         ];
         foreach($relations as $relation){
             Sector::find($relation['sector_id'])->brigades()->attach($relation['brigade_id'],['typology_id' => $relation['typology_id']]);
         }
     }
 }
+
+    
