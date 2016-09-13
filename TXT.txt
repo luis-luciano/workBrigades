@@ -136,3 +136,29 @@ public function up()
         --actualizar
         --imprimir reportes
 
+--------------------------------------------------------------------------------
+if(!$default->isEmpty()){
+            $default=$default->first();
+            $html.="<option value=".$default->id."> ".$default->name." </option>\n";
+
+            if (!$others->isEmpty()) {
+                foreach ($others as $brigade) {
+                    $html.="<option value=".$brigade->id."> ".$brigade->name." </option>\n";
+                    }
+            }
+            $data=[
+                'sector' => $sectorNumber,
+                'brigades' => $html,
+                'defaultId' => $default->id
+            ];
+        }
+        else{
+            
+           
+                $data=[
+                    'sector' => "",
+                    'brigades' => "",
+                    'defaultId' => ""
+                ];
+                
+        }

@@ -163,16 +163,6 @@ class PagesController extends Controller
             $query->orderBy('created_at', 'desc');
         }]);
 
-        $inquiryImages = $inquiry->files->where('type', 'image');
-        $images = collect([]);
-
-        foreach ($inquiryImages as $inquiryImage) {
-            $image['src'] = route('requests.files.show', [$inquiry->id, $inquiryImage->id]);
-            $image['w'] = 964;
-            $image['h'] = 1024;
-            $image['title'] = $inquiryImage->display_name.'<br>por '.$inquiryImage->owner->full_name;
-            $images->push($image);
-        }
         $typologies=Typology::lists('name','id');
         $priorities=RequestPriority::lists('name','id');
         $colonies=Colony::lists('name','id');
@@ -184,7 +174,7 @@ class PagesController extends Controller
             case 4: $state='btn-warning'; break;
             case 5: $state='btn-danger '; break;
         }
-        return view('pages.public.requests.edit', compact('tipologiesRelations','inquiry','citizen','brigades','images','typologies','priorities','colonies','state'));
+        return view('pages.public.requests.edit', compact('tipologiesRelations','inquiry','citizen','brigades','typologies','priorities','colonies','state'));
     }
 
     /**

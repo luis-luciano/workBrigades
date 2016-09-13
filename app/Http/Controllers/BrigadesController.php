@@ -58,12 +58,23 @@ class BrigadesController extends Controller
 
         $brigade=Brigade::create($request->all());
 
+        foreach ($request->sectors_list as $sector) {
+            $sector=Sector::find($sector);
+            dd($sector->brigadesByTypology()->where('typology_id',$request->typologies_list_default)->get());
+        }
+
         foreach ($request->typologies_list as $typology) {
             foreach ($request->sectors_list as $sector) {
                 //Sector::find($sector)->brigadesByTypology()->attach($brigade->id,['typology_id' => $typology]);
                 Sector::find($sector)->brigades()->attach($brigade->id,['typology_id' => $typology]);
             }
         }
+
+        foreach ($request->sectors_list_default as $sector) {
+                Sector::find($sector)->brigadesByTypology()->attach($brigade->id,['typology_id' => $request->typologies_list_default]);
+                //Sector::find($sector)->brigades()->attach($brigade->id,['typology_id' => $typology]);
+            }
+        
         dd($brigade);
         alert()->success(trans('messages.success.store'));
 

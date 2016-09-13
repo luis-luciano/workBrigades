@@ -7,7 +7,7 @@
 					<a href="{{ route('home') }}"><i class="fa fa-home"></i> Inicio</a>
 				</li>
 				@if(auth()->check())
-					@can('index.citizen')
+					@can('index.citizens')
 						<li>
 							<a href="{{ route('citizens.index') }}"><i class="fa fa-users"></i> Ciudadanos</a>
 						</li>

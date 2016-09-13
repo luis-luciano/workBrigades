@@ -13,6 +13,21 @@
             
             <div class="col-md-6">
                 <div class="form-group">
+                    {!! Form::label('typologies_list_default', 'Tipologia Default', ['class' => 'control-label']) !!}
+                    <div class="input-wrapper">
+                      {!! Form::select('typologies_list_default', $typologies , null, ['class' => 'select2 form-control', 'style' => 'width:100%;','']) !!}
+                    </div>
+                </div><!--.form-group-->
+                <div class="form-group">
+                    {!! Form::label('sectors_list_default[]', 'Sector De Atencion Default', ['class' => 'control-label']) !!}
+                    <div class="input-wrapper">
+                      {!! Form::select('sectors_list_default[]', $sectors , null, ['class' => 'select2 form-control', 'style' => 'width:100%;','multiple']) !!}
+                    </div>
+                </div><!--.form-group-->
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
                     {!! Form::label('typologies_list[]', 'Tipologia', ['class' => 'control-label']) !!}
                     <div class="input-wrapper">
                       {!! Form::select('typologies_list[]', $typologies , null, ['class' => 'select2 form-control', 'style' => 'width:100%;','multiple']) !!}
@@ -22,20 +37,6 @@
                     {!! Form::label('sectors_list[]', 'Sector De Atencion', ['class' => 'control-label']) !!}
                     <div class="input-wrapper">
                       {!! Form::select('sectors_list[]', $sectors , null, ['class' => 'select2 form-control', 'style' => 'width:100%;','multiple']) !!}
-                    </div>
-                </div><!--.form-group-->
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    {!! Form::label('typologies_list_default[]', 'Tipologia Default', ['class' => 'control-label']) !!}
-                    <div class="input-wrapper">
-                      {!! Form::select('typologies_list_default[]', $typologies , null, ['class' => 'select2 form-control', 'style' => 'width:100%;','']) !!}
-                    </div>
-                </div><!--.form-group-->
-                <div class="form-group">
-                    {!! Form::label('sectors_list_default[]', 'Sector De Atencion Default', ['class' => 'control-label']) !!}
-                    <div class="input-wrapper">
-                      {!! Form::select('sectors_list_default[]', $sectors , null, ['class' => 'select2 form-control', 'style' => 'width:100%;','multiple']) !!}
                     </div>
                 </div><!--.form-group-->
             </div>

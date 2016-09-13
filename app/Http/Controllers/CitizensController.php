@@ -20,7 +20,7 @@ class CitizensController extends Controller
      */
     public function index() // 15
     {
-        auth()->user()->authorized(15) ?  : abort(403); 
+        $this->authorize('index.citizens');
         $citizens=Citizen::SearchFromRequest()->PaginateForTable();
 
         return view('admin.citizens.index',compact('citizens'));
@@ -33,7 +33,7 @@ class CitizensController extends Controller
      */
     public function create() //16
     {
-        auth()->user()->authorized(16) ?  : abort(403);
+        $this->authorize('create.citizens');
 
         return view('admin.citizens.create');
     }
@@ -46,7 +46,7 @@ class CitizensController extends Controller
      */
     public function store(StoreCitizenRequest $request) // 17
     {
-        auth()->user()->authorized(17) ?  : abort(403);
+        $this->authorize('store.citizens');
 
         $citizen = PersonalInformation::create($request->all())->citizen()->create($request->all());
 
@@ -63,7 +63,7 @@ class CitizensController extends Controller
      */
     public function show($id) //18
     {
-        auth()->user()->authorized(1) ?  : abort(404);
+        $this->authorize('show.citizens');
     }
 
     /**
@@ -74,7 +74,7 @@ class CitizensController extends Controller
      */
     public function edit(Citizen $citizen) // 19
     {
-        auth()->user()->authorized(19) ?  : abort(403);
+        $this->authorize('edit.citizens');
 
         return view('admin.citizens.edit', compact('citizen'));
     }
@@ -88,7 +88,7 @@ class CitizensController extends Controller
      */
     public function update(Request $request, Citizen $citizen) // 20
     {
-        auth()->user()->authorized(20) ?  : abort(403);
+        $this->authorize('update.citizens');
 
         $citizen->update($request->all());
         
@@ -107,7 +107,7 @@ class CitizensController extends Controller
      */
     public function destroy($id) // 21 
     {
-        auth()->user()->authorized(21) ?  : abort(403);
+        $this->authorize('destroy.citizens');
 
         /*alert()->success(trans('messages.success.destroy'));*/
     }
