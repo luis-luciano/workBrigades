@@ -27,6 +27,8 @@
     <!-- BEGIN PLUGINS CSS -->
     <link rel="stylesheet" href="../../assets/globals/plugins/jasny-bootstrap/dist/css/jasny-bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/globals/css/plugins.css">
+
+    @yield('styles')
     <!-- END PLUGINS CSS -->
     <!-- END CORE CSS -->
         <link rel="stylesheet" type="text/css" media="print" href="{{ asset('assets/globals/css/print.css') }}" />
@@ -77,6 +79,7 @@
     $(document).ready(function () {
         Pleasure.init();
         Layout.init();
+        select2.init();
     });
     </script>
     <!-- END INITIALIZATION--> 

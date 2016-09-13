@@ -7,7 +7,7 @@
                         <div class="form-group">
                             {!! Form::label('problem_id', trans('requests.problem'), ['class' => 'control-label require-asterisk']) !!}
                             <div class="input-wrapper">
-                                {!! Form::select('problem_id',$problems, null, ['class' => 'form-control','id'=>'problem']) !!}
+                                {!! Form::select('problem_id',$problems, null, ['class' => 'form-control select2','id'=>'problem']) !!}
                             </div>
                         </div><!--.form-group-->
                     </div>
@@ -15,7 +15,7 @@
                         <div class="form-group">
                             {!! Form::label('colony_id', trans('requests.colony_id'), ['class' => 'control-label require-asterisk']) !!}
                             <div class="input-wrapper">
-                                {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control', 'style' => 'width: 100%']) !!}
+                                {!! Form::select('colony_id', $colonies, null, ['class' => 'form-control select2', 'style' => 'width: 100%']) !!}
                             </div>
                         </div><!--.form-group-->
                     </div>
