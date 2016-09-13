@@ -22,9 +22,11 @@ Route::resource('problemTypes', 'ProblemTypesController');
 
 Route::get('request/sector-brigade', ['as' => 'request.sector-brigade', 'uses' => 'RequestsController@findSectorBrigade']);
 
-//Request Print
+//Requests Print --Print all requests
 Route::get('requests/print', ['as' => 'requests.print', 'uses' => 'RequestsController@impress']);
 
+//Request print --Print request id
+Route::get("requests/{requests}/print",['as' => 'request.print', 'uses' => 'RequestsController@printOneRequest']);
 // Requests Locations
 Route::put('requests/{requests}/locations', ['as' => 'requests.locations.update', 'uses' => 'RequestLocationController@updateOrStore']);
 Route::delete('requests/{requests}/locations', ['as' => 'requests.locations.destroy', 'uses' => 'RequestLocationController@destroy']);
@@ -58,9 +60,6 @@ Route::resource('captureTypes', 'CaptureTypesController');
 
 // Authentication routes...
 Route::auth();
-//Route::get('login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
-//Route::post('login', 'Auth\AuthController@postLogin');
-//Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
@@ -77,9 +76,7 @@ Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
 Route::get('graficas', 'PagesController@showGraphics');
 
 
-Route::get("requests-print", function(){
-	return view("admin.requests.printRequ");
-});
+
 
 
 

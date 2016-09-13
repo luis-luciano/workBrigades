@@ -49,6 +49,11 @@ class Supervision extends Model
         return $this->belongsTo(self::class, 'supervision_id');
     }
 
+    public function getChildrensAttribute()
+    {
+        return $this->children()->with('children')->lists('id','name');
+    }
+
     /**
      * A supervision may be given various members.
      *

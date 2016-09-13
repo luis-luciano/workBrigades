@@ -1228,7 +1228,7 @@ module.exports = function (form) {
 								number: {
 												required: "true",
 												type: "digits",
-												minlength: 3,
+												minlength: 1,
 												maxlength: 10
 								}
 				});
@@ -1472,7 +1472,7 @@ for (var i = 0; i < 12; i++) {
         "Este año": [moment().startOf('year'), today],
         "En general": ['01/01/2014', today]
     },
-    startDate: today,
+    //startDate: today,
     showDropdowns: true,
     //"endDate": today,
     "maxDate": today,

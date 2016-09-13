@@ -6,7 +6,16 @@
 @section('scripts')
     //requestsController.index();
     
-
+    $('#searchButton').click(function(){
+        $('#supervisionsSearchForm').attr('action',$('#routeSearchRequest').val());
+        $('#supervisionsSearchForm').removeAttr('target');
+        $('#supervisionsSearchForm').submit();
+    });
+    $('#printButton').click(function(){
+        $('#supervisionsSearchForm').attr('action',$('#routePrintRequests').val());
+        $('#supervisionsSearchForm').attr('target',"_blank");
+        $('#supervisionsSearchForm').submit();
+    });
 @stop
 
 @section('content')
@@ -25,7 +34,8 @@
                                     <button type="button" class="btn btn-success btn-ripple"><i class="fa fa-plus-circle"></i> Nuevo</button>
                                     </a>
 
-                                     <a target="_blank" href="{{ route('requests.print') }}"><button type="button" class="btn btn-light-blue btn-ripple" target="_blank"><i class="fa fa-print"></i> Imprimir</button></a>
+                                     <a ><button id="printButton" type="button" class="btn btn-light-blue btn-ripple" target="_blank"><i class="fa fa-print"></i> Imprimir</button></a>
+                                     <input type="hidden" value="{{ route('requests.print') }}" id="routePrintRequests">
                                 </div>
                             </div>
                         </div>
@@ -104,7 +114,7 @@
                                                                 <span class="input-group-addon"><i class="ion-android-calendar"></i></span>
                                                                     <div class="inputer">
                                                                         <div class="input-wrapper">
-                                                                            {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control daterange-picker']) !!}
+                                                                            {!! Form::text('date_range', Request::get('date_range', "01/01/2014 - " . dateToday('d/m/Y')), ['class' => 'form-control daterange-picker','width'=>'100%']) !!}
                                                                         </div>
                                                                 </div>
                                                             </div>
@@ -118,8 +128,9 @@
                                         <div class="col-md-12">
                                             <div class="pull-right">
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary "><i class="fa fa-search"></i> Buscar</button>
-                                        
+                                                    <button id="searchButton" class="btn btn-primary "><i class="fa fa-search"></i> Buscar</button>
+                                                    <input type="hidden" value="{{ route('requests.index') }}" id="routeSearchRequest">
+                                                    
                                                     <a href="{{ route('requests.index') }}" class="btn btn-purple"><i class="fa fa-eye"></i> Ver todos</a>
                                                 </div>
                                             </div>

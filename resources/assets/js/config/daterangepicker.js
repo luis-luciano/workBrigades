@@ -55,7 +55,7 @@ $('.daterange-picker').daterangepicker({
             '01/01/2014',
             today]
     },
-    startDate: today,
+    //startDate: today,
     showDropdowns: true,
     //"endDate": today,
     "maxDate": today,

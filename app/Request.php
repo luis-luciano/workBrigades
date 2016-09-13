@@ -61,7 +61,7 @@ class Request extends Model implements HasPresenter
 
     public function scopeSearch(Builder $query, $search)
     {
-        $relationsToLoad = ['supervisions', 'state', 'concerned'];
+        $relationsToLoad = ['supervisions', 'state', 'concerned','colony.sector'];
         $query->with($relationsToLoad);
         $search['date_range'] = $search['date_range'] ? getDateRange($search['date_range']) : "";
        

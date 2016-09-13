@@ -37,7 +37,7 @@
                 <div class="tab-pane active" id="request">
                     <div class="form-buttons buttons-on-top clearfix">
                         <div class="pull-left">
-                            <a href="" class="btn btn-primary" target="_blank">Imprimir</a>
+                            <a href="{{ route('request.print',$inquiry->id) }}" class="btn btn-primary" target="_blank">Imprimir</a>
                         </div>
 
                         @can('creator',$inquiry)

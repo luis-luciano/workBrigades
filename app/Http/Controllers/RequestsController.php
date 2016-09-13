@@ -41,11 +41,12 @@ class RequestsController extends Controller
         $search = [
             'id' => $request->get('folio', ""),
             'citizen' => $request->get('citizen', ""),
-            'supervisions' => auth()->user()->supervisions_id,
+            'supervisions' => $request->get('supervisions', auth()->user()->supervisions_id),
             'states' => $request->get('request_states', []),
             'date_range' => $request->get('date_range', ""),
         ];
 
+       //dd($search);
         $requests = Inquiry::search($search)->paginateForTable();
        
         return view('admin.requests.index',compact('requests','requestStates','supervisions'));
@@ -170,13 +171,34 @@ class RequestsController extends Controller
         return redirect()->route('requests.index');
     }
 
-    public function impress()
+    public function impress(Request $request)
     {
-        $requests=Inquiry::with('colony.sector')->get();
+
+        //$requests=Inquiry::with('colony.sector')->get();
+        
+        //$requests=$requests->sortBy('brigade_name');
+        //$requests=$requests->sortBy('sector_number')->groupBy('brigade_id');
+    
+        $search = [
+            'id' => $request->get('folio', ""),
+            'citizen' => $request->get('citizen', ""),
+            'supervisions' => $request->get('supervisions', auth()->user()->supervisions_id),
+            'states' => $request->get('request_states', []),
+            'date_range' => $request->get('date_range', ""),
+        ];
+
+        $requests = Inquiry::search($search)->paginateForTable();
         $requests=$requests->sortBy('brigade_name');
         $requests=$requests->sortBy('sector_number')->groupBy('brigade_id');
+
+        //dd($requests);
         
        return view('admin.requests.print',compact('requests'));
+    }
+
+    public function printOneRequest(Inquiry $inquiry)
+    {
+        return view('admin.requests.printRequ',compact('inquiry'));
     }
 
     public function conclude(Inquiry $inquiry)
