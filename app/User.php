@@ -6,6 +6,7 @@ use App\Activity;
 use App\PersonalInformation;
 use App\Request as Petition;
 use App\Role;
+use App\File;
 use App\Traits\HasPersonalInformation;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use McCool\LaravelAutoPresenter\HasPresenter;
@@ -19,6 +20,10 @@ class User extends Authenticatable
 {
 
 	use HasPersonalInformation, SimpleSearchableTables, HasRoles, SoftDeletes;
+
+	public static $diskName = 'users_photos';
+
+    public static $uploadsPath = 'uploads/users_photos';
 
 	/**
      * The attributes that should be mutated to dates.
@@ -57,6 +62,30 @@ class User extends Authenticatable
     public function fileCreated()
     {
         return $this->morphMany('App\File','creator');
+    }
+
+    public function setDefaultPhoto()
+    {
+        $file = new File;
+        $file->name = 'default.jpg';
+        $file->display_name = 'Default';
+
+        $this->photo()->save($file);
+        $this->photo->creator()->associate($this)->save();
+    }
+
+    public function updatePhoto($photo)
+    {
+        //delete current photo
+        $this->photo->delete();
+
+        //update current photo
+        return $this->photo()->save($photo);
+    }
+
+    public function photo()
+    {
+        return $this->morphOne('App\File', 'filable');
     }
 
 	public function personalInformation() 

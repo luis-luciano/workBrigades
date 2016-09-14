@@ -7,8 +7,6 @@
     
 @stop
 
-
-
 @section('content')
 		
 		<div class="row">
@@ -33,15 +31,15 @@
 	                                    <tbody>
 	                                        <tr class="highlight">
 	                                            <td class="text-grey"><b>Nombre:</b></td>
-	                                            <td>{{ $user->fullname }}</td>
+	                                            <td>{{ auth()->user()->fullname }}</td>
 	                                        </tr>
 	                                        <tr class="highlight">
 	                                            <td class="text-grey"><b>Email:<b></td>
-	                                            <td>{{ $user->email }}</td>
+	                                            <td>{{ auth()->user()->email }}</td>
 	                                        </tr>
 	                                        <tr class="highlight">
 	                                            <td class="text-grey"><b>Movil:<b></td>
-	                                            <td>{{ $user->mobile_phone }}</td>
+	                                            <td>{{ auth()->user()->mobile_phone }}</td>
 	                                        </tr>
 
 	                                    </tbody>
@@ -51,12 +49,12 @@
 
 		                    <div class="col-md-6">
 	                            <div class="row">
-	                                <img class="center-block" src="{{ asset('assets/globals/img/resources/logo-profile.png') }}" alt="" >
+	                                <img class="center-block" src="{{ route('users.profiles.photos.show') }}" alt="" >
 	                            </div>
 	                            <div class="row text-center">
 	                                <br>
-	                                <a href="#" class="btn btn-success button-striped button-full-striped btn-ripple btn-personality">
-	                                    Cambia tu imagen
+	                                <a href="{{ route('users.profiles.photos.edit') }}" class="btn btn-success button-striped button-full-striped btn-ripple btn-personality">
+	                                    Subir foto
 	                                </a>
 	                            </div>
 	                        </div>
@@ -66,3 +64,4 @@
 			</div><!--.col-md-12-->
 		</div><!--.row-->
 @stop
+

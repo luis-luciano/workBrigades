@@ -46,7 +46,7 @@ class RequestsController extends Controller
             'date_range' => $request->get('date_range', ""),
         ];
 
-       //dd($search);
+    
         $requests = Inquiry::search($search)->paginateForTable();
        
         return view('admin.requests.index',compact('requests','requestStates','supervisions'));

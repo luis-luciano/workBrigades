@@ -6,7 +6,14 @@ Route::post('findRequest', ['as'=>'findRequest','uses'=>'PagesController@findReq
 
 Route::resource('admin', 'AdminController');
 
+//Users
+Route::get('users/photos', ['as' => 'users.profiles.photos.show', 'uses' => 'UserPhotoController@showProfilePhoto']);
+Route::get('users/photos/edit', ['as' => 'users.profiles.photos.edit', 'uses' => 'UserPhotoController@editProfilePhoto']);
+Route::patch('users/photos', ['as' => 'users.profiles.photos.update', 'uses' => 'UserPhotoController@updateProfilePhoto']);
+Route::get('users/profiles', ['as' => 'users.profiles.index', 'uses' => 'UsersController@profile']);
+
 Route::resource('users', 'UsersController');
+
 Route::resource('activities', 'ActivitiesController');
 Route::resource('brigades', 'BrigadesController');
 Route::resource('citizens', 'CitizensController');
@@ -72,6 +79,7 @@ Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
 	Route::resource('citizens','CitizensController');
 	Route::resource('colonies','ColoniesController');
 });
+
 
 Route::get('graficas', 'PagesController@showGraphics');
 

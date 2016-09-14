@@ -41,7 +41,7 @@ class PagesController extends Controller
                 if (in_array( 'operator' , $role_user)) {
                     return redirect()->route('requests.index');
                 } else {
-                        return view("admin.users.profile",compact('user'));
+                        return redirect()->route('users.profiles.index');
                     } 
                 }
         } 

@@ -60,7 +60,6 @@ class File extends Model
             $file = new static;
             $file->name = $fileName;
             $file->display_name = $uploadedFileName;
-            $file->display_name = $uploadedFileName;
              //$file->user_id = auth()->user()->id;
                 
             return $file;

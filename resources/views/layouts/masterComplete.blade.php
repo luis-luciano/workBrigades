@@ -64,8 +64,8 @@
                     <div class="col-xs-12 col-md-4 no-print" >
                         
                         @if (auth()->check())  
-	                        <a href="#" class="dropdown-toggle profile-image pull-right" data-toggle="dropdown">
-							<img src="{{ asset('assets/globals/img/resources/user.jpg') }}" class="img-circle users-img"> 
+	                        <a href="{{ route('users.profiles.index') }}" class="profile-image pull-right">
+							<img src="{{ route('users.profiles.photos.show') }}" class="img-circle users-img"> 
 							{{ Auth::user()->FullName }} </a>
 					  	@endif
                     </div><!--.col-->

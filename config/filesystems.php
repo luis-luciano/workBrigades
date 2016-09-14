@@ -1,6 +1,7 @@
 <?php
 
 use App\Request as Inquiry;
+use App\User;
 
 return [
 
@@ -48,6 +49,11 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
+        ],
+
+         User::$diskName => [
+            'driver' => 'local',
+            'root' => storage_path(User::$uploadsPath),
         ],
         
         Inquiry::$diskName => [

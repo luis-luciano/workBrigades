@@ -59,7 +59,7 @@ class UsersController extends Controller
 
         $user = User::create($request->all());
 
-        //dd($user);
+        $user->setDefaultPhoto();
         
         $user->personalInformation()->associate(PersonalInformation::find($user_data->id))->save();
         
@@ -141,5 +141,10 @@ class UsersController extends Controller
         $this->authorize('destroy.users');
 
         return redirect()->route('users.index');
+    }
+
+    public function profile()
+    {
+        return view('admin.users.profiles.index');
     }
 }

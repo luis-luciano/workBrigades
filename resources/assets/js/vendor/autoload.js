@@ -24,6 +24,7 @@ var sectorsController = require('../app/controllers/sectorsController.js');
 var settlementTypesController = require('../app/controllers/settlementTypesController.js');
 var supervisionsController = require('../app/controllers/supervisionsController.js');
 var typologiesController = require('../app/controllers/typologiesController.js');
+var usersController = require('../app/controllers/usersController.js');
 require('../app/globalize.js')({
     brigadesController,
     captureTypesController,
@@ -40,4 +41,5 @@ require('../app/globalize.js')({
     settlementTypesController,
     supervisionsController,
     typologiesController,
+    usersController,
 });

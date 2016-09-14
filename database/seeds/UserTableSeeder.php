@@ -40,6 +40,7 @@ class UserTableSeeder extends Seeder
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>1]);
         $user->syncRoles([1]);
+        $user->setDefaultPhoto();
 
         $user=PersonalInformation::create(['name'=>'José Joaquin',
                                      'paternal_surname'=>'Hernandez',
@@ -63,6 +64,7 @@ class UserTableSeeder extends Seeder
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>2]);
         $user->syncRoles([2]);
+        $user->setDefaultPhoto();
 
         $user=PersonalInformation::create(['name'=>'José Luis',
                                      'paternal_surname'=>'Benitez',
@@ -86,6 +88,7 @@ class UserTableSeeder extends Seeder
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>3]);
         $user->syncRoles([2]);
+        $user->setDefaultPhoto();
 
         $user=PersonalInformation::create(['name'=>'Carlos Nicasio',
                                      'paternal_surname'=>'Corona',
@@ -109,6 +112,7 @@ class UserTableSeeder extends Seeder
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>4]);
         $user->syncRoles([2]);
+        $user->setDefaultPhoto();
 
         $user=PersonalInformation::create(['name'=>'Areli',
                                      'paternal_surname'=>'Pérez',
@@ -132,6 +136,7 @@ class UserTableSeeder extends Seeder
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>5]);
         $user->syncRoles([3]);
+        $user->setDefaultPhoto();
 
         $user=PersonalInformation::create(['name'=>'Luis',
                                      'paternal_surname'=>'Pérez',
@@ -155,5 +160,6 @@ class UserTableSeeder extends Seeder
                         'callback_type'=>'jsjdhsjd',
                         'personal_information_id'=>6]);
         $user->syncRoles([2]);
+        $user->setDefaultPhoto();
     }   
 }   
