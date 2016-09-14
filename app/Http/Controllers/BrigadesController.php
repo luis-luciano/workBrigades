@@ -58,24 +58,30 @@ class BrigadesController extends Controller
 
         $brigade=Brigade::create($request->all());
 
-        foreach ($request->sectors_list as $sector) {
-            $sector=Sector::find($sector);
-            dd($sector->brigadesByTypology()->where('typology_id',$request->typologies_list_default)->get());
+        if(isset($request->sectors_list_default)){
+            foreach ($request->sectors_list_default as $sector) {
+            $exist=Sector::find($sector)->brigadesByTypology()
+                                            ->where('typology_id',$request->typology)
+                                            ->where('sector_id',$sector)->count();
+            //dd($exist);
+            if ($exist == 0) {
+                Sector::find($sector)->brigadesByTypology()->attach($brigade->id,['typology_id' => $request->typology]);
+            }
+        }
         }
 
-        foreach ($request->typologies_list as $typology) {
+        if(isset($request->typologies_list) && isset($request->sectors_list)){
+            foreach ($request->typologies_list as $typology) {
             foreach ($request->sectors_list as $sector) {
                 //Sector::find($sector)->brigadesByTypology()->attach($brigade->id,['typology_id' => $typology]);
                 Sector::find($sector)->brigades()->attach($brigade->id,['typology_id' => $typology]);
             }
         }
+        }
 
-        foreach ($request->sectors_list_default as $sector) {
-                Sector::find($sector)->brigadesByTypology()->attach($brigade->id,['typology_id' => $request->typologies_list_default]);
-                //Sector::find($sector)->brigades()->attach($brigade->id,['typology_id' => $typology]);
-            }
+       
         
-        dd($brigade);
+        //dd($brigade);
         alert()->success(trans('messages.success.store'));
 
         return redirect()->route('brigades.index');

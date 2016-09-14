@@ -1,3 +1,4 @@
+@include('errors.list')
 <div class="form-content">
     <div class="row">
         <div class="col-md-5">
@@ -13,7 +14,8 @@
             </div><!--.form-group-->
         </div> 
     </div>
-     @include('errors.list')
+     
+     
 </div><!--.form-content-->
 
 <div class="form-buttons form-group clearfix">

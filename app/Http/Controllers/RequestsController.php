@@ -239,14 +239,37 @@ class RequestsController extends Controller
 
         $default=$sector->brigadesByTypology()->where('typology_id',$request->get('typology'))->get();
         $others=$sector->brigades()->where('typology_id',$request->get('typology'))->get();
-        if(!$default->isEmpty() and !$others->isEmpty()){
-            $default=$default->first();
+        
+        // if(!$default->isEmpty() and !$others->isEmpty()){
+        //     $default=$default->first();
             
-            $html.="<option value=".$default->id."> ".$default->name." </option>\n";
-            foreach ($others as $brigade) {
-                 $html.="<option value=".$brigade->id."> ".$brigade->name." </option>\n";
-            }
+        //     $html.="<option value=".$default->id."> ".$default->name." </option>\n";
+        //     foreach ($others as $brigade) {
+        //          $html.="<option value=".$brigade->id."> ".$brigade->name." </option>\n";
+        //     }
 
+        //     $data=[
+        //         'sector' => $sectorNumber,
+        //         'brigades' => $html,
+        //         'defaultId' => $default->id
+        //     ];
+        // }
+        // else{
+        //     $data=[
+        //         'sector' => "",
+        //         'brigades' => "",
+        //         'defaultId' => ""
+        //     ];
+        // }
+        if(!$default->isEmpty()){
+            $default=$default->first();
+            $html.="<option value=".$default->id."> ".$default->name." </option>\n";
+
+            if (!$others->isEmpty()) {
+                foreach ($others as $brigade) {
+                    $html.="<option value=".$brigade->id."> ".$brigade->name." </option>\n";
+                    }
+            }
             $data=[
                 'sector' => $sectorNumber,
                 'brigades' => $html,
@@ -254,13 +277,23 @@ class RequestsController extends Controller
             ];
         }
         else{
-            $data=[
-                'sector' => "",
-                'brigades' => "",
-                'defaultId' => ""
-            ];
+            if (!$others->isEmpty()) {
+                foreach ($others as $brigade) {
+                    $html.="<option value=".$brigade->id."> ".$brigade->name." </option>\n";
+                    }            
+                $data=[
+                    'sector' => $sectorNumber,
+                    'brigades' => $html,
+                    'defaultId' => ""
+                ];
+            } else {
+                $data=[
+                    'sector' => "",
+                    'brigades' => "",
+                    'defaultId' => ""
+                ];
+            }
         }
-    
         
         return response()->Json($data);
     }

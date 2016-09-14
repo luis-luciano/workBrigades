@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Brigade;
 use App\Http\Requests;
 use App\Http\Requests\SectorRequest;
 use App\Sector;
+use App\Typology;
 use Illuminate\Http\Request;
 
 class SectorsController extends Controller
@@ -89,6 +91,8 @@ class SectorsController extends Controller
     public function update(SectorRequest $request, $id) //90
     {
         $this->authorize('update.sectors');
+
+        dd($request->all());
 
         $sector=Sector::find($id);
 

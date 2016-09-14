@@ -27,7 +27,7 @@
 
                     {!! Form::close() !!}
                 <br>
-
+                    </div>
                     @if($sector->Colonies()->count() == 0)
                          {!! Form::open(['route'=> ['sectors.destroy', $sector->id ], 'method' => 'DELETE']) !!}
                                         <button type="submit" class="btn btn-danger pull-right">Eliminar
