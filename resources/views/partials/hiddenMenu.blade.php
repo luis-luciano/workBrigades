@@ -18,7 +18,8 @@
 							<a href="{{ route('requests.index') }}"><i class="fa fa-file"></i> Peticiones</a>
 						</li>
 					@endcan
-
+					
+					@can('configurations.options')
 					<li>
 						<a href="javascript:;"><i class="fa fa-cogs"></i> Sistema</a>
 						@can('config.colonies')
@@ -129,6 +130,8 @@
 							</ul>
 						@endcan
 					</li>
+					@endcan
+
 					<li>
 						<a href="{{ url('logout') }}"><i class="fa fa-sign-out fa-lg"></i> Cerrar la sesión</a>
 					</li>		

@@ -59,5 +59,9 @@ class TestPermissionsTableSeeder extends Seeder
                     'label' => 'Configurar Requests',
                     'name' => 'config.requests',
                 ]);
+        Permission::create([
+                    'label' => 'Configurations options',
+                    'name' => 'configurations.options',
+                ]);
     }
 }
