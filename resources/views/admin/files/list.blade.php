@@ -6,7 +6,7 @@
 			</div>
 			<div class="list-content">
 				<span class="title"><a href="{{ route('requests.files.show', [$inquiry->id, $file->id]) }}" class="list-item-title" target="_blank">{{ $file->display_name }}</a></span>
-				<span class="caption">Subido por: {{ $file->owner->full_name }}</span>
+				<span class="caption">Subido por: {{ $file->creator->full_name }}</span>
 			</div>
 			<div class="list-action-right">
 				<span class="top format-date-from-now">{{ $file->created_at }}</span>

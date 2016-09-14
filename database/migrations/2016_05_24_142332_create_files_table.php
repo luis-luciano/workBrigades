@@ -15,12 +15,11 @@ class CreateFilesTable extends Migration
        Schema::create('files', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('name');
+           $table->string('name');
             $table->string('display_name');
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->bigInteger('creator_id')->unsigned()->nullable()->index(); // morph
+            $table->string('creator_type')->nullable()->index(); // morph
             $table->morphs('filable');
-
-            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
             $table->softDeletes(); 

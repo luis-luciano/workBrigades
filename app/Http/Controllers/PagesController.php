@@ -104,6 +104,8 @@ class PagesController extends Controller
 
         return File::checkUpload($file, function () use ($inquiry, $file) {
             $inquiry->addFile($file);
+            $fileRelation=$inquiry->files->last();
+            $fileRelation->creator()->associate($inquiry->concerned)->save();
         });
     }
 

@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->morphMany('App\Request','creator');
     }
 
+    public function fileCreated()
+    {
+        return $this->morphMany('App\File','creator');
+    }
+
 	public function personalInformation() 
 	{
 		return $this->belongsTo(PersonalInformation::class); //correct

@@ -125,7 +125,7 @@ class RequestsController extends Controller
             $image['src'] = route('requests.files.show', [$inquiry->id, $inquiryImage->id]);
             $image['w'] = 964;
             $image['h'] = 1024;
-            $image['title'] = $inquiryImage->display_name.'<br>por '.$inquiryImage->owner->full_name;
+            $image['title'] = $inquiryImage->display_name.'<br>por '.$inquiryImage->creator->full_name;
             $images->push($image);
         }
         

@@ -23,10 +23,15 @@ class File extends Model
         return $this->morphTo();
     }
 
-	public function owner()
-	{
-		return $this->belongsTo('App\User','user_id');
-	}
+	// public function owner()
+    // {
+    //  return $this->belongsTo('App\User','user_id');
+    // }
+
+    public function creator()
+    {
+        return $this->morphTo();
+    }
 
     public function getExtensionAttribute()
     {
@@ -55,7 +60,8 @@ class File extends Model
             $file = new static;
             $file->name = $fileName;
             $file->display_name = $uploadedFileName;
-            $file->user_id = auth()->check()? auth()->user()->id : null ;
+            $file->display_name = $uploadedFileName;
+             //$file->user_id = auth()->user()->id;
                 
             return $file;
         }

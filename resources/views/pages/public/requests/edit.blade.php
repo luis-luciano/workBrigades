@@ -47,7 +47,7 @@
 
                 <div class="tab-pane" id="request">
                      {!! Form::model($inquiry,['route' => ['requests.update', $inquiry->id],'method' => 'PATCH', 'id' => 'editRequestForm']) !!}
-                     @include('pages.public.requests.Editform', ['submitButtonText' => 'Actualizar', 'type' => 'edit'])
+                     @include('pages.public.requests.editForm', ['submitButtonText' => 'Actualizar', 'type' => 'edit'])
 
                      {!! Form::close() !!} 
                 </div><!--.tab-pane-->

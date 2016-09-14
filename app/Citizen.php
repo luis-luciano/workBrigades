@@ -49,6 +49,11 @@ class Citizen extends Model implements HasPresenter {
         return $this->morphMany('App\Request','creator');
     }
 
+     public function fileCreated()
+    {
+        return $this->morphMany('App\File','creator');
+    }
+
     public function scopeSearchByNames(Builder $query, $names)
     {
         $names = is_array($names) ? $names : [$names];
