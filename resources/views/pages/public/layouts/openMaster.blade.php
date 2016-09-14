@@ -79,7 +79,7 @@
     $(document).ready(function () {
         Pleasure.init();
         Layout.init();
-        select2.init();
+        
     });
     </script>
     <!-- END INITIALIZATION--> 

@@ -4,12 +4,12 @@
 
 @section('styles')
     
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/globals/plugins/select2/css/select2.min.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/globals/plugins/select2/css/select2.min.css') }}"> --}}
         
 @stop
 
 @section('scripts')
-    <script type="text/javascript" src="{{ asset('assets/globals/plugins/select2/js/select2.full.min.js') }}"></script>
+   {{--  <script type="text/javascript" src="{{ asset('assets/globals/plugins/select2/js/select2.full.min.js') }}"></script> --}}
    
 @stop
 

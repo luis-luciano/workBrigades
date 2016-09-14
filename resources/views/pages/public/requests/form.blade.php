@@ -69,7 +69,7 @@
                             <div class="inputer floating-label">
                                 <div class="input-wrapper">
                                     {!! Form::textarea('reference', null, ['class' => 'form-control', 'rows' => '1']) !!}
-                                    {!! Form::label('reference', trans('requests.reference'), ['class' => 'control-label require-asterisk ']) !!}
+                                    {!! Form::label('reference', trans('requests.reference'), ['class' => 'control-label']) !!}
                                 </div>
                             </div>
                         </div><!--.form-group-->
@@ -89,7 +89,7 @@
                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 260px; height: 180px;"></div>
                 </div>
             </div>   
-        </div>
+        </div>{{-- end row --}}
         
         
     <div class="row"> 
@@ -147,6 +147,7 @@
                 </div><!--.form-group-->
             </div>
     </div>
+</div>
     <br>
 <div class="form-buttons form-group clearfix">
     <div class="row">

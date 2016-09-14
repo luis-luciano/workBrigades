@@ -30,7 +30,7 @@ class RequestPublicRequest extends Request
             'street' => 'required|max:80',
             'number' => 'numeric',
             'between_streets' => 'required|max:80',
-            'reference' => 'required|max:80',
+            'reference' => 'max:80',
             'name' => 'required|min:3|max:50',
             'paternal_surname' => 'required|min:3|max:50',
             'maternal_surname' => 'min:3|max:50',
