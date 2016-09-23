@@ -66,7 +66,8 @@
                         @if (auth()->check())  
 	                        <a href="{{ route('users.profiles.index') }}" class="profile-image pull-right">
 							<img src="{{ route('users.profiles.photos.show') }}" class="img-circle users-img"> 
-							{{ Auth::user()->FullName }} </a>
+							{{ Auth::user()->FullName }} 
+							</a>
 					  	@endif
                     </div><!--.col-->
                 </div><!--.row-->
@@ -92,6 +93,7 @@
 	<script src="{{ asset('assets/globals/scripts/forms-pickers.js') }}"></script>
 
 	<script>
+		var geocoder;
 		$(document).ready(function () {
 			Pleasure.init();
 			Layout.init();
@@ -100,6 +102,24 @@
 			@yield('scripts')
 
 		});
+
+		function initializeStaticMap(mapcontainer, lat, lng) {
+            var mapCenter = new google.maps.LatLng(lat, lng);
+            var mapOptions = {
+                zoom: 17,
+                center: mapCenter,
+                scrollwheel: false,
+                draggable: false,
+                clickableIcons: false,
+                streetViewControl:false,
+                disableDoubleClickZoom: true,
+                zoomControl: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(mapcontainer , mapOptions);
+            geocoder = new google.maps.Geocoder;
+        }
 	</script>
 	<!-- END INITIALIZATION-->
 

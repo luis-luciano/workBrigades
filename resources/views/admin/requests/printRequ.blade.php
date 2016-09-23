@@ -19,14 +19,21 @@
             .panel-body{
                 margin-left:52px;
             }
-            
+
+            .map {
+                max-width: none;
+            }
 
        }
        
     </style>
 @stop
 
-@section('scripts')       
+@section('scripts')  
+
+    $('.map').each(function(){
+        initializeStaticMap($(this)[0], $(this).data('lat'), $(this).data('lng'));
+    });     
 
 @stop
 
@@ -119,13 +126,11 @@
 
                     @if($inquiry->has_location)
                         <div class="row">
-                            
+                            <div class="col-md-12 headland"><strong>Localización</strong></div>
+                            <div class="col-md-12 body">
+                                <div class="map" id="map" data-lat="{{ $inquiry->location->latitude }}" data-lng="{{ $inquiry->location->longitude }}"></div>
+                            </div>
                         </div>
-                        {!! Form::model($inquiry->location, ['route' => ['requests.locations.update', $inquiry->id], 'method' => 'PUT']) !!}
-                            {!! Form::text('latitude', null, ['id' => 'latitude', 'hidden']) !!}
-                            {!! Form::text('longitude', null, ['id' => 'longitude', 'hidden']) !!}
-                        
-                        {!! Form::close() !!}
                     @endif
                 </div><!--.panel-body-->
             </div><!--.panel-->

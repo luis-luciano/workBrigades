@@ -14,7 +14,11 @@ class CreateTypologiesTable extends Migration
     {
         Schema::create('typologies', function (Blueprint $table) {
             $table->increments('id');
+            
             $table->string('name');
+            $table->smallInteger('expiration_day')->nullable()->unsigned();
+            $table->smallInteger('expiration_day_by_law')->nullable()->unsigned();
+            
             $table->timestamps();
             $table->softDeletes();
         });
