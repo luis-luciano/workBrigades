@@ -28,8 +28,8 @@ class RequestStateRequest extends Request
         if (isset($state)) {
             return 
             [
-            'name' => 'required|unique:request_states,name,'.$state->id.',id',
-            'label' => 'required|unique:request_states,label,'.$state->id.',id',
+            'name' => 'required|unique:request_states,name,'.$state->name.',id',
+            'label' => 'required|unique:request_states,label,'.$state->label.',id',
             'color' => 'required|size:7'
             ];
         } else {

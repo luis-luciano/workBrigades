@@ -72,11 +72,9 @@ class RequestStatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) //68
+    public function edit($state) //68
     {
         $this->authorize('edit.request_states');
-
-        $state=RequestState::find($id);
         
         return view('admin.states.edit',compact('state'));
     }
@@ -88,11 +86,9 @@ class RequestStatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestStateRequest $request, $id) //69
+    public function update(RequestStateRequest $request, $state) //69
     {
         $this->authorize('update.request_states');
-
-        $state=RequestState::find($id);
         
         $state->update($request->all());
 
@@ -107,11 +103,9 @@ class RequestStatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) //70
+    public function destroy($state) //70
     {
         $this->authorize('destroy.request_states');
-
-        $state=RequestState::find($id);
         
         $state->delete();
         

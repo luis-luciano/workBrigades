@@ -77,11 +77,9 @@ class ColoniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) // 25
+    public function show($colony) // 25
     {
         $this->authorize('show.colonies');
-
-        $colony=Colony::find($id);
         
         $scopes=ColonyScope::lists('name','id');
         

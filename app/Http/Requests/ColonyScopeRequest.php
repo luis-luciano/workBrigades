@@ -25,17 +25,18 @@ class ColonyScopeRequest extends Request
     public function rules()
     {
         $scope= $this->route('scopes');
+       // DD($scope);
         
         if (isset($scope)) {
             return 
             [
-            'name' => 'required|min:1|max:50|unique:settlement_types,name,'.$scope.',id',
+            'name' => 'required|min:1|max:50|unique:colony_scopes,name,'.$scope->name.',id',
             
             ];
         } else {
             return 
             [
-            'name' => 'required|min:1|max:50|unique:settlement_types',
+            'name' => 'required|min:1|max:50|unique:colony_scopes',
             
             ];
         }

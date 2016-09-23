@@ -45,7 +45,7 @@ class CreateRequestsTable extends Migration
 
             $table->bigInteger('request_location_id')->unsigned()->nullable()->index();
             
-            $table->integer('brigade_id')->unsigned()->index();
+            $table->integer('brigade_id')->unsigned()->nullable()->index();
             $table->foreign('brigade_id')->references('id')->on('brigades');
 
             $table->integer('problem_id')->unsigned()->index();

@@ -72,11 +72,9 @@ class SectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) //89
+    public function edit($sector) //89
     {   
         $this->authorize('edit.sectors');
-
-        $sector=Sector::find($id);
 
         return view('admin.sectors.edit',compact('sector'));
     }
@@ -88,13 +86,9 @@ class SectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SectorRequest $request, $id) //90
+    public function update(SectorRequest $request, $sector) //90
     {
         $this->authorize('update.sectors');
-
-        dd($request->all());
-
-        $sector=Sector::find($id);
 
         $sector->update($request->all());
 
@@ -107,11 +101,9 @@ class SectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) //91
+    public function destroy($sector) //91
     {
         $this->authorize('destroy.sectors');
-
-        $sector=Sector::find($id);
 
         $sector->delete();
 

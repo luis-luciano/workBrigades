@@ -41,6 +41,11 @@
                                 <h1>  {{ $inquiry->StateLabel }} </h1>
                             </div>
                         </div>
+                        
+                        <div class="row">
+                            <h3> {{ !empty($inquiry->rejection)?$inquiry->rejection->justification:'' }}</h3>
+                        </div>
+                        
                     
                 
                 </div><!--.tab-pane-->

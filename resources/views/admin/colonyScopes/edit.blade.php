@@ -19,7 +19,6 @@
                     <div class="panel-title"><h2>Ambito</h2></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    
 
                     {!! Form::model($scope, [ 'route'=> ['colonies.scopes.update', $scope->id], 'method' => 'PATCH', 'id' => 'editColonyScopeForm']) !!}
 

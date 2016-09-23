@@ -80,8 +80,9 @@ Route::group(['namespace' => 'Ajax','prefix' => 'ajax'],function(){
 	Route::resource('colonies','ColoniesController');
 });
 
-
-Route::get('graficas', 'PagesController@showGraphics');
+// Route Reports
+Route::resource('reports','ReportsController');
+Route::get('graficas', 'ReportsController@showGraphics');
 
 
 

@@ -29,7 +29,7 @@ class SettlementTypeRequest extends Request
         if (isset($settlementType)) {
             return 
             [
-            'name' => 'required|min:1|max:50|unique:settlement_types,name,'.$settlementType.',id',
+            'name' => 'required|min:1|max:50|unique:settlement_types,name,'.$settlementType->name.',id',
             
             ];
         } else {

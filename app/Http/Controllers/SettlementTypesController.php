@@ -68,11 +68,9 @@ class SettlementTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) //96 
+    public function edit($settlement) //96 
     {
         $this->authorize('edit.settlement_types');
-
-        $settlement=SettlementType::find($id);
 
         return view('admin.settlementTypes.edit', compact('settlement'));
     }
@@ -84,11 +82,9 @@ class SettlementTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SettlementTypeRequest $request, $id) //97
+    public function update(SettlementTypeRequest $request, $settlement) //97
     {
         $this->authorize('update.settlement_types');
-
-        $settlement=SettlementType::find($id);
 
         $settlement->update($request->all());
 
@@ -101,11 +97,9 @@ class SettlementTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) //98
+    public function destroy($settlement) //98
     {
         $this->authorize('destroy.settlement_types');
-
-        $settlement=SettlementType::find($id);
 
         $settlement->delete();
 

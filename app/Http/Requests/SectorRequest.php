@@ -28,7 +28,7 @@ class SectorRequest extends Request
         if (isset($sector)) {
             return 
             [
-            'number' => 'required|min:1|max:50|unique:sectors,number,'.$sector->id.',id',
+            'number' => 'required|min:1|max:50|unique:sectors,number,'.$sector->number.',id',
             
             ];
         } else {

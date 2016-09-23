@@ -27,4 +27,9 @@ class RequestState extends Model {
 	{
 		return $this->hasMany(Petition::class);
 	}
+
+	public static function countByRequests()
+	{
+		return RequestState::withCount('requests')->get();
+	}
 }

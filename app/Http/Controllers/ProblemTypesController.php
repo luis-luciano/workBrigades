@@ -53,7 +53,7 @@ class ProblemTypesController extends Controller
 
         $problemType=Problem::create($request->all());
 
-        $problemType->typologies()->associate(Typology::find($request->typology_id))->save();
+        $problemType->typology()->associate(Typology::find($request->typology_id))->save();
 
         return redirect('problemTypes');
     }

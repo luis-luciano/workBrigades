@@ -45,4 +45,9 @@ class Sector extends Model {
 	{
 		return $this->belongsToMany('App\Brigade','brigades_default','sector_id','brigade_id','typology_id')->withTimestamps();
 	}
+
+	public function FindBrigade($typology)
+	{
+		return !empty($this->brigadesByTypology()->where('typology_id',$typology)->first()->id)?$this->brigadesByTypology()->where('typology_id',$typology)->first()->id: null;
+	}
 }

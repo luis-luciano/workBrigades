@@ -5,18 +5,19 @@ namespace App;
 use App\Brigade;
 use App\Citizen;
 use App\Colony;
+use App\Presenters\RequestPresenter;
 use App\RequestPriority;
+use App\RequestRejection;
+use App\RequestState;
 use App\RequestType;
 use App\Sector;
-use App\User;
-use App\RequestState;
-use McCool\LaravelAutoPresenter\HasPresenter;
-use App\Presenters\RequestPresenter;
 use App\Traits\SimpleSearchableTables;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes; 
-use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Request extends Model implements HasPresenter
 {

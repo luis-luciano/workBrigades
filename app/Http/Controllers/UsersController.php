@@ -87,11 +87,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) //117
+    public function edit(User $user) //117
     {
         $this->authorize('edit.users');
-
-        $user=User::find($id);
 
         $user->load('personalInformation');
 
@@ -109,15 +107,13 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) // 118
+    public function update(Request $request, $user) // 118
     {
         $this->authorize('update.users');
 
         if (empty($request['password'])) {
             unset($request['password']);
         }
-
-        $user=User::find($id);
 
         $user->update($request->all());
 
@@ -136,9 +132,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) //119
+    public function destroy($user) //119
     {
         $this->authorize('destroy.users');
+
+        alert()->success(trans('messages.success.destroy'));
 
         return redirect()->route('users.index');
     }

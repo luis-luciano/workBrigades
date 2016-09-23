@@ -70,11 +70,9 @@ class ColonyScopesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) // 33
-    {
+    public function edit($scope) // 33
+    { 
         $this->authorize('edit.colony_scopes');
-
-        $scope=ColonyScope::find($id);
 
         return view('admin.colonyScopes.edit',compact('scope'));
     }
@@ -86,12 +84,10 @@ class ColonyScopesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ColonyScopeRequest $request, $id) // 34
+    public function update(ColonyScopeRequest $request, $scope) // 34
     {
         $this->authorize('update.colony_scopes');
-
-        $scope=ColonyScope::find($id);
-
+        
         $scope->update($request->all());
 
          return redirect('colonies/scopes/' . $scope->id .'/edit');
@@ -103,11 +99,9 @@ class ColonyScopesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) // 35
+    public function destroy($scope) // 35
     {
         $this->authorize('destroy.colony_scopes');
-
-        $scope=ColonyScope::find($id);
 
         $scope->delete();
 
