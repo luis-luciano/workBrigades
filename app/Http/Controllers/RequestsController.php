@@ -25,7 +25,7 @@ class RequestsController extends Controller
 {
     public function __construct() 
     {
-       $this->middleware('auth', ['only' => ['index','create','store']]);
+       $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -35,7 +35,6 @@ class RequestsController extends Controller
     public function index(Request $request)
     {
         $this->authorize('index.requests');
-        $requestStates=RequestState::lists('label','id');
         $supervisions=Supervision::lists('name','id');
       
         $search = [
@@ -49,7 +48,7 @@ class RequestsController extends Controller
     
         $requests = Inquiry::search($search)->paginateForTable();
        
-        return view('admin.requests.index',compact('requests','requestStates','supervisions'));
+        return view('admin.requests.index',compact('requests','supervisions'));
     }
 
     /**
@@ -173,12 +172,6 @@ class RequestsController extends Controller
 
     public function impress(Request $request)
     {
-
-        //$requests=Inquiry::with('colony.sector')->get();
-        
-        //$requests=$requests->sortBy('brigade_name');
-        //$requests=$requests->sortBy('sector_number')->groupBy('brigade_id');
-    
         $search = [
             'id' => $request->get('folio', ""),
             'citizen' => $request->get('citizen', ""),

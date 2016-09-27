@@ -75,11 +75,9 @@ class TypologiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) //110
+    public function edit($typology) //110
     {
         $this->authorize('edit.typologies');
-
-        $typology=Typology::find($id);
 
         return view('admin.typologies.edit', compact('typology','supervisions'));
     }
@@ -91,11 +89,9 @@ class TypologiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TypologyRequest $request, $id) //111
+    public function update(TypologyRequest $request, $typology) //111
     {
         $this->authorize('update.typologies');
-
-        $typology=Typology::find($id);
 
         $typology->update($request->all());
 
@@ -110,11 +106,9 @@ class TypologiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) //112
+    public function destroy($typology) //112
     {
         $this->authorize('destroy.typologies');
-
-        $typology=Typology::find($id);
         
         $typology->delete();
         

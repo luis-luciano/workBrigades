@@ -75,11 +75,9 @@ class ProblemTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) // 47
+    public function edit($problemType) // 47
     {
         $this->authorize('edit.problem_types');
-
-        $problemType=Problem::find($id);
 
         $typologies=Typology::lists('name','id');
 
@@ -94,11 +92,9 @@ class ProblemTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProblemRequest $request, $id) // 48
+    public function update(ProblemRequest $request, $problemType) // 48
     {
         $this->authorize('update.problem_types');
-
-        $problemType=Problem::find($id);
         
 
         $problemType->update($request->all());
@@ -114,11 +110,9 @@ class ProblemTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) // 49
+    public function destroy($problemType) // 49
     {
         $this->authorize('destroy.problem_types');
-
-        $problemType=Problem::find($id);
 
         $problemType->delete();
 

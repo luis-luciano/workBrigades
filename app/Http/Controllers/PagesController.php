@@ -92,6 +92,8 @@ class PagesController extends Controller
         
         $inquiry->request_state_id=2;
 
+        $inquiry->capture_type_id=3;
+
         $inquiry->concerned()->associate(Citizen::findOrFail($citizen->id));
         
         $inquiry->creator()->associate(Citizen::findOrFail($citizen->id));

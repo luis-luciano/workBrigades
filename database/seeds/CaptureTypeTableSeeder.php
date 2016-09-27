@@ -23,6 +23,10 @@ class CaptureTypeTableSeeder extends Seeder
                 'name' => 'Atención En Móvil',
                 'color' => '#94c8d8',
             ],
+            [
+                'name' => 'Página Web Pública',
+                'color' => '#727ddb',
+            ],
         ];
 
         foreach ($captureTypes as $captureType) {

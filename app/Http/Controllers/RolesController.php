@@ -78,11 +78,9 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) //82
+    public function edit($role) //82
     {
         $this->authorize('edit.roles');
-
-        $role=Role::find($id);
 
         $permissions=Permission::lists('label','id');
 
@@ -96,11 +94,9 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RoleRequest $request, $id) //83
+    public function update(RoleRequest $request, $role) //83
     {
         $this->authorize('update.roles');
-
-        $role=Role::find($id);
 
         $role->update($request->all());
 
@@ -117,11 +113,9 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) //84
+    public function destroy($role) //84
     {
         $this->authorize('destroy.roles');
-
-        $role=Role::find($id);
 
         $role->permissions()->detach();
 

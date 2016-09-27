@@ -28,7 +28,7 @@ class CaptureTypeRequest extends Request
         if (isset($captureType)) {
             return 
             [
-            'name' => 'required|min:3|max:50|unique:capture_types,name,'.$captureType->id.',id',
+            'name' => 'required|min:3|max:50|unique:capture_types,name,'.$captureType->name.',id',
             'color' => 'required|size:7'
             ];
         } else {

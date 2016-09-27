@@ -72,11 +72,9 @@ class CaptureTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) // 12
+    public function edit($captureType) // 12
     {
         $this->authorize('edit.capture_types');
-
-        $captureType=CaptureType::find($id);
         
         return view('admin.captureTypes.edit',compact('captureType'));
     }
@@ -88,11 +86,9 @@ class CaptureTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CaptureTypeRequest $request, $id) // 13
+    public function update(CaptureTypeRequest $request, $captureType) // 13
     {
         $this->authorize('update.capture_types');
-
-        $captureType=CaptureType::find($id);
         
         $captureType->update($request->all());
 
@@ -107,11 +103,9 @@ class CaptureTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) // 14
+    public function destroy($captureType) // 14
     {
         $this->authorize('destroy.capture_types');
-
-        $captureType=CaptureType::find($id);
 
         $captureType->delete();
 

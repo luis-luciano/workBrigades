@@ -69,11 +69,9 @@ class PermissionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) // 40
+    public function edit($permission) // 40
     {
         $this->authorize('edit.permissions');
-
-        $permission=Permission::find($id);
 
         return view('admin.permissions.edit', compact('permission'));
     }
@@ -85,11 +83,9 @@ class PermissionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) // 41
+    public function update(Request $request, $permission) // 41
     {
-        $this->authorize('update.permissions');
-
-        $permission=Permission::find($id); 
+        $this->authorize('update.permissions'); 
 
         $permission->update($request->all());
 
@@ -102,11 +98,9 @@ class PermissionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) // 42
+    public function destroy($permission) // 42
     {
         $this->authorize('destroy.permissions');
-
-        $permission=Permission::find($id);
 
         $permission->delete();
         

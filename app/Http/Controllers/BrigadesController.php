@@ -104,11 +104,9 @@ class BrigadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) // 5
+    public function edit($brigade) // 5
     {
         $this->authorize('edit.brigades');
-
-        $brigade=Brigade::find($id);
         
         $typologies=Typology::lists('name','id');
         
@@ -125,11 +123,9 @@ class BrigadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BrigadesRequest $request, $id) // 6 
+    public function update(BrigadesRequest $request, $brigade) // 6 
     {
         $this->authorize('update.brigades');
-
-        $brigade=Brigade::find($id);
         
         $brigade->update($request->all());
         
@@ -148,11 +144,9 @@ class BrigadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) // 7 
+    public function destroy($brigade) // 7 
     {
         $this->authorize('destroy.brigades');
-
-        $brigade=Brigade::find($id);
 
         $brigade->typologies()->detach();
 

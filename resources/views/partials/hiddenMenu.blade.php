@@ -114,19 +114,19 @@
 
 						@can('index.users')
 							<ul class="child-menu">
-								<li><a href="{{ route('users.index') }}"><i class="fa fa-stumbleupon"></i> Usuarios</a></li>
+								<li><a href="{{ route('users.index') }}"><i class="fa fa-users"></i> Usuarios</a></li>
 							</ul>
 						@endcan
 						
 						@can('index.roles')
 							<ul class="child-menu">
-								<li><a href="{{ route('roles.index') }}"><i class="fa fa-joomla"></i> Roles</a></li>
+								<li><a href="{{ route('roles.index') }}"><i class="fa fa-user-secret"></i> Roles</a></li>
 							</ul>
 						@endcan
 
 						@can('index.permissions')
 							<ul class="child-menu">
-								<li><a href="{{ route('permissions.index') }}"><i class="fa fa-joomla"></i> Permisos</a><li>
+								<li><a href="{{ route('permissions.index') }}"><i class="fa fa-puzzle-piece"></i> Permisos</a><li>
 							</ul>
 						@endcan
 					</li>

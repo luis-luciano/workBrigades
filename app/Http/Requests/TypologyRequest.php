@@ -28,7 +28,7 @@ class TypologyRequest extends Request
         if (isset($typology)) {
             return 
             [
-            'name' => "required|min:3|max:80|unique:typologies,name,$typology",
+            'name' => "required|min:3|max:80|unique:typologies,name,$typology->name",
             'supervisions_list' => 'required|array'
             ];
         } else {

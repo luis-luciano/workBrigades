@@ -137,6 +137,16 @@ class Request extends Model implements HasPresenter
 		return $this->belongsTo('App\RequestPriority','request_priority_id');
 	}
 
+	public function reply()
+    {
+        return $this->belongsTo('App\RequestReply', 'request_reply_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\RequestComment');
+    }
+
 	public function brigade() 
 	{
 		return $this->belongsTo(Brigade::class,'brigade_id');

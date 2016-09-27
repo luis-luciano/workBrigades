@@ -28,7 +28,7 @@ class SupervisionRequest extends Request
         if (isset($supervision)) {
             return 
             [
-            'name' => "required|min:3|max:80|unique:supervisions,name,$supervision",
+            'name' => 'required|min:3|max:80|unique:supervisions,name,'.$supervision->name,
             'phone' => 'required|max:50',
             'extension' => 'max:50',
             ];

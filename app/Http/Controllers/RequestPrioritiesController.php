@@ -70,11 +70,9 @@ class RequestPrioritiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) // 54
+    public function edit($priority) // 54
     {
         $this->authorize('edit.request_priorities');
-
-        $priority=RequestPriority::find($id);
 
         return view('admin.priorities.edit',compact('priority'));
     }
@@ -86,11 +84,9 @@ class RequestPrioritiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestPriorityRequest $request, $id) // 55
+    public function update(RequestPriorityRequest $request, $priority) // 55
     {
         $this->authorize('update.request_priorities');
-
-        $priority=RequestPriority::find($id);
 
         $priority->update($request->all());
 
@@ -103,11 +99,9 @@ class RequestPrioritiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) // 56
+    public function destroy($priority) // 56
     {
-        $this->authorize('destroy.request_priorities');
-
-        $priority=RequestPriority::find($id);
+        $this->authorize('destroy.request_priorities'); 
 
         $priority->delete();
 

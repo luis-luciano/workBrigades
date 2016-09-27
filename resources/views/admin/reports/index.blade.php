@@ -164,7 +164,7 @@
                 @endrole
 
                     <div class="panel-heading">
-                        <div class="panel-title"><h4>{{ isset($supervisions_found->name)? $supervisions_found->name : 'Personalizar Gragicas' }}</h4></div>
+                        <div class="panel-title"><h4>{{ isset($supervisions_found->name)? $supervisions_found->name : 'Personalizar Graficas' }}</h4></div>
                     </div><!--.panel-heading-->
                     <div class="panel-body">                        
                         {!! Form::open(['method' => 'GET' , 'id' => 'supervisionsSearchForm']) !!}

@@ -33,6 +33,15 @@ class RouteServiceProvider extends ServiceProvider
         $router->model('settlement-types','App\SettlementType');
         $router->model('sectors','App\Sector');
         $router->model('requestsStates','App\RequestState');
+        $router->model('requestsPriorities','App\RequestPriority');
+        $router->model('typologies','App\Typology');
+        $router->model('captureTypes','App\CaptureType');
+        $router->model('requestTypes','App\RequestType');
+        $router->model('problemTypes','App\Problem');
+        $router->model('brigades','App\Brigade');
+        $router->model('supervisions','App\Supervision');
+        $router->model('roles','App\Role');
+        $router->model('permissions','App\Permission');
 
         parent::boot($router);
     }

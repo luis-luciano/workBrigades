@@ -73,11 +73,9 @@ class RequestTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) // 124
+    public function edit($requestType) // 124
     {
         $this->authorize('edit.request_types');
-
-        $requestType=RequestType::find($id);
 
        return view('admin.requestTypes.edit',compact('requestType'));
     
@@ -90,11 +88,9 @@ class RequestTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestTypeRequest $request, $id) // 125 
+    public function update(RequestTypeRequest $request, $requestType) // 125 
     {
         $this->authorize('update.request_types');
-
-        $requestType=RequestType::find($id);
 
         $requestType->update($request->all());
 
@@ -110,11 +106,9 @@ class RequestTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) // 126
+    public function destroy($requestType) // 126
     { 
         $this->authorize('destroy.request_types');
-
-        $requestType=RequestType::find($id);
 
         $requestType->delete();
         

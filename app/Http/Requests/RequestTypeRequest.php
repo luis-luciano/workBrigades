@@ -28,7 +28,7 @@ class RequestTypeRequest extends Request
         if (isset($requestType)) {
             return 
             [
-            'name' => 'required|min:3|max:50|unique:request_types,name,'.$requestType->id.',id',
+            'name' => 'required|min:3|max:50|unique:request_types,name,'.$requestType->name.',id',
             'color' => 'required|size:7'
             ];
         } else {

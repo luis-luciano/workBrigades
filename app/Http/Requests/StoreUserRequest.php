@@ -32,10 +32,11 @@ class StoreUserRequest extends Request
             'paternal_surname' => 'required|min:3|max:50',
             'maternal_surname' => 'required|min:3|max:50',
             'sex' => 'required',
-            'email' => 'required|min:3|max:80|unique:users,email,'.$user.',id',
+            'email' => 'required|min:3|max:80|unique:users,email,'.$user->id.',id',
             'sub_email' => 'email|different:email|min:3|max:255',
             'is_active' => 'required',
-            'roles_list' => 'required|array'
+            'roles_list' => 'required|array',
+            'password' => 'confirmed|min:6|max:255',
             ];
         } else {
             return 
@@ -45,8 +46,7 @@ class StoreUserRequest extends Request
             'maternal_surname' => 'required|min:3|max:50',
             'sex' => 'required',
             'email' => 'required|min:3|max:80|unique:users',
-            'password' => 'required|max:50',
-            'password_confirmation' => 'max:50',
+            'password' => 'required|confirmed|min:6|max:255',
             'sub_email' => 'email|different:email|min:3|max:255',
             'is_active' => 'required',
             'roles_list' => 'required|array'

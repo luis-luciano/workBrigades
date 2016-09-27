@@ -107,7 +107,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $user) // 118
+    public function update(StoreUserRequest $request, $user) // 118
     {
         $this->authorize('update.users');
 

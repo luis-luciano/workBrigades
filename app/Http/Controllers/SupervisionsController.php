@@ -81,11 +81,9 @@ class SupervisionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($supervision)
     {   
         $this->authorize('edit.supervisions');   
-        
-        $supervision=Supervision::find($id);
         
         $users = User::with('personalInformation')
             ->get()
@@ -103,11 +101,9 @@ class SupervisionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SupervisionRequest $request, $id)
+    public function update(SupervisionRequest $request, $supervision)
     {   
         $this->authorize('update.supervisions');
-        
-        $supervision=Supervision::find($id);
 
         $supervision->update($request->all());
 
@@ -122,11 +118,9 @@ class SupervisionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($supervision)
     {   
         $this->authorize('destroy.supervisions');
-        
-        $supervision=Supervision::find($id);
         
         $supervision->delete();
         
