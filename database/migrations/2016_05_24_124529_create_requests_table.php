@@ -51,6 +51,8 @@ class CreateRequestsTable extends Migration
             $table->integer('problem_id')->unsigned()->index();
             $table->foreign('problem_id')->references('id')->on('problems');
 
+            $table->bigInteger('request_reply_id')->unsigned()->nullable()->index();
+
             $table->timestamps();
             $table->softDeletes(); 
         });

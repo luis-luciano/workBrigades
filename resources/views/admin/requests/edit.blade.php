@@ -122,7 +122,77 @@
                 </div><!--.tab-pane-->
 
                 <div class="tab-pane" id="reply">
-                    333333333333333333333333333333333
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <h3>{{ singular('requestReplies') }}
+                                @if($inquiry->reply)
+                                    <small>últ. vez actualizada el <span class="full-format-date">{{ $inquiry->reply->updated_at }}</span> por {{ $inquiry->reply->last_editor_full_name }}</small>
+                                @endif
+                            </h3>
+                            {!! Form::model($inquiry->reply, ['route' => ['requests.replies.update', $inquiry->id], 'method' => 'PUT' ,'id' => 'editReplyForm']) !!}
+                                <div class="form-content">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                {!! Form::label('reply_type_id', trans('requestReplies.reply_type_id'), ['class' => 'control-label']) !!}
+                                                <div class="input-wrapper">
+                                                    {!! Form::select('reply_type_id', $replyTypes, null, ['class' => 'select2 form-control', 'style' => 'width: 100%']) !!}
+                                                </div>
+                                            </div><!--.form-group-->
+                                        </div>
+                                    </div>
+                                </div><!--.form-content-->
+                                <div class="form-buttons form-group clearfix">
+                                    <div class="row">
+                                        <div class="pull-right">
+                                            {!! Form::submit( is_null($inquiry->reply) ? 'Guardar' : 'Actualizar', ['class' => 'btn btn-success']) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            {!! Form::close() !!}
+                        </div><!--.col-->
+                    </div><!--.row-->
+
+
+                    <div class="row" style="padding-top: 2em;">
+                        <div class="col-md-8 col-md-offset-2">
+                            <h3>Comentarios</h3>
+                            <div class="comments">
+                                @forelse($inquiry->comments->sortBy('created_at') as $comment)
+                                    <div class="comment">
+                                        <div class="user-photo"><img src="{{ route('users.photos.show', $comment->user->id) }}" alt=""></div>
+                                        <div class="comment-body">
+                                            <ul class="inline-list dot-seperator">
+                                                <li><a>{{ $comment->user->full_name }}</a></li>
+                                                <li class="small format-date-from-now">{{ $comment->created_at }}</li>
+                                            </ul>
+                                            <p>
+                                                {!! nl2br(e($comment->body)) !!}
+                                            </p>
+                                        </div><!--.comment-body-->
+                                    </div><!--.comment-->
+                                @empty
+                                    <p>Aún no hay comentarios, agrega uno!</p>
+                                @endforelse
+
+                                <div class="comment comment-box">
+                                    <div class="user-photo"><img src="{{ route('users.profiles.photos.show') }}" alt=""></div>
+                                    <div class="comment-body">
+                                        {!! Form::open(['route' => ['requests.comments.store', $inquiry->id], 'method' => 'POST', 'id' => 'createRequestCommentRequestForm']) !!}
+                                            <div class="inputer">
+                                                <div class="input-wrapper">
+                                                    {!! Form::textarea('body', null, ['class' => 'form-control js-auto-size', 'rows' => '1', 'style' => 'max-height: 300px;', 'placeholder' => 'Agrega un comentario...']) !!}
+                                                </div>
+                                            </div>
+                                            <div class="pull-right">
+                                                <button class="btn btn-success" type="submit">Agregar</button>
+                                            </div>
+                                        {!! Form::close() !!}
+                                    </div><!--.comment-body-->
+                                </div><!--.comment-->
+                            </div><!--.comments-->
+                        </div><!--.col-->
+                    </div><!--.row-->
                 </div><!--.tab-pane-->
                 
                 <div class="tab-pane" id="more">

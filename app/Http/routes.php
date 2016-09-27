@@ -7,6 +7,9 @@ Route::post('findRequest', ['as'=>'findRequest','uses'=>'PagesController@findReq
 Route::resource('admin', 'AdminController');
 
 //Users
+// Admin
+Route::get('users/{users}/photos', ['as' => 'users.photos.show', 'uses' => 'UserPhotoController@show']);
+
 Route::get('users/photos', ['as' => 'users.profiles.photos.show', 'uses' => 'UserPhotoController@showProfilePhoto']);
 Route::get('users/photos/edit', ['as' => 'users.profiles.photos.edit', 'uses' => 'UserPhotoController@editProfilePhoto']);
 Route::patch('users/photos', ['as' => 'users.profiles.photos.update', 'uses' => 'UserPhotoController@updateProfilePhoto']);
@@ -51,6 +54,13 @@ Route::post('requests/{requests}/unapproved', ['as' => 'requests.unapproved', 'u
 
 // Request In Process
 Route::post('requests/{requests}/in-process', ['as' => 'requests.in-process', 'uses' => 'RequestsController@inProcess']);
+
+// Request Reply
+Route::put('requests/{requests}/replies', ['as' => 'requests.replies.update', 'uses' => 'RequestReplyRequestController@updateOrStore']);
+
+// Request Comments
+Route::post('requests/{requests}/comments', ['as' => 'requests.comments.store', 'uses' => 'RequestCommentRequestController@store']);
+
 Route::resource('requests', 'RequestsController');
 Route::resource('requestsPriorities', 'RequestPrioritiesController');
 Route::resource('requestRejections', 'RequestRejectionsController');

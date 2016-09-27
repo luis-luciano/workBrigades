@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TestProblemTypeTableSeeder::class);
         $this->call(BrigadesDefaultSeeder::class);
         $this->call(SectsBrigsTypsTableSeeder::class);
+        $this->call(ReplyTypesTableSeeder::class);
     }
 }

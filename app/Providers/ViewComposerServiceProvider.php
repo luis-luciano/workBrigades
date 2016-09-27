@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\View\View;
+use App\ReplyType;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -16,6 +18,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         $this->composeCitizensForm();
         $this->composeTypologiesForm();
         $this->composeRequestsForm();
+        $this->composeRequestsIndex();
     }
 
     /**
@@ -41,5 +44,14 @@ class ViewComposerServiceProvider extends ServiceProvider
     private function composeRequestsForm()
     {
         view()->composer('admin.requests.form', 'App\Http\ViewComposers\RequestsFormComposer');
+
+        view()->composer('admin.requests.edit', function (View $view) {
+            $view->with('replyTypes', ReplyType::pluck('label', 'id'));
+        });
+    }
+
+    private function composeRequestsIndex()
+    {
+        view()->composer('admin.requests.index', 'App\Http\ViewComposers\RequestsIndexComposer');
     }
 }

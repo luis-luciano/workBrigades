@@ -88,6 +88,16 @@ class User extends Authenticatable
         return $this->morphOne('App\File', 'filable');
     }
 
+    public function replies()
+    {
+        return $this->hasMany('App\RequestReply', 'who_last_edited_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(RequestComment::class);
+    }
+
 	public function personalInformation() 
 	{
 		return $this->belongsTo(PersonalInformation::class); //correct
@@ -134,11 +144,6 @@ class User extends Authenticatable
 	public function getSupervisionsIdAttribute()
 	{
 		 return $this->supervisionsInCharge->merge($this->belongsToSupervisions)->unique()->pluck('id')->toArray();
-	}
-
-	public function replies() 
-	{
-		return $this->belongsToMany(Petition::class);
 	}
 
 	public function belongsToSupervisions()
