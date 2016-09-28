@@ -79,7 +79,7 @@
 			<div class="slide" id="slide-1" data-weather="rain">
 				<ul class="ch-grid list-group">
 					<li>
-						<a href="Peticion-publica/create" style="text-decoration:none;">
+						<a href="{{ route('Peticion-publica.create') }}" style="text-decoration:none;">
 							<div class="ch-item ch-img-1">
 								<div class="ch-info">
 									<h3>N U E V A</h3>

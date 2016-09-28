@@ -3,7 +3,7 @@
 @section('title', 'Peticion Publica')
 
 @section('scripts')
-    <script type="text/javascript">requestsController.create({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}");</script>
+    requestsController.create({!! $tipologiesRelations !!},"{{ route('request.sector-brigade') }}");
 @stop
 
 @section('content')

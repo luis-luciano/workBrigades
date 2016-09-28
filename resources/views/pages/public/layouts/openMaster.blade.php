@@ -79,11 +79,11 @@
     $(document).ready(function () {
         Pleasure.init();
         Layout.init();
-        
+        @yield('scripts')
     });
     </script>
     <!-- END INITIALIZATION--> 
-    @yield('scripts')
+    
 </body>
 </html>
 
