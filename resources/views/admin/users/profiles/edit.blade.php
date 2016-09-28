@@ -22,11 +22,11 @@
                         </div>
                         @if($user->photo->name !== "default.jpg")
                             <div class="pull-right">
-                                {{--{!! Form::open(['route' => 'users.profiles.photos.destroy', 'method' => 'DELETE', 'id' => 'deleteUserPhotoForm']) !!}--}}
-                                    {{--<button class="btn btn-danger" id="deleteUserPhotoButton" type="submit">
+                                {!! Form::open(['route' => 'users.profiles.photos.destroy', 'method' => 'DELETE', 'id' => 'deleteUserPhotoForm']) !!}
+                                    <button class="btn btn-danger" id="deleteUserPhotoButton" type="submit">
                                         <i class="fa fa-trash-o"></i> Eliminar Foto
                                     </button>
-                                {{--{!! Form::close() !!}--}}
+                                {!! Form::close() !!}
                             </div>
                         @endif
                     </div>

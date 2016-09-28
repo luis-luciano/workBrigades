@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\File;
 use App\User;
+use Auth;
 
 class UserPhotoController extends Controller
 {
@@ -55,7 +56,7 @@ class UserPhotoController extends Controller
         $photo['src'] = route('users.profiles.photos.show');
         $photo['w'] = 964;
         $photo['h'] = 1024;
-        //$photo['title'] = $user->photo->display_name.'<br> '.(!is_null($user->photo->creator))?'por '.$user->photo->creator->full_name:'';
+        $photo['title'] = $user->photo->display_name.'<br> por '.$user->photo->creator->full_name;
         $photos->push($photo);
 
         return view('admin.users.profiles.edit', compact('user', 'photos'));
@@ -107,8 +108,8 @@ class UserPhotoController extends Controller
         $photo = File::fromForm($request->file('file'), $user->id, User::$uploadsPath);
 
         return File::checkUpload($photo, function () use ($user, $photo) {
+            $photo->creator()->associate($user)->save();
             $user->updatePhoto($photo);
-           // $user->photo->creator()->associate($user)->save();
         });
     }
 
@@ -120,8 +121,12 @@ class UserPhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyProfilePhoto()
     {
-        //
+        auth()->user()->deletePhoto();
+
+        alert()->success(trans('messages.success.destroy'));
+
+        return redirect()->route('users.profiles.index');
     }
 }

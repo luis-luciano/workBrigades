@@ -22,6 +22,9 @@ class FilePolicy
 
     public function destroy(User $user, File $file)
     {
-        return $user->id === $file->user_id;
+        if($file->creator instanceof User)
+        {
+            return $user->id === $file->creator->id;
+        }
     }
 }

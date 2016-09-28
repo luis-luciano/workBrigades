@@ -14,6 +14,7 @@ use App\Traits\SimpleSearchableTables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\HasRoles;
+use Auth;
 
 
 class User extends Authenticatable 
@@ -59,19 +60,17 @@ class User extends Authenticatable
         return $this->morphMany('App\Request','creator');
     }
 
-    public function fileCreated()
+    public function filesCreated()
     {
         return $this->morphMany('App\File','creator');
     }
 
     public function setDefaultPhoto()
     {
-        $file = new File;
-        $file->name = 'default.jpg';
-        $file->display_name = 'Default';
-
+        $file = new File(['name' => 'default.jpg','display_name' => 'Default']);
+        $file->creator()->associate($this)->save();
+        
         $this->photo()->save($file);
-        $this->photo->creator()->associate($this)->save();
     }
 
     public function updatePhoto($photo)
@@ -81,6 +80,16 @@ class User extends Authenticatable
 
         //update current photo
         return $this->photo()->save($photo);
+    }
+
+    public function deletePhoto()
+    {
+        //delete current photo
+        $this->photo->delete();
+
+        $this->setDefaultPhoto(); // auth
+
+        return true;
     }
 
     public function photo()

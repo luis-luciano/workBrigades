@@ -17,8 +17,8 @@ class UserTableSeeder extends Seeder
     {   
 
         $user=PersonalInformation::create(['name'=>'Administrador',
- 									 'paternal_surname'=>'Hidrosistema',
- 									 'maternal_surname'=>'De Cordoba',
+ 									 'paternal_surname'=>'',
+ 									 'maternal_surname'=>'',
  									 'sex'=>'H',
  									 'birthday'=>'2016-06-30',
  									 'represent'=>'workbrigades',

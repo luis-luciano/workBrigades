@@ -49,7 +49,7 @@ class Citizen extends Model implements HasPresenter {
         return $this->morphMany('App\Request','creator');
     }
 
-     public function fileCreated()
+     public function filesCreated()
     {
         return $this->morphMany('App\File','creator');
     }

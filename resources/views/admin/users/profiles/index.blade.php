@@ -49,7 +49,7 @@
 
 		                    <div class="col-md-6">
 	                            <div class="row">
-	                                <img class="center-block" src="{{ route('users.profiles.photos.show') }}" alt="" >
+	                                <img class="img-responsive center-block" src="{{ route('users.profiles.photos.show') }}" title="{{ auth()->user()->photo->display_name }}" >
 	                            </div>
 	                            <div class="row text-center">
 	                                <br>

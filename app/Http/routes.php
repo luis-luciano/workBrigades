@@ -12,6 +12,8 @@ Route::get('users/{users}/photos', ['as' => 'users.photos.show', 'uses' => 'User
 
 Route::get('users/photos', ['as' => 'users.profiles.photos.show', 'uses' => 'UserPhotoController@showProfilePhoto']);
 Route::get('users/photos/edit', ['as' => 'users.profiles.photos.edit', 'uses' => 'UserPhotoController@editProfilePhoto']);
+Route::delete('users/photos', ['as' => 'users.profiles.photos.destroy', 'uses' => 'UserPhotoController@destroyProfilePhoto']);
+
 Route::patch('users/photos', ['as' => 'users.profiles.photos.update', 'uses' => 'UserPhotoController@updateProfilePhoto']);
 Route::get('users/profiles', ['as' => 'users.profiles.index', 'uses' => 'UsersController@profile']);
 

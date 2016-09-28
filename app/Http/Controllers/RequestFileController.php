@@ -51,9 +51,8 @@ class RequestFileController extends Controller
         //alert()->success(trans('messages.success.store'));
 
         return File::checkUpload($file, function () use ($inquiry, $file) {
+            $file->creator()->associate(auth()->user())->save();
             $inquiry->addFile($file);
-            $fileRelation=$inquiry->files->last();
-            $fileRelation->creator()->associate(auth()->user())->save();
         });
     }
 
