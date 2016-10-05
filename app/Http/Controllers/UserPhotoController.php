@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\File;
 use App\User;
+use App\Http\Requests\UpdateUserPhotoRequest;
 use Auth;
 
 class UserPhotoController extends Controller
@@ -62,7 +63,7 @@ class UserPhotoController extends Controller
         return view('admin.users.profiles.edit', compact('user', 'photos'));
     }
 
-    public function updateProfilePhoto(Request $request)
+    public function updateProfilePhoto(UpdateUserPhotoRequest $request)
     {
         alert()->success(trans('messages.success.update'));
 
@@ -98,12 +99,12 @@ class UserPhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserPhotoRequest $request, User $user)
     {
         return $this->uploadPhoto($request, $user);
     }
 
-    private function uploadPhoto(Request $request, User $user)
+    private function uploadPhoto(UpdateUserPhotoRequest $request, User $user)
     {
         $photo = File::fromForm($request->file('file'), $user->id, User::$uploadsPath);
 
